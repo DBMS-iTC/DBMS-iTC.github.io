@@ -1,4 +1,4 @@
-= Coffee Maker iTC
+= DBMS iTC
 :showtitle:
 :toc:
 :imagesdir: images
@@ -6,8 +6,8 @@
 :revnumber: 0.3
 :revdate: 2020-04-24
 
-:iTC-longname: Coffee Maker
-:iTC-shortname: CM-iTC
+:iTC-longname: Database Managment Systems
+:iTC-shortname: DBMS-iTC
 :iTC-email: cm.itc@gmail.com
 :iTC-website: https://coffeemaker.github.io/
 :iTC-GitHub: https://github.com/coffeemaker/repository/
