@@ -1,0 +1,32 @@
+= Coffee Maker iTC Archived Technical Decisions
+:showtitle:
+:imagesdir: images
+:icons: font
+:revnumber: 0.1
+:revdate: 2020-01-28
+:linkattrs:
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm.itc@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+
+== Archived Technical Decisions
+
+[%header,cols=".^1,.^2,.^1,.^1,.^1"]
+|===
+|ID
+|Title
+|Publication Date
+|Archive Date
+|Impact
+
+|CM0001
+|link:CM0001.html[Update to filter controls,window=\"_blank\"]
+|March 19, 2019
+|January 27, 2020
+|link:/cPP/cPPv10.html[CPP_CM_v1.0]
+
+
+|===

@@ -1,0 +1,51 @@
+= Coffee Maker iTC Technical Decisions
+:showtitle:
+:imagesdir: images
+:icons: font
+:revnumber: 0.1
+:revdate: 2020-01-28
+:linkattrs:
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm.itc@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+
+== {iTC-longname} Technical Decisions
+The iTC issues Technical Decisions based on requests for interpretation to clarify and update the cPP and related documents between release cycles. This is the main page for Technical Decisions that have been issued by the iTC. 
+
+=== Technical Decision Links
+* {iTC-GitHub}Issues[New Request for Interpretation]
+* link:tech-dec-arch.html[Archived Technical Decisions]
+
+== Active Technical Decisions
+
+[%header,cols=".^1,.^2,.^1,.^1,.^2,.^2"]
+|===
+|ID
+|Title
+|Reference
+|Publication Date
+|Impact
+|Included From
+
+|CM0001
+|link:CM0001.html[Update to filter controls,window=\"_blank\"]
+|FPT_FC_EXT.1
+|January 27, 2020
+|link:/cPP/cPPv10.html[CPP_CM_v1.0]
+link:/SD/SDv1.0.html[SD_CM_v1.0]
+|CPP_CM_v1.0.2
+SD_CM_v1.0.2
+
+|CM0002
+|link:CM0002.html[Power cycle requirements after filter change,window=\"_blank\"]
+|FPT_POW_EXT.2
+|January 27, 2020
+|link:/cPP/cPPv10.html[CPP_CM_v1.0]
+link:/SD/SDv1.0.html[SD_CM_v1.0]
+|CPP_CM_v1.0.2
+SD_CM_v1.0.2
+
+|===

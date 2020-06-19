@@ -1,0 +1,69 @@
+= Document Lifecycle & Archives
+:showtitle:
+:toc:
+:toclevels: 3
+:table-caption: Table
+:imagesdir: images
+:revnumber: 0.1
+:revdate: 2020-04-24
+:xrefstyle: full
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm-itc-mailing-list@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+
+== {iTC-longname} Lifecycle
+The {iTC-shortname} publishes new iterations of the cPP and SD over time. As these new versions are published, earlier versions are retired (or sunset) and are no longer considered acceptable for new evaluations.
+
+The lifecycle policy of the iTC can be found here: **<URL to the cPP_Livecycle.pdf or HTML document>**
+
+== Document Status
+The status of all published versions is provided in this table.
+
+[%header,cols=".^1,.^2,.^1,.^1,.^1"]
+|===
+|ID
+|Title
+|Publication
+|Sunset
+|Release Notes
+
+|CM_v2.0
+|link:/cPP/cPPv20.html[cPP Coffee Maker v2.0]
+|01/01/2020
+|Active
+|release notes link
+
+|SD_v2.0
+|link:/SD/SDv20.html[SD Coffee Maker v2.0]
+|01/01/2020
+|Active
+|release notes link
+
+|CM_v1.1
+|link:/cPP/cPPv10.html[cPP Coffee Maker v1.1]
+|04/01/2019
+|07/01/2020 (Date set)
+|release notes link
+
+|SD_v1.1
+|link:/SD/SDv11.html[SD Coffee Maker v1.1]
+|04/01/2019
+|07/01/2020 (Date set)
+|release notes link
+
+|CM_v1.0
+|link:/cPP/cPPv10.html[cPP Coffee Maker v1.0]
+|12/13/2018
+|10/01/2019
+|
+
+|SD_v1.0
+|link:/SD/SDv11.html[SD Coffee Maker v1.0]
+|12/13/2018
+|10/01/2019
+|
+
+|===

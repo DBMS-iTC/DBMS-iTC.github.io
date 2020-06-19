@@ -1,0 +1,102 @@
+= Public Review Status for Coffee Maker iTC
+:showtitle:
+:toc:
+:toclevels: 3
+:imagesdir: images
+:table-caption: Table
+:revnumber: 0.2
+:revdate: 2020-06-03
+:xrefstyle: full
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm.itc@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+
+== Introduction
+
+The current status of public review drafts for the {iTC-longname} iTC can be seen on this page.
+
+[NOTE]
+====
+This is supposed to just list the current status. Each document is likely to need its own page because they are likely to run at different steps. Either way, a table showing the documents and their status should just be listed. If there isn't anything, then a blank table with a note that nothing is currently under review is sufficient.
+====
+
+The document(s) will follow the Public Review Process as specified at {iTC-website}/Review_Process.html[{iTC-longname} Public Review Process].
+
+Please email {iTC-email} if there are any questions about the Review process.
+
+== Review Status Phase
+The document(s) listed here are in the *Public Review Draft 1* phase.
+
+Publication Date:: <start date>
+End of Comment Period:: <end date>
+
+== Documents for Review
+
+The following are the documents included in this Public Review Draft 1 Period:
+
+.Review Documents
+[[DocTable]]
+[cols=".^3,^.^1,.^2,.^1",options="header"]
+|===
+
+|Title
+|Version
+|Link
+|Review Phase
+
+|collaborative PP for {iTC-longname} feature
+|0.8
+|{iTC-website}cPP-filename.pdf[Download cPP]
+|Public Review Draft 2
+
+|PP-Configuration for base-cPP and PP-Modules
+|0.1
+|{iTC-website}PPC-filename.pdf[Download PP-Configuration]
+|Internal Draft
+
+|Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative PP-Module for Mobile biometric enrolment and verification - for unlocking the device -
+|0.3
+|{iTC-website}SD-filename.pdf[Download Supporting Document]
+|Public Review Draft 1 Update
+
+|===
+
+== Document Release Process
+Based on the Public Review Process document, the documents listed here are currently in the highlighted phase below.
+
+[REVIEW]
+====
+I have been using yellow (with cYEL) in the box that is the current phase. Other ditaa colors could be used. This could be removed completely for just note about the phase.
+====
+
+[IMPORTANT]
+====
+If you are making any adjustments to the Review Process from what is documented in your primary document, these should be called out here to be clear. They should have a separate heading to be clear.
+====
+
+[ditaa, Overall_Status, png]
+....
+                                  
+    +----------+    +----------+   +----------+   +----------+   +----------+
+    |          |    |  cYEL    |   | Public   |   |          |   | Public   |
+    | Internal |    |  Public  |   | Review   |   |  Public  |   | Review   |
+    |  Draft   |--> |  Review  |-->| Draft 1  |-->|  Review  |-->| Draft 2  |-+
+    |          |    |  Draft 1 |   | Update   |   |  Draft 2 |   | Update   | |
+    |          |    |  (45d)   |   | (60d)    |   |  (45d)   |   | (60d)    | |
+    +----------+    +----------+   +----------+   +----------+   +----------+ |
+                                                                              |
+            +-----------------------------------------------------------------+
+            |   +----------+   +----------+   +-----------+
+            |   |          |   |          |   |           |
+            |   | Proposed |   | Proposed |   | Final     |
+            +-->|  Draft   |-->|  Update  |-->| Document  |
+                |          |   |          |   | Published |
+                | (30d)    |   | (10d)    |   |           |
+                +----------+   +----------+   +-----------+
+....
+
+
+ 

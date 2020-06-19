@@ -1,0 +1,34 @@
+= Coffee Maker iTC Documentation Library
+:showtitle:
+:toc:
+:imagesdir: images
+:icons: font
+:revnumber: 0.1
+:revdate: 2019-09-05
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm.itc@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+
+== Introduction
+These are links to the documents governing the {iTC-longname} iTC. 
+
+* [Essential Security Requirements]
+* [Terms of Reference]
+* [{iTC-longname} iTC Status Table]
+* [{iTC-longname} iTC Work Plan]
+* [Maintenance Process Workflow]
+* [Interpretation Team Process]
+* [Interpretation Team Submission Form]
+* [{iTC-longname} iTC list of allowed PP-Configuration components]
+* [Public Review Process]
+
+
+[NOTE]
+====
+No links have been added here, this is just an example of what should go here.
+
+The webpages/documents should all be placed in the /docs/ folder.
+====

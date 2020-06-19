@@ -1,0 +1,44 @@
+= CM0001 - Update to filter controls
+:showtitle:
+:imagesdir: images
+:icons: font
+:revnumber: 0.1
+:revdate: 2020-01-28
+:linkattrs:
+
+:iTC-longname: Coffee Maker
+:iTC-shortname: CM-iTC
+:iTC-email: cm.itc@gmail.com
+:iTC-website: https://coffeemaker.github.io/
+:iTC-GitHub: https://github.com/coffeemaker/repository/
+
+Published: {revdate}
+
+== Impacted Documents
+link:/cPP/cPPv10.html[CPP_CM_v1.0]
+link:/SD/SDv1.0/html[SD_CM_v1.0]
+
+== References
+FPT_FC_EXT.1
+
+== Issue Description
+The filter controls need to be expanded to allow for the ability to filter Uranium from the water.
+
+== Resolution
+=== CPP_CM_v10
+FPT_FC_EXT.1 is replaced as follows:
+
+FPT_FC_EXT.1.1 The TOE shall provide the ability to filter Lead, Arsenic and [selection: _stones, Uranium, no other_] from the water used to make coffee.
+
+=== SD_CM_v10
+The FPT_FC_EXT.1 evaluation activity adds the following instructions:
+
+*Test 3 (conditional):* The evaluator shall add Uranium to the water in a concentration below that specified in the administration guide (for example half the concentration specified as able to be removed). The evaluator will place a fresh filter into the Coffee Maker and configure the settings according to the administration guide. will then make a cup of coffee with the Uranium water and verify that the Uranium has been removed by drinking the coffee and tasting it for Uranium.
+
+
+== Tracking
+* {iTC-GitHub}issues/76[Issue Request]
+* {iTC-GitHub}pulls/89[Pull Request]
+
+== Scheme Notes
+Rejection or other special notes about acceptance of this decision for evaluations performed within that scheme.
