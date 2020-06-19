@@ -8,9 +8,9 @@
 
 :iTC-longname: Database Managment Systems
 :iTC-shortname: DBMS-iTC
-:iTC-email: cm.itc@gmail.com
-:iTC-website: https://coffeemaker.github.io/
-:iTC-GitHub: https://github.com/coffeemaker/repository/
+:iTC-email: dbms.itc@gmail.com
+:iTC-website: https://dbms-itc.github.io/
+:iTC-GitHub: https://github.com/dbms-itc/repository/
 
 == Introduction
 From the CCDB-established Working Group, the {iTC-longname} ({iTC-shortname} for short) was formed. The {iTC-shortname} consists of members of Certification Bodies, labs, vendors and academia working together to create requirements for biometric security testing.
