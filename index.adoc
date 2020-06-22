@@ -10,7 +10,7 @@
 :iTC-shortname: DBMS-iTC
 :iTC-email: dbms.itc@gmail.com
 :iTC-website: https://dbms-itc.github.io/
-:iTC-GitHub: https://github.com/dbms-itc/repository/
+:iTC-GitHub: https://github.com/dbms-itc/
 
 == Introduction
 From the CCDB-established Working Group, the {iTC-longname} ({iTC-shortname} for short) was formed. The {iTC-shortname} consists of members of Certification Bodies, labs, vendors and academia working together to create requirements for biometric security testing.
@@ -26,8 +26,8 @@ To join the {iTC-shortname}, please send a message to: {iTC-email}
 These are example links for resources. Probably important to have a library page that links to all iTC governing docs. For example, Public Review process, IT process, ToR, ESR, could all go on a library page, but things that are likely to be hit up often, maybe should be listed directly. 
 ====
 
-* link:/cPP/cPPv01.html[cPP v0.1]
-* link:/SD/SDv01.html[SD v0.1]
+* link:/cPP/cPP_DBMS_V1.0.pdf[cPP v1.0]
+* link:/SD/SD_DBMS_V1.0.pdf[SD v1.0]
 * link:/TD/tech-dec.html[Technical Decisions]
 * link:/lifecycle.html[Document Lifecycle & cPP Archives]
 * link:/docs/PP-config.html[Allowed Components]
