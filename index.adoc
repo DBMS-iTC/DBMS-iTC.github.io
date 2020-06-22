@@ -15,7 +15,7 @@
 == Introduction
 From the CCDB-established Working Group, the {iTC-longname} ({iTC-shortname} for short) was formed. The {iTC-shortname} consists of members of Certification Bodies, labs, vendors and academia working together to create requirements for biometric security testing.
 
-https://www.commoncriteriaportal.org/communities/<page>[Common Criteria Portal {iTC-shortname} Page]
+https://www.commoncriteriaportal.org/communities/database_management_systems.cfm[Common Criteria Portal {iTC-shortname} Page]
 
 To join the {iTC-shortname}, please send a message to: {iTC-email}
 
