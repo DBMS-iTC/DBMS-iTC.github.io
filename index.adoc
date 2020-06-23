@@ -6,7 +6,7 @@
 :revnumber: 1.0
 :revdate: 2020-06-23
 
-:iTC-longname: Database Managment Systems
+:iTC-longname: Database Managment System
 :iTC-shortname: DBMS-iTC
 :iTC-email: dbms.itc@gmail.com
 :iTC-website: https://dbms-itc.github.io/
@@ -19,23 +19,19 @@ https://www.commoncriteriaportal.org/communities/database_management_systems.cfm
 
 To join the {iTC-shortname}, please send a message to: {iTC-email}
 
+== Current Status
+The DBMS-iTC has published the first Public Release of the collaborative Protection Profile (cPP) and Supporting Document (SD) as of June 12, 2020.
+
 == Resources related to the {iTC-longname} iTC
 
 [GUIDANCE]
 ====
-Currently, only the cPP and SD are available while the remaining resources are a work in progress. 
+Currently, the cPP and SD are available resources along with the GitHub repository. The iTC is working on updating this site with additional resources. 
 ====
 
 * link:/cPP/cPP_DBMS_V1.0.pdf[cPP v1.0]
 * link:/SD/SD_DBMS_V1.0.pdf[SD v1.0]
-* link:/TD/tech-dec.html[Technical Decisions]
-* link:/lifecycle.html[Document Lifecycle & cPP Archives]
-* link:/docs/PP-config.html[Allowed Components]
-* link:/library.html[Documentation Library]
-* link:/docs/public-review-process.html[Public Review Process for {iTC-shortname}]
-* link:/public-review/status.html[Public Review Status]
 * {iTC-GitHub}[{iTC-shortname} GitHub repository]
 
-== Current Status
-The DBMS-iTC has released the first Public Release of the collaborative Protection Profile and Supporting Document as of June 12, 2020.
+
 
