@@ -1,2 +1,2 @@
-# New-iTC-website-template
-Repository template for iTCs creating their github.io website
+# DBMS-iTC website documents
+Main repository for DBMS iTC in support of DBMS-iTC.github.io website
