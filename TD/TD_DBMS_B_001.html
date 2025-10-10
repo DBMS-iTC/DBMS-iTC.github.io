@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.21">
-<title>DBMS iTC</title>
+<title>Technical Decision TD_DBMS_B_001: Update to Role Definitions and Security Attribute Management for Consistency</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -433,7 +433,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 .admonitionblock td.icon .icon-boilerplate:before {content:"\f023";color:#3F903E;}
 </style>
@@ -453,122 +452,159 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .admonitionblock td.icon .icon-discussion:before {content:"\f086";color:#F5F008;}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body class="technical-decision toc2 toc-left">
 <div id="header">
-<h1>DBMS iTC</h1>
-<div class="details">
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2020-06-23</span>
-</div>
+<h1>Technical Decision TD_DBMS_B_001: Update to Role Definitions and Security Attribute Management for Consistency</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">Introduction</a></li>
-<li><a href="#_current_status">Current Status</a></li>
-<li><a href="#_resources_related_to_the_database_managment_system_itc">Resources related to the Database Managment System iTC</a></li>
-<li><a href="#_technical_decisions_tds">Technical Decisions (TDs)</a></li>
+<li><a href="#_issue">Issue</a></li>
+<li><a href="#_resolution">Resolution</a>
+<ul class="sectlevel2">
+<li><a href="#_updates_to_section_6_4_5_fmt_smr_security_roles">Updates to Section 6.4.5 (FMT_SMR – Security Roles)</a></li>
+<li><a href="#_updates_to_section_6_4_1_fmt_msa_management_of_security_attributes">Updates to Section 6.4.1 (FMT_MSA – Management of Security Attributes)</a></li>
+<li><a href="#_updates_to_section_6_4_3_fmt_rev_revocation">Updates to Section 6.4.3 (FMT_REV – Revocation)</a></li>
+<li><a href="#_updates_to_section_6_2_1_fdp_acc_access_control_policy">Updates to Section 6.2.1 (FDP_ACC – Access Control Policy)</a></li>
+<li><a href="#_supporting_guidance">Supporting Guidance</a></li>
+</ul>
+</li>
+<li><a href="#_rationale">Rationale</a></li>
+<li><a href="#_impact">Impact</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction">Introduction</h2>
+<h2 id="_issue">Issue</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>From the CCDB-established Working Group, the Database Managment System (DBMS-iTC for short) was formed. The DBMS-iTC consists of members of Certification Bodies, labs and vendors working together to create requirements for database security testing.</p>
+<p>Several Security Functional Requirements (SFRs) in the DBMS cPP, specifically FMT_MSA.1.1, FMT_REV.1.1(2), and FMT_SMR.1.1, contained inconsistencies regarding which roles may manage or revoke security attributes of users and objects.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://www.commoncriteriaportal.org/communities/database_management_systems.cfm">Common Criteria Portal DBMS-iTC Page</a></p>
+<p>Prior wording did not align the authority of “users with sufficient privileges” (per the Discretionary Access Control policy)
+with the defined roles in FMT_SMR.1, nor clearly distinguish between <strong>users</strong> and <strong>objects</strong>.</p>
 </div>
 <div class="paragraph">
-<p>To join the DBMS-iTC, please send a message to: <a href="mailto:dbms.itc@gmail.com">dbms.itc@gmail.com</a></p>
+<p>This resulted in ambiguity for ST authors and evaluators.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_current_status">Current Status</h2>
+<h2 id="_resolution">Resolution</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The collaborative Protection Profile (cPP) version 1.3 is certified as of June 21, 2023. The accompanying Supporting Document (SD) is version 1.1.
-The DBMS-iTC first published the Public Release of the collaborative Protection Profile (cPP) and Supporting Document (SD) June 12, 2020.</p>
+<p>To resolve these inconsistencies and clarify role definitions and associated authority,
+the following updates apply to <strong>Section 6.4.1 (FMT_MSA)</strong>, <strong>Section 6.4.3 (FMT_REV)</strong>, <strong>Section 6.4.5 (FMT_SMR)</strong>,
+and <strong>Section 6.2.1 (FDP_ACC)</strong> of the DBMS cPP v1.3.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_resources_related_to_the_database_managment_system_itc">Resources related to the Database Managment System iTC</h2>
-<div class="sectionbody">
-<div class="admonitionblock guidance">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-guidance" title=""></i>
-</td>
-<td class="content">
+<div class="sect2">
+<h3 id="_updates_to_section_6_4_5_fmt_smr_security_roles">Updates to Section 6.4.5 (FMT_SMR – Security Roles)</h3>
 <div class="paragraph">
-<p>Currently, the cPP and SD are available resources along with the GitHub repository. The iTC is working on updating this site with additional resources.</p>
+<p>Replace existing text with:</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<div class="title">FMT_SMR.1.1</div>
+<p>The TSF shall maintain the roles <em>[authorized administrator, authorized users, and [assignment: additional authorized identified roles]]</em>.</p>
 </div>
+<div class="paragraph">
+<p><em>Application Note:</em> The new “authorized users” role defined in FMT_SMR.1.1 is referenced in FMT_REV.1.1(2) and FMT_MSA.1.1(2) (Objects).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updates_to_section_6_4_1_fmt_msa_management_of_security_attributes">Updates to Section 6.4.1 (FMT_MSA – Management of Security Attributes)</h3>
+<div class="paragraph">
+<p>Revise component text to distinguish user and object contexts as follows.</p>
+</div>
+<div class="paragraph">
+<div class="title">FMT_MSA.1.1(1) – Users</div>
+<p>The TSF shall enforce the [Discretionary Access Control policy] to restrict the ability to manage the security attributes associated with users to authorized administrators.</p>
+</div>
+<div class="paragraph">
+<div class="title">FMT_MSA.1.1(2) – Objects</div>
+<p>The TSF shall enforce the [Discretionary Access Control policy] to restrict the ability to manage the security attributes associated with objects to authorized administrators and authorized users.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updates_to_section_6_4_3_fmt_rev_revocation">Updates to Section 6.4.3 (FMT_REV – Revocation)</h3>
+<div class="paragraph">
+<p>Clarify roles permitted to revoke object attributes:</p>
+</div>
+<div class="paragraph">
+<div class="title">FMT_REV.1.1(2)</div>
+<p>The TSF shall restrict the ability to revoke [assignment: list of security attributes] associated with objects under the control of the TSF to the authorized administrator and authorized users.</p>
+</div>
+<div class="paragraph">
+<div class="title">FMT_REV.1.2(2)</div>
+<p>The TSF shall enforce the rules [assignment: specification of revocation rules].</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updates_to_section_6_2_1_fdp_acc_access_control_policy">Updates to Section 6.2.1 (FDP_ACC – Access Control Policy)</h3>
+<div class="paragraph">
+<p>Clarify scope and remove invalid refinements:</p>
+</div>
+<div class="paragraph">
+<div class="title">FDP_ACC.1.1</div>
+<p>The TSF shall enforce the [Discretionary Access Control policy] on all subjects, all DBMS-controlled objects, and all operations among them.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supporting_guidance">Supporting Guidance</h3>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="/cPP/cPP_DBMS_V1.0.pdf">cPP v1.3</a></p>
+<p>The term <em>authorized users</em> is explicitly added as a role in FMT_SMR.1.1 to harmonize references across management and revocation SFRs.</p>
 </li>
 <li>
-<p><a href="/SD/SD_DBMS_V1.0.pdf">SD v1.1</a></p>
+<p><em>Authorized users</em> replaces phrases such as “database users with sufficient privileges as allowed by the Discretionary Access Control policy.”</p>
 </li>
 <li>
-<p><a href="https://github.com/dbms-itc/">DBMS-iTC GitHub repository</a></p>
+<p>Management of user-associated attributes is restricted to administrators only; management of object-associated attributes may be performed by administrators and authorized users.</p>
+</li>
+<li>
+<p>FDP_ACC.1.1 is clarified to apply comprehensively to all subjects and objects under DBMS control.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_technical_decisions_tds">Technical Decisions (TDs)</h2>
+<h2 id="_rationale">Rationale</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Below are the published technical decisions. Files are hosted in the <code>/TD/</code> directory.</p>
+<p>These updates remove ambiguities and establish consistent role-based authority for security attribute management and revocation.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 18.1818%;">
-<col style="width: 45.4545%;">
-<col style="width: 18.1818%;">
-<col style="width: 18.1819%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">TD ID</th>
-<th class="tableblock halign-left valign-top">Title</th>
-<th class="tableblock halign-left valign-top">HTML</th>
-<th class="tableblock halign-left valign-top">PDF</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TD_DBMS_B_001</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update to Role Definitions and Security Attribute Management for Consistency</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_001.html">View HTML</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_001.pdf">Download PDF</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TD_DBMS_B_002</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Session Locking Mechanism Expansion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_002.html">View HTML</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_002.pdf">Download PDF</a></p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>They align FMT_SMR, FMT_MSA, and FMT_REV with Common Criteria Part 2 principles for evaluability, least privilege, and separation of duties.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_impact">Impact</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>All evaluations performed against the DBMS cPP v1.3 shall apply these clarifications.</p>
+</li>
+<li>
+<p>Security Targets must define “authorized users” as a role where applicable and update documentation and guidance accordingly.</p>
+</li>
+<li>
+<p>Evaluators shall confirm that rights to manage and revoke security attributes of users and objects are enforced per these revised role definitions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>Effective immediately. Cite this Technical Decision when applying Sections 6.2.1, 6.4.1, 6.4.3, and 6.4.5 of the DBMS cPP v1.3.</em></p>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2025-10-09 19:14:07 -0500
+Last updated 2025-10-09 19:08:11 -0500
 </div>
 </div>
 </body>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.21">
-<title>DBMS iTC</title>
+<title>Technical Decision TD_DBMS_B_002: Session Locking Mechanism Expansion</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -433,7 +433,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 .admonitionblock td.icon .icon-boilerplate:before {content:"\f023";color:#3F903E;}
 </style>
@@ -455,120 +454,219 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>DBMS iTC</h1>
-<div class="details">
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2020-06-23</span>
-</div>
+<h1>Technical Decision TD_DBMS_B_002: Session Locking Mechanism Expansion</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">Introduction</a></li>
-<li><a href="#_current_status">Current Status</a></li>
-<li><a href="#_resources_related_to_the_database_managment_system_itc">Resources related to the Database Managment System iTC</a></li>
-<li><a href="#_technical_decisions_tds">Technical Decisions (TDs)</a></li>
+<li><a href="#_issue">Issue</a></li>
+<li><a href="#_resolution">Resolution</a></li>
+<li><a href="#_section_6_5_1_update">Section 6.5.1 Update</a></li>
+<li><a href="#_section_b_2_update">Section B.2 Update</a>
+<ul class="sectlevel2">
+<li><a href="#_family_behaviour">Family Behaviour</a></li>
+<li><a href="#_component_leveling">Component Leveling</a></li>
+</ul>
+</li>
+<li><a href="#_appendix_d_selection_based_requirements">Appendix D: Selection-Based Requirements</a></li>
+<li><a href="#_supporting_document_updates">Supporting Document Updates</a>
+<ul class="sectlevel2">
+<li><a href="#_section_2_4_fta_mcs_ext_1_configurable_session_limiting_mechanisms">Section 2.4: FTA_MCS_EXT.1 Configurable Session Limiting Mechanisms</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction">Introduction</h2>
+<h2 id="_issue">Issue</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>From the CCDB-established Working Group, the Database Managment System (DBMS-iTC for short) was formed. The DBMS-iTC consists of members of Certification Bodies, labs and vendors working together to create requirements for database security testing.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://www.commoncriteriaportal.org/communities/database_management_systems.cfm">Common Criteria Portal DBMS-iTC Page</a></p>
-</div>
-<div class="paragraph">
-<p>To join the DBMS-iTC, please send a message to: <a href="mailto:dbms.itc@gmail.com">dbms.itc@gmail.com</a></p>
+<p>The DBMS cPP requires per-user session limiting in FTA_MCS.1.
+Stakeholders have requested clarification if session limiting must be performed on a per-user basis, or if session limits can be set by other mechanisms.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_current_status">Current Status</h2>
+<h2 id="_resolution">Resolution</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The collaborative Protection Profile (cPP) version 1.3 is certified as of June 21, 2023. The accompanying Supporting Document (SD) is version 1.1.
-The DBMS-iTC first published the Public Release of the collaborative Protection Profile (cPP) and Supporting Document (SD) June 12, 2020.</p>
+<p>The DBMS cPP has been updated to include FTA_MCS_EXT.1 as a mandatory requirement.
+This SFR will allow ST authors to assign a mechanism for session limit enforcement.
+This update makes FTA_MCS.1 selection-based, depending on the selection within FTA_MCS_EXT.1.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_resources_related_to_the_database_managment_system_itc">Resources related to the Database Managment System iTC</h2>
-<div class="sectionbody">
-<div class="admonitionblock guidance">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-guidance" title=""></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Currently, the cPP and SD are available resources along with the GitHub repository. The iTC is working on updating this site with additional resources.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>The following updates apply:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="/cPP/cPP_DBMS_V1.0.pdf">cPP v1.3</a></p>
+<p>Update <strong>Table 4: Auditable Events</strong> in Section 6.1.1 to replace FTA_MCS.1 with FTA_MCS_EXT.1.</p>
 </li>
 <li>
-<p><a href="/SD/SD_DBMS_V1.0.pdf">SD v1.1</a></p>
+<p>Update Section 6.4.4 <strong>Specification of Management Functions (FMT_SMF)</strong> to include the management function “Configure the session limiting mechanism”.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. FMT_SMF.1.1</div>
+<div class="content">
+<div class="paragraph">
+<p>The TSF shall be capable of performing the following security management functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Database configuration</p>
 </li>
 <li>
-<p><a href="https://github.com/dbms-itc/">DBMS-iTC GitHub repository</a></p>
+<p>User and role management</p>
+</li>
+<li>
+<p>Configure the session limiting mechanism</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+</div>
+</div>
 <div class="sect1">
-<h2 id="_technical_decisions_tds">Technical Decisions (TDs)</h2>
+<h2 id="_section_6_5_1_update">Section 6.5.1 Update</h2>
+<div class="sectionbody">
+<div class="exampleblock">
+<div class="title">Example 2. FTA_MCS_EXT.1 Configurable Session Limiting Mechanisms</div>
+<div class="content">
+<div class="paragraph">
+<p>FTA_MCS_EXT.1.1
+The TSF shall restrict the maximum number of concurrent sessions based on
+[selection: User session locking as defined by FTA_MCS.1, [assignment: mechanism(s) for session limitation enforced by the TSF]].</p>
+</div>
+<div class="paragraph">
+<p>FTA_MCS_EXT.1.2
+The TSF shall provide the capability for an authorized administrator to configure the selected enforcement mechanism(s).</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Application Note 12:</strong>
+If “User session locking as defined by FTA_MCS.1” is selected, then the FTA_MCS.1 SFR must also be included.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_section_b_2_update">Section B.2 Update</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_family_behaviour">Family Behaviour</h3>
+<div class="paragraph">
+<p>This family defines requirements to place limits on the number of concurrent sessions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_component_leveling">Component Leveling</h3>
+<div class="imageblock">
+<div class="content">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAACMCAIAAAB5+BJZAAAOK0lEQVR4Xu2da2xURRTHR9ssj0YQamyVanxWIK0EYhGf0KBV4vubJoohCiRofGKCj0QjMVE/mJggaiFGogYMVTTBiqKRAIaAJBaLGCSGoEi1Qty2UFkprn/3uNPp3Du3291Wxrv/34fNmTNnzs693P/O3HLPrkoTQjxG2Q5CiE9QooR4Ta9E/yKEeAMlSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXUKKEeA0lSojXDIlEy8vLFSFEKWjBlscAGRKJYmY6GyHFDLSQTCa7urq6u7tTqVRPT4+tlv7oTaUtO2TgUKKECNDCvn372traDh06BKFCpbZa+qM3lbbskIFDiRIiQAutra179uzZv38/VIq11FZLf/Sm0pYdMnAoUUIEaGHz5s0tLS1QKdZSLKS2WvqjN5W27JCBQ4kSIkALzc3NUCnWUux4cV9qq6U/elNpyw4ZOJQoIQK0sHLlynXr1m3btg0LKfa6tlr6ozeVtuyQgUOJEiJQooR4TUwkqsJw+VU2+ZEjR0aMGIHmyJEjYffJGIYe3tjYqJ3Lly+30oL29vZ58+ZVVFQkEolJkyatXr1ad+GNHnzwwTPPPHP48OEXXnjh4sWL//zzT90bis5vAj/+zU4++eQpU6YcP34cTbxOnjwZHvjt6Cx26nQa715fXx/aRXxAFbNE33//fe1Zs2ZNn4xh6OBrr71WOxsaGrRfPJ2dnRdddJF2Ck1NTdI7d+5cq2vRokU6WyhWvCBdkm3p0qWwX3nlFdjwuIaowFndvn37VVddFdpFPEHFSaK21yA04K677oLztttuw+vs2bOt3iCS5LzzzistLf3tt9/gwfmCDY+Z/6mnnoJ9ySWXfPfdd1hORcO1tbXSe8opp6C5adOmVColnxFYUfVbhGImtzh48ODYsWPHjBmza9cuvMKWiWkixqYzvVOnTo2OIScWVbQSPXbsGK7pYcOGHThwAHtO2PCYAUEkyRNPPIHXZcuWwYNX2E8++aSZv6amBvaXX34pzd27d0+fPv2LL76Q5hlnnIHeRx999OeffxZPvwQnb/Laa6+hd9SoUXh99dVXrd7osfh4wj95dAw5sag4SdQkNMD0rF+/Hp4bbrgB9s033wz7s88+MwOCSJIdO3bgfg9rYzqzyy0pKYHHzC/3t11dXX0GZ5k/f74EA3wu4L4073tRAbegdXV18OibUhMrOJRcYsiJQhWtRBcsWKCyi+GKFStg33///WZAEEmCc4RVEftbLI94ra+vx27TzJ9IJGB3dHT0Hf0vv/zyy8KFC8855xwZAh566CE7qC860kT3UqLxRsVJorbXwArAW4wbN06cmqqqqr+M4wkiYdDekiVLYFx++eUqs7dMJpPSJWHV1dUq89CWNHGXOGPGjA0bNvQmyoDT/fTTTyMSN5BWl4WZPEghG10hlxhyolDFKdGtW7eKxwJnwRhkIzFHjhxpa2vDXhc2drnt7e2HDx+WLgnDIgn70ksvxQnFmjlz5kw0sdBJ77nnnqsyJz2VSmFrrTLq6n2PMMzkFljAy8vLsWH+9ttv5c9F8JgBEWM1ucSQE4VcLUUn0UWLFqH5wgsvaM+zzz4Lz+OPP649QSQJpAUbe13YkB/so0ePmvlxEs19LICem5ubpfe5554zuwDuTrPvEI4VL0iX6z9drLED9RB/UMUpUfl/y9bWVu2BDc/48eO1J4gkkfs92eu+/vrr6czdoJX/wIEDs2fPxppWVlY2bdq0tWvX6i4EQ6UXXHABblkrKytxA9zvUxOS3CKdfXRh8uTJwUcXrLG6maOH+IOKh0QJiSuUKCFeQ4nayK4viB032Njvl8WOI0WGokQJ8ZmYSNRcdkpKSsrLy+++++5kMmnH5Ybksb1uzPhCxm7YsGHGjBl9+0Owwgb6juT/hYqfRDW33nqrHTc0yNvZ3oGTY54cw0g8UHGSqNg9PT3Nzc1ojhgxQjw//PBDQ0PDqFGj4Kmrq9u6dav4d+3aNXPmTPhHjx59/fXX7927V/yWBpYtWzZu3LgxY8YsWLAg9HlaMz5oL126tKqq6vzzz9+5c+cDDzyAOcDetGmTFS+GJu2YdjBMG0JTU1Ntbe2wYcMmTJjw3nvvab+Evfvuu+PHjx85cuSVV165Y8cO3WtSeAYyiKj4SRQqkiKv6dOni2fatGkSINTU1Ih/ypQpph9h4pem2B9//LEZ8/zzz4vfxIwP2pqJEyeedNJJYk+aNMmK743LekKnbXpUQKKffPKJfgsAWz+HqJ2aK664QrpMCs9ABhcVJ4ma4Pq2qr2OHz++fft2dGF9EI881wqnGZbue9FjrYD9zjvvyMN61dXVfWP/wYwP2i+99NKWLVvEfvHFF+XZw0Qi4YoXWxOcthVmNuWZJ9yHHzx48M4774R9zTXXmGFo/v77742NjWZCk8IzkMFFxVWi+Ph/7LHHdMDGjRsfeeQRqeRU2eRSF1ZSUjJ16tTFixd3dnaa2cTG/hb2H3/8Ic1QzPig3dXVhb232B0dHceOHQvGBG0hdNpWmNksKyuD3d7eDvvXX39VmV8EMcOwt4fd3d1tJdEUnoEMLipOEhUbVw/ul5TxbQa4G0Rz4cKFX3/9tRmZSqWeeeYZrJOVlZUq+8CtlU0kevjwYWmGYsYPlp12T9sKM5vylQ4iMGgJ9mmnnWaG6bJ1K4mm8AxkcFHxk6j+cxEWBPGceuqpKlPFItJV2edsNS0tLWa8mU02um+99RYWNBhnnXVW77AsZnwhttwEYu3CTjLtnrYVZmaQ2WKbii7Zpl533XXBNwo2NYVnIIOLipNELebMmSO95pd9yf2n3KZKwacmdBVdu3atGfPwww+L38SML8TGsi/NW265Je2ethUmtmT44IMP9BCVqbDRf742w4JNTeEZyOCi4ifR0tLSsWPH3nHHHbqCZMuWLRdffPHw4cMbGhq++uorxNx3333w//TTT7jKsViNHj36pptu+vHHH81sOjk2nNgJ45Zs7ty5oVUpZnwh9urVq6uqqjDP+vr6tHvaVpiZAaxataq2tjaRSEycOPHDDz/UfivMapoUnoEMIioeEiUkrlCihHgNJUqI11CihHgNJfoP5l8+8qsjyTGsSMixZIfkAiX6D6bA8hNbfqPiCs/GIKLiIVG5JnKsKQk2tS2GJjTs5ZdfrqioKC8vX7JkSTaZnfztt9+urq5OJBI1NTXm/1tYuGpo8qs1Cc1mTcxsiv3555/jcK6++upQT9p9LBIcnIz4NTqe5IeKk0Q10TUlwaa2xdCEhpl89NFHwWyffvqpGVNSUrJx40bpMnHV0ORXa+LKJk2xrWZvtFKzZs0K9UQci+kXZDKW8983Jvmi4iTR3GtKrKbLDu269957Ozo65syZowyFmGFSLILTevToUXlYRx4DsnDV0ORXa+LKJkPEtppiz5s3L5lMymMbQU/EsUhw6GSkS2xSIHL+YyLR3GtKrG++ddmhXXv37oX9/fffq8zvJgXDsAeWpqayslK6TFw1NPnVmriymTGhR717924r2PREHIs0Qydj2qRAVJwkmost3yUvl35EmNihXd988006K1GrCkRseZ7WpLS0VLpMXDU0+dWauLJJTMRRm6oOeiKORZqhkzFtUiCqeCQqvym4YsWKzs7Oe+65xxUWUUci9u23344lGrtBZXyxgxl22WWXwV61apUIw4Wrhia/WhNXthyP2uWJOBYr2Gxa55AUgioeieK+UZoq8zcYV1hEHYnYJuvXrw9maGpq6hulbrzxRukycdXQ5Fdr4sqW41G7PBHHIk0daTatc0gKQRWPRHfu3FlXV4dVpba29s0333SFRdSRiN3Y2Hj22Weffvrpy5cvF78VBt54440JEyYkEomKior58+fr73OwcNXQ5FdrEpotx6N2edLuY7GCzaZ1DkkhqHhI9L8h9AomZEihRAcAJUr+eyjRAUCJkv8eSpQQr6FEc4VLKDkhUKKEeE1MJOr6dZa0u1DDNcTlt1bRPIpRXJkJiSAmEnX9OktEoYZriMsvTbHzK0ZxZSYkAhUPibp+nSWiUMM1xOUXXYmdXzGKKzMhEcgF/L+XqOvXWSIKNVxDXH4ZLnZ+xSiuzIREoOIhUdevs0QUariGuPwyXOz8ilFcmQmJQMVDohrr11kiCjU01hCX3xRbfsUoGtc7EhJExUOirl9niSjUcA1x+aUpdn7FKK7MhESg4iFR16+zpN2FGq4hLr8ptnRexSiuzIREEBOJEhJXKFFCvIYSJcRrKFFCvIYSJcRrKFFCvIYSJcRrKFFCvIYSJcRrPJVosEKFkOKkrKzMR4mCZDK5b9++1tbWzZs3Nzc3rySkWMH1DxVAC1AEdGFLpT+GSqJdXV1tbW342GhpacH81hFSrOD6hwqgBSgCurCl0h9DJdHu7m6s6fv378fM8PmxjZBiBdc/VAAtQBHQhS2V/hgqiaZSKXxgYE745MD6voeQYgXXP1QALUAR0IUtlf4YKon29PRgNvjMwLSw/z5ESLGC6x8qgBagCOjClkp/DJVECSGDAiVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNdQooR4DSVKiNeESJQQ4iGUKCFeQ4kS4jV/A+fBLU1NynFcAAAAAElFTkSuQmCC" alt="fta mcs ext leveling" width="310" height="140">
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>FTA_MCS_EXT.1
+* management of the maximum allowed number of concurrent user sessions
+* management of the enforcement mechanism(s)</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>FTA_MCS_EXT.1
+If FAU_GEN is included in the PP/ST, the following should be auditable:
+* Rejection of a new session based on the limitation of multiple concurrent sessions</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>FIA_UID.1 Timing of identification</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_appendix_d_selection_based_requirements">Appendix D: Selection-Based Requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Below are the published technical decisions. Files are hosted in the <code>/TD/</code> directory.</p>
+<p>As described in the introduction, baseline requirements are in the body of the cPP.
+Additional requirements appear here if certain selections are made.</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 18.1818%;">
-<col style="width: 45.4545%;">
-<col style="width: 18.1818%;">
-<col style="width: 18.1819%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">TD ID</th>
-<th class="tableblock halign-left valign-top">Title</th>
-<th class="tableblock halign-left valign-top">HTML</th>
-<th class="tableblock halign-left valign-top">PDF</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TD_DBMS_B_001</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update to Role Definitions and Security Attribute Management for Consistency</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_001.html">View HTML</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_001.pdf">Download PDF</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TD_DBMS_B_002</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Session Locking Mechanism Expansion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_002.html">View HTML</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_002.pdf">Download PDF</a></p></td>
-</tr>
-</tbody>
-</table>
+<div class="exampleblock">
+<div class="title">Example 3. FTA_MCS.1 Basic limitation on multiple concurrent sessions</div>
+<div class="content">
+<div class="paragraph">
+<p>FTA_MCS.1.1
+The TSF shall restrict the maximum number of concurrent sessions that belong to the same user.</p>
+</div>
+<div class="paragraph">
+<p>FTA_MCS.1.2
+The TSF shall enforce, by default, a limit of [assignment: default number] sessions per user.</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Application Note 17:</strong>
+CC Part 2 (para 473) allows that the default number may be defined as a management function in FMT.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_supporting_document_updates">Supporting Document Updates</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_section_2_4_fta_mcs_ext_1_configurable_session_limiting_mechanisms">Section 2.4: FTA_MCS_EXT.1 Configurable Session Limiting Mechanisms</h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>TSS</strong>
+The evaluator shall examine the TSS and verify that it states the default number of concurrent sessions per user.
+If this default can be changed, the evaluator shall verify that the TSS specifies this.</p>
+</div>
+<div class="paragraph">
+<p><strong>Guidance Documentation</strong>
+The evaluator shall verify that guidance describes how to set the default number of sessions per user and, if applicable, how to change it.</p>
+</div>
+<div class="paragraph">
+<p><strong>Tests</strong>
+The evaluator shall:
+* Establish the maximum number of concurrent sessions and verify it is enforced.
+* Attempt to exceed the maximum and verify additional sessions cannot be created.
+* If the default number can be changed, modify it and repeat the test.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2025-10-09 19:14:07 -0500
+Last updated 2025-10-09 19:15:21 -0500
 </div>
 </div>
 </body>

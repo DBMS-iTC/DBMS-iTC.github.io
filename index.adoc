@@ -34,5 +34,24 @@ Currently, the cPP and SD are available resources along with the GitHub reposito
 * link:/SD/SD_DBMS_V1.0.pdf[SD v1.1]
 * {iTC-GitHub}[{iTC-shortname} GitHub repository]
 
+== Technical Decisions (TDs)
+
+Below are the published technical decisions. Files are hosted in the `/TD/` directory.
+
+[cols="2,5,2,2", options="header"]
+|===
+| TD ID | Title | HTML | PDF
+
+| TD_DBMS_B_001
+| Update to Role Definitions and Security Attribute Management for Consistency
+| link:TD/TD_DBMS_B_001.html[View HTML]
+| link:TD/TD_DBMS_B_001.pdf[Download PDF]
+
+| TD_DBMS_B_002
+| Session Locking Mechanism Expansion
+| link:TD/TD_DBMS_B_002.html[View HTML]
+| link:TD/TD_DBMS_B_002.pdf[Download PDF]
+|===
+
 
 
