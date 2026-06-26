@@ -23,6 +23,7 @@ Please send review comments to {iTC-email}.
 == Review Status
 
 Publication Date:: 26 June 2026
+End of Comment Period:: 10 August 2026
 Review Phase:: Public Review Draft 1
 
 == Documents for Review

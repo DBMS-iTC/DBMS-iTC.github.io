@@ -24,6 +24,7 @@ Please send review comments to {iTC-email}.
 The documents listed here are in the *Public Review Draft 1* phase.
 
 Publication Date:: 26 June 2026
+End of Comment Period:: 10 August 2026
 
 == Documents for Review
 
