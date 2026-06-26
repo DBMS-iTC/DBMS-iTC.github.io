@@ -1,0 +1,55 @@
+= Public Review Draft 1 for DBMS cPP and Supporting Document Version 2.0
+:showtitle:
+:toc:
+:toclevels: 2
+:table-caption: Table
+:doctype: book
+:revnumber: 2.0
+:revdate: 2026-06-26
+:xrefstyle: full
+
+:iTC-longname: Database Management Systems
+:iTC-shortname: DBMS-iTC
+:iTC-email: dbms.itc@gmail.com
+:iTC-website: https://dbms-itc.github.io/
+:iTC-GitHub: https://github.com/dbms-itc/
+
+== Introduction
+
+The {iTC-shortname} is publishing Public Review Draft 1 of Version 2.0 of the DBMS collaborative Protection Profile and its Supporting Document for general public comment.
+
+Please send review comments to {iTC-email}.
+
+== Review Status
+
+Publication Date:: 26 June 2026
+Review Phase:: Public Review Draft 1
+
+== Documents for Review
+
+.Review Draft Set
+[cols="3,1,3",options="header"]
+|===
+|Title |Version |Links
+
+|collaborative Protection Profile for Database Management Systems
+|2.0
+|link:cPP_DBMS_V2.0.pdf[PDF] +
+link:cPP_DBMS_V2.0.html[HTML] +
+link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.pdf[Tracked changes PDF] +
+link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.html[Tracked changes HTML]
+
+|Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Database Management Systems
+|2.0
+|link:SD_DBMS_V2.0.pdf[PDF] +
+link:SD_DBMS_V2.0.html[HTML] +
+link:SD_DBMS_V2.0_tracked_changes_from_v1.1.pdf[Tracked changes PDF] +
+link:SD_DBMS_V2.0_tracked_changes_from_v1.1.html[Tracked changes HTML]
+|===
+
+== Baseline
+
+The tracked changes documents compare the review drafts against the last official documents posted on this site:
+
+* link:/cPP/cPP_DBMS_V1.3.pdf[cPP v1.3], dated 13 March 2023
+* link:/SD/SD_DBMS_V1.1.pdf[SD v1.1], dated 15 March 2023
