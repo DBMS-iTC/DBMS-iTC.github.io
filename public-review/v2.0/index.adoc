@@ -37,15 +37,17 @@ Review Phase:: Public Review Draft 1
 |2.0
 |link:cPP_DBMS_V2.0.pdf[PDF] +
 link:cPP_DBMS_V2.0.html[HTML] +
-link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.pdf[Tracked changes PDF] +
-link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.html[Tracked changes HTML]
+link:cPPChanges.pdf[Tracked changes PDF] +
+link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.pdf[Text diff PDF] +
+link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.html[Text diff HTML]
 
 |Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Database Management Systems
 |2.0
 |link:SD_DBMS_V2.0.pdf[PDF] +
 link:SD_DBMS_V2.0.html[HTML] +
-link:SD_DBMS_V2.0_tracked_changes_from_v1.1.pdf[Tracked changes PDF] +
-link:SD_DBMS_V2.0_tracked_changes_from_v1.1.html[Tracked changes HTML]
+link:SDChanges.pdf[Tracked changes PDF] +
+link:SD_DBMS_V2.0_tracked_changes_from_v1.1.pdf[Text diff PDF] +
+link:SD_DBMS_V2.0_tracked_changes_from_v1.1.html[Text diff HTML]
 |===
 
 == Baseline
