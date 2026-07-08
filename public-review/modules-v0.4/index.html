@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.26">
-<title>DBMS iTC</title>
+<title>Public Review Draft 1 for DBMS PP-Modules Version 0.4</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -435,125 +435,212 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article toc2 toc-left">
+<body class="book">
 <div id="header">
-<h1>DBMS iTC</h1>
+<h1>Public Review Draft 1 for DBMS PP-Modules Version 0.4</h1>
 <div class="details">
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2020-06-23</span>
+<span id="revnumber">version 0.4,</span>
+<span id="revdate">2026-06-30</span>
 </div>
-<div id="toc" class="toc2">
+<div id="toc" class="toc">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a></li>
-<li><a href="#_current_status">2. Current Status</a></li>
-<li><a href="#_resources_related_to_the_database_management_systems_itc">3. Resources related to the Database Management Systems iTC</a></li>
-<li><a href="#_technical_decisions_tds">4. Technical Decisions (TDs)</a></li>
+<li><a href="#_introduction">Introduction</a></li>
+<li><a href="#_review_status">Review Status</a></li>
+<li><a href="#_publication_track">Publication Track</a></li>
+<li><a href="#_module_documents_for_review">Module Documents for Review</a></li>
+<li><a href="#_pp_configurations_for_review">PP-Configurations for Review</a></li>
+<li><a href="#_base_pp">Base PP</a></li>
+<li><a href="#_review_focus">Review Focus</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction">1. Introduction</h2>
+<h2 id="_introduction">Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>From the CCDB-established Working Group, the Database Management Systems (DBMS-iTC for short) was formed. The DBMS-iTC consists of members of Certification Bodies, labs and vendors working together to create requirements for database security testing.</p>
+<p>The DBMS-iTC is publishing Public Review Draft 1 of the DBMS PP-Modules for general public comment. This review package includes the DBMS Cryptographic Functions Module, the DBMS in the Cloud Module, their Supporting Documents, and the PP-Configurations that compose those modules with the DBMS Base PP. The Crypto Module formally consumes CCDB-018 Catalogue components and provides General-Purpose and optional Enterprise Enhanced cryptographic use cases. Because the companion Catalogue Evaluation Methods were not publicly available at the publication date, the Crypto SD also proposes a transitional mechanism for using Certification Body-recognized CAVP, CMVP, or equivalent validation results as evidence for covered algorithm-correctness objectives.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://www.commoncriteriaportal.org/communities/database_management_systems.cfm">Common Criteria Portal DBMS-iTC Page</a></p>
-</div>
-<div class="paragraph">
-<p>To join the DBMS-iTC, please send a message to: <a href="mailto:dbms.itc@gmail.com">dbms.itc@gmail.com</a></p>
+<p>Please send review comments to <a href="mailto:dbms.itc@gmail.com">dbms.itc@gmail.com</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_current_status">2. Current Status</h2>
+<h2 id="_review_status">Review Status</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>The collaborative Protection Profile (cPP) version 1.3 is certified as of June 21, 2023. The accompanying Supporting Document (SD) is version 1.1.</p>
-</div>
-<div class="paragraph">
-<p>+
-Public Review Draft 1 of DBMS cPP and SD Version 2.0 was posted on 26 June 2026 for general public comment through 10 August 2026.
-The DBMS-iTC first published the Public Release of the collaborative Protection Profile (cPP) and Supporting Document (SD) June 12, 2020.</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Publication Date</dt>
+<dd>
+<p>30 June 2026</p>
+</dd>
+<dt class="hdlist1">End of Comment Period</dt>
+<dd>
+<p>To be announced</p>
+</dd>
+<dt class="hdlist1">Review Phase</dt>
+<dd>
+<p>Public Review Draft 1</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_resources_related_to_the_database_management_systems_itc">3. Resources related to the Database Management Systems iTC</h2>
+<h2 id="_publication_track">Publication Track</h2>
 <div class="sectionbody">
-<div class="exampleblock">
-<div class="content">
 <div class="paragraph">
-<p>Currently, the cPP and SD are available resources along with the GitHub repository. The iTC is working on updating this site with additional resources.</p>
-</div>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="/cPP/cPP_DBMS_V1.3.pdf">cPP v1.3</a></p>
-</li>
-<li>
-<p><a href="/SD/SD_DBMS_V1.1.pdf">SD v1.1</a></p>
-</li>
-<li>
-<p><a href="/public-review/v2.0/">DBMS Version 2.0 Public Review Draft 1</a></p>
-</li>
-<li>
-<p><a href="/public-review/modules-v0.4/">DBMS PP-Modules Version 0.4 Public Review Draft 1</a></p>
-</li>
-<li>
-<p><a href="https://github.com/dbms-itc/">DBMS-iTC GitHub repository</a></p>
-</li>
-</ul>
+<p>The DBMS Cryptographic Functions Module and DBMS in the Cloud Module are intended for the first module publication set. The DBMS DBaaS Module and DBaaS PP-Configuration are on a later publication track; working drafts are available in the <a href="https://github.com/dbms-itc/">repository</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_technical_decisions_tds">4. Technical Decisions (TDs)</h2>
+<h2 id="_module_documents_for_review">Module Documents for Review</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Below are the published technical decisions. Files are hosted in the <code>/TD/</code> directory.</p>
-</div>
 <table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Module Review Draft Set</caption>
 <colgroup>
-<col style="width: 18.1818%;">
-<col style="width: 45.4545%;">
-<col style="width: 18.1818%;">
-<col style="width: 18.1819%;">
+<col style="width: 33.3333%;">
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">TD ID</th>
 <th class="tableblock halign-left valign-top">Title</th>
-<th class="tableblock halign-left valign-top">HTML</th>
-<th class="tableblock halign-left valign-top">PDF</th>
+<th class="tableblock halign-left valign-top">Version</th>
+<th class="tableblock halign-left valign-top">Publication Track</th>
+<th class="tableblock halign-left valign-top">Links</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TD_DBMS_B_001</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Update to Role Definitions and Security Attribute Management for Consistency</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_001.html">View HTML</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_001.pdf">Download PDF</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">collaborative PP-Module for DBMS Cryptographic Functions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First module publication set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="DBMS_Crypto_PP_Module_v0.4.pdf">PDF</a><br>
+<a href="DBMS_Crypto_PP_Module_v0.4.html">HTML</a><br>
+<a href="DBMS_Crypto_PP_Module_v0.4.adoc">AsciiDoc</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TD_DBMS_B_002</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Session Locking Mechanism Expansion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_002.html">View HTML</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="TD/TD_DBMS_B_002.pdf">Download PDF</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supporting Document: Evaluation Activities for collaborative PP-Module for DBMS Cryptographic Functions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First module publication set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="DBMS_Crypto_PP_Module_SD_v0.4.pdf">PDF</a><br>
+<a href="DBMS_Crypto_PP_Module_SD_v0.4.html">HTML</a><br>
+<a href="DBMS_Crypto_PP_Module_SD_v0.4.adoc">AsciiDoc</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">collaborative PP-Module for DBMS in the Cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First module publication set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="DBMS_Cloud_PP_Module_v0.4.pdf">PDF</a><br>
+<a href="DBMS_Cloud_PP_Module_v0.4.html">HTML</a><br>
+<a href="DBMS_Cloud_PP_Module_v0.4.adoc">AsciiDoc</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supporting Document: Evaluation Activities for collaborative PP-Module for DBMS in the Cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First module publication set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="DBMS_Cloud_PP_Module_SD_v0.4.pdf">PDF</a><br>
+<a href="DBMS_Cloud_PP_Module_SD_v0.4.html">HTML</a><br>
+<a href="DBMS_Cloud_PP_Module_SD_v0.4.adoc">AsciiDoc</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_pp_configurations_for_review">PP-Configurations for Review</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. PP-Configuration Review Draft Set</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Title</th>
+<th class="tableblock halign-left valign-top">Version</th>
+<th class="tableblock halign-left valign-top">Publication Track</th>
+<th class="tableblock halign-left valign-top">Links</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PP-Configuration for cPP_DBMS and DBMS Cryptographic Functions Module</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First module publication set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="PPC_DBMS_CRYPTO_v0.4.pdf">PDF</a><br>
+<a href="PPC_DBMS_CRYPTO_v0.4.html">HTML</a><br>
+<a href="PPC_DBMS_CRYPTO_v0.4.adoc">AsciiDoc</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PP-Configuration for cPP_DBMS, DBMS in the Cloud Module, and DBMS Cryptographic Functions Module</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First module publication set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="PPC_DBMS_CLOUD_CRYPTO_v0.4.pdf">PDF</a><br>
+<a href="PPC_DBMS_CLOUD_CRYPTO_v0.4.html">HTML</a><br>
+<a href="PPC_DBMS_CLOUD_CRYPTO_v0.4.adoc">AsciiDoc</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_base_pp">Base PP</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These modules and PP-Configurations are designed for use with the DBMS Base PP Version 2.0. The DBMS Version 2.0 public review draft is available at <a href="../v2.0/">DBMS Version 2.0 Public Review Draft 1</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_review_focus">Review Focus</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Reviewers are encouraged to focus on:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Whether the DBMS Cryptographic Functions Module correctly owns the shared DBMS cryptographic requirements, including <code>FDP_DIT_EXT.1</code>.</p>
+</li>
+<li>
+<p>Whether the Crypto Module clearly distinguishes Catalogue-derived SFRs, ECDs, dependencies, and Evaluation Activities from DBMS-iTC-originated integration requirements.</p>
+</li>
+<li>
+<p>Whether the Crypto SD&#8217;s transitional validation-evidence mechanism provides sufficient implementation, operating-environment, capability-coverage, residual-testing, and reporting controls without treating CAVP or CMVP as a substitute for DBMS integration activities.</p>
+</li>
+<li>
+<p>Whether the optional Enterprise Enhanced use case appropriately constrains only the in-scope Catalogue selections needed for FIPS 140-3, NIAP, and CNSA 2.0 alignment.</p>
+</li>
+<li>
+<p>Whether symmetric key encryption without an integrity mechanism (<code>FCS_COP.1/SKC</code>) should remain a permitted DEK-protection option in <code>FCS_CKM_EXT.1.2</code> under the General-Purpose use case, or whether key wrapping or authenticated encryption should be required for all conforming TOEs. The Enterprise Enhanced use case already requires key wrapping or authenticated encryption for stored DEKs.</p>
+</li>
+<li>
+<p>Whether the transitional use of CMVP (FIPS 140-3) module-validation evidence for the RBG self-test and failure-behavior iterations (<code>FPT_TST.1/RBG</code>, <code>FPT_FLS.1/RBG</code>), pending publication of the Catalogue Evaluation Methods, provides sufficient assurance under appropriate Certification Body control.</p>
+</li>
+<li>
+<p>Whether the DBMS in the Cloud Module contains only cloud-specific refinements, integration checks, and deployment-channel mapping.</p>
+</li>
+<li>
+<p>Whether the PP-Configurations correctly compose the Base PP and required modules without creating contradictory conformance paths.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
-Last updated 2026-06-30 15:51:06 -0500
+Version 0.4<br>
+Last updated 2026-07-08 15:41:31 -0500
 </div>
 </div>
 </body>

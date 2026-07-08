@@ -1,83 +1,112 @@
-= Allowed Components for the _Coffee Maker_ cPP
+= Allowed Components for the DBMS cPP
 :showtitle:
 :toc: macro
+:toclevels: 4
 :imagesdir: images
 :icons: font
-:revnumber: 0.2
-:revdate: 2019-08-23
+:revnumber: 0.4
+:revdate: 2026-06-30
 
-:iTC-longname: Coffee Maker
-:iTC-shortname: CM-iTC
+:iTC-longname: Database Management Systems
+:iTC-shortname: DBMS-iTC
 :iTC-email: cm-itc-mailing-list@gmail.com
-:iTC-website: https://coffeemaker.github.io/
-:iTC-GitHub: https://github.com/coffeemaker/repository/
-:pp-name: Coffee Maker cPP
+:iTC-website: https://github.com/DBMS-iTC
+:iTC-GitHub: https://github.com/DBMS-iTC/DBMS-iTC.github.io
+:pp-name: collaborative Protection Profile for Database Management Systems
+:pp-version: Version 2.0
 
 == Introduction
-This page lists the various cPPs and PP-Modules that are approved by the {iTC-shortname} to be used in conjunction with the {pp-name} in PP-Configurations.
 
-[GUIDANCE]
-====
-It may be necessary over time to explicitly reject cPPs (or specific versions) from inclusion with the cPP. There may also be cases where specific versions of the cPP are compatible with specific versions of other components. These should be noted (probably by adding columns to the table).
-====
+This page identifies the PP-Modules that the {iTC-shortname} has defined for use with the {pp-name} ({pp-version}) in PP-Configurations. It records compatibility relationships among the DBMS Base PP and DBMS PP-Modules; it does not itself replace a formal PP-Configuration when one is required by a scheme or publication package.
 
-== Approved Components
-.Allowed Components
-[%header,cols="1,1,1,1,1,2"]
+== Current Compatible Components
+
+.Current compatible components
+[%header,cols="2,1,1,1,2"]
 |===
-|cPP/PP-Module 
-|Version/Date
-|Date Approved
+|Component
+|Version / Date
+|Status
 |Responsible iTC
-|Link
-|Description
+|Use in PP-Configurations
 
-|Milk Frother PP-Module
-|v1.0, January 1, 2019
-|March 1, 2019
-|Frother iTC
-|http://milkfrother.somewhere.us[homepage]
-|Milk frother for coffee (and tea)
+|collaborative PP-Module for DBMS Cryptographic Functions
+|Version 0.4, 2026-06-30
+|Draft module set
+|{iTC-shortname}
+|May be claimed with the DBMS Base PP as `cPP_DBMS + DBMS Cryptographic Functions Module`. Also required by the DBMS in the Cloud Module.
+
+|collaborative PP-Module for DBMS in the Cloud
+|Version 0.4, 2026-06-30
+|Draft module set
+|{iTC-shortname}
+|May be claimed only in a PP-Configuration that includes the DBMS Base PP and the DBMS Cryptographic Functions Module: `cPP_DBMS + DBMS in the Cloud Module + DBMS Cryptographic Functions Module`.
 
 |===
 
-=== Justification for Allowed Components
-[GUIDANCE]
-====
-Here you would provide the reasons for the allowed inclusion. This can be as short or as long as the iTC determines is necessary.
-====
+== Public Review PP-Configurations
 
-==== Milk Frother
-Everyone needs the ability to froth their milk before putting it in their coffee, and doing so does not impact the ability to make coffee as defined in the {pp-name}.
+Formal Public Review Draft 1 PP-Configuration documents for the DBMS module set are available at link:../public-review/modules-v0.4/[DBMS PP-Modules Version 0.4 Public Review Draft 1].
 
-== Archive List of Previously Approved Components
-[GUIDANCE]
-====
-As cPPs and components evolve versions may no longer be considered compatible. As versions of components are removed from the approved list their history should be captured in tables here along with a justification for the removal. 
-====
-
-.Archived Components
-[%header,cols="1,1,1,1,1"]
+.Public review PP-Configurations
+[%header,cols="2,1,2"]
 |===
-|cPP/PP-Module 
-|Version/Date
-|Date Removed
+|PP-Configuration
+|Version / Date
+|Links
+
+|PP-Configuration for cPP_DBMS and DBMS Cryptographic Functions Module
+|Version 0.4, 2026-06-30
+|link:../public-review/modules-v0.4/PPC_DBMS_CRYPTO_v0.4.pdf[PDF] +
+link:../public-review/modules-v0.4/PPC_DBMS_CRYPTO_v0.4.html[HTML] +
+link:../public-review/modules-v0.4/PPC_DBMS_CRYPTO_v0.4.adoc[AsciiDoc]
+
+|PP-Configuration for cPP_DBMS, DBMS in the Cloud Module, and DBMS Cryptographic Functions Module
+|Version 0.4, 2026-06-30
+|link:../public-review/modules-v0.4/PPC_DBMS_CLOUD_CRYPTO_v0.4.pdf[PDF] +
+link:../public-review/modules-v0.4/PPC_DBMS_CLOUD_CRYPTO_v0.4.html[HTML] +
+link:../public-review/modules-v0.4/PPC_DBMS_CLOUD_CRYPTO_v0.4.adoc[AsciiDoc]
+
+|PP-Configuration for cPP_DBMS, DBMS DBaaS Module, and DBMS Cryptographic Functions Module
+|Version 0.4, 2026-06-30
+|link:../public-review/modules-v0.4/PPC_DBMS_DBAAS_CRYPTO_v0.4.pdf[PDF] +
+link:../public-review/modules-v0.4/PPC_DBMS_DBAAS_CRYPTO_v0.4.html[HTML] +
+link:../public-review/modules-v0.4/PPC_DBMS_DBAAS_CRYPTO_v0.4.adoc[AsciiDoc]
+|===
+
+== Components Under Development
+
+.Components under development
+[%header,cols="2,1,1,1,2"]
+|===
+|Component
+|Version / Date
+|Status
 |Responsible iTC
-|Last cPP compatible version
+|Expected PP-Configuration Use
 
-|Milk Frother PP-Module
-|v1.0, January 1, 2019
-|March 1, 2020
-|Frother iTC
-|version 1.1
+|collaborative PP-Module for Database-as-a-Service (DBaaS)
+|Version 0.4, 2026-06-30
+|Public review draft, later publication track
+|{iTC-shortname}
+|Expected to require the DBMS Base PP and the DBMS Cryptographic Functions Module. This module is intended for provider-operated managed database services and is mutually exclusive with the tenant-operated DBMS in the Cloud Module.
 
 |===
 
-=== Justification for Archived Components
-[GUIDANCE]
-====
-Here you would provide the reasons for components no longer being listed as approved. This can be as short or as long as the iTC determines is necessary.
-====
+== Configuration Notes
 
-==== Milk Frother
-With the release of {pp-name} v2.0, the requirements on milk frothing have been integrated into the cPP and so the PP-Module is no longer necessary.
+=== DBMS Cryptographic Functions Module
+
+The DBMS Cryptographic Functions Module is reusable across DBMS PP-Configurations. It defines the DBMS-specific requirements for key management, data-at-rest encryption, and data-in-transit protection while formally consuming applicable CCDB-018 Catalogue components. Every PP-Configuration supports the General-Purpose Cryptographic Deployment use case and may additionally claim the Enterprise Enhanced use case. Enterprise Enhanced constrains Catalogue selections for FIPS 140-3, NIAP, and CNSA 2.0 alignment but does not create a separate PP-Configuration.
+
+=== DBMS in the Cloud Module
+
+The DBMS in the Cloud Module addresses tenant-operated DBMS deployments on cloud infrastructure or platform services. It requires the DBMS Cryptographic Functions Module so that data-at-rest and data-in-transit protection remain TOE-enforced requirements rather than environmental assumptions.
+
+=== DBMS DBaaS Module
+
+The DBMS DBaaS Module addresses provider-operated managed database services. It is included in the module public review package and remains on a later publication track than the Cloud and Crypto modules. A TOE should claim either the DBMS in the Cloud Module or the DBMS DBaaS Module according to whether the tenant or provider operates the DBMS.
+
+== Archived Components
+
+No DBMS PP-Configuration components have been archived.

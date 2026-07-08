@@ -35,6 +35,7 @@ Currently, the cPP and SD are available resources along with the GitHub reposito
 * link:/cPP/cPP_DBMS_V1.3.pdf[cPP v1.3]
 * link:/SD/SD_DBMS_V1.1.pdf[SD v1.1]
 * link:/public-review/v2.0/[DBMS Version 2.0 Public Review Draft 1]
+* link:/public-review/modules-v0.4/[DBMS PP-Modules Version 0.4 Public Review Draft 1]
 * {iTC-GitHub}[{iTC-shortname} GitHub repository]
 
 == Technical Decisions (TDs)

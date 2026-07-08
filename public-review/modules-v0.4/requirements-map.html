@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive requirement and evaluation activity map for the DBMS cPP module review set.">
+  <title>DBMS Module Review Map</title>
+  <link rel="stylesheet" href="requirements-map.css">
+</head>
+<body>
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">DBMS-iTC public review companion</p>
+      <h1>Requirement and Evaluation Map</h1>
+      <p class="subtitle">Trace each PP-Configuration through owned requirements, open operations, and applicable evaluation work.</p>
+    </div>
+    <a class="back-link" href="index.html">Review package</a>
+  </header>
+
+  <main>
+    <section class="configuration-band" aria-labelledby="configuration-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Composition</p>
+          <h2 id="configuration-title">PP-Configuration view</h2>
+        </div>
+        <div class="segmented-control" id="configuration-control" aria-label="PP-Configuration"></div>
+      </div>
+      <div class="composition-map" id="composition-map"></div>
+    </section>
+
+    <section class="control-band" aria-label="Map controls">
+      <div class="view-mode-control">
+        <span>View</span>
+        <div class="segmented-control compact" id="view-mode-control" aria-label="Map view"></div>
+      </div>
+      <label class="search-control">
+        <span>Search</span>
+        <input id="search-input" type="search" autocomplete="off" placeholder="Requirement, operation, activity, or phrase">
+      </label>
+      <fieldset class="type-filters" id="type-filters">
+        <legend>Requirement type</legend>
+      </fieldset>
+      <div class="zoom-control" aria-label="Map zoom">
+        <button id="zoom-out" type="button" title="Zoom out" aria-label="Zoom out">-</button>
+        <output id="zoom-value" for="zoom-out zoom-in">100%</output>
+        <button id="zoom-in" type="button" title="Zoom in" aria-label="Zoom in">+</button>
+      </div>
+      <div class="command-group">
+        <button id="expand-all" type="button">Expand all</button>
+        <button id="collapse-all" type="button">Collapse all</button>
+      </div>
+    </section>
+
+    <section class="status-band" aria-live="polite">
+      <div id="result-summary"></div>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <div class="workspace" id="workspace">
+      <section class="map-panel" aria-label="Requirements map">
+        <div class="map-canvas" id="map-canvas"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <h2>No matching requirements</h2>
+          <p>Clear the search or enable another requirement type.</p>
+          <button id="clear-filters" type="button">Clear filters</button>
+        </div>
+      </section>
+
+      <aside class="reader-panel" id="reader-panel" aria-label="Document reader" hidden>
+        <div class="reader-header">
+          <div>
+            <p class="eyebrow">Document reader</p>
+            <h2 id="reader-title">Source document</h2>
+          </div>
+          <div class="reader-actions">
+            <a id="reader-new-window" href="#" target="_blank" rel="noopener" title="Open source in a new tab">Open</a>
+            <button id="reader-close" type="button" title="Close document reader" aria-label="Close document reader">x</button>
+          </div>
+        </div>
+        <iframe id="document-frame" title="Selected source document"></iframe>
+      </aside>
+    </div>
+  </main>
+
+  <script src="requirements-map-data.js"></script>
+  <script src="requirements-map.js"></script>
+</body>
+</html>

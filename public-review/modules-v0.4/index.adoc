@@ -1,0 +1,106 @@
+= Public Review Draft 1 for DBMS PP-Modules Version 0.4
+:showtitle:
+:toc:
+:toclevels: 2
+:table-caption: Table
+:doctype: book
+:revnumber: 0.4
+:revdate: 2026-06-30
+:xrefstyle: full
+
+:iTC-longname: Database Management Systems
+:iTC-shortname: DBMS-iTC
+:iTC-email: dbms.itc@gmail.com
+:iTC-website: https://dbms-itc.github.io/
+:iTC-GitHub: https://github.com/dbms-itc/
+
+== Introduction
+
+The {iTC-shortname} is publishing Public Review Draft 1 of the DBMS PP-Modules for general public comment. This review package includes the DBMS Cryptographic Functions Module, the DBMS in the Cloud Module, their Supporting Documents, and the PP-Configurations that compose those modules with the DBMS Base PP. The Crypto Module formally consumes CCDB-018 Catalogue components and provides General-Purpose and optional Enterprise Enhanced cryptographic use cases. Because the companion Catalogue Evaluation Methods were not publicly available at the publication date, the Crypto SD also proposes a transitional mechanism for using Certification Body-recognized CAVP, CMVP, or equivalent validation results as evidence for covered algorithm-correctness objectives.
+
+Please send review comments to {iTC-email}.
+
+== Review Status
+
+Publication Date:: 30 June 2026
+End of Comment Period:: To be announced
+Review Phase:: Public Review Draft 1
+
+== Publication Track
+
+The DBMS Cryptographic Functions Module and DBMS in the Cloud Module are intended for the first module publication set. The DBMS DBaaS Module and DBaaS PP-Configuration are on a later publication track; working drafts are available in the {iTC-GitHub}[repository].
+
+== Module Documents for Review
+
+.Module Review Draft Set
+[cols="3,1,2,3",options="header"]
+|===
+|Title |Version |Publication Track |Links
+
+|collaborative PP-Module for DBMS Cryptographic Functions
+|0.4
+|First module publication set
+|link:DBMS_Crypto_PP_Module_v0.4.pdf[PDF] +
+link:DBMS_Crypto_PP_Module_v0.4.html[HTML] +
+link:DBMS_Crypto_PP_Module_v0.4.adoc[AsciiDoc]
+
+|Supporting Document: Evaluation Activities for collaborative PP-Module for DBMS Cryptographic Functions
+|0.4
+|First module publication set
+|link:DBMS_Crypto_PP_Module_SD_v0.4.pdf[PDF] +
+link:DBMS_Crypto_PP_Module_SD_v0.4.html[HTML] +
+link:DBMS_Crypto_PP_Module_SD_v0.4.adoc[AsciiDoc]
+
+|collaborative PP-Module for DBMS in the Cloud
+|0.4
+|First module publication set
+|link:DBMS_Cloud_PP_Module_v0.4.pdf[PDF] +
+link:DBMS_Cloud_PP_Module_v0.4.html[HTML] +
+link:DBMS_Cloud_PP_Module_v0.4.adoc[AsciiDoc]
+
+|Supporting Document: Evaluation Activities for collaborative PP-Module for DBMS in the Cloud
+|0.4
+|First module publication set
+|link:DBMS_Cloud_PP_Module_SD_v0.4.pdf[PDF] +
+link:DBMS_Cloud_PP_Module_SD_v0.4.html[HTML] +
+link:DBMS_Cloud_PP_Module_SD_v0.4.adoc[AsciiDoc]
+|===
+
+== PP-Configurations for Review
+
+.PP-Configuration Review Draft Set
+[cols="3,1,2,3",options="header"]
+|===
+|Title |Version |Publication Track |Links
+
+|PP-Configuration for cPP_DBMS and DBMS Cryptographic Functions Module
+|0.4
+|First module publication set
+|link:PPC_DBMS_CRYPTO_v0.4.pdf[PDF] +
+link:PPC_DBMS_CRYPTO_v0.4.html[HTML] +
+link:PPC_DBMS_CRYPTO_v0.4.adoc[AsciiDoc]
+
+|PP-Configuration for cPP_DBMS, DBMS in the Cloud Module, and DBMS Cryptographic Functions Module
+|0.4
+|First module publication set
+|link:PPC_DBMS_CLOUD_CRYPTO_v0.4.pdf[PDF] +
+link:PPC_DBMS_CLOUD_CRYPTO_v0.4.html[HTML] +
+link:PPC_DBMS_CLOUD_CRYPTO_v0.4.adoc[AsciiDoc]
+|===
+
+== Base PP
+
+These modules and PP-Configurations are designed for use with the DBMS Base PP Version 2.0. The DBMS Version 2.0 public review draft is available at link:../v2.0/[DBMS Version 2.0 Public Review Draft 1].
+
+== Review Focus
+
+Reviewers are encouraged to focus on:
+
+* Whether the DBMS Cryptographic Functions Module correctly owns the shared DBMS cryptographic requirements, including `FDP_DIT_EXT.1`.
+* Whether the Crypto Module clearly distinguishes Catalogue-derived SFRs, ECDs, dependencies, and Evaluation Activities from DBMS-iTC-originated integration requirements.
+* Whether the Crypto SD's transitional validation-evidence mechanism provides sufficient implementation, operating-environment, capability-coverage, residual-testing, and reporting controls without treating CAVP or CMVP as a substitute for DBMS integration activities.
+* Whether the optional Enterprise Enhanced use case appropriately constrains only the in-scope Catalogue selections needed for FIPS 140-3, NIAP, and CNSA 2.0 alignment.
+* Whether symmetric key encryption without an integrity mechanism (`FCS_COP.1/SKC`) should remain a permitted DEK-protection option in `FCS_CKM_EXT.1.2` under the General-Purpose use case, or whether key wrapping or authenticated encryption should be required for all conforming TOEs. The Enterprise Enhanced use case already requires key wrapping or authenticated encryption for stored DEKs.
+* Whether the transitional use of CMVP (FIPS 140-3) module-validation evidence for the RBG self-test and failure-behavior iterations (`FPT_TST.1/RBG`, `FPT_FLS.1/RBG`), pending publication of the Catalogue Evaluation Methods, provides sufficient assurance under appropriate Certification Body control.
+* Whether the DBMS in the Cloud Module contains only cloud-specific refinements, integration checks, and deployment-channel mapping.
+* Whether the PP-Configurations correctly compose the Base PP and required modules without creating contradictory conformance paths.
