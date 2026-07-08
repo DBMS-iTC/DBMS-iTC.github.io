@@ -95,6 +95,10 @@ BSI - Bundesamt für Sicherheit in der Informationstechnik
 |2026-07-08
 |Stated the cross-module selection coupling for FCS_CKM_DBAAS_EXT.1.1: import mechanisms correspond to the Crypto Module's "Imported from External Entity" Key Origin, and external-KMS or key-reference mechanisms to its new "Externally Managed" Key Origin, each including FDP_ITC_EXT.1; dependency table updated to reflect the conditional inclusion.
 
+|0.4
+|2026-07-08
+|Exact Conformance now cites its definition in CC:2022 Part 1 directly, replacing the legacy "subset of Strict Conformance" gloss (set-wide alignment).
+
 |===
 
 toc::[]
@@ -305,7 +309,7 @@ A TOE claiming this PP-Module includes, through the mandatory DBMS Cryptographic
 
 === PP-Module Conformance Type
 
-This PP-Module requires *Exact Conformance* of the Security Target to this PP-Module, as defined for PP-Modules in conjunction with the Base PP. Exact Conformance is a subset of Strict Conformance as defined in <<CC1>>.
+This PP-Module requires *Exact Conformance* of the Security Target to this PP-Module, as defined for PP-Modules in conjunction with the Base PP. Exact Conformance is defined in CC:2022 Part 1 <<CC1>>.
 
 The following rules apply to a PP-Configuration that includes this PP-Module:
 

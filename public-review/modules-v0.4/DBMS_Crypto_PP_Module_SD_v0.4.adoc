@@ -60,7 +60,7 @@
 
 |0.4
 |2026-07-08
-|FDP_DAR_EXT.1 TSS activity extended for the rewritten FDP_DAR_EXT.1.2: the evaluator verifies the components selected there are included in the ST and are the operations actually performing the FDP_DAR_EXT.1.1 encryption.
+|FDP_DAR_EXT.1 TSS activity extended for the rewritten FDP_DAR_EXT.1.2: the evaluator verifies the components selected there are included in the ST and are the operations actually performing the FDP_DAR_EXT.1.1 encryption. Editorial sweep: hardcoded section numbers replaced with section names; FDP_DIT_EXT.1 tests adopt the Step: convention; Test Environment Requirements extended with certificate-presentation and downgrade tooling for the channel tests and external key-management coverage; inline bibliography anchor reworded; Cloud SD reference pinned to Version 0.4.
 
 |0.4
 |2026-07-08
@@ -84,14 +84,14 @@ The Evaluation Activities in this SD are derived from the Common Evaluation Meth
 
 This Supporting Document is organized to mirror the structure of the PP-Module and follows the SFR class hierarchy defined in CC:2022 Part 2.
 
-*Section 2: General Guidance for Evaluators* provides overarching guidance applicable across multiple SFRs, including:
+The *General Guidance for Evaluators* section provides overarching guidance applicable across multiple SFRs, including:
 
 * Relationship between this module and the Crypto Catalogue
 * Handling selections and assignments in the ST
 * Verification of consumed Catalogue components
 * Evaluator coordination with the Crypto Catalogue evaluation activities
 
-*Section 3: Assurance Activities Overview* describes:
+The *Assurance Activities Overview* section describes:
 
 * Mapping to Base PP SARs
 * Documentation requirements
@@ -297,7 +297,7 @@ This transitional coverage does not originate evaluation methodology for the RBG
 
 ==== Verification of Consumed Catalogue Components
 
-Before conducting SFR-specific integration activities, the evaluator shall verify that the ST includes every Catalogue-derived component triggered by the TOE implementation, as specified in the PP-Module's <<DBMS_MOD_CRYPTO>> Consumed Cryptographic Catalogue Components appendix.
+Before conducting SFR-specific integration activities, the evaluator shall verify that the ST includes every Catalogue-derived component triggered by the TOE implementation, as specified in the Consumed Cryptographic Catalogue Components appendix of the PP-Module [<<DBMS_MOD_CRYPTO>>].
 
 The evaluator shall examine the ST to confirm it includes, at minimum, the Catalogue components applicable to the ST selections:
 
@@ -945,19 +945,19 @@ The evaluator shall verify the operational guidance describes how to configure e
 
 *Test 1: Protected Channel Establishment*
 
-. Configure each claimed channel according to the operational guidance.
-. Establish a connection over each channel and capture the traffic.
-. Verify that the channel uses the protocol claimed in `FDP_DIT_EXT.1.1` (e.g., TLS 1.2 or TLS 1.3) and that application data is not transmitted in plaintext.
+. Step: Configure each claimed channel according to the operational guidance.
+. Step: Establish a connection over each channel and capture the traffic.
+. Step: Verify that the channel uses the protocol claimed in `FDP_DIT_EXT.1.1` (e.g., TLS 1.2 or TLS 1.3) and that application data is not transmitted in plaintext.
 
 *Test 2: Endpoint Authentication*
 
-. For a channel that uses certificate authentication, present an untrusted, expired, or otherwise invalid certificate to the TOE endpoint.
-. Verify that the TOE rejects the connection consistent with the claimed X.509 certificate-validation behaviour.
+. Step: For a channel that uses certificate authentication, present an untrusted, expired, or otherwise invalid certificate to the TOE endpoint.
+. Step: Verify that the TOE rejects the connection consistent with the claimed X.509 certificate-validation behaviour.
 
 *Test 3: Negotiation Failure Handling*
 
-. Attempt to negotiate a non-claimed or downgraded protocol or cipher suite with the TOE endpoint.
-. Verify that the TOE rejects the connection rather than falling back to an unprotected channel.
+. Step: Attempt to negotiate a non-claimed or downgraded protocol or cipher suite with the TOE endpoint.
+. Step: Verify that the TOE rejects the connection rather than falling back to an unprotected channel.
 
 ---
 
@@ -1103,8 +1103,9 @@ The evaluator shall deploy the TOE in a representative test environment that inc
 
 . A fully configured DBMS installation per the developer's preparative guidance.
 . Access to low-level storage inspection tools (binary editor, hex dump utility, or raw disk access) for data-at-rest tests.
-. A network traffic capture capability (e.g., Wireshark, tcpdump) for key import channel tests.
-. An external KMS test instance (hardware or software) for BYOK and trusted channel tests.
+. A network traffic capture capability (e.g., Wireshark, tcpdump) for key import, external key-management, and data-in-transit channel tests.
+. Tooling to present invalid, untrusted, or expired certificates to the TOE endpoints and to attempt protocol or cipher-suite downgrade, for the FDP_DIT_EXT.1 and FDP_ITC_EXT.1 tests.
+. An external KMS test instance (hardware or software) for BYOK, external key-management, and trusted channel tests.
 . Separate operating system accounts with differing privilege levels for access control tests.
 
 === KMS Test Environment
@@ -1308,4 +1309,4 @@ Evidence should include:
 * [#cPP_DBMS]#[cPP_DBMS]# collaborative Protection Profile for Database Management Systems, Version 2.0, 27 April 2026.
 * [#cPP_DBMS_SD]#[cPP_DBMS_SD]# Supporting Document Mandatory Technical Document Evaluation Activities for the collaborative Protection Profile for Database Management Systems, Version 2.0, 27 April 2026.
 * [#DBMS_Cloud_MOD]#[DBMS_Cloud_MOD]# collaborative PP-Module for DBMS in the Cloud (DBMS_Cloud_MOD), Version 0.4, 2026-06-30.
-* [#DBMS_Cloud_SD]#[DBMS_Cloud_SD]# Supporting Document for collaborative PP-Module for DBMS in the Cloud.
+* [#DBMS_Cloud_SD]#[DBMS_Cloud_SD]# Supporting Document for collaborative PP-Module for DBMS in the Cloud, Version 0.4.

@@ -660,7 +660,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_DAR_EXT.1 TSS activity extended for the rewritten FDP_DAR_EXT.1.2: the evaluator verifies the components selected there are included in the ST and are the operations actually performing the FDP_DAR_EXT.1.1 encryption.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_DAR_EXT.1 TSS activity extended for the rewritten FDP_DAR_EXT.1.2: the evaluator verifies the components selected there are included in the ST and are the operations actually performing the FDP_DAR_EXT.1.1 encryption. Editorial sweep: hardcoded section numbers replaced with section names; FDP_DIT_EXT.1 tests adopt the Step: convention; Test Environment Requirements extended with certificate-presentation and downgrade tooling for the channel tests and external key-management coverage; inline bibliography anchor reworded; Cloud SD reference pinned to Version 0.4.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
@@ -693,7 +693,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This Supporting Document is organized to mirror the structure of the PP-Module and follows the SFR class hierarchy defined in CC:2022 Part 2.</p>
 </div>
 <div class="paragraph">
-<p><strong>Section 2: General Guidance for Evaluators</strong> provides overarching guidance applicable across multiple SFRs, including:</p>
+<p>The <strong>General Guidance for Evaluators</strong> section provides overarching guidance applicable across multiple SFRs, including:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -712,7 +712,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Section 3: Assurance Activities Overview</strong> describes:</p>
+<p>The <strong>Assurance Activities Overview</strong> section describes:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1063,7 +1063,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3">
 <h4 id="_verification_of_consumed_catalogue_components">3.1.4. Verification of Consumed Catalogue Components</h4>
 <div class="paragraph">
-<p>Before conducting SFR-specific integration activities, the evaluator shall verify that the ST includes every Catalogue-derived component triggered by the TOE implementation, as specified in the PP-Module&#8217;s <a href="#DBMS_MOD_CRYPTO">[DBMS_MOD_CRYPTO]</a> Consumed Cryptographic Catalogue Components appendix.</p>
+<p>Before conducting SFR-specific integration activities, the evaluator shall verify that the ST includes every Catalogue-derived component triggered by the TOE implementation, as specified in the Consumed Cryptographic Catalogue Components appendix of the PP-Module [<a href="#DBMS_MOD_CRYPTO">[DBMS_MOD_CRYPTO]</a>].</p>
 </div>
 <div class="paragraph">
 <p>The evaluator shall examine the ST to confirm it includes, at minimum, the Catalogue components applicable to the ST selections:</p>
@@ -2422,13 +2422,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Configure each claimed channel according to the operational guidance.</p>
+<p>Step: Configure each claimed channel according to the operational guidance.</p>
 </li>
 <li>
-<p>Establish a connection over each channel and capture the traffic.</p>
+<p>Step: Establish a connection over each channel and capture the traffic.</p>
 </li>
 <li>
-<p>Verify that the channel uses the protocol claimed in <code>FDP_DIT_EXT.1.1</code> (e.g., TLS 1.2 or TLS 1.3) and that application data is not transmitted in plaintext.</p>
+<p>Step: Verify that the channel uses the protocol claimed in <code>FDP_DIT_EXT.1.1</code> (e.g., TLS 1.2 or TLS 1.3) and that application data is not transmitted in plaintext.</p>
 </li>
 </ol>
 </div>
@@ -2438,10 +2438,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>For a channel that uses certificate authentication, present an untrusted, expired, or otherwise invalid certificate to the TOE endpoint.</p>
+<p>Step: For a channel that uses certificate authentication, present an untrusted, expired, or otherwise invalid certificate to the TOE endpoint.</p>
 </li>
 <li>
-<p>Verify that the TOE rejects the connection consistent with the claimed X.509 certificate-validation behaviour.</p>
+<p>Step: Verify that the TOE rejects the connection consistent with the claimed X.509 certificate-validation behaviour.</p>
 </li>
 </ol>
 </div>
@@ -2451,10 +2451,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Attempt to negotiate a non-claimed or downgraded protocol or cipher suite with the TOE endpoint.</p>
+<p>Step: Attempt to negotiate a non-claimed or downgraded protocol or cipher suite with the TOE endpoint.</p>
 </li>
 <li>
-<p>Verify that the TOE rejects the connection rather than falling back to an unprotected channel.</p>
+<p>Step: Verify that the TOE rejects the connection rather than falling back to an unprotected channel.</p>
 </li>
 </ol>
 </div>
@@ -2707,10 +2707,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Access to low-level storage inspection tools (binary editor, hex dump utility, or raw disk access) for data-at-rest tests.</p>
 </li>
 <li>
-<p>A network traffic capture capability (e.g., Wireshark, tcpdump) for key import channel tests.</p>
+<p>A network traffic capture capability (e.g., Wireshark, tcpdump) for key import, external key-management, and data-in-transit channel tests.</p>
 </li>
 <li>
-<p>An external KMS test instance (hardware or software) for BYOK and trusted channel tests.</p>
+<p>Tooling to present invalid, untrusted, or expired certificates to the TOE endpoints and to attempt protocol or cipher-suite downgrade, for the FDP_DIT_EXT.1 and FDP_ITC_EXT.1 tests.</p>
+</li>
+<li>
+<p>An external KMS test instance (hardware or software) for BYOK, external key-management, and trusted channel tests.</p>
 </li>
 <li>
 <p>Separate operating system accounts with differing privilege levels for access control tests.</p>
@@ -3076,7 +3079,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><span id="DBMS_Cloud_MOD">[DBMS_Cloud_MOD]</span> collaborative PP-Module for DBMS in the Cloud (DBMS_Cloud_MOD), Version 0.4, 2026-06-30.</p>
 </li>
 <li>
-<p><span id="DBMS_Cloud_SD">[DBMS_Cloud_SD]</span> Supporting Document for collaborative PP-Module for DBMS in the Cloud.</p>
+<p><span id="DBMS_Cloud_SD">[DBMS_Cloud_SD]</span> Supporting Document for collaborative PP-Module for DBMS in the Cloud, Version 0.4.</p>
 </li>
 </ul>
 </div>
@@ -3086,7 +3089,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2026-07-08 15:41:52 -0500
+Last updated 2026-07-08 17:06:06 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

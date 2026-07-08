@@ -110,7 +110,7 @@ JISEC - Japan IT Security Evaluation and Certification Scheme
 
 |0.4
 |2026-07-08
-|Corrected the Enterprise Enhanced FCS_CKM.5 row against the Catalogue source: the SP 800-108 rows (KDF-CTR, KDF-FB, KDF-DPI) and the KDF-MAC-2S MAC step offer only AES-CMAC and HMAC-SHA-1/-256/-512 as PRFs, so the row now requires AES-256-CMAC or HMAC-SHA-512 for those rows and reaches SHA-384/SHA-512 only through the KDF-HASH and KDF-MAC-1S rows (the previous row text required HMAC-SHA-384 completions the Catalogue does not offer). Added a DBMS-iTC Application Note interpreting the reproduced FCS_RBG.1 dependency list: the seeding dependency is satisfied by FCS_RBG.2, FCS_RBG.3, or FCS_RBG.4 per the seeding architecture, and the primitive dependency applies per the selected DRBG type; the Catalogue text itself is unchanged.
+|Corrected the Enterprise Enhanced FCS_CKM.5 row against the Catalogue source: the SP 800-108 rows (KDF-CTR, KDF-FB, KDF-DPI) and the KDF-MAC-2S MAC step offer only AES-CMAC and HMAC-SHA-1/-256/-512 as PRFs, so the row now requires AES-256-CMAC or HMAC-SHA-512 for those rows and reaches SHA-384/SHA-512 only through the KDF-HASH and KDF-MAC-1S rows (the previous row text required HMAC-SHA-384 completions the Catalogue does not offer). Added a DBMS-iTC Application Note interpreting the reproduced FCS_RBG.1 dependency list: the seeding dependency is satisfied by FCS_RBG.2, FCS_RBG.3, or FCS_RBG.4 per the seeding architecture, and the primitive dependency applies per the selected DRBG type; the Catalogue text itself is unchanged. Editorial sweep: Exact Conformance cites CC:2022 Part 1 directly; Conventions iteration example corrected to a component of this module; deleted the P.CRYPTOGRAPHIC_STANDARDS configurability sentence that mapped to no management SFR; FCS_CKM_EXT.7 explicitly identified as not consumed; FCS_CKM.6 key-source dependency substitution justified in the dependency summary; FDP_ITC_EXT.1.2 certificate example moved out of element text; SD bibliography reference pinned to Version 0.4.
 
 |0.4
 |2026-07-08
@@ -156,7 +156,7 @@ Although the PP-Module may contain minor editorial errors, it is recognized as a
 * [#CC5]#[CC5]# Common Criteria for Information Technology Security Evaluation, Part 5: Pre-defined packages of security requirements, CCMB-2022-11-005, CC:2022 Revision 1, November 2022.
 * [#CCE]#[CCE]# Common Criteria for Information Technology Security Evaluation, Errata and interpretation for CC:2022 (Release 1) and CEM:2022 (Release 1), CCMB-002, Version 1.1, July 22, 2024.
 * [#CEM]#[CEM]# Common Methodology for Information Technology Security Evaluation, Evaluation methodology, CCMB-2022-11-006, CEM:2022 Revision 1, November 2022.
-* [#SD]#[SD]# Supporting Document - Evaluation Activities for DBMS Cryptographic Functions Module.
+* [#SD]#[SD]# Supporting Document - Evaluation Activities for DBMS Cryptographic Functions Module, Version 0.4.
 * [#Crypto_Catalog]#[Crypto_Catalog]# Specification of Functional Requirements for Cryptography (CCDB-018), Version 1.0, January 2025. Available at https://github.com/commoncriteria/crypto-catalog[commoncriteria/crypto-catalog] and https://www.commoncriteriaportal.org/files/ccfiles/CCDB-018-v1.0-2025-Jan-31-Final-Specification_of_Functional_Requirements_for_Cryptography.pdf[commoncriteriaportal.org].
 * [#Crypto_Eval_Methods]#[Crypto_Eval_Methods]# Evaluation Methods for Cryptographic Security Functional Requirements, companion evaluation-methods document identified by CCDB-018. CCDB-018 states that this document will specify the Catalogue Evaluation Activities; use the version recognized by the responsible Certification Body when available.
 * [#TLS_FP]#[TLS_FP]# Functional Package for Transport Layer Security (TLS), Version 2.1, 2025-08-25. Available at https://commoncriteria.github.io/tls/release-2.1/tls-release.html[commoncriteria.github.io/tls].
@@ -309,7 +309,7 @@ This PP-Module requires *Exact Conformance* from Security Targets claiming confo
 
 ==== Definition of Exact Conformance
 
-Exact Conformance is a subset of Strict Conformance as defined by CC:2022. A Security Target demonstrating Exact Conformance to this PP-Module must satisfy the following requirements:
+Exact Conformance is defined in CC:2022 Part 1 [<<CC1>>]. A Security Target demonstrating Exact Conformance to this PP-Module must satisfy the following requirements:
 
 . *Mandatory SFRs*: The ST shall include all SFRs specified in <<Security Functional Requirements (Mandatory)>> of this PP-Module. The ST shall additionally include the Catalogue-derived components identified as Mandatory in the SFR List: `FCS_CKM.6`, and at least one of `FCS_COP.1/SKC` or `FCS_COP.1/AEAD` (as selected in `FDP_DAR_EXT.1.2`).
 
@@ -376,8 +376,6 @@ The organization shall require that the TOE implements cryptographic algorithms 
 * Cryptographic algorithm selections shall comply with the requirements of the Common Criteria Cryptographic Catalogue [<<Crypto_Catalog>>];
 * Key lengths and modes of operation shall meet the minimum requirements specified for the applicable assurance level;
 * Deprecated or weak algorithms shall not be used for protecting sensitive data.
-+
-The TOE must provide mechanisms to configure algorithm selections in accordance with organizational policy.
 
 P.KEY_LIFECYCLE::
 The organization shall define and enforce a cryptographic key lifecycle policy that specifies:
@@ -557,7 +555,7 @@ The following conventions are used for SFR operations and module-specific refine
 
 * *Assignment:* Assignments are shown in square brackets using the CC operation designator, for example [assignment: _assignment value_].
 
-* *Iteration:* A number or label in parentheses or after a slash following the SFR name indicates an iteration, for example FCS_CKM.1(1) or FMT_SMF.1/Cloud.
+* *Iteration:* A number or label in parentheses or after a slash following the SFR name indicates an iteration, for example FCS_CKM.1(1) or FCS_COP.1/SKC.
 
 Extended SFRs are identified by having the label "EXT" in the SFR name.
 
@@ -666,7 +664,7 @@ The Catalogue-derived selection-based cryptographic requirements are reproduced 
 
 * *Confidentiality*: Protection against disclosure.
 * *Integrity*: Protection against modification.
-* *Authentication*: Mutual Authentication - The TOE shall authenticate the external entity, and the external entity shall authenticate the TOE (e.g., using certificates).
+* *Authentication*: Mutual Authentication - The TOE shall authenticate the external entity, and the external entity shall authenticate the TOE.
 
 *FDP_ITC_EXT.1.3* The trusted channel shall be implemented using mutual TLS claimed from the Functional Package for TLS v2.1 [<<TLS_FP>>].
 
@@ -828,7 +826,7 @@ Dependencies: [`FCS_CKM.2`, `FCS_CKM.5`, `FCS_CKM_EXT.7`, or `FCS_COP.1`]; `FCS_
 |NIST SP 800-133 Revision 2, Section 6.1
 |===
 
-*Application Note:* Include this component when the TOE creates symmetric keys directly from the output of an RBG without further conditioning. Use `FCS_CKM.5` for keys derived from other keying material, `FCS_CKM_EXT.8` for keys derived from passwords, and `FCS_CKM_EXT.7` for keys derived from material contributed by multiple parties.
+*Application Note:* Include this component when the TOE creates symmetric keys directly from the output of an RBG without further conditioning. Use `FCS_CKM.5` for keys derived from other keying material and `FCS_CKM_EXT.8` for keys derived from passwords; both are consumed in this PP-Module. `FCS_CKM_EXT.7` (keys derived from material contributed by multiple parties) is not consumed in this PP-Module — multi-party key derivation is outside its scope, and references to it in reproduced Catalogue dependency lists are retained only as Catalogue context.
 
 [#FCS_CKM_5]
 ==== FCS_CKM.5 Cryptographic Key Derivation
@@ -1583,7 +1581,7 @@ Dependencies: `FCS_TLSC_EXT.1` and/or `FCS_TLSS_EXT.1` from the Functional Packa
 
 * *Confidentiality*: Protection against disclosure.
 * *Integrity*: Protection against modification.
-* *Authentication*: Mutual Authentication - The TOE shall authenticate the external entity, and the external entity shall authenticate the TOE (e.g., using certificates).
+* *Authentication*: Mutual Authentication - The TOE shall authenticate the external entity, and the external entity shall authenticate the TOE.
 
 *FDP_ITC_EXT.1.3* The trusted channel shall be implemented using mutual TLS claimed from the Functional Package for TLS v2.1 [<<TLS_FP>>].
 
@@ -1771,7 +1769,7 @@ Optional:: The requirement may be included in the ST at the ST author's discreti
 
 |FCS_CKM.6
 |A component that creates, imports, accesses, derives, or agrees the keys being destroyed
-|Resolved by `FCS_CKM_EXT.1`, `FCS_CKM.1/SKG`, `FCS_CKM.5`, or `FCS_CKM_EXT.8`, as applicable.
+|Resolved by `FCS_CKM_EXT.1`, `FCS_CKM.1/SKG`, `FCS_CKM.5`, or `FCS_CKM_EXT.8`, as applicable. For imported or externally managed Master Keys, `FCS_CKM_EXT.1` together with `FDP_ITC_EXT.1` provides the key-sourcing function that the Catalogue's `FDP_ITC.1`/`FDP_ITC.2` alternatives would otherwise provide; this substitution is justified because those components are the DBMS-specific instantiations of the same dependency purpose.
 
 |FCS_COP.1/AEAD, FCS_COP.1/CMAC, FCS_COP.1/KeyedHash, FCS_COP.1/KeyWrap, FCS_COP.1/SKC
 |Applicable key generation, derivation, import, or agreement component; `FCS_CKM.6`; `FCS_OTV_EXT.1` where specified

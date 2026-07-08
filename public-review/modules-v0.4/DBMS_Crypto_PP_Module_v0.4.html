@@ -828,7 +828,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Corrected the Enterprise Enhanced FCS_CKM.5 row against the Catalogue source: the SP 800-108 rows (KDF-CTR, KDF-FB, KDF-DPI) and the KDF-MAC-2S MAC step offer only AES-CMAC and HMAC-SHA-1/-256/-512 as PRFs, so the row now requires AES-256-CMAC or HMAC-SHA-512 for those rows and reaches SHA-384/SHA-512 only through the KDF-HASH and KDF-MAC-1S rows (the previous row text required HMAC-SHA-384 completions the Catalogue does not offer). Added a DBMS-iTC Application Note interpreting the reproduced FCS_RBG.1 dependency list: the seeding dependency is satisfied by FCS_RBG.2, FCS_RBG.3, or FCS_RBG.4 per the seeding architecture, and the primitive dependency applies per the selected DRBG type; the Catalogue text itself is unchanged.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Corrected the Enterprise Enhanced FCS_CKM.5 row against the Catalogue source: the SP 800-108 rows (KDF-CTR, KDF-FB, KDF-DPI) and the KDF-MAC-2S MAC step offer only AES-CMAC and HMAC-SHA-1/-256/-512 as PRFs, so the row now requires AES-256-CMAC or HMAC-SHA-512 for those rows and reaches SHA-384/SHA-512 only through the KDF-HASH and KDF-MAC-1S rows (the previous row text required HMAC-SHA-384 completions the Catalogue does not offer). Added a DBMS-iTC Application Note interpreting the reproduced FCS_RBG.1 dependency list: the seeding dependency is satisfied by FCS_RBG.2, FCS_RBG.3, or FCS_RBG.4 per the seeding architecture, and the primitive dependency applies per the selected DRBG type; the Catalogue text itself is unchanged. Editorial sweep: Exact Conformance cites CC:2022 Part 1 directly; Conventions iteration example corrected to a component of this module; deleted the P.CRYPTOGRAPHIC_STANDARDS configurability sentence that mapped to no management SFR; FCS_CKM_EXT.7 explicitly identified as not consumed; FCS_CKM.6 key-source dependency substitution justified in the dependency summary; FDP_ITC_EXT.1.2 certificate example moved out of element text; SD bibliography reference pinned to Version 0.4.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
@@ -919,7 +919,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><span id="CEM">[CEM]</span> Common Methodology for Information Technology Security Evaluation, Evaluation methodology, CCMB-2022-11-006, CEM:2022 Revision 1, November 2022.</p>
 </li>
 <li>
-<p><span id="SD">[SD]</span> Supporting Document - Evaluation Activities for DBMS Cryptographic Functions Module.</p>
+<p><span id="SD">[SD]</span> Supporting Document - Evaluation Activities for DBMS Cryptographic Functions Module, Version 0.4.</p>
 </li>
 <li>
 <p><span id="Crypto_Catalog">[Crypto_Catalog]</span> Specification of Functional Requirements for Cryptography (CCDB-018), Version 1.0, January 2025. Available at <a href="https://github.com/commoncriteria/crypto-catalog">commoncriteria/crypto-catalog</a> and <a href="https://www.commoncriteriaportal.org/files/ccfiles/CCDB-018-v1.0-2025-Jan-31-Final-Specification_of_Functional_Requirements_for_Cryptography.pdf">commoncriteriaportal.org</a>.</p>
@@ -1174,7 +1174,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3">
 <h4 id="_definition_of_exact_conformance">5.3.1. Definition of Exact Conformance</h4>
 <div class="paragraph">
-<p>Exact Conformance is a subset of Strict Conformance as defined by CC:2022. A Security Target demonstrating Exact Conformance to this PP-Module must satisfy the following requirements:</p>
+<p>Exact Conformance is defined in CC:2022 Part 1 [<a href="#CC1">[CC1]</a>]. A Security Target demonstrating Exact Conformance to this PP-Module must satisfy the following requirements:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1309,9 +1309,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p>Deprecated or weak algorithms shall not be used for protecting sensitive data.</p>
-<div class="paragraph">
-<p>The TOE must provide mechanisms to configure algorithm selections in accordance with organizational policy.</p>
-</div>
 </li>
 </ul>
 </div>
@@ -1631,7 +1628,7 @@ The following conventions are used for SFR operations and module-specific refine
 <p><strong>Assignment:</strong> Assignments are shown in square brackets using the CC operation designator, for example [assignment: <em>assignment value</em>].</p>
 </li>
 <li>
-<p><strong>Iteration:</strong> A number or label in parentheses or after a slash following the SFR name indicates an iteration, for example FCS_CKM.1(1) or FMT_SMF.1/Cloud.</p>
+<p><strong>Iteration:</strong> A number or label in parentheses or after a slash following the SFR name indicates an iteration, for example FCS_CKM.1(1) or FCS_COP.1/SKC.</p>
 </li>
 </ul>
 </div>
@@ -1827,7 +1824,7 @@ The following conventions are used for SFR operations and module-specific refine
 <p><strong>Integrity</strong>: Protection against modification.</p>
 </li>
 <li>
-<p><strong>Authentication</strong>: Mutual Authentication - The TOE shall authenticate the external entity, and the external entity shall authenticate the TOE (e.g., using certificates).</p>
+<p><strong>Authentication</strong>: Mutual Authentication - The TOE shall authenticate the external entity, and the external entity shall authenticate the TOE.</p>
 </li>
 </ul>
 </div>
@@ -2103,7 +2100,7 @@ The following conventions are used for SFR operations and module-specific refine
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Application Note:</strong> Include this component when the TOE creates symmetric keys directly from the output of an RBG without further conditioning. Use <code>FCS_CKM.5</code> for keys derived from other keying material, <code>FCS_CKM_EXT.8</code> for keys derived from passwords, and <code>FCS_CKM_EXT.7</code> for keys derived from material contributed by multiple parties.</p>
+<p><strong>Application Note:</strong> Include this component when the TOE creates symmetric keys directly from the output of an RBG without further conditioning. Use <code>FCS_CKM.5</code> for keys derived from other keying material and <code>FCS_CKM_EXT.8</code> for keys derived from passwords; both are consumed in this PP-Module. <code>FCS_CKM_EXT.7</code> (keys derived from material contributed by multiple parties) is not consumed in this PP-Module — multi-party key derivation is outside its scope, and references to it in reproduced Catalogue dependency lists are retained only as Catalogue context.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3536,7 +3533,7 @@ d) Detailed: Certificate validation results during channel establishment.</p>
 <p><strong>Integrity</strong>: Protection against modification.</p>
 </li>
 <li>
-<p><strong>Authentication</strong>: Mutual Authentication - The TOE shall authenticate the external entity, and the external entity shall authenticate the TOE (e.g., using certificates).</p>
+<p><strong>Authentication</strong>: Mutual Authentication - The TOE shall authenticate the external entity, and the external entity shall authenticate the TOE.</p>
 </li>
 </ul>
 </div>
@@ -3820,7 +3817,7 @@ c) Detailed: Certificate validation results during channel establishment.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM.6</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">A component that creates, imports, accesses, derives, or agrees the keys being destroyed</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Resolved by <code>FCS_CKM_EXT.1</code>, <code>FCS_CKM.1/SKG</code>, <code>FCS_CKM.5</code>, or <code>FCS_CKM_EXT.8</code>, as applicable.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Resolved by <code>FCS_CKM_EXT.1</code>, <code>FCS_CKM.1/SKG</code>, <code>FCS_CKM.5</code>, or <code>FCS_CKM_EXT.8</code>, as applicable. For imported or externally managed Master Keys, <code>FCS_CKM_EXT.1</code> together with <code>FDP_ITC_EXT.1</code> provides the key-sourcing function that the Catalogue&#8217;s <code>FDP_ITC.1</code>/<code>FDP_ITC.2</code> alternatives would otherwise provide; this substitution is justified because those components are the DBMS-specific instantiations of the same dependency purpose.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_COP.1/AEAD, FCS_COP.1/CMAC, FCS_COP.1/KeyedHash, FCS_COP.1/KeyWrap, FCS_COP.1/SKC</p></td>
@@ -4205,7 +4202,7 @@ protocol-specific components (when another protocol selected)</p></td>
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2026-07-08 15:41:47 -0500
+Last updated 2026-07-08 17:06:03 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

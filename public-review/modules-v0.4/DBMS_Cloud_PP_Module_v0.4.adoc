@@ -96,6 +96,30 @@ JISEC - Japan IT Security Evaluation and Certification Scheme
 |2026-07-08
 |Added FPT_FLS.1 (CC Part 2) as a mandatory SFR of this module, replacing the incorrect attribution "FPT_FLS.1 (inherited from Base PP)" in the O.INTERNAL_RESOURCE_RESILIENCE mappings — the Base PP does not define FPT_FLS.1. The failure-type assignment is deliberately left to the ST author; the application note gives illustrative cloud failure types only, as failure modes and secure-state semantics differ across implementations. Also aligned Package Conformance with the Crypto Module's Functional Package requirements (TLS FP v2.1, X.509 FP v1.0) instead of disclaiming package claims, and added the TLS FP, X.509 FP, and CCDB-018 bibliography entries this module's text cites.
 
+|0.4
+|2026-07-08
+|Security Rationale hygiene and relocation-residual cleanup: threat mappings now cite objectives rather than SFRs (T.NETWORK_INTERCEPTION to the Crypto Module's O.PROTECTED_TRANSIT; T.SECRETS_EXPOSURE to its O.MASTER_KEY_MANAGEMENT). Dependency tables no longer analyze the inherited FDP_DIT_EXT.1's dependencies (performed in the Crypto Module, whose TLS Functional Package claim is mandatory rather than selectable). TOE Use Case reworded from selection-era framing to mandatory protections, with scheme language generalized. Preface bullet corrected: this module identifies protected cloud channels and defines no cryptographic SFRs of its own.
+
+|0.4
+|2026-07-08
+|Made the channel bindings for the inherited FDP_DIT_EXT.1 normative on this module's own SFRs, following the consumer-side trusted-channel convention (cf. FAU_STG_EXT.1.2): new elements FIA_UID_EXT.1.4 (external identity provider channel) and FMT_MTD_EXT.1.3 (cloud configuration and secret management channels), mirrored in the extended component definitions. Relocated the inherited-FDP_DIT_EXT.1 description from the Security Functional Requirements (Mandatory) chapter to a new "Inherited Requirement from the DBMS Crypto Module" section, so the mandatory chapter contains exactly the SFRs this module specifies; SFR List type for the inherited requirement now reads "Inherited" rather than the undefined "Mandatory dependency".
+
+|0.4
+|2026-07-08
+|FMT_MOF.1 application note corrected: the cloud audit authority is a read-only role and shall not be assigned management authority (previously listed among suggested authorized management roles, contradicting its FMT_SMR.1/Cloud definition).
+
+|0.4
+|2026-07-08
+|FPT_TUD_EXT.1.3 and FPT_SBT_EXT.1.2 authenticity operations converted from open assignments to closed selections: digital signature verification (FCS_COP.1/SigVer via the DBMS Crypto Module) or hash verification against a reference value obtained via a channel protected by FDP_DIT_EXT.1 or held in modification-protected storage; the unbounded "other mechanisms" options are removed and the ECDs mirrored. FPT_SBT_EXT.1.3 application note now requires ST justification and a TSS-described recovery path when "alert administrators" is selected without "prevent boot/startup", accommodating orchestrated-recovery deployments.
+
+|0.4
+|2026-07-08
+|Split FMT_MTD_EXT.1: its first element duplicated CC Part 2 FMT_MTD.1 and is now claimed as the iteration FMT_MTD.1/Cloud (Base PP's FMT_MTD.1 unchanged); FMT_MTD_EXT.1 retains the cloud-specific behavior, renumbered — element 1 (protection of TSF data exchanged with cloud secret management systems, now explicitly against unauthorized disclosure and modification) and element 2 (the FDP_DIT_EXT.1 channel binding, formerly element 3). Dependencies declared consistently (iteration: FMT_SMF.1 and FMT_SMR.1; extension: FMT_SMF.1); FAU_SEL.1/Cloud's FMT_MTD.1 dependency now resolves to the Base PP's FMT_MTD.1 directly; rationale, dependency, SFR List, and ECD references updated.
+
+|0.4
+|2026-07-08
+|Editorial sweep: FAU_SEL.1.1/Cloud and FPT_ITT.1.1 restored to CC:2022 Part 2 element text (unmarked deviations removed); iteration element numbering normalized (FMT_SMF.1.1/Cloud, FMT_SMR.1.1/Cloud, FMT_SMR.1.2/Cloud); Exact Conformance cites CC:2022 Part 1 directly and rule 2's selection-based inclusion is bidirectional (shall include when implemented); examples moved from assignment placeholders to application notes (FAU_STG_EXT.1.1, FMT_MTD_EXT.1.1, FPT_SBT_EXT.1.1); added OE.AUTHORIZED_ADMINISTRATORS so A.AUTHORIZED_ADMINISTRATORS is upheld by operational environment objectives only; reconciled the T.SECRETS_EXPOSURE mapping across the rationale copies; A.TIME_SYNCHRONIZATION stated normatively once; unused DEK/KEK glossary and acronym entries removed; SD bibliography reference pinned to Version 0.4; ECD appendix introduction corrected.
+
 |===
 
 toc::[]
@@ -121,7 +145,7 @@ This Cloud Module introduces SFRs to support:
 * Secure consumption of cloud-based secrets and configuration data
 * Export of audit logs to cloud-native observability and logging platforms
 * Monitoring of trusted update status and claimed TOE integrity checks, with alerting on failure or misconfiguration
-* Use of cryptographic mechanisms for data-in-transit and data-at-rest protection, as defined in the DBMS Crypto Module
+* Identification of the cloud deployment channels protected by the mandatory DBMS Crypto Module's data-in-transit requirement (this module defines no cryptographic SFRs of its own)
 
 This PP-Module does not stand alone. It must be claimed in conjunction with:
 
@@ -151,7 +175,7 @@ Although the PP-Module and SD may contain minor editorial errors, the PP-Module 
 * [#CC5]#[CC5]# Common Criteria for Information Technology Security Evaluation, Part 5: Pre-defined packages of security requirements, CCMB-2022-11-005, CC:2022 Revision 1, November 2022.
 * [#CCE]#[CCE]# Common Criteria for Information Technology Security Evaluation, Errata and interpretation for CC:2022 (Release 1) and CEM:2022 (Release 1), CCMB-002, Version 1.1, July 22, 2024.
 * [#CEM]#[CEM]# Common Methodology for Information Technology Security Evaluation, Evaluation methodology, CCMB-2022-11-006, CEM:2022 Revision 1, November 2022.
-* [#SD]#[SD]# Supporting Document - Evaluation Activities for DBMS in the Cloud Module.
+* [#SD]#[SD]# Supporting Document - Evaluation Activities for DBMS in the Cloud Module, Version 0.4.
 * [#cPP_DBMS]#[cPP_DBMS]# collaborative Protection Profile for Database Management Systems, Version 2.0, 27 April 2026.
 * [#cPP_DBMS_SD]#[cPP_DBMS_SD]# Supporting Document Mandatory Technical Document Evaluation Activities for the collaborative Protection Profile for Database Management Systems, Version 2.0, 27 April 2026.
 * [#DBMS_MOD_CRYPTO]#[DBMS_MOD_CRYPTO]# collaborative PP-Module for DBMS Cryptographic Functions, Version 0.4.
@@ -330,7 +354,7 @@ The TOE provides the following major security features:
 
 == TOE Use Case
 
-This section describes representative deployment scenarios for the TOE, illustrating the practical necessity of selecting cryptographic protections defined in the DBMS Crypto Module. This scenario is provided to explicitly justify the enforcement of Data-in-Transit (DIT) and Data-at-Rest Encryption (D@RE) selections through the PP-Configuration, facilitating NIAP approval for inclusion on the Product Compliant List (PCL).
+This section describes representative deployment scenarios for the TOE, illustrating the practical necessity of the mandatory cryptographic protections provided through the DBMS Crypto Module. The scenarios justify the enforcement of Data-in-Transit (DIT) and Data-at-Rest Encryption (D@RE) as mandatory requirements of the PP-Configuration, supporting certification under national schemes, including NIAP Product Compliant List (PCL) listing where applicable.
 
 === Cloud Deployment Scenario (Public Cloud IaaS)
 
@@ -344,13 +368,13 @@ In this scenario, the following cryptographic protections are essential:
 
 * **Data-in-Transit Protection (DIT):**
   Administrative interfaces and API endpoints are exposed externally for remote management and access. Without cryptographic protections, administrative credentials, queries, and results transmitted across the network are vulnerable to interception or manipulation.
-  **Required selection:** TLS, including HTTPS over TLS where applicable, as specified in `FDP_DIT_EXT.1` and the applicable TLS and X.509 Functional Packages.
+  **Required protection:** TLS, including HTTPS over TLS where applicable, as required by the inherited `FDP_DIT_EXT.1` and the applicable TLS and X.509 Functional Packages.
 
 * **Data-at-Rest Encryption (D@RE):**
   Sensitive or regulated data (e.g., customer PII, financial data, or intellectual property) is stored persistently within cloud-managed storage volumes. Without encryption, data confidentiality is at risk if underlying storage is compromised or accessed by unauthorized parties.
-  **Required selection:** Encryption of persistent data storage as specified in `FDP_DAR_EXT.1` and defined in the DBMS Crypto Module.
+  **Required protection:** Encryption of persistent data storage as required by `FDP_DAR_EXT.1`, defined in the DBMS Crypto Module.
 
-This use case explicitly justifies the necessity of selecting and implementing cryptographic requirements defined in the DBMS Crypto Module. Thus, any TOE claiming conformance to this PP-Module under these deployment conditions must explicitly select these cryptographic protections within its PP-Configuration.
+This use case illustrates the practical necessity of the cryptographic requirements defined in the DBMS Crypto Module. A TOE claiming conformance to this PP-Module receives these protections as mandatory requirements of its PP-Configuration.
 
 === Cloud-Native Deployment Scenario (Tenant-Operated Containers/PaaS)
 
@@ -388,11 +412,11 @@ This PP-Module requires **Exact Conformance** from Security Targets claiming con
 
 ==== Definition of Exact Conformance
 
-Exact Conformance is a subset of Strict Conformance as defined by CC:2022. A Security Target demonstrating Exact Conformance to this PP-Module must satisfy the following requirements:
+Exact Conformance is defined in CC:2022 Part 1 [<<CC1>>]. A Security Target demonstrating Exact Conformance to this PP-Module must satisfy the following requirements:
 
 . **Mandatory SFRs**: The ST shall include all SFRs specified in <<Security Functional Requirements (Mandatory)>> of this PP-Module.
 
-. **Selection-Based SFRs**: The ST may include SFRs from <<Selection-Based Requirements>> when selections in mandatory SFRs trigger their inclusion, or when the TOE implements the corresponding functionality.
+. **Selection-Based SFRs**: The ST shall include SFRs from <<Selection-Based Requirements>> when selections in mandatory SFRs trigger their inclusion, and shall include a selection-based SFR when the TOE implements the corresponding functionality.
 
 . **Optional SFRs**: This PP-Module defines no optional SFRs; therefore, there are no optional SFRs from this PP-Module to include in the ST.
 
@@ -544,6 +568,9 @@ The TOE shall protect security-critical configuration from unauthorized or impro
 
 === Security Objectives for the Operational Environment
 
+OE.AUTHORIZED_ADMINISTRATORS::
+The organization deploying the TOE shall ensure that personnel with administrative access are appropriately vetted, trained in the secure operation of the TOE and its cloud deployment environment, and bound by organizational policies defining acceptable use. This objective upholds A.AUTHORIZED_ADMINISTRATORS through organizational personnel controls in the operational environment.
+
 OE.TRUSTED_PLATFORM::
 The platform on which the TOE is deployed (including the hypervisor, control plane, and IAM services) shall enforce tenant isolation, protect compute and storage resources, and provide trusted identity and configuration assertions. The Trusted Platform is responsible for availability of underlying resources and correct operation of infrastructure services.
 
@@ -616,15 +643,15 @@ The following table maps each threat to the security objectives that address it.
 | T.SECRETS_EXPOSURE
 | O.CONFIGURATION_PROTECTION +
   OE.SECRETS_MANAGEMENT +
-  O.CLOUD_DEPLOYMENT_INTEGRITY +
-  *DBMS Crypto Module: FCS_CKM_EXT.1*
-| The TOE protects security-critical configuration including credential handling (O.CONFIGURATION_PROTECTION). The OE ensures external secret stores are authentic and protected (OE.SECRETS_MANAGEMENT). The mandatory DBMS Crypto Module manages Master Key lifecycle through FCS_CKM_EXT.1, with FDP_ITC_EXT.1 protecting import when external key origin is selected.
+  OE.TRUSTED_PLATFORM +
+  O.MASTER_KEY_MANAGEMENT (DBMS Crypto Module)
+| The TOE protects security-critical configuration including credential handling (O.CONFIGURATION_PROTECTION). The OE ensures external secret stores are authentic and protected (OE.SECRETS_MANAGEMENT) and the platform protects the underlying storage resources (OE.TRUSTED_PLATFORM). The mandatory DBMS Crypto Module's O.MASTER_KEY_MANAGEMENT covers the Master Key lifecycle (satisfied there by FCS_CKM_EXT.1, with FDP_ITC_EXT.1 protecting the channel when an external Key Origin is selected).
 
 | T.NETWORK_INTERCEPTION
 | O.INTERNAL_RESOURCE_RESILIENCE +
   OE.TRUSTED_PLATFORM +
-  FDP_DIT_EXT.1
-| The TOE protects internal communications from disclosure and modification (O.INTERNAL_RESOURCE_RESILIENCE). The platform provides network isolation (OE.TRUSTED_PLATFORM). External network protection (e.g., Client-to-DB, DB-to-KMS) is addressed by FDP_DIT_EXT.1 using cryptographic mechanisms claimed through the mandatory DBMS Crypto Module.
+  O.PROTECTED_TRANSIT (DBMS Crypto Module)
+| The TOE protects internal communications from disclosure and modification (O.INTERNAL_RESOURCE_RESILIENCE). The platform provides network isolation (OE.TRUSTED_PLATFORM). External network protection (e.g., Client-to-DB, DB-to-KMS) is covered by the mandatory DBMS Crypto Module's O.PROTECTED_TRANSIT, satisfied there by FDP_DIT_EXT.1; this module identifies the cloud deployment channels to which it applies.
 
 |===
 
@@ -653,9 +680,9 @@ The following table maps each assumption to the operational environment objectiv
 | The assumption that cloud services operate correctly is upheld by: OE.IDENTITY_PROVIDERS (correct identity assertions), OE.LOGGING_SERVICES (reliable audit services), and OE.SECRETS_MANAGEMENT (authentic secrets protected from disclosure).
 
 | A.AUTHORIZED_ADMINISTRATORS
-| OE.IDENTITY_PROVIDERS +
-  O.CLOUD_AUDIT_INTEGRATION
-| Personnel vetting and training are organizational prerequisites. OE.IDENTITY_PROVIDERS supports correct administrative identity assertions, and O.CLOUD_AUDIT_INTEGRATION provides accountability for administrative actions.
+| OE.AUTHORIZED_ADMINISTRATORS +
+  OE.IDENTITY_PROVIDERS
+| OE.AUTHORIZED_ADMINISTRATORS upholds the personnel aspects of the assumption (vetting, training, and policy adherence). OE.IDENTITY_PROVIDERS supports correct administrative identity assertions. The TOE additionally provides accountability for administrative actions through O.CLOUD_AUDIT_INTEGRATION, which supports, but does not uphold, the assumption.
 
 | A.TIME_SYNCHRONIZATION
 | OE.TRUSTED_PLATFORM
@@ -732,10 +759,11 @@ The following table maps each TOE security objective to the SFRs that satisfy it
 
 | O.CONFIGURATION_PROTECTION
 | FMT_MOF.1 +
+  FMT_MTD.1/Cloud +
   FMT_MTD_EXT.1 +
   FMT_SMR.1/Cloud +
   FMT_SMF.1/Cloud
-| FMT_MOF.1 restricts management of security functions. FMT_MTD_EXT.1 protects cloud-stored configuration and secrets handled by the TOE. FMT_SMR.1/Cloud and FMT_SMF.1/Cloud define the roles and management functions used to enforce those restrictions. Master Key lifecycle management is handled separately by the mandatory DBMS Crypto Module.
+| FMT_MOF.1 restricts management of security functions. FMT_MTD.1/Cloud restricts operations on cloud-specific TSF data to authorized roles, and FMT_MTD_EXT.1 protects cloud-stored configuration and secrets handled by the TOE. FMT_SMR.1/Cloud and FMT_SMF.1/Cloud define the roles and management functions used to enforce those restrictions. Master Key lifecycle management is handled separately by the mandatory DBMS Crypto Module.
 
 |===
 
@@ -761,6 +789,10 @@ The following table summarizes when each OE objective applies based on mandatory
 | Cloud-native secret management integration
 | FMT_MTD_EXT.1 (Cloud Configuration State Protection) - when assignment includes cloud secret management systems
 
+| OE.AUTHORIZED_ADMINISTRATORS
+| Always applicable; organizational personnel controls upholding A.AUTHORIZED_ADMINISTRATORS
+| None (assumption support; accountability is provided by the FAU SFRs)
+
 |===
 
 === Consistency Summary
@@ -774,8 +806,8 @@ All threats defined in the Security Problem Definition are addressed by at least
 * T.UNAUTHORIZED_ACCESS: Addressed by O.CLOUD_IDENTITY_INTEGRATION, OE.TRUSTED_PLATFORM, OE.IDENTITY_PROVIDERS
 * T.INTEGRITY_FAILURE: Addressed by O.CLOUD_DEPLOYMENT_INTEGRITY for trusted updates and claimed TOE-side integrity checks, OE.SECURE_ORCHESTRATION for approved artifacts before TOE execution, and OE.TRUSTED_PLATFORM for protected resources
 * T.AUDIT_FAILURE: Addressed by O.CLOUD_AUDIT_INTEGRATION, OE.LOGGING_SERVICES
-* T.SECRETS_EXPOSURE: Addressed by O.CONFIGURATION_PROTECTION, OE.SECRETS_MANAGEMENT, OE.TRUSTED_PLATFORM, and the mandatory DBMS Crypto Module for Master Key lifecycle management
-* T.NETWORK_INTERCEPTION: Addressed by O.INTERNAL_RESOURCE_RESILIENCE, OE.TRUSTED_PLATFORM, and FDP_DIT_EXT.1
+* T.SECRETS_EXPOSURE: Addressed by O.CONFIGURATION_PROTECTION, OE.SECRETS_MANAGEMENT, OE.TRUSTED_PLATFORM, and the DBMS Crypto Module's O.MASTER_KEY_MANAGEMENT
+* T.NETWORK_INTERCEPTION: Addressed by O.INTERNAL_RESOURCE_RESILIENCE, OE.TRUSTED_PLATFORM, and the DBMS Crypto Module's O.PROTECTED_TRANSIT
 
 ==== Assumption Coverage
 
@@ -784,7 +816,7 @@ All assumptions are upheld by operational environment objectives:
 * A.TRUSTED_PLATFORM: Upheld by OE.TRUSTED_PLATFORM
 * A.SECURE_DEPLOYMENT: Upheld by OE.SECURE_ORCHESTRATION
 * A.CLOUD_SERVICE_INTEGRITY: Upheld by OE.IDENTITY_PROVIDERS, OE.LOGGING_SERVICES, OE.SECRETS_MANAGEMENT
-* A.AUTHORIZED_ADMINISTRATORS: Upheld by OE.IDENTITY_PROVIDERS and O.CLOUD_AUDIT_INTEGRATION
+* A.AUTHORIZED_ADMINISTRATORS: Upheld by OE.AUTHORIZED_ADMINISTRATORS and OE.IDENTITY_PROVIDERS
 * A.TIME_SYNCHRONIZATION: Upheld by OE.TRUSTED_PLATFORM
 
 ==== Objective Coverage
@@ -795,7 +827,7 @@ All TOE security objectives are satisfied by SFRs:
 * O.CLOUD_AUDIT_INTEGRATION: FAU_GEN.1/Cloud, FAU_SEL.1/Cloud, FAU_STG.2/Cloud, FAU_STG_EXT.1, FMT_SMF.1/Cloud, FDP_DIT_EXT.1
 * O.INTERNAL_RESOURCE_RESILIENCE: FPT_ARS_EXT.1, FPT_ITT.1, FPT_FLS.1, FPT_TST.1
 * O.CLOUD_DEPLOYMENT_INTEGRITY: FPT_TUD_EXT.1, FPT_TST.1 when selected, FPT_SBT_EXT.1 when selected
-* O.CONFIGURATION_PROTECTION: FMT_MOF.1, FMT_MTD_EXT.1, FMT_SMR.1/Cloud, FMT_SMF.1/Cloud
+* O.CONFIGURATION_PROTECTION: FMT_MOF.1, FMT_MTD.1/Cloud, FMT_MTD_EXT.1, FMT_SMR.1/Cloud, FMT_SMF.1/Cloud
 
 Operational environment objectives are either mandatory for this PP-Module or have clear applicability conditions linked to specific ST selections.
 
@@ -822,6 +854,14 @@ The following conventions are used for SFR operations and module-specific refine
 * *Iteration:* A number or label in parentheses or after a slash following the SFR name indicates an iteration, for example FCS_CKM.1(1) or FMT_SMF.1/Cloud.
 
 Extended SFRs are identified by having the label "EXT" in the SFR name.
+
+== Inherited Requirement from the DBMS Crypto Module
+
+=== FDP_DIT_EXT.1 Data-in-Transit Protection (inherited)
+
+Data-in-Transit Protection (`FDP_DIT_EXT.1`) is a mandatory requirement defined in the DBMS Cryptographic Functions Module [<<DBMS_MOD_CRYPTO>>], which is mandatory for every PP-Configuration claiming this Cloud Module. This Cloud Module does not define or redefine `FDP_DIT_EXT.1`; it relies on the requirement inherited from the Crypto Module and identifies the cloud deployment channels to which it applies. This section is descriptive: the inherited requirement is claimed through the Crypto Module, and it is not part of the SFRs specified by this module in <<Security Functional Requirements (Mandatory)>>.
+
+*Application Note:* In a cloud deployment, the inherited `FDP_DIT_EXT.1` applies to management APIs, admin consoles, cloud IAM integrations, audit export channels, remote DBMS connections exposed to untrusted networks, and other external service channels identified by the ST. TLS, including HTTPS over TLS where applicable, is the required baseline for those cloud deployment channels. The channel bindings for this module's own SFRs are normative: see FAU_STG_EXT.1.2 (audit export), FIA_UID_EXT.1.4 (external identity providers), and FMT_MTD_EXT.1.2 (cloud configuration and secret management systems). The ST author includes the corresponding TLS and X.509 components from the Functional Package for TLS and Functional Package for X.509 Certificates. CCDB-018 supplies cryptographic primitives and does not supply TLS or certificate-validation components. HTTPS is treated as HTTP over the claimed TLS channel and does not require a separate HTTPS cryptographic component.
 
 == Security Functional Requirements (Mandatory)
 
@@ -860,7 +900,7 @@ b) For each audit event type, based on the auditable event definitions of the fu
 
 ==== FAU_SEL.1/Cloud Security Audit Event Selection (Cloud)
 
-*FAU_SEL.1.1/Cloud* The TSF shall be able to select the set of events to be audited, by including or excluding events from the set of auditable events, based on the following attributes:
+*FAU_SEL.1.1/Cloud* The TSF shall be able to select the set of events to be audited from the set of all auditable events based on the following attributes:
 
 a) [selection: object identity, user identity, subject identity, host identity, event type];
 b) [assignment: _list of additional attributes on which audit selectivity is based_].
@@ -883,7 +923,7 @@ b) [assignment: _list of additional attributes on which audit selectivity is bas
 | Satisfied by FAU_GEN.1 in the Base PP; cloud-specific events are added by FAU_GEN.1/Cloud in this PP-Module.
 
 | FMT_MTD.1 Management of TSF data
-| Satisfied by FMT_MTD_EXT.1 in this PP-Module which provides management of TSF data in cloud contexts.
+| Satisfied by FMT_MTD.1 in the Base PP; FMT_MTD.1/Cloud in this PP-Module covers the cloud-specific audit selection data.
 |===
 
 ==== FAU_STG.2/Cloud Protected Audit Trail Storage
@@ -906,11 +946,11 @@ b) [assignment: _list of additional attributes on which audit selectivity is bas
 
 ==== FAU_STG_EXT.1 Audit Export
 
-*FAU_STG_EXT.1.1* The TSF shall support export of audit data to [assignment: _cloud-native logging or SIEM services (e.g., AWS CloudWatch, Azure Monitor, Splunk, tenant-owned SIEM solutions)_].
+*FAU_STG_EXT.1.1* The TSF shall support export of audit data to [assignment: _cloud-native logging or SIEM services_].
 
 *FAU_STG_EXT.1.2* The TSF shall export audit data using a channel protected by FDP_DIT_EXT.1.
 
-*Application Note:* This SFR is mandatory for this PP-Module. It enables organizations to implement audit retention and monitoring policies using cloud-native or external audit storage, while keeping protection of the export channel within the mandatory DBMS Crypto Module composition.
+*Application Note:* This SFR is mandatory for this PP-Module. It enables organizations to implement audit retention and monitoring policies using cloud-native or external audit storage, while keeping protection of the export channel within the mandatory DBMS Crypto Module composition. Examples of export destinations include AWS CloudWatch, Azure Monitor, Splunk, and tenant-owned SIEM solutions.
 
 ===== Dependencies
 
@@ -941,7 +981,7 @@ b) [assignment: _list of additional attributes on which audit selectivity is bas
 
 | FAU_SEL.1/Cloud
 | FAU_GEN.1, FMT_MTD.1
-| FAU_GEN.1 (Base PP) with FAU_GEN.1/Cloud (this module), FMT_MTD_EXT.1 (this module)
+| FAU_GEN.1 (Base PP) with FAU_GEN.1/Cloud (this module), FMT_MTD.1 (Base PP) with FMT_MTD.1/Cloud (this module)
 
 | FAU_STG.2/Cloud
 | FAU_GEN.1
@@ -951,14 +991,6 @@ b) [assignment: _list of additional attributes on which audit selectivity is bas
 | FAU_GEN.1, FAU_STG.2, FDP_DIT_EXT.1
 | FAU_GEN.1/Cloud and FAU_STG.2/Cloud (this module); FDP_DIT_EXT.1 (DBMS Crypto Module)
 |===
-
-=== FDP: User Data Protection
-
-==== FDP_DIT_EXT.1 Data-in-Transit Protection (provided by the mandatory DBMS Crypto Module)
-
-Data-in-Transit Protection (`FDP_DIT_EXT.1`) is a mandatory requirement defined in the DBMS Cryptographic Functions Module [<<DBMS_MOD_CRYPTO>>], which is mandatory for every PP-Configuration claiming this Cloud Module. This Cloud Module does not redefine `FDP_DIT_EXT.1`; it relies on the requirement inherited from the Crypto Module and identifies the cloud deployment channels to which it applies.
-
-*Application Note:* In a cloud deployment, the inherited `FDP_DIT_EXT.1` applies to management APIs, admin consoles, cloud IAM integrations, audit export channels, remote DBMS connections exposed to untrusted networks, and other external service channels identified by the ST. TLS, including HTTPS over TLS where applicable, is the required baseline for those cloud deployment channels. The ST author includes the corresponding TLS and X.509 components from the Functional Package for TLS and Functional Package for X.509 Certificates. CCDB-018 supplies cryptographic primitives and does not supply TLS or certificate-validation components. HTTPS is treated as HTTP over the selected TLS channel and does not require a separate HTTPS cryptographic component.
 
 === FIA: Identification and Authentication
 
@@ -970,7 +1002,9 @@ Data-in-Transit Protection (`FDP_DIT_EXT.1`) is a mandatory requirement defined 
 
 *FIA_UID_EXT.1.3* The TSF shall map externally asserted identities, roles, and attributes to TOE-defined users, subjects, or roles used by the TOE to enforce access control.
 
-*Application Note:* This requirement supplements the Base PP requirements FIA_UID.2 and FIA_UAU.2. It does not permit any TSF-mediated action before identification or authentication. Communication between the TOE and the external identity provider shall be protected by FDP_DIT_EXT.1 using cryptographic mechanisms provided by the mandatory DBMS Crypto Module.
+*FIA_UID_EXT.1.4* The TSF shall protect communication with external identity providers using a channel protected by FDP_DIT_EXT.1.
+
+*Application Note:* This requirement supplements the Base PP requirements FIA_UID.2 and FIA_UAU.2. It does not permit any TSF-mediated action before identification or authentication. FIA_UID_EXT.1.4 binds the identity-provider channel to the inherited FDP_DIT_EXT.1, whose cryptographic mechanisms are provided by the mandatory DBMS Crypto Module and the applicable Functional Packages.
 
 ===== Dependencies
 
@@ -1006,7 +1040,7 @@ Data-in-Transit Protection (`FDP_DIT_EXT.1`) is a mandatory requirement defined 
 *Application Note:* The ST author shall specify:
 
 * The functions to be managed (should include those specified in FMT_SMF.1 and FMT_SMF.1/Cloud)
-* The authorized roles permitted to manage these functions (should include tenant administrator and cloud audit authority as defined in FMT_SMR.1/Cloud)
+* The authorized roles permitted to manage these functions (should include the tenant administrator as defined in FMT_SMR.1/Cloud; the cloud audit authority is a read-only role and shall not be assigned management authority)
 
 This ensures cloud-based management functions remain under strict role-based access control.
 
@@ -1023,13 +1057,11 @@ This ensures cloud-based management functions remain under strict role-based acc
 | Satisfied by FMT_SMR.1/Cloud in this PP-Module.
 |===
 
-==== FMT_MTD_EXT.1 Cloud Configuration State Protection
+==== FMT_MTD.1/Cloud Management of TSF Data (Cloud)
 
-*FMT_MTD_EXT.1.1* The TSF shall restrict the ability to [selection: query, modify, delete, clear, [assignment: _other operations_]] the [assignment: _list of TSF data_] to [assignment: _the authorized identified roles_].
+*FMT_MTD.1.1/Cloud* The TSF shall restrict the ability to [selection: query, modify, delete, clear, [assignment: _other operations_]] the [assignment: _list of TSF data_] to [assignment: _the authorized identified roles_].
 
-*FMT_MTD_EXT.1.2* The TSF shall manage TSF data obtained from or written to cloud-native configuration and secret management systems [assignment: _list of supported cloud secret management systems (e.g., AWS Secrets Manager, Azure Key Vault, Oracle Key Vault, HashiCorp Vault, environment variables)_] and protect that TSF data while it is under TOE control.
-
-*Application Note:* The operational environment protects cloud-native secret stores outside the TOE boundary, as specified by OE.SECRETS_MANAGEMENT. This requirement covers TOE behavior when sensitive data, such as database credentials, configuration parameters, or cryptographic key material, is retrieved, used, cached, or written by the TOE. Retrieval of configuration data or secrets from cloud secret management systems shall be protected by FDP_DIT_EXT.1. If the retrieved data is a Master Key imported from an external entity, the ST author shall use the key import path defined by FCS_CKM_EXT.1 and FDP_ITC_EXT.1 in the mandatory DBMS Crypto Module.
+*Application Note:* This SFR is an iteration of CC Part 2 FMT_MTD.1, covering the cloud-specific TSF data managed by this module (for example, identity-provider mappings, audit export configuration, and cloud secret-management integration parameters). The Base PP's FMT_MTD.1 remains claimed unchanged for Base PP TSF data.
 
 ===== Dependencies
 
@@ -1044,9 +1076,27 @@ This ensures cloud-based management functions remain under strict role-based acc
 | Satisfied by FMT_SMR.1/Cloud in this PP-Module.
 |===
 
+==== FMT_MTD_EXT.1 Cloud Configuration State Protection
+
+*FMT_MTD_EXT.1.1* The TSF shall manage TSF data obtained from or written to cloud-native configuration and secret management systems [assignment: _list of supported cloud secret management systems_] and protect that TSF data from unauthorized disclosure and modification while it is under TOE control.
+
+*FMT_MTD_EXT.1.2* The TSF shall obtain TSF data from, and write TSF data to, cloud-native configuration and secret management systems using a channel protected by FDP_DIT_EXT.1.
+
+*Application Note:* The operational environment protects cloud-native secret stores outside the TOE boundary, as specified by OE.SECRETS_MANAGEMENT. This requirement covers TOE behavior when sensitive data, such as database credentials, configuration parameters, or cryptographic key material, is retrieved, used, cached, or written by the TOE; role-based restriction of operations on this data is covered by FMT_MTD.1/Cloud. Examples of supported systems include AWS Secrets Manager, Azure Key Vault, Oracle Key Vault, HashiCorp Vault, Kubernetes Secrets, and environment variables. FMT_MTD_EXT.1.2 binds the retrieval and write channels to the inherited FDP_DIT_EXT.1. If the retrieved data is a Master Key sourced from an external entity, the ST author shall use the applicable external Key Origin defined by FCS_CKM_EXT.1 and FDP_ITC_EXT.1 in the mandatory DBMS Crypto Module.
+
+===== Dependencies
+
+[cols="1,2",options="header"]
+|===
+| Dependency | Resolution
+
+| FMT_SMF.1 Specification of Management Functions
+| Satisfied by FMT_SMF.1/Cloud in this PP-Module.
+|===
+
 ==== FMT_SMF.1/Cloud Specification of Management Functions (Cloud)
 
-*FMT_SMF.1/Cloud.1* The TSF shall be capable of performing the following management functions:
+*FMT_SMF.1.1/Cloud* The TSF shall be capable of performing the following management functions:
 
 a) Configuration of audit selection criteria as specified by FAU_SEL.1/Cloud;
 b) Configuration of audit export destinations as specified by FAU_STG_EXT.1;
@@ -1070,9 +1120,9 @@ g) [assignment: _other cloud-specific management functions_].
 
 ==== FMT_SMR.1/Cloud Security Roles (Cloud)
 
-*FMT_SMR.1/Cloud.1* The TSF shall maintain the roles [assignment: _the authorized identified roles (e.g., tenant administrator, tenant user, cloud audit authority)_].
+*FMT_SMR.1.1/Cloud* The TSF shall maintain the roles [assignment: _the authorized identified roles (e.g., tenant administrator, tenant user, cloud audit authority)_].
 
-*FMT_SMR.1/Cloud.2* The TSF shall be able to associate users with roles.
+*FMT_SMR.1.2/Cloud* The TSF shall be able to associate users with roles.
 
 *Application Note:* This requirement extends base roles for cloud-specific use cases such as tenant-scoped administration. Roles should be mapped from external identity providers where applicable. The cloud audit authority role provides read-only access to audit data and security status for compliance purposes.
 
@@ -1097,9 +1147,13 @@ g) [assignment: _other cloud-specific management functions_].
 | FMT_SMF.1, FMT_SMR.1
 | FMT_SMF.1/Cloud (this module), FMT_SMR.1/Cloud (this module)
 
-| FMT_MTD_EXT.1
+| FMT_MTD.1/Cloud
 | FMT_SMF.1, FMT_SMR.1
 | FMT_SMF.1/Cloud (this module), FMT_SMR.1/Cloud (this module)
+
+| FMT_MTD_EXT.1
+| FMT_SMF.1
+| FMT_SMF.1/Cloud (this module)
 
 | FMT_SMF.1/Cloud
 | None
@@ -1114,7 +1168,7 @@ g) [assignment: _other cloud-specific management functions_].
 
 ==== FPT_ITT.1 Basic Internal TSF Data Transfer Protection
 
-*FPT_ITT.1.1* The TSF shall protect TSF data from [selection: disclosure, modification, disclosure and modification] when it is transmitted between separate parts of the TOE.
+*FPT_ITT.1.1* The TSF shall protect TSF data from [selection: _disclosure, modification_] when it is transmitted between separate parts of the TOE.
 
 *Application Note:* This requirement applies when TSF data is transmitted between separate parts of the TOE, including distributed deployments, clusters, or management/data plane separations within cloud deployments. Examples include:
 
@@ -1177,7 +1231,7 @@ When "disclosure" is selected, confidentiality protection is required. When "mod
 
 *FPT_TUD_EXT.1.2* The TSF shall provide a mechanism to apply updates using [selection: cloud-native deployment services, trusted image registries, secure boot or image verification mechanisms as defined in `FPT_SBT_EXT.1`, [assignment: _other trusted update mechanisms_]].
 
-*FPT_TUD_EXT.1.3* The TSF shall verify the authenticity and integrity of updates prior to installation using [assignment: _digital signature verification, cryptographic hash verification, other mechanisms_].
+*FPT_TUD_EXT.1.3* The TSF shall verify the authenticity and integrity of updates prior to installation using [selection: _digital signature verification using `FCS_COP.1/SigVer` as claimed in the DBMS Crypto Module_, _cryptographic hash verification against a reference value that is obtained via a channel protected by FDP_DIT_EXT.1 or held in storage protected from unauthorized modification, as identified in the TSS_].
 
 *Application Note:* Selecting "secure boot or image verification mechanisms as defined in FPT_SBT_EXT.1" explicitly triggers the requirement to claim `FPT_SBT_EXT.1`. Trusted registries or cloud-native deployment services do not, by themselves, require `FPT_SBT_EXT.1` unless the TOE performs its own startup or deployment artifact verification.
 
@@ -1233,7 +1287,7 @@ The FAU_GEN.1/Cloud requirement depends on FPT_STM.1 (Reliable time stamps) to p
 
 *Assumption Statement:*
 
-A.TIME_SYNCHRONIZATION:: The operational environment provides reliable, synchronized time services to the TOE. Time sources provided by the Trusted Platform are accurate and protected from unauthorized modification. The TOE consumes time services from the operational environment for generating timestamps in audit records.
+The normative statement of A.TIME_SYNCHRONIZATION is given once, in the Security Problem Definition. In summary, the operational environment provides reliable, synchronized time services that the TOE consumes for audit timestamps.
 
 *Application Note:* The ST author should ensure guidance documentation instructs administrators to verify that the cloud platform's time synchronization services are properly configured and that the TOE is configured to use these services.
 
@@ -1267,13 +1321,13 @@ These SFRs apply only when the TOE implements the specified functionality or whe
 
 ==== FPT_SBT_EXT.1 Secure Boot and Image Verification
 
-*FPT_SBT_EXT.1.1* The TSF shall verify the integrity of its boot-time or deployment-time components using [assignment: _verification mechanisms (e.g., digital signature verification, cryptographic hash verification)_].
+*FPT_SBT_EXT.1.1* The TSF shall verify the integrity of its boot-time or deployment-time components using [assignment: _verification mechanisms_].
 
-*FPT_SBT_EXT.1.2* The TSF shall verify the authenticity of its boot-time or deployment-time components by validating [selection: digital signatures from trusted signing authorities, cryptographic hashes against known-good values, [assignment: _other authenticity verification methods_]].
+*FPT_SBT_EXT.1.2* The TSF shall verify the authenticity of its boot-time or deployment-time components by validating [selection: digital signatures from trusted signing authorities, cryptographic hashes against known-good values that are obtained via a channel protected by FDP_DIT_EXT.1 or held in storage protected from unauthorized modification, as identified in the TSS].
 
 *FPT_SBT_EXT.1.3* The TSF shall [selection: prevent boot/startup, alert administrators, [assignment: _other action_]] if integrity or authenticity verification fails.
 
-*Application Note:* This SFR applies primarily to containerized deployments, appliance images, or orchestrated workloads with explicit image trust requirements. It is triggered when "secure boot or image verification mechanisms as defined in FPT_SBT_EXT.1" is selected in `FPT_TUD_EXT.1.2`.
+*Application Note:* This SFR applies primarily to containerized deployments, appliance images, or orchestrated workloads with explicit image trust requirements. It is triggered when "secure boot or image verification mechanisms as defined in FPT_SBT_EXT.1" is selected in `FPT_TUD_EXT.1.2`. If "alert administrators" is selected in FPT_SBT_EXT.1.3 without "prevent boot/startup", the ST shall justify the selection, and the TSS shall describe the recovery path by which the orchestration or administrative response removes the failed component from service — this accommodates orchestrated environments where rescheduling, rather than halting, is the intended containment behavior.
 
 ===== Dependencies
 
@@ -1345,7 +1399,7 @@ This section provides a comprehensive view of all SFR dependencies and their res
 
 | FAU_SEL.1/Cloud
 | FMT_MTD.1
-| FMT_MTD_EXT.1 (this module)
+| FMT_MTD.1 (Base PP) with FMT_MTD.1/Cloud (this module)
 
 | FAU_STG.2/Cloud
 | FAU_GEN.1
@@ -1363,9 +1417,13 @@ This section provides a comprehensive view of all SFR dependencies and their res
 | FMT_SMF.1, FMT_SMR.1
 | FMT_SMF.1/Cloud, FMT_SMR.1/Cloud (this module)
 
-| FMT_MTD_EXT.1
+| FMT_MTD.1/Cloud
 | FMT_SMF.1, FMT_SMR.1
 | FMT_SMF.1/Cloud, FMT_SMR.1/Cloud (this module)
+
+| FMT_MTD_EXT.1
+| FMT_SMF.1
+| FMT_SMF.1/Cloud (this module)
 
 | FMT_SMR.1/Cloud
 | FIA_UID.2
@@ -1387,13 +1445,9 @@ This section provides a comprehensive view of all SFR dependencies and their res
 |===
 | Dependent SFR | Required Dependency | Resolution
 
-| FDP_DIT_EXT.1 (when TLS, including HTTPS over TLS, is selected)
-| Applicable TLS Functional Package components for the TOE's TLS client or server role
-| DBMS Crypto Module and applicable TLS Functional Package
-
-| FDP_DIT_EXT.1 (when another protocol is selected)
-| Applicable protocol-specific cryptographic requirements
-| DBMS Crypto Module through the applicable Functional Package identified in the ST
+| FDP_DIT_EXT.1 (inherited)
+| Defined in the DBMS Crypto Module; its dependency analysis, including the mandatory TLS Functional Package claim and the conditional X.509 Functional Package components, is performed there
+| DBMS Crypto Module. This module identifies the cloud deployment channels to which the requirement applies and adds no dependencies to it.
 |===
 
 === Cryptographic SFR Exclusion Rationale
@@ -1418,7 +1472,7 @@ There are no Optional Requirements for this PP-Module.
 [appendix]
 == Extended Component Definitions
 
-This appendix contains the definitions for the extended requirements that are used in the PP-Module, including those used in <<Consistency Rationale>> and <<Selection-Based Requirements>>.
+This appendix contains the definitions for the extended requirements that are used in the PP-Module, including the components claimed in <<Security Functional Requirements (Mandatory)>> and <<Selection-Based Requirements>>.
 
 (Note: formatting conventions for selections and assignments in this chapter are those in <<CC2>>.)
 
@@ -1460,6 +1514,8 @@ Dependencies: FIA_UID.2 User identification before any action; FIA_UAU.2 User au
 
 *FIA_UID_EXT.1.3* The TSF shall map externally asserted identities, roles, and attributes to TOE-defined users, subjects, or roles used by the TOE to enforce access control.
 
+*FIA_UID_EXT.1.4* The TSF shall protect communication with external identity providers using a channel protected by FDP_DIT_EXT.1.
+
 === FMT: Security Management
 
 ==== FMT_MTD_EXT: Cloud Configuration State Protection
@@ -1492,9 +1548,9 @@ Hierarchical to: No other components.
 
 Dependencies: FMT_SMF.1 Specification of Management Functions.
 
-*FMT_MTD_EXT.1.1* The TSF shall restrict the ability to [selection: query, modify, delete, clear, [assignment: _other operations_]] the [assignment: _list of TSF data_] to [assignment: _the authorized identified roles_].
+*FMT_MTD_EXT.1.1* The TSF shall manage TSF data obtained from or written to cloud-native configuration and secret management systems [assignment: list of supported cloud secret management systems] and protect that TSF data from unauthorized disclosure and modification while it is under TOE control.
 
-*FMT_MTD_EXT.1.2* The TSF shall manage TSF data obtained from or written to cloud-native configuration and secret management systems [assignment: _list of supported cloud secret management systems_] and protect that TSF data while it is under TOE control.
+*FMT_MTD_EXT.1.2* The TSF shall obtain TSF data from, and write TSF data to, cloud-native configuration and secret management systems using a channel protected by FDP_DIT_EXT.1.
 
 === FPT: Protection of the TSF
 
@@ -1566,7 +1622,7 @@ Dependencies: No dependencies.
 
 *FPT_TUD_EXT.1.2* The TSF shall provide a mechanism to apply updates using [selection: cloud-native deployment services, trusted image registries, secure boot or image verification mechanisms as defined in `FPT_SBT_EXT.1`, [assignment: _other trusted update mechanisms_]].
 
-*FPT_TUD_EXT.1.3* The TSF shall verify the authenticity and integrity of updates prior to installation using [assignment: _verification mechanisms_].
+*FPT_TUD_EXT.1.3* The TSF shall verify the authenticity and integrity of updates prior to installation using [selection: digital signature verification using FCS_COP.1/SigVer as claimed in the DBMS Crypto Module, cryptographic hash verification against a reference value that is obtained via a channel protected by FDP_DIT_EXT.1 or held in storage protected from unauthorized modification, as identified in the TSS].
 
 ==== FPT_SBT_EXT: Secure Boot and Image Verification
 
@@ -1598,7 +1654,7 @@ Dependencies: No dependencies.
 
 *FPT_SBT_EXT.1.1* The TSF shall verify the integrity of its boot-time or deployment-time components using [assignment: _verification mechanisms_].
 
-*FPT_SBT_EXT.1.2* The TSF shall verify the authenticity of its boot-time or deployment-time components by validating [selection: digital signatures from trusted signing authorities, cryptographic hashes against known-good values, [assignment: _other authenticity verification methods_]].
+*FPT_SBT_EXT.1.2* The TSF shall verify the authenticity of its boot-time or deployment-time components by validating [selection: digital signatures from trusted signing authorities, cryptographic hashes against known-good values that are obtained via a channel protected by FDP_DIT_EXT.1 or held in storage protected from unauthorized modification, as identified in the TSS].
 
 *FPT_SBT_EXT.1.3* The TSF shall [selection: prevent boot/startup, alert administrators, [assignment: _other action_]] if integrity or authenticity verification fails.
 
@@ -1655,11 +1711,11 @@ The module's assumptions (A.TRUSTED_PLATFORM, A.SECURE_DEPLOYMENT, A.CLOUD_SERVI
 
 === Consistency of Security Objectives
 
-The module's TOE objectives (O.CLOUD_IDENTITY_INTEGRATION, O.CLOUD_AUDIT_INTEGRATION, O.INTERNAL_RESOURCE_RESILIENCE, O.CLOUD_DEPLOYMENT_INTEGRITY, O.CONFIGURATION_PROTECTION) are additive: each addresses a cloud-specific threat or policy, and none redefines, weakens, or replaces a Base PP objective. The operational environment objectives assign to the environment only properties the Base PP never assigned to the TOE — platform isolation (OE.TRUSTED_PLATFORM), orchestration integrity (OE.SECURE_ORCHESTRATION), and external logging, identity, and secrets services (OE.LOGGING_SERVICES, OE.IDENTITY_PROVIDERS, OE.SECRETS_MANAGEMENT). No Base PP TOE responsibility is reassigned to the operational environment.
+The module's TOE objectives (O.CLOUD_IDENTITY_INTEGRATION, O.CLOUD_AUDIT_INTEGRATION, O.INTERNAL_RESOURCE_RESILIENCE, O.CLOUD_DEPLOYMENT_INTEGRITY, O.CONFIGURATION_PROTECTION) are additive: each addresses a cloud-specific threat or policy, and none redefines, weakens, or replaces a Base PP objective. The operational environment objectives assign to the environment only properties the Base PP never assigned to the TOE — platform isolation (OE.TRUSTED_PLATFORM), orchestration integrity (OE.SECURE_ORCHESTRATION), external logging, identity, and secrets services (OE.LOGGING_SERVICES, OE.IDENTITY_PROVIDERS, OE.SECRETS_MANAGEMENT), and organizational personnel controls (OE.AUTHORIZED_ADMINISTRATORS). No Base PP TOE responsibility is reassigned to the operational environment.
 
 === Consistency of Security Functional Requirements
 
-Components also defined by the Base PP are claimed by this module as iterations — FAU_GEN.1/Cloud, FAU_SEL.1/Cloud, FMT_SMF.1/Cloud, FMT_SMR.1/Cloud — leaving the Base PP components claimed unchanged in the PP-Configuration. FAU_STG.2/Cloud, FMT_MOF.1, and FPT_FLS.1 use CC Part 2 components the Base PP does not claim, so no conflicting completion can arise. Module SFRs depend on Base PP components where appropriate (FIA_UID.2 and FIA_UAU.2 for identification and authentication; the FMT management components) and do not alter their Base PP completions.
+Components also defined by the Base PP are claimed by this module as iterations — FAU_GEN.1/Cloud, FAU_SEL.1/Cloud, FMT_MTD.1/Cloud, FMT_SMF.1/Cloud, FMT_SMR.1/Cloud — leaving the Base PP components claimed unchanged in the PP-Configuration. FAU_STG.2/Cloud, FMT_MOF.1, and FPT_FLS.1 use CC Part 2 components the Base PP does not claim, so no conflicting completion can arise. Module SFRs depend on Base PP components where appropriate (FIA_UID.2 and FIA_UAU.2 for identification and authentication; the FMT management components) and do not alter their Base PP completions.
 
 FPT_ITT.1 is claimed by this module to protect internal TSF transfers in cloud deployments. The Base PP does not claim FPT_ITT.1; it relies on A.CONNECT to discharge the FPT_ITT.1 dependency of FPT_TRC.1. This module's claim supplements A.CONNECT with TOE-enforced protection for cloud deployments; A.CONNECT is retained in full in the PP-Configuration and is not rescinded or weakened.
 
@@ -1703,14 +1759,17 @@ Optional:: The requirement may be included in the ST at the ST author's discreti
 
 .1+|User Data Protection (FDP)
 |FDP_DIT_EXT.1 Data-in-Transit Protection (defined in and inherited from the DBMS Crypto Module)
-|Mandatory dependency
+|Inherited (not an SFR of this module; mandatory in every allowed PP-Configuration via the DBMS Crypto Module)
 
 .1+|Identification and Authentication (FIA)
 |FIA_UID_EXT.1 External Identity Integration
 |Mandatory
 
-.4+|Security Management (FMT)
+.5+|Security Management (FMT)
 |FMT_MOF.1 Management of Security Functions Behavior
+|Mandatory
+
+|FMT_MTD.1/Cloud Management of TSF Data (Cloud)
 |Mandatory
 
 |FMT_MTD_EXT.1 Cloud Configuration State Protection
@@ -1757,7 +1816,7 @@ The following table summarizes the dependencies between SFRs in this PP-Module:
 |FPT_STM.1 (satisfied by A.TIME_SYNCHRONIZATION)
 
 |FAU_SEL.1/Cloud
-|FAU_GEN.1 (Base PP; cloud events via FAU_GEN.1/Cloud), FMT_MTD.1 (satisfied by FMT_MTD_EXT.1)
+|FAU_GEN.1 (Base PP; cloud events via FAU_GEN.1/Cloud), FMT_MTD.1 (Base PP; cloud data via FMT_MTD.1/Cloud)
 
 |FAU_STG.2/Cloud
 |FAU_GEN.1 (Base PP; cloud events via FAU_GEN.1/Cloud)
@@ -1765,13 +1824,16 @@ The following table summarizes the dependencies between SFRs in this PP-Module:
 |FAU_STG_EXT.1
 |FAU_GEN.1/Cloud, FAU_STG.2/Cloud, FDP_DIT_EXT.1 (DBMS Crypto Module)
 
-|FDP_DIT_EXT.1
-|Applicable TLS and X.509 Functional Package components when TLS, including HTTPS over TLS, is selected; applicable protocol-specific Functional Package requirements when another protocol is selected. These are coordinated through the mandatory DBMS Crypto Module.
+|FDP_DIT_EXT.1 (inherited)
+|Defined in the DBMS Crypto Module, which requires the TLS Functional Package claim and performs the dependency analysis. This module adds no dependencies to the inherited requirement.
 
 |FIA_UID_EXT.1
 |FIA_UID.2 and FIA_UAU.2 (satisfied by the Base PP)
 
 |FMT_MOF.1
+|FMT_SMF.1, FMT_SMR.1
+
+|FMT_MTD.1/Cloud
 |FMT_SMF.1, FMT_SMR.1
 
 |FMT_MTD_EXT.1
@@ -1815,9 +1877,6 @@ Cloud-native services that manage user identities, authentication, and authoriza
 Cloud-Native (DBMS)::
 A DBMS product designed for deployment and operation in cloud environments, typically as containerized or orchestrated workloads, and having no on-premises predecessor version. A cloud-native DBMS operated by the tenant is within the scope of this PP-Module.
 
-Data Encryption Key (DEK)::
-A cryptographic key used to encrypt and decrypt user data at rest. DEKs are typically protected by Key Encryption Keys (KEKs).
-
 DBaaS (Database-as-a-Service)::
 A cloud service model where the cloud provider operates and manages the DBMS on behalf of tenants, providing database functionality as a fully managed service. This deployment model is explicitly out of scope for this PP-Module.
 
@@ -1826,9 +1885,6 @@ A cloud computing characteristic where resources (compute, storage, network) can
 
 IaaS (Infrastructure-as-a-Service)::
 A cloud service model providing virtualized computing resources over the internet, including virtual machines, storage, and networking. The customer is responsible for managing the operating system, middleware, and applications deployed on IaaS resources.
-
-Key Encryption Key (KEK)::
-A cryptographic key used to encrypt and protect other keys, particularly Data Encryption Keys (DEKs). KEKs are typically managed by key management services and may be stored in hardware security modules (HSMs).
 
 Lift-and-Shift::
 A migration strategy where applications are moved to cloud infrastructure with minimal or no modifications to the application architecture. The TOE deployed via lift-and-shift is functionally equivalent to its on-premises version.
@@ -1914,9 +1970,6 @@ The set of cloud infrastructure and services that enforce baseline security prop
 
 |iTC
 |international Technical Community
-
-|KEK
-|Key Encryption Key
 
 |LDAP
 |Lightweight Directory Access Protocol

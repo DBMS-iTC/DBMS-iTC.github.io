@@ -54,6 +54,26 @@
 |2026-07-08
 |Added Evaluation Activities for the new FPT_FLS.1 SFR. The activities are driven by the ST's completions (claimed failure types and TSS-defined secure state) rather than a prescribed failure list, with simulation or provider-supported demonstration permitted where a failure type cannot practically be induced.
 
+|0.4
+|2026-07-08
+|Removed the FMT_SMF.1/Cloud guidance item for data-at-rest encryption configuration: that management function is not in the module's FMT_SMF.1/Cloud list and is specified and evaluated under the DBMS Crypto Module.
+
+|0.4
+|2026-07-08
+|Added TSS activities for the new normative channel-binding elements: FIA_UID_EXT.1.4 (identity-provider channel, exercised by the existing Test 12) and FMT_MTD_EXT.1.3 (configuration and secret management channels); TLS protocol behavior remains evaluated under the DBMS Crypto Module SD and the TLS Functional Package.
+
+|0.4
+|2026-07-08
+|Evaluation-activity corrections: FIA_UID_EXT.1 Test 1 recast as a negative test (no TSF-mediated actions before identification and authentication, consistent with the Base PP's FIA_UID.2/FIA_UAU.2 — the previous test assumed permitted pre-identification actions and was unexecutable). Test 12's certificate-rejection step replaced with confirmation that certificate validation is covered by the DBMS Crypto Module and TLS/X.509 Functional Package evidence, removing duplicated TLS testing. FMT_SMR.1/Cloud activities keyed to the roles assigned in the ST rather than levying role minimums beyond the SFR. Operational-environment mechanisms marked as supplementary, non-TSF evidence in the FPT_ITT.1 mechanisms list and Test 5, FPT_TUD_EXT.1 Test 5 (registry/orchestrator enforcement), and FPT_SBT_EXT.1 Test 4 (admission controllers), consistent with the PP-Module's Security Function Allocation.
+
+|0.4
+|2026-07-08
+|FMT_MTD_EXT.1 section retitled to cover FMT_MTD.1/Cloud and FMT_MTD_EXT.1 together following the module's component split; element reference updated to FMT_MTD_EXT.1.2 for the channel binding.
+
+|0.4
+|2026-07-08
+|Editorial sweep: hardcoded section numbers replaced with section names in the Structure of the Document; RFC-2119 capitals normalized in the Evaluation Cloud Environment Requirements; element reference updated to FMT_SMF.1.1/Cloud; CEM cross-reference appendix scope clarified (narrative FAU/FIA/FMT/FPT activities refine the generic ASE/AGD/ATE_IND work units).
+
 |===
 
 toc::[]
@@ -79,7 +99,7 @@ The Evaluation Activities in this SD are derived from the Common Evaluation Meth
 
 This Supporting Document is organized to mirror the structure of the PP-Module and follows the SFR class hierarchy defined in CC:2022 Part 2.
 
-*Section 2: General Guidance for Evaluators* provides overarching guidance applicable across multiple SFRs, including:
+The *General Guidance for Evaluators* section provides overarching guidance applicable across multiple SFRs, including:
 
 * Determining TOE boundaries in cloud deployments
 * Handling selections and assignments in the ST
@@ -87,7 +107,7 @@ This Supporting Document is organized to mirror the structure of the PP-Module a
 * Trusted Platform assumptions and their evaluation implications
 * Multi-module evaluation coordination
 
-*Section 3: Assurance Activities Overview* describes:
+The *Assurance Activities Overview* section describes:
 
 * Mapping to Base PP SARs
 * Cloud-specific assurance activities
@@ -318,11 +338,11 @@ directly by the evaluator. The vendor shall therefore provide an evaluation-spec
 cloud environment suitable for executing the activities in this Supporting Document.
 
 When the underlying cloud platform supports safe sub-tenant or compartment isolation
-(e.g., OCI compartments), the vendor MAY grant evaluators administrative privileges
+(e.g., OCI compartments), the vendor may grant evaluators administrative privileges
 within that isolated scope to create and manage all resources required for evaluation.
 
 When the cloud platform does not support such isolation or fine-grained delegation,
-the vendor SHALL perform administrative operations on behalf of the evaluator, with
+the vendor shall perform administrative operations on behalf of the evaluator, with
 the evaluator observing the configuration or reviewing audit evidence as appropriate.
 Evaluators are not required to perform administrative cloud operations that would
 compromise cloud-wide security boundaries or require tenant-level privileges.
@@ -1169,7 +1189,7 @@ The Base PP supplies `FIA_UID.2` and `FIA_UAU.2`, and the Base PP SD provides th
 
 The evaluator shall verify the TSS describes:
 
-* The complete list of TSF-mediated actions that can be performed before the user is identified.
+* That no TSF-mediated actions are permitted before identification and authentication, consistent with the Base PP's FIA_UID.2 and FIA_UAU.2 and this module's application note.
 
 * How the TSF identifies users through external identity providers, for each selected provider type:
 ** Cloud IAM roles: How IAM role ARN/ID is extracted and validated
@@ -1186,6 +1206,8 @@ The evaluator shall verify the TSS describes:
 ** Audience verification
 
 * How external identities are mapped to internal user representations or roles within the TOE.
+
+* That communication with each external identity provider uses a channel protected by the inherited `FDP_DIT_EXT.1`, per FIA_UID_EXT.1.4, identifying the corresponding TLS components claimed in the ST. The channel binding is exercised by Test 12; TLS protocol behavior itself is evaluated under the DBMS Crypto Module SD and the TLS Functional Package.
 
 * How the TSF handles identity provider unavailability or failure.
 
@@ -1223,15 +1245,14 @@ The evaluator shall verify the guidance describes:
 
 ===== Test Activities
 
-*Test 1: Pre-Identification Actions Verification*
+*Test 1: No Pre-Identification Actions*
 
 The evaluator shall, without providing identity:
 
-. Attempt each action listed as permitted before identification.
-. Verify each listed action succeeds.
-. Attempt actions not listed and verify they are denied.
+. Attempt a representative set of TSF-mediated actions through each available interface (for example, query execution, configuration query, and management operations).
+. Verify each attempt is refused before identification and authentication complete.
 
-Expected result: Only documented pre-identification actions are permitted.
+Expected result: No TSF-mediated action is permitted before identification and authentication. This test complements, and does not duplicate, the Base PP SD's FIA_UID.2/FIA_UAU.2 activities; it exercises the cloud-facing interfaces this module adds.
 
 *Test 2: Cloud IAM Role Integration*
 
@@ -1351,11 +1372,11 @@ The evaluator shall:
 . Initiate an authentication attempt.
 . Capture network traffic between the TOE and the identity provider endpoint.
 . Verify that the traffic is protected (e.g., encrypted using TLS, including HTTPS over TLS).
-. Attempt to establish a connection to the identity provider using an invalid or expired certificate on the TOE side (if client auth is used) or present a server certificate that the TOE should not trust. Verify the connection is rejected.
+. Confirm, by reference to the Cryptographic Validation Coverage Matrix and the TLS Functional Package evaluation evidence recorded for the DBMS Crypto Module, that certificate validation for the TLS client role used by this interface is covered there.
 
-Expected result: The connection to the identity provider is protected against disclosure and modification. The TOE rejects invalid certificates.
+Expected result: The connection to the identity provider is protected against disclosure and modification, and the certificate-validation coverage for this channel is confirmed in the Crypto Module evaluation evidence.
 
-*Application Note:* Because the Crypto Module is mandatory, the TOE must use TLS for external identity provider connections, including HTTPS over TLS where applicable. This test verifies that the TLS implementation claimed in the Crypto Module is correctly utilized for this cloud integration.
+*Application Note:* Because the Crypto Module is mandatory, the TOE must use TLS for external identity provider connections, including HTTPS over TLS where applicable. This test verifies the channel mapping required by FIA_UID_EXT.1.4; certificate-validation and TLS protocol testing are performed under the DBMS Crypto Module SD and the TLS and X.509 Functional Packages and are not duplicated here.
 
 == FMT Class: Security Management
 
@@ -1451,9 +1472,11 @@ For clustered or distributed DBMS deployments:
 
 ---
 
-=== FMT_MTD_EXT.1 Cloud Configuration State Protection
+=== FMT_MTD.1/Cloud and FMT_MTD_EXT.1 Cloud TSF Data Management and Protection
 
-==== FMT_MTD_EXT.1 Evaluation Activities
+The activities below address FMT_MTD.1/Cloud (role-based restriction of operations on cloud-specific TSF data) and FMT_MTD_EXT.1 (protection of TSF data exchanged with cloud-native configuration and secret management systems) together, as they are exercised through the same interfaces.
+
+==== FMT_MTD.1/Cloud and FMT_MTD_EXT.1 Evaluation Activities
 
 ===== TSS Activities
 
@@ -1477,6 +1500,8 @@ The evaluator shall verify that the TSS describes:
 .. HashiCorp Vault
 .. Kubernetes Secrets
 .. Environment variables
+
+. That retrieval of TSF data from, and writes of TSF data to, each supported networked system use a channel protected by the inherited `FDP_DIT_EXT.1`, per FMT_MTD_EXT.1.2, identifying the corresponding TLS components claimed in the ST. TLS protocol behavior itself is evaluated under the DBMS Crypto Module SD and the TLS Functional Package.
 
 . For each supported cloud secret management system:
 .. The authentication mechanism used by the TOE to access the service (e.g., IAM roles, service principals, API keys)
@@ -1600,7 +1625,7 @@ Expected result: Secrets are retrieved securely and handled appropriately in mem
 
 ===== TSS Activities
 
-The evaluator shall verify that the TSS describes each management function listed in FMT_SMF.1/Cloud.1, specifically:
+The evaluator shall verify that the TSS describes each management function listed in FMT_SMF.1.1/Cloud, specifically:
 
 . **Configuration of audit selection criteria (FAU_SEL.1/Cloud):**
 .. The interface(s) used to configure audit selection
@@ -1616,11 +1641,6 @@ The evaluator shall verify that the TSS describes each management function liste
 .. TLS configuration parameters, including HTTPS over TLS where applicable
 .. Certificate management interfaces
 .. Supported cipher suites and protocol versions
-
-. **Configuration of data-at-rest encryption (Crypto Module FDP_DAR_EXT.1):**
-.. Encryption configuration options
-.. Key management interfaces
-.. Supported encryption algorithms
 
 . **Management of external identity provider mappings (FIA_UID_EXT.1):**
 .. How identity providers are registered with the TOE
@@ -1727,11 +1747,7 @@ For cloud-deployed TOEs:
 
 The evaluator shall verify that the TSS describes:
 
-. The complete list of roles maintained by the TSF, including at minimum:
-.. **Tenant Administrator**: Role responsible for administering the TOE within a tenant scope
-.. **Tenant User**: Standard user role for database operations
-.. **Cloud Audit Authority**: Read-only role for audit data and security status access
-.. Any additional roles defined by the ST author
+. The complete list of roles maintained by the TSF, as assigned in FMT_SMR.1.1/Cloud by the ST author. The SFR's application note gives tenant administrator, tenant user, and cloud audit authority (a read-only role for audit data and security status) as examples; this SD does not levy roles beyond the ST's assignment.
 
 . For each role:
 .. The privileges and capabilities associated with the role
@@ -1778,6 +1794,8 @@ The evaluator shall verify that the operational guidance (AGD_OPE/AGD_PRE):
 . Step: Verify the TSF maintains each role specified in the TSS.
 . Step: Query the list of roles using available administrative interfaces.
 . Expected Result: All specified roles are present.
+
+*Note:* Tests 2 through 4 exercise the roles assigned in the ST, using the example role names for readability. Where the ST does not assign a role corresponding to the one named, the evaluator shall perform the equivalent privilege-separation verification using the roles the ST does assign, and shall omit a test only when no assigned role provides the corresponding capability.
 
 *Test 2: User-Role Association*
 
@@ -2011,9 +2029,9 @@ The evaluator shall verify that the TSS describes:
 .. Cryptographic keys or key material
 
 . The mechanisms used to protect transfers:
-.. Cryptographic protocols (TLS, mTLS, IPsec)
-.. Network isolation (private networks, VPCs)
+.. TSF-implemented cryptographic protocols (TLS, mTLS)
 .. Authentication between components
+.. Any supplementary operational-environment measures (network isolation, private networks, VPCs, or OS/kernel-implemented protocols such as IPsec) — the TSS shall distinguish these from TSF-provided protection, because they are defense in depth and cannot alone satisfy FPT_ITT.1 (see the PP-Module's Security Function Allocation)
 
 . For cloud deployments specifically:
 .. Protection of cluster communication in cloud networks
@@ -2075,9 +2093,9 @@ If the TOE has separate management and data planes:
 . Step: Capture traffic on both planes.
 . Expected Result: Both planes use appropriate protection mechanisms.
 
-*Test 5: Cloud Network Isolation*
+*Test 5: Cloud Network Isolation (Supplementary — Operational Environment)*
 
-For cloud deployments:
+For cloud deployments. This test examines defense-in-depth configuration of the operational environment and does not contribute TSF evidence for FPT_ITT.1; the TSF evidence is provided by Tests 1 through 4.
 
 . Step: Verify cluster nodes communicate only over private networks/VPCs.
 . Step: Verify external access to inter-node communication is blocked.
@@ -2179,7 +2197,7 @@ The evaluator shall verify that the operational guidance (AGD_OPE/AGD_PRE):
 
 *Test 5: Cloud-Native Update Verification*
 
-For container deployments:
+For container deployments. This test contributes TSF evidence for FPT_TUD_EXT.1.3 only where the ST includes the image-verification mechanism in the TOE boundary (for example, via FPT_SBT_EXT.1 or TOE-implemented deployment verification). Where signature enforcement is performed by the registry or orchestrator in the operational environment, this test is a supplementary environment-integration check, and the TSF evidence for FPT_TUD_EXT.1.3 is provided by Tests 2 through 4.
 
 . Step: Push a signed container image to the registry.
 . Step: Deploy the TOE using the signed image.
@@ -2287,7 +2305,7 @@ For containerized deployments:
 
 *Test 4: Kubernetes Admission Control Integration*
 
-If Kubernetes admission controllers are used:
+If Kubernetes admission controllers are used. This test contributes TSF evidence for FPT_SBT_EXT.1 only where the ST includes the admission-control verification in the TOE boundary; where the admission controller is operational-environment machinery, this test is a supplementary environment-integration check and the TSF evidence is provided by the other FPT_SBT_EXT.1 tests.
 
 . Step: Configure an admission controller to validate image signatures.
 . Step: Attempt to deploy a pod with a signed image.
@@ -3089,7 +3107,7 @@ d) Vulnerabilities dependent on specific cloud misconfigurations
 [appendix]
 == Cross-Reference to CEM Work Units
 
-This appendix maps the evaluation activities in this document to CEM:2022 work units.
+This appendix maps the identifier-based evaluation activities in this document (the FDP coordination activities and the SAR activities) to CEM:2022 work units. The narrative TSS, Guidance, and Test activities defined for the module's FAU, FIA, FMT, and FPT SFRs refine the generic ASE_TSS.1, AGD_OPE.1/AGD_PRE.1, and ATE_IND.2 work units respectively and are not individually enumerated here.
 
 === FDP Evaluation Activities to CEM Mapping
 

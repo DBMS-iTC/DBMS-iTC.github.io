@@ -603,9 +603,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_fmt_mtd_ext_1_cloud_configuration_state_protection">7.2. FMT_MTD_EXT.1 Cloud Configuration State Protection</a>
+<li><a href="#_fmt_mtd_1cloud_and_fmt_mtd_ext_1_cloud_tsf_data_management_and_protection">7.2. FMT_MTD.1/Cloud and FMT_MTD_EXT.1 Cloud TSF Data Management and Protection</a>
 <ul class="sectlevel3">
-<li><a href="#_fmt_mtd_ext_1_evaluation_activities">7.2.1. FMT_MTD_EXT.1 Evaluation Activities</a>
+<li><a href="#_fmt_mtd_1cloud_and_fmt_mtd_ext_1_evaluation_activities">7.2.1. FMT_MTD.1/Cloud and FMT_MTD_EXT.1 Evaluation Activities</a>
 <ul class="sectlevel4">
 <li><a href="#_tss_activities_7">7.2.1.1. TSS Activities</a></li>
 <li><a href="#_guidance_activities_7">7.2.1.2. Guidance Activities</a></li>
@@ -859,6 +859,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Added Evaluation Activities for the new FPT_FLS.1 SFR. The activities are driven by the ST&#8217;s completions (claimed failure types and TSS-defined secure state) rather than a prescribed failure list, with simulation or provider-supported demonstration permitted where a failure type cannot practically be induced.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Removed the FMT_SMF.1/Cloud guidance item for data-at-rest encryption configuration: that management function is not in the module&#8217;s FMT_SMF.1/Cloud list and is specified and evaluated under the DBMS Crypto Module.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Added TSS activities for the new normative channel-binding elements: FIA_UID_EXT.1.4 (identity-provider channel, exercised by the existing Test 12) and FMT_MTD_EXT.1.3 (configuration and secret management channels); TLS protocol behavior remains evaluated under the DBMS Crypto Module SD and the TLS Functional Package.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Evaluation-activity corrections: FIA_UID_EXT.1 Test 1 recast as a negative test (no TSF-mediated actions before identification and authentication, consistent with the Base PP&#8217;s FIA_UID.2/FIA_UAU.2 — the previous test assumed permitted pre-identification actions and was unexecutable). Test 12&#8217;s certificate-rejection step replaced with confirmation that certificate validation is covered by the DBMS Crypto Module and TLS/X.509 Functional Package evidence, removing duplicated TLS testing. FMT_SMR.1/Cloud activities keyed to the roles assigned in the ST rather than levying role minimums beyond the SFR. Operational-environment mechanisms marked as supplementary, non-TSF evidence in the FPT_ITT.1 mechanisms list and Test 5, FPT_TUD_EXT.1 Test 5 (registry/orchestrator enforcement), and FPT_SBT_EXT.1 Test 4 (admission controllers), consistent with the PP-Module&#8217;s Security Function Allocation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FMT_MTD_EXT.1 section retitled to cover FMT_MTD.1/Cloud and FMT_MTD_EXT.1 together following the module&#8217;s component split; element reference updated to FMT_MTD_EXT.1.2 for the channel binding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Editorial sweep: hardcoded section numbers replaced with section names in the Structure of the Document; RFC-2119 capitals normalized in the Evaluation Cloud Environment Requirements; element reference updated to FMT_SMF.1.1/Cloud; CEM cross-reference appendix scope clarified (narrative FAU/FIA/FMT/FPT activities refine the generic ASE/AGD/ATE_IND work units).</p></td>
+</tr>
 </tbody>
 </table>
 <!-- toc disabled -->
@@ -904,7 +929,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This Supporting Document is organized to mirror the structure of the PP-Module and follows the SFR class hierarchy defined in CC:2022 Part 2.</p>
 </div>
 <div class="paragraph">
-<p><strong>Section 2: General Guidance for Evaluators</strong> provides overarching guidance applicable across multiple SFRs, including:</p>
+<p>The <strong>General Guidance for Evaluators</strong> section provides overarching guidance applicable across multiple SFRs, including:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -926,7 +951,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Section 3: Assurance Activities Overview</strong> describes:</p>
+<p>The <strong>Assurance Activities Overview</strong> section describes:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1376,12 +1401,12 @@ cloud environment suitable for executing the activities in this Supporting Docum
 </div>
 <div class="paragraph">
 <p>When the underlying cloud platform supports safe sub-tenant or compartment isolation
-(e.g., OCI compartments), the vendor MAY grant evaluators administrative privileges
+(e.g., OCI compartments), the vendor may grant evaluators administrative privileges
 within that isolated scope to create and manage all resources required for evaluation.</p>
 </div>
 <div class="paragraph">
 <p>When the cloud platform does not support such isolation or fine-grained delegation,
-the vendor SHALL perform administrative operations on behalf of the evaluator, with
+the vendor shall perform administrative operations on behalf of the evaluator, with
 the evaluator observing the configuration or reviewing audit evidence as appropriate.
 Evaluators are not required to perform administrative cloud operations that would
 compromise cloud-wide security boundaries or require tenant-level privileges.</p>
@@ -3262,7 +3287,7 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <div class="ulist">
 <ul>
 <li>
-<p>The complete list of TSF-mediated actions that can be performed before the user is identified.</p>
+<p>That no TSF-mediated actions are permitted before identification and authentication, consistent with the Base PP&#8217;s FIA_UID.2 and FIA_UAU.2 and this module&#8217;s application note.</p>
 </li>
 <li>
 <p>How the TSF identifies users through external identity providers, for each selected provider type:</p>
@@ -3307,6 +3332,9 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 </li>
 <li>
 <p>How external identities are mapped to internal user representations or roles within the TOE.</p>
+</li>
+<li>
+<p>That communication with each external identity provider uses a channel protected by the inherited <code>FDP_DIT_EXT.1</code>, per FIA_UID_EXT.1.4, identifying the corresponding TLS components claimed in the ST. The channel binding is exercised by Test 12; TLS protocol behavior itself is evaluated under the DBMS Crypto Module SD and the TLS Functional Package.</p>
 </li>
 <li>
 <p>How the TSF handles identity provider unavailability or failure.</p>
@@ -3403,7 +3431,7 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <div class="sect4">
 <h5 id="_test_activities_5">6.2.1.3. Test Activities</h5>
 <div class="paragraph">
-<p><strong>Test 1: Pre-Identification Actions Verification</strong></p>
+<p><strong>Test 1: No Pre-Identification Actions</strong></p>
 </div>
 <div class="paragraph">
 <p>The evaluator shall, without providing identity:</p>
@@ -3411,18 +3439,15 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Attempt each action listed as permitted before identification.</p>
+<p>Attempt a representative set of TSF-mediated actions through each available interface (for example, query execution, configuration query, and management operations).</p>
 </li>
 <li>
-<p>Verify each listed action succeeds.</p>
-</li>
-<li>
-<p>Attempt actions not listed and verify they are denied.</p>
+<p>Verify each attempt is refused before identification and authentication complete.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Expected result: Only documented pre-identification actions are permitted.</p>
+<p>Expected result: No TSF-mediated action is permitted before identification and authentication. This test complements, and does not duplicate, the Base PP SD&#8217;s FIA_UID.2/FIA_UAU.2 activities; it exercises the cloud-facing interfaces this module adds.</p>
 </div>
 <div class="paragraph">
 <p><strong>Test 2: Cloud IAM Role Integration</strong></p>
@@ -3693,15 +3718,15 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <p>Verify that the traffic is protected (e.g., encrypted using TLS, including HTTPS over TLS).</p>
 </li>
 <li>
-<p>Attempt to establish a connection to the identity provider using an invalid or expired certificate on the TOE side (if client auth is used) or present a server certificate that the TOE should not trust. Verify the connection is rejected.</p>
+<p>Confirm, by reference to the Cryptographic Validation Coverage Matrix and the TLS Functional Package evaluation evidence recorded for the DBMS Crypto Module, that certificate validation for the TLS client role used by this interface is covered there.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Expected result: The connection to the identity provider is protected against disclosure and modification. The TOE rejects invalid certificates.</p>
+<p>Expected result: The connection to the identity provider is protected against disclosure and modification, and the certificate-validation coverage for this channel is confirmed in the Crypto Module evaluation evidence.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note:</strong> Because the Crypto Module is mandatory, the TOE must use TLS for external identity provider connections, including HTTPS over TLS where applicable. This test verifies that the TLS implementation claimed in the Crypto Module is correctly utilized for this cloud integration.</p>
+<p><strong>Application Note:</strong> Because the Crypto Module is mandatory, the TOE must use TLS for external identity provider connections, including HTTPS over TLS where applicable. This test verifies the channel mapping required by FIA_UID_EXT.1.4; certificate-validation and TLS protocol testing are performed under the DBMS Crypto Module SD and the TLS and X.509 Functional Packages and are not duplicated here.</p>
 </div>
 </div>
 </div>
@@ -3954,9 +3979,12 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fmt_mtd_ext_1_cloud_configuration_state_protection">7.2. FMT_MTD_EXT.1 Cloud Configuration State Protection</h3>
+<h3 id="_fmt_mtd_1cloud_and_fmt_mtd_ext_1_cloud_tsf_data_management_and_protection">7.2. FMT_MTD.1/Cloud and FMT_MTD_EXT.1 Cloud TSF Data Management and Protection</h3>
+<div class="paragraph">
+<p>The activities below address FMT_MTD.1/Cloud (role-based restriction of operations on cloud-specific TSF data) and FMT_MTD_EXT.1 (protection of TSF data exchanged with cloud-native configuration and secret management systems) together, as they are exercised through the same interfaces.</p>
+</div>
 <div class="sect3">
-<h4 id="_fmt_mtd_ext_1_evaluation_activities">7.2.1. FMT_MTD_EXT.1 Evaluation Activities</h4>
+<h4 id="_fmt_mtd_1cloud_and_fmt_mtd_ext_1_evaluation_activities">7.2.1. FMT_MTD.1/Cloud and FMT_MTD_EXT.1 Evaluation Activities</h4>
 <div class="sect4">
 <h5 id="_tss_activities_7">7.2.1.1. TSS Activities</h5>
 <div class="paragraph">
@@ -4023,6 +4051,9 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 </li>
 </ol>
 </div>
+</li>
+<li>
+<p>That retrieval of TSF data from, and writes of TSF data to, each supported networked system use a channel protected by the inherited <code>FDP_DIT_EXT.1</code>, per FMT_MTD_EXT.1.2, identifying the corresponding TLS components claimed in the ST. TLS protocol behavior itself is evaluated under the DBMS Crypto Module SD and the TLS Functional Package.</p>
 </li>
 <li>
 <p>For each supported cloud secret management system:</p>
@@ -4346,7 +4377,7 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <div class="sect4">
 <h5 id="_tss_activities_8">7.3.1.1. TSS Activities</h5>
 <div class="paragraph">
-<p>The evaluator shall verify that the TSS describes each management function listed in FMT_SMF.1/Cloud.1, specifically:</p>
+<p>The evaluator shall verify that the TSS describes each management function listed in FMT_SMF.1.1/Cloud, specifically:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4394,22 +4425,6 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 </li>
 <li>
 <p>Supported cipher suites and protocol versions</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>Configuration of data-at-rest encryption (Crypto Module FDP_DAR_EXT.1):</strong></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Encryption configuration options</p>
-</li>
-<li>
-<p>Key management interfaces</p>
-</li>
-<li>
-<p>Supported encryption algorithms</p>
 </li>
 </ol>
 </div>
@@ -4692,23 +4707,7 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The complete list of roles maintained by the TSF, including at minimum:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><strong>Tenant Administrator</strong>: Role responsible for administering the TOE within a tenant scope</p>
-</li>
-<li>
-<p><strong>Tenant User</strong>: Standard user role for database operations</p>
-</li>
-<li>
-<p><strong>Cloud Audit Authority</strong>: Read-only role for audit data and security status access</p>
-</li>
-<li>
-<p>Any additional roles defined by the ST author</p>
-</li>
-</ol>
-</div>
+<p>The complete list of roles maintained by the TSF, as assigned in FMT_SMR.1.1/Cloud by the ST author. The SFR&#8217;s application note gives tenant administrator, tenant user, and cloud audit authority (a read-only role for audit data and security status) as examples; this SD does not levy roles beyond the ST&#8217;s assignment.</p>
 </li>
 <li>
 <p>For each role:</p>
@@ -4835,6 +4834,9 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <p>Expected Result: All specified roles are present.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong> Tests 2 through 4 exercise the roles assigned in the ST, using the example role names for readability. Where the ST does not assign a role corresponding to the one named, the evaluator shall perform the equivalent privilege-separation verification using the roles the ST does assign, and shall omit a test only when no assigned role provides the corresponding capability.</p>
 </div>
 <div class="paragraph">
 <p><strong>Test 2: User-Role Association</strong></p>
@@ -5427,13 +5429,13 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Cryptographic protocols (TLS, mTLS, IPsec)</p>
-</li>
-<li>
-<p>Network isolation (private networks, VPCs)</p>
+<p>TSF-implemented cryptographic protocols (TLS, mTLS)</p>
 </li>
 <li>
 <p>Authentication between components</p>
+</li>
+<li>
+<p>Any supplementary operational-environment measures (network isolation, private networks, VPCs, or OS/kernel-implemented protocols such as IPsec) — the TSS shall distinguish these from TSF-provided protection, because they are defense in depth and cannot alone satisfy FPT_ITT.1 (see the PP-Module&#8217;s Security Function Allocation)</p>
 </li>
 </ol>
 </div>
@@ -5593,10 +5595,10 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Test 5: Cloud Network Isolation</strong></p>
+<p><strong>Test 5: Cloud Network Isolation (Supplementary — Operational Environment)</strong></p>
 </div>
 <div class="paragraph">
-<p>For cloud deployments:</p>
+<p>For cloud deployments. This test examines defense-in-depth configuration of the operational environment and does not contribute TSF evidence for FPT_ITT.1; the TSF evidence is provided by Tests 1 through 4.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -5867,7 +5869,7 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <p><strong>Test 5: Cloud-Native Update Verification</strong></p>
 </div>
 <div class="paragraph">
-<p>For container deployments:</p>
+<p>For container deployments. This test contributes TSF evidence for FPT_TUD_EXT.1.3 only where the ST includes the image-verification mechanism in the TOE boundary (for example, via FPT_SBT_EXT.1 or TOE-implemented deployment verification). Where signature enforcement is performed by the registry or orchestrator in the operational environment, this test is a supplementary environment-integration check, and the TSF evidence for FPT_TUD_EXT.1.3 is provided by Tests 2 through 4.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -6157,7 +6159,7 @@ The evaluator shall apply the DBMS Crypto Module SD for <code>FDP_DAR_EXT.1</cod
 <p><strong>Test 4: Kubernetes Admission Control Integration</strong></p>
 </div>
 <div class="paragraph">
-<p>If Kubernetes admission controllers are used:</p>
+<p>If Kubernetes admission controllers are used. This test contributes TSF evidence for FPT_SBT_EXT.1 only where the ST includes the admission-control verification in the TOE boundary; where the admission controller is operational-environment machinery, this test is a supplementary environment-integration check and the TSF evidence is provided by the other FPT_SBT_EXT.1 tests.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -7377,7 +7379,7 @@ d) Vulnerabilities dependent on specific cloud misconfigurations</p></td>
 <h2 id="_cross_reference_to_cem_work_units">Appendix A: Cross-Reference to CEM Work Units</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This appendix maps the evaluation activities in this document to CEM:2022 work units.</p>
+<p>This appendix maps the identifier-based evaluation activities in this document (the FDP coordination activities and the SAR activities) to CEM:2022 work units. The narrative TSS, Guidance, and Test activities defined for the module&#8217;s FAU, FIA, FMT, and FPT SFRs refine the generic ASE_TSS.1, AGD_OPE.1/AGD_PRE.1, and ATE_IND.2 work units respectively and are not individually enumerated here.</p>
 </div>
 <div class="sect2">
 <h3 id="_fdp_evaluation_activities_to_cem_mapping">A.1. FDP Evaluation Activities to CEM Mapping</h3>
@@ -7881,7 +7883,7 @@ d) Vulnerabilities dependent on specific cloud misconfigurations</p></td>
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2026-07-08 12:39:10 -0500
+Last updated 2026-07-08 17:05:59 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
