@@ -475,9 +475,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_security_assurance_requirements">4. Security Assurance Requirements</a></li>
-<li><a href="#_sfr_composition">5. SFR Composition</a></li>
-<li><a href="#_consistency_rationale">6. Consistency Rationale</a></li>
-<li><a href="#_technical_decisions">7. Technical Decisions</a></li>
+<li><a href="#_evaluation_approach_for_the_composed_toe">5. Evaluation Approach for the Composed TOE</a></li>
+<li><a href="#_sfr_composition">6. SFR Composition</a></li>
+<li><a href="#_consistency_rationale">7. Consistency Rationale</a></li>
+<li><a href="#_technical_decisions">8. Technical Decisions</a></li>
 <li><a href="#_related_documents">Appendix A: Related Documents</a></li>
 <li><a href="#_acronyms">Appendix B: Acronyms</a></li>
 </ul>
@@ -511,6 +512,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-06-30</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Initial public review draft. Defines the PP-Configuration for provider-operated DBaaS deployments using the DBMS Base PP, DBMS DBaaS Module, and DBMS Cryptographic Functions Module, including formal CCDB-018 consumption and the optional Enterprise Enhanced use case. This configuration remains on a later publication track than the Cloud and Crypto module set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-14</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Component statements corrected: customer-controlled key models are defined by the DBaaS Module&#8217;s FCS_CKM_DBAAS_EXT.1 and couple to the Crypto Module&#8217;s Key Origin selections (previously misattributed to the Crypto Module); DBaaS authoritative-scope list updated for the Trusted Service Update design.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Added the Evaluation Approach for the Composed TOE: the DBaaS Module SD&#8217;s Managed-Service Evaluation Constraint, Evidence Vantages, and Evaluator Access Strategy govern evidence collection for all component activities under this PP-Configuration, including Base PP and Crypto Module SD activities that assume administrative access the managed-service model does not provide; laboratories directed to the Evidence Vantage Mapping and Test Environment Guidance for scoping.</p></td>
 </tr>
 </tbody>
 </table>
@@ -655,12 +666,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>DBMS data-in-transit protection for tenant-facing, administrative, and programmatic interfaces</p>
 </li>
 <li>
-<p>DBMS cryptographic key management, including customer-controlled key models</p>
+<p>DBMS cryptographic key management, including the Key Origin selections and trusted channels on which the DBaaS Module&#8217;s customer-controlled key mechanisms rely</p>
 </li>
 <li>
 <p>Catalogue-derived components consumed in the Crypto Module and applicable Functional Package components</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The customer-controlled key models themselves (BYOK, external KMS integration, and key-reference mechanisms, with the provider-inaccessibility and revocation requirements) are defined by the DBaaS Module&#8217;s <code>FCS_CKM_DBAAS_EXT.1</code>, which couples to the Crypto Module&#8217;s Key Origin selections as described in that module.</p>
 </div>
 </div>
 <div class="sect2">
@@ -695,7 +709,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Protected backup and restore path requirements</p>
 </li>
 <li>
-<p>Autonomous or provider-managed trusted update behavior</p>
+<p>Customer-controlled key models (<code>FCS_CKM_DBAAS_EXT.1</code>), coupled to the Crypto Module&#8217;s Key Origin selections</p>
+</li>
+<li>
+<p>Trusted service update (declared deployment model, signature-verified service software, tenant version visibility)</p>
 </li>
 </ul>
 </div>
@@ -775,7 +792,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sfr_composition">5. SFR Composition</h2>
+<h2 id="_evaluation_approach_for_the_composed_toe">5. Evaluation Approach for the Composed TOE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A TOE conformant to this PP-Configuration is a provider-operated managed service. The Evaluation Activities of all three components — the Base PP SD, the Crypto Module SD, and the DBaaS Module SD — are executed against that service, and the Base PP and Crypto Module SDs were written for TOEs where the evaluator holds full administrative access. Evidence collection for every component&#8217;s activities is therefore governed by the DBaaS Module SD [<a href="#DBMS_MOD_DBAAS_SD">[DBMS_MOD_DBAAS_SD]</a>]: its Managed-Service Evaluation Constraint, its Evidence Vantages (V1 tenant data plane, V2 tenant service control plane, V3 evaluator-controlled external services, V4 provider-internal operations), and its Evaluator Access Strategy apply to Base PP and Crypto Module activities as well as to the DBaaS Module&#8217;s own.</p>
+</div>
+<div class="paragraph">
+<p>A Base PP or Crypto Module activity exercisable from the tenant vantages (V1, V2) is performed there unchanged. Where such an activity assumes host-level, operating-system, or full-DBA access that the managed-service model does not provide to tenants, the evaluator applies the DBaaS Module SD&#8217;s Evaluator Access Strategy and records each reliance on TSS review, operational guidance, scheme-accepted evidence, or provider-supported demonstration in the ETR.</p>
+</div>
+<div class="paragraph">
+<p>The DBaaS Module SD&#8217;s Evidence Vantage Mapping appendix assigns expected vantages to every DBaaS Module test activity and identifies the activities that require provider participation. Laboratories should use it, together with that SD&#8217;s Test Environment Guidance, when scoping an evaluation against this PP-Configuration: the evaluation requires an evaluation tenancy with at least two tenant contexts, an evaluator-controlled external key management service and audit sink, and scheduled provider participation for the provider-internal (V4) activities.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sfr_composition">6. SFR Composition</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 4. SFR Composition Summary</caption>
@@ -812,7 +843,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_consistency_rationale">6. Consistency Rationale</h2>
+<h2 id="_consistency_rationale">7. Consistency Rationale</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This PP-Configuration is consistent because each component has a distinct scope:</p>
@@ -836,7 +867,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_technical_decisions">7. Technical Decisions</h2>
+<h2 id="_technical_decisions">8. Technical Decisions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Technical Decisions applicable to the DBMS Base PP, DBMS Cryptographic Functions Module, or DBMS DBaaS Module apply according to the affected component document. This PP-Configuration does not introduce additional Technical Decisions.</p>
@@ -960,7 +991,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2026-06-30 17:21:42 -0500
+Last updated 2026-07-18 20:02:33 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

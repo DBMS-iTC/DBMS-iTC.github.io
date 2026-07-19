@@ -667,6 +667,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Added Transitional Coverage for FPT_TST.1/RBG and FPT_FLS.1/RBG: pending the Catalogue Evaluation Methods, Certification Body-approved CMVP (FIPS 140-3 / ISO/IEC 19790) module-validation evidence may cover DRBG self-test execution and module error-state behavior under the same acceptance conditions as algorithm validation evidence, recorded in the Cryptographic Validation Coverage Matrix; the TOE-integration residue (RBG-dependent services refused on self-test failure, per the TSS) remains evaluated. Added both iterations to the Evaluation Activity Summary Table, and aligned the FCS_CKM_EXT.1 and FDP_ITC_EXT.1 summary rows with the Externally Managed Key Origin.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned with the module&#8217;s post-quantum additions. The Catalogue-component trigger table notes that pure ML-DSA carries no Hash/XOF dependency and adds a row for the optional FCS_COP.1/KeyEncap (with FCS_RBG.1 and FCS_CKM.6). The transitional CAVP mechanism is stated to apply equally to the anticipated post-Version 1.0 rows (ML-DSA, ML-KEM), both CAVP-validatable under final FIPS PUB 203/204. New ST-verification item for the optional KeyEncap component: RBG and key-destruction inclusion, identification of the DBMS function the KEM serves, and the protocol-KEM exclusion.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned with the module&#8217;s conversion of FCS_COP.1/KeyEncap to Selection-Based via FDP_ITC_EXT.1.4. Trigger table and ST-verification item now key off the FDP_ITC_EXT.1.4 selection and cover both the KeyWrap and KeyEncap supplementary-protection options. FDP_ITC_EXT.1 TSS activities gain the .4 coverage: which flows are wrapped or encapsulated, under which component, key establishment and protection for the mechanism, and the location of unwrapping or decapsulation.</p></td>
+</tr>
 </tbody>
 </table>
 <!-- toc disabled -->
@@ -1035,6 +1045,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>For every uncovered element, the evaluator shall apply a specifically identified method accepted by the responsible Certification Body. Merely stating that a CAVP record exists, or that the Catalogue Evaluation Methods are not yet available, is not sufficient.</p>
 </div>
 <div class="paragraph">
+<p>The transitional mechanism applies equally to the PP-Module&#8217;s anticipated post-Version 1.0 rows — ML-DSA in <code>FCS_COP.1/SigVer</code> and ML-KEM in <code>FCS_COP.1/KeyEncap</code>. FIPS PUB 203 and FIPS PUB 204 are final and CAVP validates implementations of both, so algorithm correctness for those selections is evidenced in the same way as for the published Catalogue rows, pending the corresponding Catalogue entries and Evaluation Methods.</p>
+</div>
+<div class="paragraph">
 <p>When a scheme-recognized version of [<a href="#Crypto_Eval_Methods">[Crypto_Eval_Methods]</a>] becomes available, that document becomes the primary algorithm evaluation method for this SD. Existing validation results may continue to satisfy individual activities only to the extent permitted by that document or by the responsible Certification Body. The DBMS-specific integration activities in this SD remain applicable and are not displaced by publication of the Catalogue methods.</p>
 </div>
 </div>
@@ -1109,8 +1122,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Signature verification for an in-scope DBMS function, when used</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FCS_COP.1/SigVer</code> plus <code>FCS_COP.1/Hash</code> or <code>FCS_COP.1/XOF</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Section 4.8 and supporting primitive section</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FCS_COP.1/SigVer</code> plus <code>FCS_COP.1/Hash</code> or <code>FCS_COP.1/XOF</code> (neither for pure ML-DSA)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Section 4.8 and supporting primitive section; ML-DSA row anticipates post-Version 1.0 publication</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supplementary end-to-end protection of keying material in transit, when selected in <code>FDP_ITC_EXT.1.4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FCS_COP.1/KeyWrap</code> or <code>FCS_COP.1/KeyEncap</code>, plus <code>FCS_RBG.1</code> and <code>FCS_CKM.6</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Section 4.9 for key wrapping; the ML-KEM completions anticipate the post-Version 1.0 key-encapsulation component</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Key Destruction (MEK/DEK lifecycle)</p></td>
@@ -1141,6 +1159,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p>When an included operation requires IVs, nonces, tweaks, or other one-time values, the ST includes <code>FCS_OTV_EXT.1</code>.</p>
+</li>
+<li>
+<p>When <code>FDP_ITC_EXT.1.4</code> selects supplementary end-to-end protection, the ST includes the corresponding <code>FCS_COP.1/KeyWrap</code> or <code>FCS_COP.1/KeyEncap</code> component; for key encapsulation, the ST includes <code>FCS_RBG.1</code> with its seeding and self-test components and lists the encapsulation and decapsulation keys and derived shared secrets under <code>FCS_CKM.6</code>. Key encapsulation within a protocol is claimed through the applicable Functional Package instead.</p>
 </li>
 <li>
 <p>When certificate-based mutual TLS authentication requires signature generation or verification support, the ST includes the applicable asymmetric components required by the TLS Functional Package.</p>
@@ -2491,6 +2512,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p>That key material transmitted over the channel is protected by the TLS layer and is never transmitted in plaintext.</p>
 </li>
+<li>
+<p>The <code>FDP_ITC_EXT.1.4</code> selection: where supplementary end-to-end protection is selected, which keying-material flows are wrapped or encapsulated, under which component (<code>FCS_COP.1/KeyWrap</code> or <code>FCS_COP.1/KeyEncap</code>), how the wrapping or encapsulation keys are established and protected, and where unwrapping or decapsulation occurs within the TOE.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -3089,7 +3113,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2026-07-08 17:06:06 -0500
+Last updated 2026-07-18 20:02:33 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

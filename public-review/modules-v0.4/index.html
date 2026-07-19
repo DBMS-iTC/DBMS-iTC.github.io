@@ -433,7 +433,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="book">
 <div id="header">
@@ -460,7 +459,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction">Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The DBMS-iTC is publishing Public Review Draft 1 of the DBMS PP-Modules for general public comment. This review package includes the DBMS Cryptographic Functions Module, the DBMS in the Cloud Module, their Supporting Documents, and the PP-Configurations that compose those modules with the DBMS Base PP. The Crypto Module formally consumes CCDB-018 Catalogue components and provides General-Purpose and optional Enterprise Enhanced cryptographic use cases. Because the companion Catalogue Evaluation Methods were not publicly available at the publication date, the Crypto SD also proposes a transitional mechanism for using Certification Body-recognized CAVP, CMVP, or equivalent validation results as evidence for covered algorithm-correctness objectives.</p>
+<p>The DBMS-iTC is publishing Public Review Draft 1 of the DBMS PP-Modules for general public comment. This review package includes the DBMS Cryptographic Functions Module, the DBMS in the Cloud Module, their Supporting Documents, and the PP-Configurations that compose those modules with the DBMS Base PP. The Crypto Module formally consumes CCDB-018 Catalogue components and provides General-Purpose and optional Enterprise Enhanced cryptographic use cases. Because the companion Catalogue Evaluation Methods were not publicly available at the publication date, the Crypto SD also proposes a transitional mechanism for using Certification Body-recognized CAVP, CMVP, or equivalent validation results as evidence for covered algorithm-correctness objectives. This draft additionally offers post-quantum selections ahead of their Catalogue publication — ML-DSA signature verification and a key-encapsulation component carrying ML-KEM — relying on the same transitional mechanism for FIPS 203 and FIPS 204 algorithm correctness; see the review questions below.</p>
 </div>
 <div class="paragraph">
 <p>Please send review comments to <a href="mailto:dbms.itc@gmail.com">dbms.itc@gmail.com</a>.</p>
@@ -475,6 +474,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dt class="hdlist1">Publication Date</dt>
 <dd>
 <p>30 June 2026</p>
+</dd>
+<dt class="hdlist1">Last Revised</dt>
+<dd>
+<p>18 July 2026 (Crypto Module and SD: post-quantum selections; later-track working drafts refreshed)</p>
 </dd>
 <dt class="hdlist1">End of Comment Period</dt>
 <dd>
@@ -627,6 +630,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Whether the transitional use of CMVP (FIPS 140-3) module-validation evidence for the RBG self-test and failure-behavior iterations (<code>FPT_TST.1/RBG</code>, <code>FPT_FLS.1/RBG</code>), pending publication of the Catalogue Evaluation Methods, provides sufficient assurance under appropriate Certification Body control.</p>
 </li>
 <li>
+<p>Whether the Crypto Module should offer ML-DSA signature verification (<code>FCS_COP.1/SigVer</code>) and ML-KEM key encapsulation (<code>FCS_COP.1/KeyEncap</code>, selected through <code>FDP_ITC_EXT.1.4</code>) ahead of their publication in the CCDB Cryptographic Catalogue, relying on the transitional CAVP evidence mechanism for FIPS 203 and FIPS 204 algorithm correctness until the corresponding Catalogue entries and Evaluation Methods are available.</p>
+</li>
+<li>
+<p>Whether the General-Purpose use case should retain the full FIPS 203/204 parameter-set families (ML-DSA-44/65/87, ML-KEM-512/768/1024), with the Enterprise Enhanced use case constraining selections to ML-DSA-87 and ML-KEM-1024, or whether only the CNSA 2.0 parameter sets should be offered, as in the AppSW cPP Version 2 approach.</p>
+</li>
+<li>
 <p>Whether the DBMS in the Cloud Module contains only cloud-specific refinements, integration checks, and deployment-channel mapping.</p>
 </li>
 <li>
@@ -640,7 +649,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2026-07-08 15:41:31 -0500
+Last updated 2026-07-18 20:03:44 -0500
 </div>
 </div>
 </body>

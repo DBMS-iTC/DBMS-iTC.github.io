@@ -36,6 +36,14 @@ This PP-Configuration was developed by the {iTC-longname} international Technica
 |2026-06-30
 |Initial public review draft. Defines the PP-Configuration for provider-operated DBaaS deployments using the DBMS Base PP, DBMS DBaaS Module, and DBMS Cryptographic Functions Module, including formal CCDB-018 consumption and the optional Enterprise Enhanced use case. This configuration remains on a later publication track than the Cloud and Crypto module set.
 
+|0.4
+|2026-07-14
+|Component statements corrected: customer-controlled key models are defined by the DBaaS Module's FCS_CKM_DBAAS_EXT.1 and couple to the Crypto Module's Key Origin selections (previously misattributed to the Crypto Module); DBaaS authoritative-scope list updated for the Trusted Service Update design.
+
+|0.4
+|2026-07-18
+|Added the Evaluation Approach for the Composed TOE: the DBaaS Module SD's Managed-Service Evaluation Constraint, Evidence Vantages, and Evaluator Access Strategy govern evidence collection for all component activities under this PP-Configuration, including Base PP and Crypto Module SD activities that assume administrative access the managed-service model does not provide; laboratories directed to the Evidence Vantage Mapping and Test Environment Guidance for scoping.
+
 |===
 
 toc::[]
@@ -123,8 +131,10 @@ The Crypto Module is authoritative for:
 
 * DBMS data-at-rest encryption, including protected tenant data and protected backups where applicable
 * DBMS data-in-transit protection for tenant-facing, administrative, and programmatic interfaces
-* DBMS cryptographic key management, including customer-controlled key models
+* DBMS cryptographic key management, including the Key Origin selections and trusted channels on which the DBaaS Module's customer-controlled key mechanisms rely
 * Catalogue-derived components consumed in the Crypto Module and applicable Functional Package components
+
+The customer-controlled key models themselves (BYOK, external KMS integration, and key-reference mechanisms, with the provider-inaccessibility and revocation requirements) are defined by the DBaaS Module's `FCS_CKM_DBAAS_EXT.1`, which couples to the Crypto Module's Key Origin selections as described in that module.
 
 === Crypto Module Use Case Statement
 
@@ -141,7 +151,8 @@ The DBaaS Module is authoritative for managed-service controls, including:
 * Resource governance
 * Tenant-scoped and immutable audit behavior
 * Protected backup and restore path requirements
-* Autonomous or provider-managed trusted update behavior
+* Customer-controlled key models (`FCS_CKM_DBAAS_EXT.1`), coupled to the Crypto Module's Key Origin selections
+* Trusted service update (declared deployment model, signature-verified service software, tenant version visibility)
 
 == Conformance Claims
 
@@ -174,6 +185,14 @@ While iteration is allowed, the Security Target shall not include additional req
 The SAR package for this PP-Configuration is inherited from the DBMS Base PP: EAL2 as defined in CC:2022 Part 5, augmented by ALC_FLR.3 Systematic flaw remediation.
 
 No additional SARs are introduced by this PP-Configuration.
+
+== Evaluation Approach for the Composed TOE
+
+A TOE conformant to this PP-Configuration is a provider-operated managed service. The Evaluation Activities of all three components — the Base PP SD, the Crypto Module SD, and the DBaaS Module SD — are executed against that service, and the Base PP and Crypto Module SDs were written for TOEs where the evaluator holds full administrative access. Evidence collection for every component's activities is therefore governed by the DBaaS Module SD [<<DBMS_MOD_DBAAS_SD>>]: its Managed-Service Evaluation Constraint, its Evidence Vantages (V1 tenant data plane, V2 tenant service control plane, V3 evaluator-controlled external services, V4 provider-internal operations), and its Evaluator Access Strategy apply to Base PP and Crypto Module activities as well as to the DBaaS Module's own.
+
+A Base PP or Crypto Module activity exercisable from the tenant vantages (V1, V2) is performed there unchanged. Where such an activity assumes host-level, operating-system, or full-DBA access that the managed-service model does not provide to tenants, the evaluator applies the DBaaS Module SD's Evaluator Access Strategy and records each reliance on TSS review, operational guidance, scheme-accepted evidence, or provider-supported demonstration in the ETR.
+
+The DBaaS Module SD's Evidence Vantage Mapping appendix assigns expected vantages to every DBaaS Module test activity and identifies the activities that require provider participation. Laboratories should use it, together with that SD's Test Environment Guidance, when scoping an evaluation against this PP-Configuration: the evaluation requires an evaluation tenancy with at least two tenant contexts, an evaluator-controlled external key management service and audit sink, and scheduled provider participation for the provider-internal (V4) activities.
 
 == SFR Composition
 

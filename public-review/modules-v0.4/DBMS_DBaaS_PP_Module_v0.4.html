@@ -478,85 +478,95 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_toe">3.2. TOE</a></li>
 <li><a href="#_toe_platform">3.3. TOE Platform</a></li>
 <li><a href="#_trusted_platform">3.4. Trusted Platform</a></li>
-<li><a href="#_operational_environment_dependencies">3.5. Operational Environment Dependencies</a></li>
-<li><a href="#_security_function_allocation">3.6. Security Function Allocation</a></li>
+<li><a href="#_toe_boundary">3.5. TOE Boundary</a></li>
+<li><a href="#_operational_environment_dependencies">3.6. Operational Environment Dependencies</a></li>
+<li><a href="#_security_function_allocation">3.7. Security Function Allocation</a></li>
 </ul>
 </li>
-<li><a href="#_cc_conformance_claims">4. CC Conformance Claims</a>
+<li><a href="#_toe_use_case">4. TOE Use Case</a>
 <ul class="sectlevel2">
-<li><a href="#_package_conformance">4.1. Package Conformance</a></li>
-<li><a href="#_pp_module_conformance_type">4.2. PP-Module Conformance Type</a></li>
-<li><a href="#_conformance_claim_rationale">4.3. Conformance Claim Rationale</a></li>
+<li><a href="#_multi_tenant_managed_database_service">4.1. Multi-Tenant Managed Database Service</a></li>
+<li><a href="#_autonomous_continuously_deployed_database_service">4.2. Autonomous, Continuously Deployed Database Service</a></li>
 </ul>
 </li>
-<li><a href="#_security_problem_definition">5. Security Problem Definition</a>
+<li><a href="#_cc_conformance_claims">5. CC Conformance Claims</a>
 <ul class="sectlevel2">
-<li><a href="#_threats">5.1. Threats</a></li>
-<li><a href="#_assumptions">5.2. Assumptions</a></li>
+<li><a href="#_package_conformance">5.1. Package Conformance</a></li>
+<li><a href="#_pp_module_conformance_type">5.2. PP-Module Conformance Type</a></li>
+<li><a href="#_conformance_claim_rationale">5.3. Conformance Claim Rationale</a></li>
 </ul>
 </li>
-<li><a href="#_security_objectives">6. Security Objectives</a>
+<li><a href="#_security_problem_definition">6. Security Problem Definition</a>
 <ul class="sectlevel2">
-<li><a href="#_security_objectives_for_the_toe">6.1. Security Objectives for the TOE</a></li>
-<li><a href="#_security_objectives_for_the_operational_environment">6.2. Security Objectives for the Operational Environment</a></li>
+<li><a href="#_threats">6.1. Threats</a></li>
+<li><a href="#_assumptions">6.2. Assumptions</a></li>
+<li><a href="#_organizational_security_policies">6.3. Organizational Security Policies</a></li>
 </ul>
 </li>
-<li><a href="#_security_rationale">7. Security Rationale</a>
+<li><a href="#_security_objectives">7. Security Objectives</a>
 <ul class="sectlevel2">
-<li><a href="#_threats_to_objectives_mapping">7.1. Threats to Objectives Mapping</a></li>
-<li><a href="#_assumptions_to_objectives_mapping">7.2. Assumptions to Objectives Mapping</a></li>
-<li><a href="#_objectives_to_sfrs_mapping">7.3. Objectives to SFRs Mapping</a></li>
+<li><a href="#_security_objectives_for_the_toe">7.1. Security Objectives for the TOE</a></li>
+<li><a href="#_security_objectives_for_the_operational_environment">7.2. Security Objectives for the Operational Environment</a></li>
 </ul>
 </li>
-<li><a href="#_security_functional_requirements">8. Security Functional Requirements</a>
+<li><a href="#_security_rationale">8. Security Rationale</a>
 <ul class="sectlevel2">
-<li><a href="#_conventions">8.1. Conventions</a></li>
+<li><a href="#_threats_to_objectives_mapping">8.1. Threats to Objectives Mapping</a></li>
+<li><a href="#_assumptions_to_objectives_mapping">8.2. Assumptions to Objectives Mapping</a></li>
+<li><a href="#_organizational_security_policies_to_objectives_mapping">8.3. Organizational Security Policies to Objectives Mapping</a></li>
+<li><a href="#_objectives_to_sfrs_mapping">8.4. Objectives to SFRs Mapping</a></li>
 </ul>
 </li>
-<li><a href="#_security_functional_requirements_mandatory">9. Security Functional Requirements (Mandatory)</a>
+<li><a href="#_security_functional_requirements">9. Security Functional Requirements</a>
 <ul class="sectlevel2">
-<li><a href="#_fcs_cryptographic_support">9.1. FCS: Cryptographic Support</a>
+<li><a href="#_conventions">9.1. Conventions</a></li>
+</ul>
+</li>
+<li><a href="#_security_functional_requirements_mandatory">10. Security Functional Requirements (Mandatory)</a>
+<ul class="sectlevel2">
+<li><a href="#_fcs_cryptographic_support">10.1. FCS: Cryptographic Support</a>
 <ul class="sectlevel3">
-<li><a href="#_fcs_ckm_dbaas_ext_1_customer_controlled_keys">9.1.1. FCS_CKM_DBAAS_EXT.1 Customer-Controlled Keys</a></li>
+<li><a href="#_fcs_ckm_dbaas_ext_1_customer_controlled_keys">10.1.1. FCS_CKM_DBAAS_EXT.1 Customer-Controlled Keys</a></li>
 </ul>
 </li>
-<li><a href="#_fdp_user_data_protection">9.2. FDP: User Data Protection</a>
+<li><a href="#_fdp_user_data_protection">10.2. FDP: User Data Protection</a>
 <ul class="sectlevel3">
-<li><a href="#_fdp_rip_1dbaas_residual_information_protection_memory_and_temporary_resources">9.2.1. FDP_RIP.1/DBaaS Residual Information Protection (Memory and Temporary Resources)</a></li>
-<li><a href="#_fdp_acc_2dbaas_tenant_isolation_policy">9.2.2. FDP_ACC.2/DBaaS Tenant Isolation Policy</a></li>
-<li><a href="#_fdp_acf_1dbaas_tenant_isolation_policy_rules">9.2.3. FDP_ACF.1/DBaaS Tenant Isolation Policy Rules</a></li>
-<li><a href="#_fru_rsa_1dbaas_maximum_quotas_tenant_resources">9.2.4. FRU_RSA.1/DBaaS Maximum Quotas (Tenant Resources)</a></li>
-<li><a href="#_fru_rsg_ext_1_resource_governance_enforcement_action">9.2.5. FRU_RSG_EXT.1 Resource Governance Enforcement Action</a></li>
-<li><a href="#_fdp_bkp_ext_1_protected_backup_and_restore">9.2.6. FDP_BKP_EXT.1 Protected Backup and Restore</a></li>
+<li><a href="#_fdp_rip_1dbaas_residual_information_protection_memory_and_temporary_resources">10.2.1. FDP_RIP.1/DBaaS Residual Information Protection (Memory and Temporary Resources)</a></li>
+<li><a href="#_fdp_acc_1dbaas_tenant_isolation_policy">10.2.2. FDP_ACC.1/DBaaS Tenant Isolation Policy</a></li>
+<li><a href="#_fdp_acf_1dbaas_tenant_isolation_policy_rules">10.2.3. FDP_ACF.1/DBaaS Tenant Isolation Policy Rules</a></li>
+<li><a href="#_fru_rsa_1dbaas_maximum_quotas_tenant_resources">10.2.4. FRU_RSA.1/DBaaS Maximum Quotas (Tenant Resources)</a></li>
+<li><a href="#_fru_rsg_ext_1_resource_governance_enforcement_action">10.2.5. FRU_RSG_EXT.1 Resource Governance Enforcement Action</a></li>
+<li><a href="#_fdp_bkp_ext_1_protected_backup_and_restore">10.2.6. FDP_BKP_EXT.1 Protected Backup and Restore</a></li>
 </ul>
 </li>
-<li><a href="#_fia_identification_and_authentication">9.3. FIA: Identification and Authentication</a>
+<li><a href="#_fia_identification_and_authentication">10.3. FIA: Identification and Authentication</a>
 <ul class="sectlevel3">
-<li><a href="#_fia_usb_1dbaas_user_subject_binding_tenant_context">9.3.1. FIA_USB.1/DBaaS User-Subject Binding (Tenant Context)</a></li>
+<li><a href="#_fia_usb_1dbaas_user_subject_binding_tenant_context">10.3.1. FIA_USB.1/DBaaS User-Subject Binding (Tenant Context)</a></li>
 </ul>
 </li>
-<li><a href="#_fmt_security_management">9.4. FMT: Security Management</a>
+<li><a href="#_fmt_security_management">10.4. FMT: Security Management</a>
 <ul class="sectlevel3">
-<li><a href="#_fmt_smr_1dbaas_security_roles_dbaas">9.4.1. FMT_SMR.1/DBaaS Security Roles (DBaaS)</a></li>
-<li><a href="#_fmt_smf_1dbaas_specification_of_management_functions_dbaas">9.4.2. FMT_SMF.1/DBaaS Specification of Management Functions (DBaaS)</a></li>
-<li><a href="#_fmt_mof_1dbaas_disable_management_of_security_functions_behaviour_disable_restriction">9.4.3. FMT_MOF.1/DBaaS-Disable Management of Security Functions Behaviour (Disable Restriction)</a></li>
-<li><a href="#_fmt_mof_1dbaas_modify_management_of_security_functions_behaviour_provider_functions">9.4.4. FMT_MOF.1/DBaaS-Modify Management of Security Functions Behaviour (Provider Functions)</a></li>
+<li><a href="#_fmt_smr_1dbaas_security_roles_dbaas">10.4.1. FMT_SMR.1/DBaaS Security Roles (DBaaS)</a></li>
+<li><a href="#_fmt_smf_1dbaas_specification_of_management_functions_dbaas">10.4.2. FMT_SMF.1/DBaaS Specification of Management Functions (DBaaS)</a></li>
+<li><a href="#_fmt_mof_1dbaas_disable_management_of_security_functions_behaviour_disable_restriction">10.4.3. FMT_MOF.1/DBaaS-Disable Management of Security Functions Behaviour (Disable Restriction)</a></li>
+<li><a href="#_fmt_mof_1dbaas_modify_management_of_security_functions_behaviour_provider_functions">10.4.4. FMT_MOF.1/DBaaS-Modify Management of Security Functions Behaviour (Provider Functions)</a></li>
 </ul>
 </li>
-<li><a href="#_fau_security_audit">9.5. FAU: Security Audit</a>
+<li><a href="#_fau_security_audit">10.5. FAU: Security Audit</a>
 <ul class="sectlevel3">
-<li><a href="#_fau_sel_1dbaas_selective_audit_tenant_separation">9.5.1. FAU_SEL.1/DBaaS Selective Audit (Tenant Separation)</a></li>
-<li><a href="#_fau_stg_2dbaas_protected_audit_trail_storage_immutable_audit_stream">9.5.2. FAU_STG.2/DBaaS Protected Audit Trail Storage (Immutable Audit Stream)</a></li>
+<li><a href="#_fau_sel_1dbaas_selective_audit_tenant_separation">10.5.1. FAU_SEL.1/DBaaS Selective Audit (Tenant Separation)</a></li>
+<li><a href="#_fau_stg_2dbaas_protected_audit_trail_storage_immutable_audit_stream">10.5.2. FAU_STG.2/DBaaS Protected Audit Trail Storage (Immutable Audit Stream)</a></li>
 </ul>
 </li>
-<li><a href="#_fpt_protection_of_the_tsf">9.6. FPT: Protection of the TSF</a>
+<li><a href="#_fpt_protection_of_the_tsf">10.6. FPT: Protection of the TSF</a>
 <ul class="sectlevel3">
-<li><a href="#_fpt_tud_dbaas_ext_1_autonomous_trusted_update">9.6.1. FPT_TUD_DBAAS_EXT.1 Autonomous Trusted Update</a></li>
+<li><a href="#_fpt_tud_dbaas_ext_1_trusted_service_update">10.6.1. FPT_TUD_DBAAS_EXT.1 Trusted Service Update</a></li>
 </ul>
 </li>
+<li><a href="#_auditable_events_for_the_sfrs_of_this_pp_module">10.7. Auditable Events for the SFRs of this PP-Module</a></li>
 </ul>
 </li>
-<li><a href="#_security_assurance_requirements_sars">10. Security Assurance Requirements (SARs)</a></li>
+<li><a href="#_security_assurance_requirements_sars">11. Security Assurance Requirements (SARs)</a></li>
 <li><a href="#_extended_component_definitions">Appendix A: Extended Component Definitions</a>
 <ul class="sectlevel2">
 <li><a href="#_fcs_cryptographic_support_2">A.1. FCS: Cryptographic Support</a>
@@ -600,13 +610,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_fpt_protection_of_the_tsf_2">A.4. FPT: Protection of the TSF</a>
 <ul class="sectlevel3">
-<li><a href="#_fpt_tud_dbaas_ext_autonomous_trusted_update">A.4.1. FPT_TUD_DBAAS_EXT: Autonomous Trusted Update</a>
+<li><a href="#_fpt_tud_dbaas_ext_trusted_service_update">A.4.1. FPT_TUD_DBAAS_EXT: Trusted Service Update</a>
 <ul class="sectlevel4">
 <li><a href="#_family_behaviour_4">A.4.1.1. Family Behaviour</a></li>
 <li><a href="#_component_levelling_4">A.4.1.2. Component levelling</a></li>
 <li><a href="#_management_fpt_tud_dbaas_ext_1">A.4.1.3. Management: FPT_TUD_DBAAS_EXT.1</a></li>
 <li><a href="#_audit_fpt_tud_dbaas_ext_1">A.4.1.4. Audit: FPT_TUD_DBAAS_EXT.1</a></li>
-<li><a href="#_fpt_tud_dbaas_ext_1_autonomous_trusted_update_2">A.4.1.5. FPT_TUD_DBAAS_EXT.1 Autonomous Trusted Update</a></li>
+<li><a href="#_fpt_tud_dbaas_ext_1_trusted_service_update_2">A.4.1.5. FPT_TUD_DBAAS_EXT.1 Trusted Service Update</a></li>
 </ul>
 </li>
 </ul>
@@ -675,6 +685,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>BSI - Bundesamt für Sicherheit in der Informationstechnik</p>
 </div>
+<div class="paragraph">
+<p>JISEC - Japan IT Security Evaluation and Certification Scheme</p>
+</div>
 <div class="sect2">
 <h3 id="_revision_history">Revision History</h3>
 <table class="tableblock frame-all grid-all stretch">
@@ -736,6 +749,36 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Exact Conformance now cites its definition in CC:2022 Part 1 directly, replacing the legacy "subset of Strict Conformance" gloss (set-wide alignment).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Closed three follow-on gaps from the audit-channel and vantage analysis. Autonomous subjects: automated autonomous management logic is stated to be a subject class, its in-tenant-context actions carry tenant attribution under FIA_USB.1/DBaaS and tenant-visible service event stream records, and the FMT audit data contents now identify the acting subject rather than presupposing a human user. Retention: P.AUDIT_RETENTION now applies per audit channel, with the ST identifying retention treatment and tenant exportability for the DBMS audit trail and the service event stream separately. Recovery/restore coupling: FCS_CKM_DBAAS_EXT.1 and FDP_BKP_EXT.1 application notes state that a recovery mechanism implemented as a restore from backup is a single mechanism satisfying both components' constraints. Tenant lifecycle termination (offboarding, backup disposition, key destruction on deprovisioning) is deferred and tracked in OPEN-ITEMS.md.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Introduced the service event stream as a second audit channel alongside the DBMS audit trail, resolving the observability inversion in the auditable-events refinement: the module&#8217;s lifecycle and key-state events (key-unavailable enforcement transition, recovery-mechanism use, update deployment) are generated while or because the database is not serving connections and cannot be required of an audit trail that becomes unreachable at that moment. The auditable-events table gains an Audit Channel column assigning every event; the ST identifies the stream&#8217;s implementing mechanism, boundary allocation, and tenant retrieval interface, with Trusted-Platform-delivered streams relying on OE.TRUSTED_PLATFORM and OE.EXTERNAL_SERVICES. Service event stream records concerning a tenant&#8217;s instance, keys, or backups are tenant-visible regardless of acting subject, including provider-initiated actions; audit data contents for FCS_CKM_DBAAS_EXT.1 and FDP_BKP_EXT.1 now identify the acting subject rather than presupposing a tenant context. Glossary entry added.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Stated that Tenant User, Tenant Administrator, and Service Provider Administrator are module-level role labels, not required TOE role names: the FMT_SMR.1/DBaaS application note now requires the ST to map each label to the TOE&#8217;s own role terminology, permits one-to-many and many-to-one mappings, and constrains the mapping to preserve the provider/tenant authority boundaries; glossary entries marked as labels and a Tenant User entry added.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Added a key-state enforcement interval assignment to FCS_CKM_DBAAS_EXT.1.3, replacing the implicit immediate-enforcement reading. The interval bounds the latency between a key-state change at the external key provider and TSF denial of access to protected data, accommodating the polling-based key-state detection and bounded unreachability grace periods documented by production DBaaS offerings; the completed interval must be a fixed documented bound covering worst-case detection latency, any unreachability grace period, and cached-key lifetime, and must not be indefinite or extensible by provider action. FCS_CKM_DBAAS_EXT.1.2 is unaffected and admits no such interval. Auditable events extended with the transition to the key-unavailable enforcement state; extended component definition and SFR rationale aligned.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-14</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Maturity pass toward the Cloud/Crypto structural baseline. FPT_TUD_DBAAS_EXT.1 redesigned as Trusted Service Update: the deployment model (rolling, tenant-deferral, or maintenance-window) is declared by selection, signature verification of service software before it is placed into service is the mandatory floor (envelope format unconstrained; algorithms per FCS_COP.1/SigVer), and a tenant-visible version or revision identifier is required; the conditional out-of-boundary escape was removed. Security Problem Definition extended with T.MALICIOUS_TENANT_ADMIN, T.SECRETS_EXPOSURE, T.UNAUTHORIZED_UPDATE, organizational security policies P.AUDIT_RETENTION and P.ACCESS_CONTROL_POLICY, O.TRUSTED_UPDATE, and OE.PROVIDER_ROLE_SEPARATION (DBaaS service and Trusted Platform administration through logically distinct roles, accounts, and control planes). Added TOE boundary diagram, TOE use cases, an auditable-events refinement of the Base PP&#8217;s Table 4 for all module SFRs, and complete objective tracing for FMT_SMR.1/DBaaS and FMT_SMF.1/DBaaS. Editorial: operation-completion typesetting normalized, X.509 Functional Package bibliography entry added, JISEC acknowledged, A.CONNECT consistency analysis split into external-entity and inter-TSF legs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-14</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Two design corrections from self-review. FCS_CKM_DBAAS_EXT.1.3&#8217;s recovery-mechanism exception now requires that recovery be authorized by the tenant or an agent under the tenant&#8217;s control (provider-held escrow or any unilaterally exercisable provider recovery path cannot complete the exception), with recovery-mechanism use added to the auditable events. FDP_ACC.2/DBaaS replaced by FDP_ACC.1/DBaaS (Subset access control): the Tenant Isolation SFP governs tenant-scoped subjects, objects, and operations, and the complete-access-control claim is not made because completeness across all TSF-controlled subjects and objects is a property of the composed ST rather than of this module.</p></td>
 </tr>
 </tbody>
 </table>
@@ -824,6 +867,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><span id="TLS_FP">[TLS_FP]</span> Functional Package for Transport Layer Security (TLS), Version 2.1, 2025-08-25.</p>
+</li>
+<li>
+<p><span id="X509_FP">[X509_FP]</span> Functional Package for X.509 Certificates, Version 1.0. Available at <a href="https://commoncriteria.github.io/X509/release-1.0/X509-release.html">commoncriteria.github.io/X509</a>.</p>
 </li>
 <li>
 <p><span id="CCiTC_SaaS">[CCiTC_SaaS]</span> Common Criteria in the Cloud Technical Community, Guidance for Cloud Evaluations, Version 1.1.</p>
@@ -940,7 +986,7 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <p><strong>Customer-Controlled Cryptographic Protection</strong>: Data-at-rest encryption under customer-controlled keys and protected data-in-transit, provided by the mandatory Crypto Module.</p>
 </li>
 <li>
-<p><strong>DBaaS-Specific Controls</strong>: Logical tenant isolation, residual information protection, resource governance, tenant-scoped and immutable audit, protected backup and restore, and autonomous trusted update, provided by this module.</p>
+<p><strong>DBaaS-Specific Controls</strong>: Logical tenant isolation, residual information protection, resource governance, tenant-scoped and immutable audit, protected backup and restore, and trusted service update, provided by this module.</p>
 </li>
 </ul>
 </div>
@@ -1014,7 +1060,21 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_operational_environment_dependencies">3.5. Operational Environment Dependencies</h3>
+<h3 id="_toe_boundary">3.5. TOE Boundary</h3>
+<div class="paragraph">
+<p>The following diagram shows the generic boundary for a provider-operated DBaaS TOE and the interfaces this module constrains. The exact allocation of components to the TOE, TOE Platform, and Trusted Platform is declared by the ST under <a href="#_security_function_allocation">Security Function Allocation</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/dbaas-toe-boundary.png" alt="dbaas toe boundary" width="940" height="490">
+</div>
+</div>
+<div class="paragraph">
+<p>Tenant-facing interfaces and the provider&#8217;s service administration interfaces terminate at the TOE and are subject to the Tenant Isolation SFP, the role model, and the management restrictions of this module; channels between the TOE and external entities are protected as required by the mandatory DBMS Cryptographic Functions Module (<code>FDP_DIT_EXT.1</code>). The Trusted Platform&#8217;s own control plane is not a TOE interface: administrative authority over it is held by a population distinct from the Service Provider Administrators of the DBaaS service, as required by OE.PROVIDER_ROLE_SEPARATION.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_operational_environment_dependencies">3.6. Operational Environment Dependencies</h3>
 <div class="paragraph">
 <p>The ST shall identify operational environment services relied upon by the TOE, including external key management services, identity providers, logging or SIEM services, object storage services, backup services, management consoles, cloud authorization evidence, and trusted time services when those services support the evaluated configuration.</p>
 </div>
@@ -1023,7 +1083,7 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_security_function_allocation">3.6. Security Function Allocation</h3>
+<h3 id="_security_function_allocation">3.7. Security Function Allocation</h3>
 <div class="paragraph">
 <p>This PP-Module does not prescribe a single implementation boundary for every DBaaS architecture. A component or service may be allocated differently in different evaluated products when the resulting TOE boundary, SFR claims, assumptions, and Operational Environment objectives remain internally consistent. Provider ownership or operation of a component does not by itself determine its allocation.</p>
 </div>
@@ -1056,7 +1116,68 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cc_conformance_claims">4. CC Conformance Claims</h2>
+<h2 id="_toe_use_case">4. TOE Use Case</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes representative deployment scenarios for provider-operated DBaaS TOEs. Both scenarios share the module&#8217;s discriminator — the cloud service provider holds administrative authority over the DBMS software lifecycle — and differ in tenancy architecture, key-management model, and update cadence. They illustrate how the module&#8217;s requirements, including the mandatory cryptographic protections inherited from the DBMS Cryptographic Functions Module, apply across the range of real managed database services.</p>
+</div>
+<div class="sect2">
+<h3 id="_multi_tenant_managed_database_service">4.1. Multi-Tenant Managed Database Service</h3>
+<div class="paragraph">
+<p>A cloud service provider operates a fleet of DBMS instances as a managed service. Multiple tenants share DBMS service infrastructure, with tenant boundaries implemented by DBMS constructs such as databases, pluggable databases, schemas, or tenant identifiers. The deployment consists of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provider-operated DBMS instances on shared, provider-managed infrastructure;</p>
+</li>
+<li>
+<p>Tenant access through tenant-facing database, administrative, and programmatic interfaces over untrusted networks;</p>
+</li>
+<li>
+<p>Customer-controlled master keys held in an external key management service under tenant control (BYOK or external KMS integration);</p>
+</li>
+<li>
+<p>Versioned service updates deployed by the provider on a published schedule, with tenant-configurable deferral or maintenance windows.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In this scenario the module&#8217;s tenant-isolation, resource-governance, and tenant-scoped audit requirements carry the security value of the shared-infrastructure model, and the customer-controlled key requirements ensure the provider cannot reach tenant plaintext through TOE interfaces. Data-in-transit protection for the tenant-facing interfaces and data-at-rest encryption under the customer-controlled key hierarchy are inherited as mandatory requirements from the DBMS Cryptographic Functions Module (<code>FDP_DIT_EXT.1</code>, <code>FDP_DAR_EXT.1</code>). The update model is declared in <code>FPT_TUD_DBAAS_EXT.1.1</code> through the tenant-deferral or maintenance-window selection.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_autonomous_continuously_deployed_database_service">4.2. Autonomous, Continuously Deployed Database Service</h3>
+<div class="paragraph">
+<p>A cloud service provider operates an autonomous database service in which provider-managed automation performs operational database management, and service software is deployed continuously: a single live service target receives rolling updates from the provider&#8217;s deployment pipeline, with no discrete versions offered to tenants and no tenant deferral. The deployment consists of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provider-operated, automation-managed DBMS service instances;</p>
+</li>
+<li>
+<p>Rolling deployment of service software from pipeline artifacts that are digitally signed and verified before being placed into service;</p>
+</li>
+<li>
+<p>A service revision identifier that tenants can query for change-management and support purposes;</p>
+</li>
+<li>
+<p>Customer-controlled keys accessed by reference through an external key management service, without plaintext key export to the TOE.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In this scenario the update path is the distinctive security surface: <code>FPT_TUD_DBAAS_EXT.1</code> is completed with the uniform-rolling-deployment selection, signature verification applies to the deployment artifacts, and the revision identifier satisfies the tenant-visibility requirement without semantic versioning. The automated management logic is declared as a role in <code>FMT_SMR.1/DBaaS</code>, and its management authority is bounded by the <code>FMT_MOF.1/DBaaS</code> iterations. The customer-controlled key model couples to the "Externally Managed" Key Origin of the DBMS Cryptographic Functions Module.</p>
+</div>
+<div class="paragraph">
+<p><strong>Application Note:</strong> These DBaaS deployment use cases do not automatically select the Crypto Module&#8217;s optional <code>[USE CASE 2] Enterprise Enhanced</code>. An ST may claim Enterprise Enhanced for a DBaaS PP-Configuration when the deployment requires its FIPS 140-3, NIAP, and CNSA 2.0-aligned cryptographic selections; the ST then follows the selection template defined entirely by the Crypto Module.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cc_conformance_claims">5. CC Conformance Claims</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>As defined by the references <a href="#CC1">[CC1]</a>, <a href="#CC2">[CC2]</a>, and <a href="#CC3">[CC3]</a>, this PP-Module:</p>
@@ -1078,16 +1199,16 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <p>The methodology applied for the PP-Module evaluation is defined in <a href="#CEM">[CEM]</a>. This PP-Module is evaluated against the ACE assurance families of CC:2022 Part 3 (ACE_INT.1, ACE_CCL.1, ACE_SPD.1, ACE_OBJ.1, ACE_ECD.1, ACE_REQ.1, and ACE_MCO.1) within the evaluation of a PP-Configuration that includes it.</p>
 </div>
 <div class="sect2">
-<h3 id="_package_conformance">4.1. Package Conformance</h3>
+<h3 id="_package_conformance">5.1. Package Conformance</h3>
 <div class="paragraph">
 <p>This PP-Module does not introduce additional functional package claims or additional assurance package claims beyond those inherited from the Base PP. A PP-Configuration including this PP-Module inherits the cPP_DBMS claim of conformance to the EAL2 assurance package defined in CC:2022 Part 5 [<a href="#CC5">[CC5]</a>], augmented by ALC_FLR.3 Systematic flaw remediation.</p>
 </div>
 <div class="paragraph">
-<p>A TOE claiming this PP-Module includes, through the mandatory DBMS Cryptographic Functions Module, the applicable Catalogue-derived components consumed there and, for trusted channels, the applicable components of the Functional Package for TLS [<a href="#TLS_FP">[TLS_FP]</a>] and Functional Package for X.509 Certificates.</p>
+<p>A TOE claiming this PP-Module includes, through the mandatory DBMS Cryptographic Functions Module, the applicable Catalogue-derived components consumed there and, for trusted channels, the applicable components of the Functional Package for TLS [<a href="#TLS_FP">[TLS_FP]</a>] and the Functional Package for X.509 Certificates [<a href="#X509_FP">[X509_FP]</a>].</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_pp_module_conformance_type">4.2. PP-Module Conformance Type</h3>
+<h3 id="_pp_module_conformance_type">5.2. PP-Module Conformance Type</h3>
 <div class="paragraph">
 <p>This PP-Module requires <strong>Exact Conformance</strong> of the Security Target to this PP-Module, as defined for PP-Modules in conjunction with the Base PP. Exact Conformance is defined in CC:2022 Part 1 <a href="#CC1">[CC1]</a>.</p>
 </div>
@@ -1100,7 +1221,7 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <p><strong>Mandatory SFRs</strong>: The ST shall include all SFRs that are listed as mandatory in this PP-Module and in the Base PP.</p>
 </li>
 <li>
-<p><strong>Selection-Based SFRs</strong>: The ST shall include the selection-based SFRs of this PP-Module that are triggered by selections made in other SFRs.</p>
+<p><strong>Selection-Based SFRs</strong>: The ST shall include the selection-based SFRs of this PP-Module that are triggered by selections made in other SFRs. This PP-Module defines no selection-based SFRs; selections within its mandatory SFRs do not make those SFRs selection-based.</p>
 </li>
 <li>
 <p><strong>Optional SFRs</strong>: The ST may include the optional SFRs of this PP-Module. This PP-Module defines no optional SFRs.</p>
@@ -1115,7 +1236,7 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_conformance_claim_rationale">4.3. Conformance Claim Rationale</h3>
+<h3 id="_conformance_claim_rationale">5.3. Conformance Claim Rationale</h3>
 <div class="paragraph">
 <p>A Security Target claiming conformance to a PP-Configuration that includes this PP-Module shall include:</p>
 </div>
@@ -1131,10 +1252,7 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <p>A statement of Exact Conformance to this PP-Module.</p>
 </li>
 <li>
-<p>The mandatory SFRs of this PP-Module, completed in accordance with their specifications.</p>
-</li>
-<li>
-<p>The selection-based SFRs of this PP-Module triggered by the completed selections.</p>
+<p>The mandatory SFRs of this PP-Module, completed in accordance with their specifications. (This PP-Module defines no selection-based or optional SFRs.)</p>
 </li>
 </ol>
 </div>
@@ -1142,13 +1260,13 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_problem_definition">5. Security Problem Definition</h2>
+<h2 id="_security_problem_definition">6. Security Problem Definition</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The security problem is described in terms of the threats that the TOE, or the TOE and its operational environment, addresses, and the assumptions made about the operational environment. The threats, assumptions, and objectives defined in this PP-Module supplement those defined in the Base PP and do not contradict them. The consistency of this PP-Module&#8217;s Security Problem Definition with that of the Base PP is demonstrated in <a href="#_consistency_rationale">Consistency Rationale</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_threats">5.1. Threats</h3>
+<h3 id="_threats">6.1. Threats</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">T.KEY_DISCLOSURE_TO_PROVIDER_ADMIN</dt>
@@ -1167,11 +1285,23 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <dd>
 <p>A malicious tenant, tenant administrator, or compromised service account may attempt to delete, modify, suppress, or disable audit records to conceal unauthorized activities.</p>
 </dd>
+<dt class="hdlist1">T.MALICIOUS_TENANT_ADMIN</dt>
+<dd>
+<p>A malicious or negligent tenant administrator may attempt to weaken the security configuration of the tenant&#8217;s service — including disabling audit generation or data-at-rest encryption — or abuse tenant administrative interfaces to act outside the tenant&#8217;s scope.</p>
+</dd>
+<dt class="hdlist1">T.SECRETS_EXPOSURE</dt>
+<dd>
+<p>Secrets handled by the TOE — tenant credentials, service account credentials, external key-management service credentials, and customer-controlled key references — may be exposed to other tenants or to unauthorized roles through DBMS logs, diagnostic outputs, backups, error messages, or TOE interfaces.</p>
+</dd>
+<dt class="hdlist1">T.UNAUTHORIZED_UPDATE</dt>
+<dd>
+<p>An attacker who compromises the update distribution path or deployment pipeline, or an unauthorized actor within the service provider, may cause unverified or malicious DBMS service software to be placed into service, compromising the TSF for all tenants of the service.</p>
+</dd>
 </dl>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_assumptions">5.2. Assumptions</h3>
+<h3 id="_assumptions">6.2. Assumptions</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">A.TRUSTED_PLATFORM_ADMIN</dt>
@@ -1193,13 +1323,72 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 </dl>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_organizational_security_policies">6.3. Organizational Security Policies</h3>
+<div class="paragraph">
+<p>This section defines the organizational security policies that the TOE must support or enforce. These policies represent security rules that organizations deploying or consuming the TOE are expected to implement.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">P.AUDIT_RETENTION</dt>
+<dd>
+<p>The organization shall define and enforce audit record retention policies that specify:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The minimum retention period for audit records based on regulatory requirements (e.g., GDPR, HIPAA, PCI-DSS, SOX) and organizational security policies;</p>
+</li>
+<li>
+<p>The storage location and protection requirements for retained audit records;</p>
+</li>
+<li>
+<p>Procedures for secure disposal of audit records after the retention period expires;</p>
+</li>
+<li>
+<p>Requirements for audit record availability during incident investigations or compliance audits.</p>
+<div class="paragraph">
+<p>The TOE must support the export of tenant-scoped audit records so that tenants can implement their retention policies using external audit storage solutions, and must protect retained audit records from unauthorized modification and deletion while under TOE control. In a provider-operated service, retention obligations apply to both the provider (service-level audit) and the tenant (tenant-scoped audit), and to both audit channels defined by this module&#8217;s auditable-events refinement: the ST identifies, for the DBMS audit trail and the service event stream separately, the retention treatment applicable to each and which records are exportable to tenants.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">P.ACCESS_CONTROL_POLICY</dt>
+<dd>
+<p>The organization shall implement role-based access control with least-privilege principles for all TOE access. Specifically:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Each user and service account shall be assigned to defined roles with explicitly documented privileges;</p>
+</li>
+<li>
+<p>Privileges shall be limited to the minimum necessary for users to perform their authorized functions;</p>
+</li>
+<li>
+<p>Administrative privileges shall be separated from regular user privileges, and service provider administrative privileges shall be separated from tenant administrative privileges;</p>
+</li>
+<li>
+<p>Access control decisions shall be logged for accountability;</p>
+</li>
+<li>
+<p>Role assignments shall be reviewed periodically and adjusted as organizational needs change.</p>
+<div class="paragraph">
+<p>The TOE must provide mechanisms to define roles, assign users to roles, and enforce access control decisions based on role membership and tenant context.</p>
+</div>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_objectives">6. Security Objectives</h2>
+<h2 id="_security_objectives">7. Security Objectives</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_security_objectives_for_the_toe">6.1. Security Objectives for the TOE</h3>
+<h3 id="_security_objectives_for_the_toe">7.1. Security Objectives for the TOE</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">O.CUSTOMER_CONTROLLED_KEYS</dt>
@@ -1222,20 +1411,34 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <dd>
 <p>The TOE shall ensure that backup and restore of protected tenant data preserves data-at-rest encryption and customer-controlled key binding, such that backup data cannot be decrypted or restored in plaintext without authorized use of the applicable customer-controlled master key.</p>
 </dd>
+<dt class="hdlist1">O.TRUSTED_UPDATE</dt>
+<dd>
+<p>The TOE shall apply updates to the DBMS service software only through the service provider&#8217;s authorized update process, shall verify the authenticity and integrity of updates by digital signature before the updated software is placed into service, and shall make the version or revision identifier of the deployed service software visible to tenants.</p>
+</dd>
 </dl>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_security_objectives_for_the_operational_environment">6.2. Security Objectives for the Operational Environment</h3>
+<h3 id="_security_objectives_for_the_operational_environment">7.2. Security Objectives for the Operational Environment</h3>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">OE.TRUSTED_PLATFORM</dt>
 <dd>
-<p>The operational environment shall provide a Trusted Platform that satisfies the physical, logical, administrative, and operational controls needed to host the TOE and TOE Platform in accordance with the evaluated configuration.</p>
+<p>The operational environment shall provide a Trusted Platform that satisfies the physical, logical, administrative, and operational controls needed to host the TOE and TOE Platform in accordance with the evaluated configuration: it shall enforce infrastructure-level tenant isolation, protect the compute, storage, and network resources supporting the TOE, provide correct operation of the infrastructure services relied upon by the TOE, and be responsible for the availability of underlying resources.</p>
+<div class="paragraph">
+<p><strong>Application Note:</strong> This objective states, for the provider-operated DBaaS context, the same platform responsibilities that the DBMS Cloud Module&#8217;s OE.TRUSTED_PLATFORM states for tenant-operated deployments (infrastructure isolation, resource protection, and infrastructure-service correctness). The two modules are never claimed together; the shared name denotes the shared platform role.</p>
+</div>
 </dd>
 <dt class="hdlist1">OE.TRUSTED_PLATFORM_ADMIN</dt>
 <dd>
 <p>Trusted Platform administrators shall manage the Trusted Platform in accordance with accepted cloud authorization controls, provider procedures, and scheme-accepted operational evidence, and shall not act to bypass or compromise the TOE.</p>
+</dd>
+<dt class="hdlist1">OE.PROVIDER_ROLE_SEPARATION</dt>
+<dd>
+<p>The service provider shall exercise administrative authority over the DBaaS service and administrative authority over the Trusted Platform through logically distinct roles, accounts, and control planes, assigned according to least privilege, such that no single administrative identity holds both DBaaS service administration and Trusted Platform administration.</p>
+<div class="paragraph">
+<p><strong>Application Note:</strong> This objective constrains the provider&#8217;s operating model, not the provider&#8217;s corporate structure: a provider may operate both the DBaaS service and the underlying platform (vertical integration is expressly permitted), provided the two administrative populations, their credentials, and their control planes are distinct and least-privilege-assigned. This separation is what keeps A.TRUSTED_PLATFORM_ADMIN scoped to the platform population only: without it, the Service Provider Administrator — the threat agent of T.KEY_DISCLOSURE_TO_PROVIDER_ADMIN — could fall inside the assumption&#8217;s exempted population, collapsing the module&#8217;s customer-controlled key claims into an assumption. The provider demonstrates the separation through its role and account model documentation, evaluated as described in the Supporting Document.</p>
+</div>
 </dd>
 <dt class="hdlist1">OE.SERVICE_AVAILABILITY</dt>
 <dd>
@@ -1251,10 +1454,10 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_rationale">7. Security Rationale</h2>
+<h2 id="_security_rationale">8. Security Rationale</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_threats_to_objectives_mapping">7.1. Threats to Objectives Mapping</h3>
+<h3 id="_threats_to_objectives_mapping">8.1. Threats to Objectives Mapping</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1271,8 +1474,8 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T.KEY_DISCLOSURE_TO_PROVIDER_ADMIN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">O.CUSTOMER_CONTROLLED_KEYS, O.PROTECTED_BACKUP, OE.TRUSTED_PLATFORM_ADMIN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">O.CUSTOMER_CONTROLLED_KEYS requires TOE behavior that prevents service provider administrators from using TOE interfaces to view, export, or recover plaintext customer-controlled master key material. O.PROTECTED_BACKUP extends that protection to backup and restore paths, which are a common provider-administrator disclosure vector. OE.TRUSTED_PLATFORM_ADMIN states the operational trust placed in administrators of infrastructure outside the TOE boundary.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.CUSTOMER_CONTROLLED_KEYS, O.PROTECTED_BACKUP, OE.TRUSTED_PLATFORM_ADMIN, OE.PROVIDER_ROLE_SEPARATION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.CUSTOMER_CONTROLLED_KEYS requires TOE behavior that prevents service provider administrators from using TOE interfaces to view, export, or recover plaintext customer-controlled master key material. O.PROTECTED_BACKUP extends that protection to backup and restore paths, which are a common provider-administrator disclosure vector. OE.TRUSTED_PLATFORM_ADMIN states the operational trust placed in administrators of infrastructure outside the TOE boundary. OE.PROVIDER_ROLE_SEPARATION keeps the Service Provider Administrator population distinct from the Trusted Platform administrative population, so that the threat agent of this threat is not exempted by A.TRUSTED_PLATFORM_ADMIN.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">T.TENANT_ISOLATION_FAILURE</p></td>
@@ -1289,11 +1492,26 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <td class="tableblock halign-left valign-top"><p class="tableblock">O.IMMUTABLE_AUDIT, OE.EXTERNAL_SERVICES</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">O.IMMUTABLE_AUDIT requires the TOE to protect TOE-generated audit records from unauthorized modification or deletion. OE.EXTERNAL_SERVICES addresses external audit export, logging, or storage services when such services are relied upon by the evaluated configuration.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T.MALICIOUS_TENANT_ADMIN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.LOGICAL_ISOLATION, O.IMMUTABLE_AUDIT, O.CUSTOMER_CONTROLLED_KEYS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.LOGICAL_ISOLATION confines tenant administrative authority to the tenant&#8217;s own scope. O.IMMUTABLE_AUDIT denies tenant administrators the ability to modify or delete audit records, and the management restrictions supporting it and O.CUSTOMER_CONTROLLED_KEYS prevent any role — including a tenant administrator — from disabling audit generation or data-at-rest encryption in the evaluated configuration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T.SECRETS_EXPOSURE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.CUSTOMER_CONTROLLED_KEYS, O.LOGICAL_ISOLATION, OE.EXTERNAL_SERVICES</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.CUSTOMER_CONTROLLED_KEYS prevents disclosure of customer-controlled key material through TOE interfaces, including logs, diagnostics, and backups. O.LOGICAL_ISOLATION prevents one tenant&#8217;s secrets from being reachable by another tenant through DBMS-controlled resources. OE.EXTERNAL_SERVICES addresses the protection of secrets while held by external key-management, identity, or secret-management services outside the TOE boundary. The lifecycle protection of master key material itself is addressed by the mandatory DBMS Cryptographic Functions Module&#8217;s key-management objectives.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T.UNAUTHORIZED_UPDATE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.TRUSTED_UPDATE, OE.TRUSTED_PLATFORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.TRUSTED_UPDATE requires that DBMS service software is placed into service only through the provider&#8217;s authorized update process and only after signature verification, and that the deployed version is visible to tenants, so an unverified or malicious update is not silently applied. OE.TRUSTED_PLATFORM addresses the integrity of the infrastructure hosting the deployment pipeline outside the TOE boundary.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_assumptions_to_objectives_mapping">7.2. Assumptions to Objectives Mapping</h3>
+<h3 id="_assumptions_to_objectives_mapping">8.2. Assumptions to Objectives Mapping</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1310,8 +1528,8 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.TRUSTED_PLATFORM_ADMIN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OE.TRUSTED_PLATFORM_ADMIN</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OE.TRUSTED_PLATFORM_ADMIN directly requires Trusted Platform administrators to operate the platform according to accepted controls and not act to bypass or compromise the TOE.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OE.TRUSTED_PLATFORM_ADMIN, OE.PROVIDER_ROLE_SEPARATION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OE.TRUSTED_PLATFORM_ADMIN directly requires Trusted Platform administrators to operate the platform according to accepted controls and not act to bypass or compromise the TOE. OE.PROVIDER_ROLE_SEPARATION bounds the population to which this assumption applies: it keeps Trusted Platform administration distinct from DBaaS service administration, so the assumption&#8217;s exemption cannot extend to Service Provider Administrators of the DBaaS service.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A.TRUSTED_PLATFORM_CONTROLS</p></td>
@@ -1332,7 +1550,36 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 </table>
 </div>
 <div class="sect2">
-<h3 id="_objectives_to_sfrs_mapping">7.3. Objectives to SFRs Mapping</h3>
+<h3 id="_organizational_security_policies_to_objectives_mapping">8.3. Organizational Security Policies to Objectives Mapping</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Organizational Security Policy</th>
+<th class="tableblock halign-left valign-top">Security Objectives Addressing the Policy</th>
+<th class="tableblock halign-left valign-top">Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P.AUDIT_RETENTION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.IMMUTABLE_AUDIT, OE.EXTERNAL_SERVICES</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.IMMUTABLE_AUDIT protects retained audit records from unauthorized modification and deletion while under TOE control, and the audit export configuration functions restricted to authorized roles enable tenants and the provider to move records into retention storage. OE.EXTERNAL_SERVICES addresses the external logging and storage services in which exported records are retained.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P.ACCESS_CONTROL_POLICY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.LOGICAL_ISOLATION, OE.PROVIDER_ROLE_SEPARATION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.LOGICAL_ISOLATION enforces role- and tenant-scoped access control over DBMS-controlled data and resources, supported by the module&#8217;s role model and management restrictions. OE.PROVIDER_ROLE_SEPARATION applies the policy&#8217;s least-privilege and separation requirements to the provider&#8217;s own administrative populations.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_objectives_to_sfrs_mapping">8.4. Objectives to SFRs Mapping</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 12.5%;">
@@ -1350,48 +1597,56 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">O.CUSTOMER_CONTROLLED_KEYS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1, and DBMS Cryptographic Functions Module requirements</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 requires the TOE to support customer-controlled master keys, prevents service provider administrator access to plaintext key material, and defines behavior when authorization to use a customer-controlled key is revoked, unavailable, or denied. The cryptographic mechanisms, key destruction, and trusted channel for key import are provided by the mandatory DBMS Cryptographic Functions Module.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 requires the TOE to support customer-controlled master keys, prevents service provider administrator access to plaintext key material, and requires denial of access to protected data within a bounded key-state enforcement interval when authorization to use a customer-controlled key is revoked, unavailable, or denied. The cryptographic mechanisms, key destruction, and trusted channel for key import are provided by the mandatory DBMS Cryptographic Functions Module.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">O.LOGICAL_ISOLATION</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACC.2/DBaaS, FDP_ACF.1/DBaaS, FDP_RIP.1/DBaaS, FIA_USB.1/DBaaS, FAU_SEL.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACC.1/DBaaS, FDP_ACF.1/DBaaS, FDP_RIP.1/DBaaS, FIA_USB.1/DBaaS, FAU_SEL.1/DBaaS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The tenant isolation access control policy, residual information protection, user-subject binding, and tenant-aware audit selection together prevent unauthorized cross-tenant access to data, metadata, audit records, and tenant-scoped resources.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">O.RESOURCE_GOVERNANCE</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FRU_RSA.1/DBaaS, FRU_RSG_EXT.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FRU_RSA.1/DBaaS requires the TOE to enforce tenant resource quotas, and FRU_RSG_EXT.1 requires a defined enforcement action (terminate, throttle, queue, or reject) on operations that exceed configured limits.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FRU_RSA.1/DBaaS, FRU_RSG_EXT.1, FMT_SMF.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FRU_RSA.1/DBaaS requires the TOE to enforce tenant resource quotas, and FRU_RSG_EXT.1 requires a defined enforcement action (terminate, throttle, queue, or reject) on operations that exceed configured limits. FMT_SMF.1/DBaaS provides the quota and enforcement-behavior configuration functions on which both depend.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">O.IMMUTABLE_AUDIT</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_STG.2/DBaaS, FMT_MOF.1/DBaaS-Disable, FMT_MOF.1/DBaaS-Modify</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_STG.2/DBaaS protects stored audit records from unauthorised modification and deletion, including by tenant administrators. FMT_MOF.1/DBaaS-Disable prevents any role from disabling audit generation, and FMT_MOF.1/DBaaS-Modify restricts audit export configuration to provider roles.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_STG.2/DBaaS, FMT_MOF.1/DBaaS-Disable, FMT_MOF.1/DBaaS-Modify, FMT_SMR.1/DBaaS, FMT_SMF.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_STG.2/DBaaS protects stored audit records from unauthorised modification and deletion, including by tenant administrators. FMT_MOF.1/DBaaS-Disable prevents any role from disabling audit generation, and FMT_MOF.1/DBaaS-Modify restricts audit export configuration to provider roles. FMT_SMR.1/DBaaS defines the role model, and FMT_SMF.1/DBaaS the audit management functions, on which those restrictions operate.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">O.PROTECTED_BACKUP</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FDP_BKP_EXT.1, and DBMS Cryptographic Functions Module requirements</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Data-at-rest protection of backup data is provided by <code>FDP_DAR_EXT.1</code> of the mandatory DBMS Cryptographic Functions Module, under which protected data, and therefore its backups, are encrypted under the customer-controlled key hierarchy. FDP_BKP_EXT.1 adds the backup/restore-path requirements: it prevents plaintext restore or export by service provider administrators without authorized use of the customer-controlled key, and binds restored data to the originating tenant so that restore does not bypass the Tenant Isolation SFP.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">O.TRUSTED_UPDATE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FPT_TUD_DBAAS_EXT.1, FMT_MOF.1/DBaaS-Modify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FPT_TUD_DBAAS_EXT.1 requires updates to be applied through the provider&#8217;s authorized update process under a declared deployment model, verified by digital signature before being placed into service, with the deployed version or revision identifier visible to tenants. FMT_MOF.1/DBaaS-Modify restricts modification of patching and update behavior to provider roles, so tenants and unauthorized roles cannot alter the update process.</p></td>
+</tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>The security management SFRs <code>FMT_SMR.1/DBaaS</code> and <code>FMT_SMF.1/DBaaS</code> support the objectives above by defining the roles and management functions on which the <code>FMT_MOF.1/DBaaS</code> iterations, <code>FDP_ACF.1/DBaaS</code>, and <code>FCS_CKM_DBAAS_EXT.1</code> depend. <code>FPT_TUD_DBAAS_EXT.1</code> supports the integrity of the managed service by ensuring autonomous updates are applied from trusted, verified sources without tenant interference.</p>
+<p>The security management SFRs <code>FMT_SMR.1/DBaaS</code> and <code>FMT_SMF.1/DBaaS</code> additionally support O.CUSTOMER_CONTROLLED_KEYS and O.LOGICAL_ISOLATION by defining the roles and management functions on which <code>FCS_CKM_DBAAS_EXT.1</code> and <code>FDP_ACF.1/DBaaS</code> depend.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_functional_requirements">8. Security Functional Requirements</h2>
+<h2 id="_security_functional_requirements">9. Security Functional Requirements</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_conventions">8.1. Conventions</h3>
+<h3 id="_conventions">9.1. Conventions</h3>
 <div class="paragraph">
 <p>The individual security functional requirements are specified in the sections below. The following conventions are used:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>[text within square brackets] indicates the completion of a selection or assignment.</p>
+<p>[text within square brackets] indicates the completion of a selection or assignment; where a completed assignment or selection is presented as a list, the list items are set in italics.</p>
+</li>
+<li>
+<p>Selections and assignments left to the ST author retain the [selection: &#8230;&#8203;] and [assignment: &#8230;&#8203;] operation form.</p>
 </li>
 <li>
 <p><strong>Bold text</strong> indicates a refinement of a Base PP or CC Part 2 requirement.</p>
@@ -1408,12 +1663,12 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_security_functional_requirements_mandatory">9. Security Functional Requirements (Mandatory)</h2>
+<h2 id="_security_functional_requirements_mandatory">10. Security Functional Requirements (Mandatory)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_fcs_cryptographic_support">9.1. FCS: Cryptographic Support</h3>
+<h3 id="_fcs_cryptographic_support">10.1. FCS: Cryptographic Support</h3>
 <div class="sect3">
-<h4 id="_fcs_ckm_dbaas_ext_1_customer_controlled_keys">9.1.1. FCS_CKM_DBAAS_EXT.1 Customer-Controlled Keys</h4>
+<h4 id="_fcs_ckm_dbaas_ext_1_customer_controlled_keys">10.1.1. FCS_CKM_DBAAS_EXT.1 Customer-Controlled Keys</h4>
 <div class="paragraph">
 <p><strong>FCS_CKM_DBAAS_EXT.1.1</strong> The TSF shall support customer-controlled master encryption keys using one or more of the following mechanisms: [selection: customer-generated master keys imported into the TOE through a trusted channel specified by the DBMS Cryptographic Functions Module; externally managed master keys accessed through a key management service interface where plaintext master key material is not exported to the TOE; customer-controlled key references or key handles that permit the TOE to perform authorized cryptographic operations without exposing plaintext master key material to service provider administrators].</p>
 </div>
@@ -1421,10 +1676,14 @@ In a DBaaS model the customer does not control the physical infrastructure, and 
 <p><strong>FCS_CKM_DBAAS_EXT.1.2</strong> The TSF shall not provide an interface by which a service provider administrator can view, export, or recover plaintext customer-controlled master key material.</p>
 </div>
 <div class="paragraph">
-<p><strong>FCS_CKM_DBAAS_EXT.1.3</strong> The TSF shall prevent access to protected database data when authorized use of the applicable customer-controlled master key is revoked, unavailable, or denied, except for data that remains available through an explicitly documented and evaluated recovery mechanism.</p>
+<p><strong>FCS_CKM_DBAAS_EXT.1.3</strong> The TSF shall prevent access to protected database data no later than [assignment: key-state enforcement interval] after authorized use of the applicable customer-controlled master key is revoked, unavailable, or denied, except for data that remains available through an explicitly documented and evaluated recovery mechanism whose use requires authorization by the tenant or an agent under the tenant&#8217;s control.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note:</strong> This requirement is intended to address DBaaS customer-controlled key models such as BYOK, HYOK, external KMS integration, or equivalent key-reference mechanisms. It does not require the TOE to protect against arbitrary modification of the Trusted Platform or cloud control plane. If the TOE stores, caches, wraps, transforms, or re-exports key material after receipt, the ST shall identify that behavior and the applicable DBMS-specific and Catalogue-derived key protection components in the DBMS Cryptographic Functions Module.</p>
+<p><strong>Application Note:</strong> This requirement is intended to address DBaaS customer-controlled key models such as BYOK, HYOK, external KMS integration, or equivalent key-reference mechanisms. The recovery-mechanism exception in FCS_CKM_DBAAS_EXT.1.3 cannot be completed by provider-held escrow or any mechanism the service provider can exercise unilaterally: a recovery path usable without tenant authorization would reintroduce exactly the disclosure this component excludes (T.KEY_DISCLOSURE_TO_PROVIDER_ADMIN). Use of a recovery mechanism is an auditable event (see the auditable-events table). Where the documented recovery mechanism is implemented as a restore from backup — the common case, using a retained older key version — it is the same operation addressed by <code>FDP_BKP_EXT.1</code>: a single use of the mechanism shall satisfy both the tenant-authorization constraint of this component and the restore authorization and tenant binding of <code>FDP_BKP_EXT.1</code>. This requirement does not require the TOE to protect against arbitrary modification of the Trusted Platform or cloud control plane. If the TOE stores, caches, wraps, transforms, or re-exports key material after receipt, the ST shall identify that behavior and the applicable DBMS-specific and Catalogue-derived key protection components in the DBMS Cryptographic Functions Module.</p>
+</div>
+<div class="paragraph">
+<p>+
+The key-state enforcement interval assignment in FCS_CKM_DBAAS_EXT.1.3 accommodates the key-state detection and availability behavior of production managed database services: external key-provider state is typically detected by periodic polling rather than synchronous notification, and services commonly document a bounded grace period during which cached key material remains in use when the external key provider is unreachable, so that a transient key-service or network fault does not immediately take down the database. Production DBaaS offerings document detection intervals on the order of minutes and unreachability grace periods on the order of hours. The ST author shall complete the assignment with the maximum interval between a key-state change at the external key provider and TSF denial of access to protected database data, covering both worst-case detection latency and any documented unreachability grace period, and covering the lifetime of any cached key material identified under the caching disclosure above. The completed interval shall be a fixed, documented bound: an interval that is indefinite, that is extensible by service provider action, or that resets on continued data access does not satisfy the requirement. Expiration of the interval and the resulting transition to the key-unavailable enforcement state are auditable events (see the auditable-events table). The interval bounds enforcement latency only; it does not weaken FCS_CKM_DBAAS_EXT.1.2, which admits no interval during which plaintext customer-controlled master key material may be exposed to a service provider administrator.</p>
 </div>
 <div class="paragraph">
 <p>+
@@ -1456,9 +1715,9 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fdp_user_data_protection">9.2. FDP: User Data Protection</h3>
+<h3 id="_fdp_user_data_protection">10.2. FDP: User Data Protection</h3>
 <div class="sect3">
-<h4 id="_fdp_rip_1dbaas_residual_information_protection_memory_and_temporary_resources">9.2.1. FDP_RIP.1/DBaaS Residual Information Protection (Memory and Temporary Resources)</h4>
+<h4 id="_fdp_rip_1dbaas_residual_information_protection_memory_and_temporary_resources">10.2.1. FDP_RIP.1/DBaaS Residual Information Protection (Memory and Temporary Resources)</h4>
 <div class="paragraph">
 <p><strong>FDP_RIP.1.1/DBaaS</strong> The TSF shall ensure that any previous information content of a resource is made unavailable upon the allocation of the resource to a different tenant for the following resources: [selection: memory, buffer cache, temporary storage, query work areas, diagnostic structures, [assignment: other shared DBMS resources]].</p>
 </div>
@@ -1486,18 +1745,15 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </table>
 </div>
 <div class="sect3">
-<h4 id="_fdp_acc_2dbaas_tenant_isolation_policy">9.2.2. FDP_ACC.2/DBaaS Tenant Isolation Policy</h4>
+<h4 id="_fdp_acc_1dbaas_tenant_isolation_policy">10.2.2. FDP_ACC.1/DBaaS Tenant Isolation Policy</h4>
 <div class="paragraph">
-<p><strong>FDP_ACC.2.1/DBaaS</strong> The TSF shall enforce the Tenant Isolation SFP on [<em>tenant subjects, tenant data objects, tenant metadata objects, and tenant audit records</em>] and all operations among subjects and objects covered by the SFP.</p>
+<p><strong>FDP_ACC.1.1/DBaaS</strong> The TSF shall enforce the Tenant Isolation SFP on [<em>tenant subjects, tenant data objects, tenant metadata objects, tenant audit records, and all operations among tenant subjects and those objects</em>].</p>
 </div>
 <div class="paragraph">
-<p><strong>FDP_ACC.2.2/DBaaS</strong> The TSF shall ensure that all operations between any subject controlled by the TSF and any object controlled by the TSF are covered by an access control SFP.</p>
-</div>
-<div class="paragraph">
-<p><strong>Application Note:</strong> FDP_ACC.2.2 states the complete-access-control property of CC Part 2 FDP_ACC.2: every operation between TSF-controlled subjects and objects is covered by some access control SFP. In the composed ST, coverage is provided by the Tenant Isolation SFP together with the access control SFPs of the Base PP.</p>
+<p><strong>Application Note:</strong> This SFR is CC:2022 Part 2 FDP_ACC.1 (Subset access control), iterated for the Tenant Isolation SFP. Subset access control is claimed deliberately: the Tenant Isolation SFP governs tenant-scoped subjects, objects, and operations, while subjects and objects outside its scope — including the Base PP&#8217;s users and objects and provider-side automation — are governed by the access control SFPs of the Base PP as claimed in the composed ST. A complete-access-control claim (FDP_ACC.2) is not made, because completeness across all TSF-controlled subjects and objects is a property of the composed ST rather than of this module in isolation.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. FDP_ACC.2/DBaaS Dependencies</caption>
+<caption class="title">Table 5. FDP_ACC.1/DBaaS Dependencies</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 66.6667%;">
@@ -1517,9 +1773,9 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </table>
 </div>
 <div class="sect3">
-<h4 id="_fdp_acf_1dbaas_tenant_isolation_policy_rules">9.2.3. FDP_ACF.1/DBaaS Tenant Isolation Policy Rules</h4>
+<h4 id="_fdp_acf_1dbaas_tenant_isolation_policy_rules">10.2.3. FDP_ACF.1/DBaaS Tenant Isolation Policy Rules</h4>
 <div class="paragraph">
-<p><strong>FDP_ACF.1.1/DBaaS</strong> The TSF shall enforce the Tenant Isolation SFP based on the following security attributes: tenant identifier, user identifier, service role, object owner, object tenant identifier, object type, and operation.</p>
+<p><strong>FDP_ACF.1.1/DBaaS</strong> The TSF shall enforce the Tenant Isolation SFP based on the following security attributes: [<em>tenant identifier, user identifier, service role, object owner, object tenant identifier, object type, and operation</em>].</p>
 </div>
 <div class="paragraph">
 <p><strong>FDP_ACF.1.2/DBaaS</strong> The TSF shall enforce the following rules:</p>
@@ -1527,16 +1783,16 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <div class="ulist">
 <ul>
 <li>
-<p>a tenant subject shall access only tenant data objects associated with the same tenant identifier unless explicitly authorized by an evaluated cross-tenant sharing mechanism;</p>
+<p><em>a tenant subject shall access only tenant data objects associated with the same tenant identifier unless explicitly authorized by an evaluated cross-tenant sharing mechanism;</em></p>
 </li>
 <li>
-<p>a tenant subject shall access only metadata associated with the same tenant identifier or metadata explicitly defined as global system metadata;</p>
+<p><em>a tenant subject shall access only metadata associated with the same tenant identifier or metadata explicitly defined as global system metadata;</em></p>
 </li>
 <li>
-<p>a tenant subject shall access only audit records associated with the same tenant identifier unless explicitly authorized by an evaluated provider or compliance function;</p>
+<p><em>a tenant subject shall access only audit records associated with the same tenant identifier unless explicitly authorized by an evaluated provider or compliance function;</em></p>
 </li>
 <li>
-<p>service provider administrative subjects shall be restricted from tenant data access except through interfaces and roles explicitly identified in the ST.</p>
+<p><em>service provider administrative subjects shall be restricted from tenant data access except through interfaces and roles explicitly identified in the ST.</em></p>
 </li>
 </ul>
 </div>
@@ -1564,7 +1820,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACC.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Satisfied by <code>FDP_ACC.2/DBaaS</code>, which is hierarchical to FDP_ACC.1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Satisfied by <code>FDP_ACC.1/DBaaS</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FMT_MSA.3</p></td>
@@ -1574,9 +1830,9 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </table>
 </div>
 <div class="sect3">
-<h4 id="_fru_rsa_1dbaas_maximum_quotas_tenant_resources">9.2.4. FRU_RSA.1/DBaaS Maximum Quotas (Tenant Resources)</h4>
+<h4 id="_fru_rsa_1dbaas_maximum_quotas_tenant_resources">10.2.4. FRU_RSA.1/DBaaS Maximum Quotas (Tenant Resources)</h4>
 <div class="paragraph">
-<p><strong>FRU_RSA.1.1/DBaaS</strong> The TSF shall enforce maximum quotas of the following resources: [selection: CPU, memory, I/O bandwidth, storage, sessions, query concurrency, workload queues, [assignment: other DBMS-managed resources]] that [<strong>individual tenants, as defined groups of users</strong>] can use [selection: simultaneously, over a specified period of time].</p>
+<p><strong>FRU_RSA.1.1/DBaaS</strong> The TSF shall enforce maximum quotas of the following resources: [selection: CPU, memory, I/O bandwidth, storage, sessions, query concurrency, workload queues, [assignment: other DBMS-managed resources]] that [<em>individual tenants, as defined groups of users</em>] can use [selection: simultaneously, over a specified period of time].</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note:</strong> This SFR is CC:2022 Part 2 FRU_RSA.1, iterated for tenant resource governance. The Part 2 assignment of controlled resources is narrowed to the selection shown; the subject selection is completed by treating each tenant as a defined group of users. It does not require the TOE to enforce infrastructure-level resource controls provided solely by the Trusted Platform unless those controls are included in the TOE boundary and claimed in the ST.</p>
@@ -1606,7 +1862,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </table>
 </div>
 <div class="sect3">
-<h4 id="_fru_rsg_ext_1_resource_governance_enforcement_action">9.2.5. FRU_RSG_EXT.1 Resource Governance Enforcement Action</h4>
+<h4 id="_fru_rsg_ext_1_resource_governance_enforcement_action">10.2.5. FRU_RSG_EXT.1 Resource Governance Enforcement Action</h4>
 <div class="paragraph">
 <p><strong>FRU_RSG_EXT.1.1</strong> The TSF shall [selection: terminate, throttle, queue, reject, [assignment: other enforcement action]] operations that exceed the resource quotas enforced by <code>FRU_RSA.1/DBaaS</code>.</p>
 </div>
@@ -1638,7 +1894,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </table>
 </div>
 <div class="sect3">
-<h4 id="_fdp_bkp_ext_1_protected_backup_and_restore">9.2.6. FDP_BKP_EXT.1 Protected Backup and Restore</h4>
+<h4 id="_fdp_bkp_ext_1_protected_backup_and_restore">10.2.6. FDP_BKP_EXT.1 Protected Backup and Restore</h4>
 <div class="paragraph">
 <p><strong>FDP_BKP_EXT.1.1</strong> The TSF shall not provide an interface by which a service provider administrator can restore or export protected tenant data from a backup in plaintext without authorized use of the applicable customer-controlled master key.</p>
 </div>
@@ -1646,7 +1902,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <p><strong>FDP_BKP_EXT.1.2</strong> The TSF shall bind restored tenant data to the originating tenant identifier such that a restore operation does not place tenant data outside the Tenant Isolation SFP.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note:</strong> This requirement addresses backup and restore as a disclosure vector specific to provider-operated DBaaS, where backups are commonly created, stored, and restored by provider tooling. Backups of protected tenant data inherit data-at-rest protection from <code>FDP_DAR_EXT.1</code> of the mandatory DBMS Cryptographic Functions Module: because protected data is encrypted at rest under the customer-controlled key hierarchy, its backup is encrypted under the same hierarchy, and this SFR does not restate that protection. This SFR instead specifies the requirements particular to the backup and restore path: that the TOE provides no interface for a service provider administrator to obtain plaintext tenant data through restore or export without authorized key use, and that restore preserves tenant isolation. If the TOE delegates backup storage to an external object storage or backup service, the ST shall identify whether the restore authorization and tenant binding are provided by the TOE or by an external service addressed through OE.EXTERNAL_SERVICES; the data-at-rest protection of externally stored backups is addressed by <code>FDP_DAR_EXT.1</code>.</p>
+<p><strong>Application Note:</strong> This requirement addresses backup and restore as a disclosure vector specific to provider-operated DBaaS, where backups are commonly created, stored, and restored by provider tooling. Backups of protected tenant data inherit data-at-rest protection from <code>FDP_DAR_EXT.1</code> of the mandatory DBMS Cryptographic Functions Module: because protected data is encrypted at rest under the customer-controlled key hierarchy, its backup is encrypted under the same hierarchy, and this SFR does not restate that protection. This SFR instead specifies the requirements particular to the backup and restore path: that the TOE provides no interface for a service provider administrator to obtain plaintext tenant data through restore or export without authorized key use, and that restore preserves tenant isolation. If the TOE delegates backup storage to an external object storage or backup service, the ST shall identify whether the restore authorization and tenant binding are provided by the TOE or by an external service addressed through OE.EXTERNAL_SERVICES; the data-at-rest protection of externally stored backups is addressed by <code>FDP_DAR_EXT.1</code>. A restore that serves as the documented recovery mechanism of <code>FCS_CKM_DBAAS_EXT.1.3</code> is additionally subject to that component&#8217;s tenant-authorization constraint; where the two coincide, the ST shall describe them as a single mechanism.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 9. FDP_BKP_EXT.1 Dependencies</caption>
@@ -1671,16 +1927,16 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACC.1 (tenant binding on restore)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Satisfied by <code>FDP_ACC.2/DBaaS</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Satisfied by <code>FDP_ACC.1/DBaaS</code>.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fia_identification_and_authentication">9.3. FIA: Identification and Authentication</h3>
+<h3 id="_fia_identification_and_authentication">10.3. FIA: Identification and Authentication</h3>
 <div class="sect3">
-<h4 id="_fia_usb_1dbaas_user_subject_binding_tenant_context">9.3.1. FIA_USB.1/DBaaS User-Subject Binding (Tenant Context)</h4>
+<h4 id="_fia_usb_1dbaas_user_subject_binding_tenant_context">10.3.1. FIA_USB.1/DBaaS User-Subject Binding (Tenant Context)</h4>
 <div class="paragraph">
 <p><strong>FIA_USB.1.1/DBaaS</strong> The TSF shall associate the following user security attributes with subjects acting on the behalf of that user: [<em>tenant identifier, user identifier, and service role</em>].</p>
 </div>
@@ -1691,7 +1947,11 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <p><strong>FIA_USB.1.3/DBaaS</strong> The TSF shall enforce the following rules governing changes to the user security attributes associated with subjects acting on the behalf of users: [<em>a tenant identifier associated with a subject shall not be changed by tenant-controlled session parameters, connection attributes, or request inputs except through an evaluated mechanism identified in the ST</em>].</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note:</strong> This SFR is an iteration of CC:2022 Part 2 FIA_USB.1, completed for tenant-context binding in a multi-tenant managed service. This binding is critical for the database engine to enforce the logical isolation policies defined in <code>FDP_ACC.2/DBaaS</code> and <code>FDP_ACF.1/DBaaS</code>. It is independent of the Base PP&#8217;s optional extended component <code>FIA_USB_EXT.2</code>; if the ST also claims <code>FIA_USB_EXT.2</code>, the tenant attributes defined here apply to that component&#8217;s binding rules as well.</p>
+<p><strong>Application Note:</strong> This SFR is an iteration of CC:2022 Part 2 FIA_USB.1, completed for tenant-context binding in a multi-tenant managed service. This binding is critical for the database engine to enforce the logical isolation policies defined in <code>FDP_ACC.1/DBaaS</code> and <code>FDP_ACF.1/DBaaS</code>. It is independent of the Base PP&#8217;s optional extended component <code>FIA_USB_EXT.2</code>; if the ST also claims <code>FIA_USB_EXT.2</code>, the tenant attributes defined here apply to that component&#8217;s binding rules as well.</p>
+</div>
+<div class="paragraph">
+<p>+
+Subjects need not act on behalf of a human user. Where the automated autonomous management logic role is selected in <code>FMT_SMR.1/DBaaS</code>, a subject acting on its behalf within a tenant context binds the tenant identifier of the affected tenant under the same rules, so that autonomous actions remain inside the Tenant Isolation SFP and their audit records remain tenant-attributable.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 10. FIA_USB.1/DBaaS Dependencies</caption>
@@ -1715,9 +1975,9 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fmt_security_management">9.4. FMT: Security Management</h3>
+<h3 id="_fmt_security_management">10.4. FMT: Security Management</h3>
 <div class="sect3">
-<h4 id="_fmt_smr_1dbaas_security_roles_dbaas">9.4.1. FMT_SMR.1/DBaaS Security Roles (DBaaS)</h4>
+<h4 id="_fmt_smr_1dbaas_security_roles_dbaas">10.4.1. FMT_SMR.1/DBaaS Security Roles (DBaaS)</h4>
 <div class="paragraph">
 <p><strong>FMT_SMR.1.1/DBaaS</strong> The TSF shall maintain the roles: Tenant User, Tenant Administrator, Service Provider Administrator, and [selection: automated autonomous management logic, [assignment: other roles]].</p>
 </div>
@@ -1726,6 +1986,14 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </div>
 <div class="paragraph">
 <p><strong>Application Note:</strong> This iteration defines the DBaaS-specific role model on which the management restrictions in the <code>FMT_MOF.1/DBaaS</code> iterations and the access-control rules in <code>FDP_ACF.1/DBaaS</code> depend. The Tenant Administrator manages tenant data and tenant-level configuration only to the extent permitted by the evaluated configuration; the Service Provider Administrator operates the managed service but is excluded from the customer-controlled key and tenant-data access paths constrained by this module.</p>
+</div>
+<div class="paragraph">
+<p>+
+Automated autonomous management logic, where selected, is a subject class rather than a human role: its actions within a tenant context carry tenant attribution under <code>FIA_USB.1/DBaaS</code>, its audit records identify it as the acting subject (see the auditable-events table), and where it acts on a tenant&#8217;s service instance those records are visible to the affected tenant in the service event stream.</p>
+</div>
+<div class="paragraph">
+<p>+
+The role names Tenant User, Tenant Administrator, and Service Provider Administrator are module-level labels for scopes of authority, not required TOE role names. The TSF is not required to maintain roles under these names. The ST shall map each label to the TOE role, privilege set, group, or account class that realizes it in the TOE&#8217;s own terminology; one label may be realized by several TOE roles, and several TOE roles may share a label. The mapping shall preserve the authority boundaries the labels denote: no mapping may assign a single TOE role both Service Provider Administrator authority and tenant-scoped authority in a way that vacates the separation enforced by the <code>FMT_MOF.1/DBaaS</code> iterations, <code>FDP_ACF.1/DBaaS</code>, or <code>FCS_CKM_DBAAS_EXT.1</code>. Throughout this module and its Supporting Document, a reference to one of these role names means the TOE role or roles the ST maps to that label.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 11. FMT_SMR.1/DBaaS Dependencies</caption>
@@ -1748,23 +2016,26 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </table>
 </div>
 <div class="sect3">
-<h4 id="_fmt_smf_1dbaas_specification_of_management_functions_dbaas">9.4.2. FMT_SMF.1/DBaaS Specification of Management Functions (DBaaS)</h4>
+<h4 id="_fmt_smf_1dbaas_specification_of_management_functions_dbaas">10.4.2. FMT_SMF.1/DBaaS Specification of Management Functions (DBaaS)</h4>
 <div class="paragraph">
 <p><strong>FMT_SMF.1.1/DBaaS</strong> The TSF shall be capable of performing the following management functions:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>configuration of customer-controlled key references, key import, and external key-management integration;</p>
+<p><em>configuration of customer-controlled key references, key import, and external key-management integration;</em></p>
 </li>
 <li>
-<p>configuration of tenant resource quotas and enforcement behavior;</p>
+<p><em>configuration of tenant resource quotas and enforcement behavior;</em></p>
 </li>
 <li>
-<p>configuration of audit export, audit retention, and authorized audit query roles;</p>
+<p><em>configuration of audit export, audit retention, and authorized audit query roles;</em></p>
 </li>
 <li>
-<p>configuration of evaluated cross-tenant sharing mechanisms, where claimed;</p>
+<p><em>configuration of update deployment, including tenant deferral policy or maintenance windows where selected in FPT_TUD_DBAAS_EXT.1.1;</em></p>
+</li>
+<li>
+<p><em>configuration of evaluated cross-tenant sharing mechanisms, where claimed;</em></p>
 </li>
 <li>
 <p>[assignment: other DBaaS security management functions].</p>
@@ -1795,9 +2066,9 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </table>
 </div>
 <div class="sect3">
-<h4 id="_fmt_mof_1dbaas_disable_management_of_security_functions_behaviour_disable_restriction">9.4.3. FMT_MOF.1/DBaaS-Disable Management of Security Functions Behaviour (Disable Restriction)</h4>
+<h4 id="_fmt_mof_1dbaas_disable_management_of_security_functions_behaviour_disable_restriction">10.4.3. FMT_MOF.1/DBaaS-Disable Management of Security Functions Behaviour (Disable Restriction)</h4>
 <div class="paragraph">
-<p><strong>FMT_MOF.1.1/DBaaS-Disable</strong> The TSF shall restrict the ability to [<strong>disable</strong>] the functions [<em>audit generation and data-at-rest encryption for protected tenant data</em>] to [<strong>no role in the evaluated configuration</strong>].</p>
+<p><strong>FMT_MOF.1.1/DBaaS-Disable</strong> The TSF shall restrict the ability to [<em>disable</em>] the functions [<em>audit generation and data-at-rest encryption for protected tenant data</em>] to [<em>no role in the evaluated configuration</em>].</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note:</strong> No role, including the Service Provider Administrator, may disable the identified functions in the evaluated configuration. CC Part 2 FMT_MOF.1 has a single element; the disable restriction and the provider-role restriction are therefore expressed as two iterations rather than as two elements of one component.</p>
@@ -1827,9 +2098,9 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </table>
 </div>
 <div class="sect3">
-<h4 id="_fmt_mof_1dbaas_modify_management_of_security_functions_behaviour_provider_functions">9.4.4. FMT_MOF.1/DBaaS-Modify Management of Security Functions Behaviour (Provider Functions)</h4>
+<h4 id="_fmt_mof_1dbaas_modify_management_of_security_functions_behaviour_provider_functions">10.4.4. FMT_MOF.1/DBaaS-Modify Management of Security Functions Behaviour (Provider Functions)</h4>
 <div class="paragraph">
-<p><strong>FMT_MOF.1.1/DBaaS-Modify</strong> The TSF shall restrict the ability to [<strong>modify the behaviour of</strong>] the functions [<em>resource governance policies, patching and updates, audit export configuration, and</em> [assignment: <em>other DBaaS security functions</em>]] to [selection: Service Provider Administrator, automated autonomous management logic, [assignment: other authorized role]].</p>
+<p><strong>FMT_MOF.1.1/DBaaS-Modify</strong> The TSF shall restrict the ability to [<em>modify the behaviour of</em>] the functions [<em>resource governance policies, patching and updates, audit export configuration, and</em> [assignment: other DBaaS security functions]] to [selection: Service Provider Administrator, automated autonomous management logic, [assignment: other authorized role]].</p>
 </div>
 <div class="paragraph">
 <p><strong>Application Note:</strong> The Tenant Administrator is excluded from the provider-operated functions identified in this requirement. Tenant administrators may manage tenant data and tenant-level configuration only to the extent permitted by the evaluated configuration and the ST.</p>
@@ -1860,9 +2131,9 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fau_security_audit">9.5. FAU: Security Audit</h3>
+<h3 id="_fau_security_audit">10.5. FAU: Security Audit</h3>
 <div class="sect3">
-<h4 id="_fau_sel_1dbaas_selective_audit_tenant_separation">9.5.1. FAU_SEL.1/DBaaS Selective Audit (Tenant Separation)</h4>
+<h4 id="_fau_sel_1dbaas_selective_audit_tenant_separation">10.5.1. FAU_SEL.1/DBaaS Selective Audit (Tenant Separation)</h4>
 <div class="paragraph">
 <p><strong>FAU_SEL.1.1/DBaaS</strong> The TSF shall be able to select the set of events to be audited from the set of all auditable events based on the following attributes: [<em>tenant identifier, user identifier, service role, object identifier, and event type</em>].</p>
 </div>
@@ -1894,7 +2165,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </table>
 </div>
 <div class="sect3">
-<h4 id="_fau_stg_2dbaas_protected_audit_trail_storage_immutable_audit_stream">9.5.2. FAU_STG.2/DBaaS Protected Audit Trail Storage (Immutable Audit Stream)</h4>
+<h4 id="_fau_stg_2dbaas_protected_audit_trail_storage_immutable_audit_stream">10.5.2. FAU_STG.2/DBaaS Protected Audit Trail Storage (Immutable Audit Stream)</h4>
 <div class="paragraph">
 <p><strong>FAU_STG.2.1/DBaaS</strong> The TSF shall protect the stored audit records in the audit trail from unauthorised deletion, <strong>including deletion attempted by a tenant administrator through TOE interfaces</strong>.</p>
 </div>
@@ -1926,17 +2197,24 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </div>
 </div>
 <div class="sect2">
-<h3 id="_fpt_protection_of_the_tsf">9.6. FPT: Protection of the TSF</h3>
+<h3 id="_fpt_protection_of_the_tsf">10.6. FPT: Protection of the TSF</h3>
 <div class="sect3">
-<h4 id="_fpt_tud_dbaas_ext_1_autonomous_trusted_update">9.6.1. FPT_TUD_DBAAS_EXT.1 Autonomous Trusted Update</h4>
+<h4 id="_fpt_tud_dbaas_ext_1_trusted_service_update">10.6.1. FPT_TUD_DBAAS_EXT.1 Trusted Service Update</h4>
 <div class="paragraph">
-<p><strong>FPT_TUD_DBAAS_EXT.1.1</strong> The TSF shall provide a mechanism to apply updates automatically or through provider-managed orchestration using trusted sources verified via digital signatures.</p>
+<p><strong>FPT_TUD_DBAAS_EXT.1.1</strong> The TSF shall apply updates to the DBMS service software through the service provider&#8217;s authorized update process using [selection: uniform rolling deployment to all service instances, deployment with tenant-configurable deferral within [assignment: maximum deferral period], deployment within tenant-selectable maintenance windows].</p>
 </div>
 <div class="paragraph">
-<p><strong>FPT_TUD_DBAAS_EXT.1.2</strong> The TSF shall validate the authenticity and integrity of update packages before installation without requiring tenant administrator intervention.</p>
+<p><strong>FPT_TUD_DBAAS_EXT.1.2</strong> The TSF shall verify the authenticity and integrity of DBMS service software updates by digital signature before the updated software is placed into service, without requiring tenant administrator intervention.</p>
 </div>
 <div class="paragraph">
-<p><strong>Application Note:</strong> This requirement applies when the TOE includes autonomous or provider-managed DBMS update logic. If update orchestration is wholly outside the TOE boundary, the ST shall identify the responsible operational environment component and the applicable trusted-platform evidence. When signature verification is performed by the TOE, the ST includes the <code>FCS_COP.1/SigVer</code> component consumed in the mandatory DBMS Cryptographic Functions Module and its supporting Hash or XOF component.</p>
+<p><strong>FPT_TUD_DBAAS_EXT.1.3</strong> The TSF shall provide tenants the ability to determine the version or revision identifier of the DBMS service software currently serving the tenant.</p>
+</div>
+<div class="paragraph">
+<p><strong>Application Note:</strong> Conformance to this component means the service provider stands behind a defined update mechanism; the deployment model of that mechanism is declared through the selection in FPT_TUD_DBAAS_EXT.1.1 rather than prescribed. A continuously deployed service that maintains a single live service target conforms by selecting uniform rolling deployment and identifying the deployment artifacts to which signature verification applies. The signature envelope format is not constrained: X.509 certificate-based signatures, OpenPGP signatures, and detached signatures over deployment artifacts are all acceptable, provided the signature algorithm and its hash are completions allowed by <code>FCS_COP.1/SigVer</code> in the mandatory DBMS Cryptographic Functions Module and the verification key is integrity protected. Hash algorithms outside the allowed completions (for example, SHA-1) cannot be claimed. Certificate path validation is in scope of the Functional Package for X.509 Certificates [<a href="#X509_FP">[X509_FP]</a>] only when certificates are used.</p>
+</div>
+<div class="paragraph">
+<p>+
+Update pipeline mechanics may reside partly in the operational environment, but the update verification and tenant-facing version visibility required by this component are TSF behavior: the TSS shall describe the end-to-end update process, identify where signature verification occurs, and identify the TOE-side enforcement points. An ST in which update handling lies wholly outside the TOE boundary cannot complete this component and therefore cannot claim conformance to this PP-Module. The version or revision identifier of FPT_TUD_DBAAS_EXT.1.3 need not be a semantic version: a build identifier or rollout identifier satisfies the requirement, provided it unambiguously identifies the deployed service software for tenant change-management and support purposes.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 17. FPT_TUD_DBAAS_EXT.1 Dependencies</caption>
@@ -1953,16 +2231,151 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Signature verification</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Satisfied by <code>FCS_COP.1/SigVer</code> and its supporting primitive as consumed in the mandatory DBMS Cryptographic Functions Module.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Satisfied by <code>FCS_COP.1/SigVer</code> and its supporting Hash or XOF component as consumed in the mandatory DBMS Cryptographic Functions Module.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_SMF.1 (update management)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update deployment configuration and deferral policy are managed through <code>FMT_SMF.1/DBaaS</code> and restricted to provider roles by <code>FMT_MOF.1/DBaaS-Modify</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_auditable_events_for_the_sfrs_of_this_pp_module">10.7. Auditable Events for the SFRs of this PP-Module</h3>
+<div class="paragraph">
+<p>When this PP-Module is claimed, Table 4: Auditable Events of the Base PP is refined to add the following entries; this refinement makes the audit records on which this module&#8217;s Evaluation Activities rely normatively required.</p>
+</div>
+<div class="paragraph">
+<p>A provider-operated managed service records security-relevant events in two channels, and the table assigns each event to its channel:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <strong>DBMS audit trail</strong> is the audit trail of the Base PP. Events assigned to it are generated under the Base PP&#8217;s <code>FAU_GEN.1</code>, which is claimed unchanged, and are protected by <code>FAU_STG.2/DBaaS</code>.</p>
+</li>
+<li>
+<p>The <strong>service event stream</strong> is the tenant-visible service-level audit channel in which lifecycle and control-plane events concerning a tenant&#8217;s service instance are recorded. It is distinct from the DBMS audit trail and remains available when the database is not serving connections — which is precisely when several of this module&#8217;s events are generated: the transition to the key-unavailable enforcement state, use of a recovery mechanism, and update deployment all occur while or because the database is not serving tenants. Generation of these events is TSF behavior; the stream itself may be implemented by the TSF or delivered through an audit or event service of the Trusted Platform. The ST shall identify the mechanism that implements the service event stream, its allocation to the TOE, TOE Platform, or Trusted Platform, and the tenant interface through which its records are retrieved. Where the stream is delivered by the Trusted Platform, its integrity and availability are operational environment properties under OE.TRUSTED_PLATFORM and OE.EXTERNAL_SERVICES.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Service event stream records concerning a tenant&#8217;s service instance, customer-controlled keys, or backups shall be visible to that tenant regardless of the acting subject, including provider-initiated and service-initiated actions. Not every event in the table has a tenant subject: an attempted export of customer-controlled key material or an attempted plaintext restore is most security-relevant when the acting subject is a service provider administrator, and the audit data for such events identifies the acting subject rather than presupposing a tenant context. Attempts made directly against an external key management service under tenant control are recorded by that service and are outside the TOE&#8217;s audit generation; the module&#8217;s events cover attempts made through TOE interfaces.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 18. Auditable Events for DBaaS Module SFRs</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Column 1: Security Functional Requirement</th>
+<th class="tableblock halign-left valign-top">Column 2: Auditable Event(s)</th>
+<th class="tableblock halign-left valign-top">Column 3: Additional Audit Data Contents</th>
+<th class="tableblock halign-left valign-top">Column 4: Audit Channel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key import; key-reference configuration; key-management service authorization failure; key revocation detection; transition to the key-unavailable enforcement state upon expiration of the key-state enforcement interval; denial of access to protected data due to revoked, unavailable, or denied key authorization; use of a documented recovery mechanism; attempted export or recovery of customer-controlled key material</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key reference or key identifier; the identity and role of the acting subject, with the tenant identifier where the subject acts in a tenant context; for enforcement-state transitions, the key-state change that triggered the transition; for recovery-mechanism use, the identity of the authorizing tenant agent. Plaintext key material shall not be included in audit records.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service event stream. Key import and key-reference configuration performed through database interfaces may instead appear in the DBMS audit trail, as identified in the ST.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_RIP.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACC.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">—</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACF.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All denied accesses under the Tenant Isolation SFP; use of an evaluated cross-tenant sharing mechanism, where claimed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subject tenant identifier, object tenant identifier, and operation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS audit trail</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FRU_RSA.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant resource quota violation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant identifier and affected resource</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS audit trail</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FRU_RSG_EXT.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enforcement action taken on quota exhaustion (termination, throttling, queueing, or rejection)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant identifier, affected resource, and enforcement action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS audit trail</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_BKP_EXT.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Backup creation; restore initiation and completion; restore authorization failure; attempted plaintext restore or export of protected tenant data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant identifier of the affected data and backup identifier; for restore, restore-failure, and attempted-restore events, the identity and role of the acting subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service event stream</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FIA_USB.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unsuccessful binding of tenant security attributes to a subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attempted tenant identifier, user identifier, and service role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS audit trail</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_SMR.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modifications to the users associated with a role</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Role and user identity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS audit trail or service event stream, as identified in the ST</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_SMF.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use of the management functions defined by this module</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Function invoked; identity and role of the invoking subject, including automated autonomous management logic where selected; and the tenant identifier where the function acts on a tenant context</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS audit trail or service event stream, as identified in the ST</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_MOF.1/DBaaS-Disable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attempted disabling of audit generation or of data-at-rest encryption for protected tenant data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Role and identity of the attempting subject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS audit trail or service event stream, as identified in the ST</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_MOF.1/DBaaS-Modify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modifications to the behaviour of provider-managed functions (resource governance policies, patching and updates, audit export configuration)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Function modified; identity and role of the invoking subject, including automated autonomous management logic where selected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service event stream</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_SEL.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All modifications to the audit configuration that occur while the audit collection functions are operating, including tenant-scoped selection changes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The identity of the authorized administrator that made the change, and the tenant identifier where the change is tenant-scoped</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS audit trail or service event stream, as identified in the ST</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_STG.2/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attempted unauthorized deletion or modification of stored audit records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Role and identity of the attempting user, and tenant identifier of the affected records</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS audit trail</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FPT_TUD_DBAAS_EXT.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update deployment initiation and completion; signature verification failure; update failure; tenant deferral or maintenance-window events, where selected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The service software version or revision identifiers before and after the update</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service event stream</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
-<h2 id="_security_assurance_requirements_sars">10. Security Assurance Requirements (SARs)</h2>
+<h2 id="_security_assurance_requirements_sars">11. Security Assurance Requirements (SARs)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This PP-Module does not define additional Security Assurance Requirements beyond those already specified by the collaborative Protection Profile for Database Management Systems (cPP_DBMS) Version 2.0.</p>
@@ -1994,7 +2407,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <div class="sect4">
 <h5 id="_component_levelling">A.1.1.2. Component levelling</h5>
 <div class="paragraph">
-<p>FCS_CKM_DBAAS_EXT.1 requires the TOE to support customer-controlled master keys, prevent service provider administrator access to plaintext key material, and prevent access to protected data when authorized key use is revoked, unavailable, or denied.</p>
+<p>FCS_CKM_DBAAS_EXT.1 requires the TOE to support customer-controlled master keys, prevent service provider administrator access to plaintext key material, and prevent access to protected data, within a defined key-state enforcement interval, when authorized key use is revoked, unavailable, or denied.</p>
 </div>
 </div>
 <div class="sect4">
@@ -2006,7 +2419,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <div class="sect4">
 <h5 id="_audit_fcs_ckm_dbaas_ext_1">A.1.1.4. Audit: FCS_CKM_DBAAS_EXT.1</h5>
 <div class="paragraph">
-<p>The following actions should be auditable if FAU_GEN Security Audit Data Generation is included in the PP/ST: key import, key reference configuration, KMS authorization failure, key revocation detection, protected-data access denial due to unavailable key authorization, and attempted key export or recovery.</p>
+<p>The following actions should be auditable if FAU_GEN Security Audit Data Generation is included in the PP/ST: key import, key reference configuration, KMS authorization failure, key revocation detection, transition to the key-unavailable enforcement state, protected-data access denial due to unavailable key authorization, use of a documented recovery mechanism, and attempted key export or recovery.</p>
 </div>
 </div>
 <div class="sect4">
@@ -2024,7 +2437,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <p>FCS_CKM_DBAAS_EXT.1.2 The TSF shall not provide an interface by which a service provider administrator can view, export, or recover plaintext customer-controlled master key material.</p>
 </div>
 <div class="paragraph">
-<p>FCS_CKM_DBAAS_EXT.1.3 The TSF shall prevent access to protected database data when authorized use of the applicable customer-controlled master key is revoked, unavailable, or denied, except through an explicitly documented and evaluated recovery mechanism.</p>
+<p>FCS_CKM_DBAAS_EXT.1.3 The TSF shall prevent access to protected database data no later than [assignment: key-state enforcement interval] after authorized use of the applicable customer-controlled master key is revoked, unavailable, or denied, except for data that remains available through an explicitly documented and evaluated recovery mechanism whose use requires authorization by the tenant or an agent under the tenant&#8217;s control.</p>
 </div>
 </div>
 </div>
@@ -2119,33 +2532,33 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <div class="sect2">
 <h3 id="_fpt_protection_of_the_tsf_2">A.4. FPT: Protection of the TSF</h3>
 <div class="sect3">
-<h4 id="_fpt_tud_dbaas_ext_autonomous_trusted_update">A.4.1. FPT_TUD_DBAAS_EXT: Autonomous Trusted Update</h4>
+<h4 id="_fpt_tud_dbaas_ext_trusted_service_update">A.4.1. FPT_TUD_DBAAS_EXT: Trusted Service Update</h4>
 <div class="sect4">
 <h5 id="_family_behaviour_4">A.4.1.1. Family Behaviour</h5>
 <div class="paragraph">
-<p>This family defines requirements for autonomous or provider-managed trusted update behavior when update logic is included in the TOE. It is specific to provider-operated DBaaS TOEs and is distinct from the FPT_TUD_EXT family defined by the DBMS Cloud Module for tenant-managed trusted update; the two families are never claimed together because the Cloud and DBaaS Modules are mutually exclusive.</p>
+<p>This family defines requirements for provider-managed trusted update of the DBMS service software: the deployment model is declared, updates are signature-verified before being placed into service, and the deployed service software version is visible to tenants. It is specific to provider-operated DBaaS TOEs and is distinct from the FPT_TUD_EXT family defined by the DBMS Cloud Module for tenant-managed trusted update; the two families are never claimed together because the Cloud and DBaaS Modules are mutually exclusive. CC Part 2 FPT (and the Cloud Module&#8217;s FPT_TUD_EXT) address updates that a TOE administrator obtains, verifies, and installs; no existing family addresses updates that the service provider deploys to a running service without tenant installation, which is the behavior this family makes evaluable.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_component_levelling_4">A.4.1.2. Component levelling</h5>
 <div class="paragraph">
-<p>FPT_TUD_DBAAS_EXT.1 requires the TOE to apply updates automatically or through provider-managed orchestration and to validate update authenticity and integrity before installation without tenant administrator intervention.</p>
+<p>FPT_TUD_DBAAS_EXT.1 requires the TOE to apply updates through the provider&#8217;s authorized update process under a declared deployment model, to verify update authenticity and integrity by digital signature before the updated software is placed into service, and to make the deployed service software version or revision identifier visible to tenants.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_management_fpt_tud_dbaas_ext_1">A.4.1.3. Management: FPT_TUD_DBAAS_EXT.1</h5>
 <div class="paragraph">
-<p>The following actions could be considered for the management functions in FMT: update channel configuration, update scheduling, update deferral policy when permitted by the ST, update source trust anchors, and update audit settings.</p>
+<p>The following actions could be considered for the management functions in FMT: update deployment configuration, update scheduling, tenant deferral policy and maintenance windows where selected, update source trust anchors, and update audit settings.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_audit_fpt_tud_dbaas_ext_1">A.4.1.4. Audit: FPT_TUD_DBAAS_EXT.1</h5>
 <div class="paragraph">
-<p>The following actions should be auditable if FAU_GEN Security Audit Data Generation is included in the PP/ST: update availability, update initiation, signature validation success or failure, update completion, update failure, and unauthorized attempts to block or delay updates.</p>
+<p>The following actions should be auditable if FAU_GEN Security Audit Data Generation is included in the PP/ST: update deployment initiation and completion, signature verification failure, update failure, tenant deferral or maintenance-window events where selected, and unauthorized attempts to block or delay updates.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_fpt_tud_dbaas_ext_1_autonomous_trusted_update_2">A.4.1.5. FPT_TUD_DBAAS_EXT.1 Autonomous Trusted Update</h5>
+<h5 id="_fpt_tud_dbaas_ext_1_trusted_service_update_2">A.4.1.5. FPT_TUD_DBAAS_EXT.1 Trusted Service Update</h5>
 <div class="paragraph">
 <p>Hierarchical to: No other components.</p>
 </div>
@@ -2153,10 +2566,13 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <p>Dependencies: No dependencies. Signature verification is provided by the mandatory DBMS Cryptographic Functions Module.</p>
 </div>
 <div class="paragraph">
-<p>FPT_TUD_DBAAS_EXT.1.1 The TSF shall provide a mechanism to apply updates automatically or through provider-managed orchestration using trusted sources verified via digital signatures.</p>
+<p>FPT_TUD_DBAAS_EXT.1.1 The TSF shall apply updates to the DBMS service software through the service provider&#8217;s authorized update process using [selection: uniform rolling deployment to all service instances, deployment with tenant-configurable deferral within [assignment: maximum deferral period], deployment within tenant-selectable maintenance windows].</p>
 </div>
 <div class="paragraph">
-<p>FPT_TUD_DBAAS_EXT.1.2 The TSF shall validate the authenticity and integrity of update packages before installation without requiring tenant administrator intervention.</p>
+<p>FPT_TUD_DBAAS_EXT.1.2 The TSF shall verify the authenticity and integrity of DBMS service software updates by digital signature before the updated software is placed into service, without requiring tenant administrator intervention.</p>
+</div>
+<div class="paragraph">
+<p>FPT_TUD_DBAAS_EXT.1.3 The TSF shall provide tenants the ability to determine the version or revision identifier of the DBMS service software currently serving the tenant.</p>
 </div>
 </div>
 </div>
@@ -2170,7 +2586,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <p>The following table summarizes the resolution of all SFR dependencies for the mandatory SFRs of this PP-Module. Dependencies are resolved within this module, by the Base PP (cPP_DBMS), or by the DBMS-specific and Catalogue-derived components included through the mandatory DBMS Cryptographic Functions Module.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. SFR Dependency Summary</caption>
+<caption class="title">Table 19. SFR Dependency Summary</caption>
 <colgroup>
 <col style="width: 28.5714%;">
 <col style="width: 28.5714%;">
@@ -2195,14 +2611,14 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <td class="tableblock halign-left valign-middle"><p class="tableblock">N/A</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACC.2/DBaaS</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACC.1/DBaaS</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACF.1</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACF.1/DBaaS</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACF.1/DBaaS</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACC.1, FMT_MSA.3</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACC.2/DBaaS (hierarchical to FDP_ACC.1); Base PP FMT_MSA.3</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACC.1/DBaaS; Base PP FMT_MSA.3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FRU_RSA.1/DBaaS</p></td>
@@ -2217,7 +2633,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_BKP_EXT.1</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_CKM_DBAAS_EXT.1, FDP_ACC.1 (DAR inherited)</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">This module; FDP_ACC.2/DBaaS; data-at-rest inherited from Crypto Module FDP_DAR_EXT.1</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">This module; FDP_ACC.1/DBaaS; data-at-rest inherited from Crypto Module FDP_DAR_EXT.1</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FIA_USB.1/DBaaS</p></td>
@@ -2256,8 +2672,8 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FPT_TUD_DBAAS_EXT.1</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Signature verification</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">DBMS Crypto Module</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Signature verification; FMT_SMF.1 (update management)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">DBMS Crypto Module (<code>FCS_COP.1/SigVer</code> and supporting Hash or XOF component); FMT_SMF.1/DBaaS with FMT_MOF.1/DBaaS-Modify</p></td>
 </tr>
 </tbody>
 </table>
@@ -2278,7 +2694,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <div class="sect2">
 <h3 id="_consistency_of_security_problem_definition">C.2. Consistency of Security Problem Definition</h3>
 <div class="paragraph">
-<p>The threats and assumptions in this PP-Module supplement those of the Base PP and address the multi-tenant, provider-operated DBaaS deployment context (cross-tenant access, provider-administrator key disclosure, resource contention, and audit tampering). They do not remove or weaken any Base PP threat or assumption. The Trusted Platform assumptions (<code>A.TRUSTED_PLATFORM_ADMIN</code>, <code>A.TRUSTED_PLATFORM_CONTROLS</code>) scope the infrastructure trust appropriate to a managed service and are consistent with the CCiTC SaaS evaluation model; they do not contradict the Base PP&#8217;s operational environment assumptions.</p>
+<p>The threats and assumptions in this PP-Module supplement those of the Base PP and address the multi-tenant, provider-operated DBaaS deployment context (cross-tenant access, provider-administrator key disclosure, resource contention, audit tampering, tenant-administrator abuse, secrets exposure, and unauthorized service update). The organizational security policies (P.AUDIT_RETENTION, P.ACCESS_CONTROL_POLICY) are additive and have no Base PP counterpart with which to conflict. They do not remove or weaken any Base PP threat or assumption. The Trusted Platform assumptions (<code>A.TRUSTED_PLATFORM_ADMIN</code>, <code>A.TRUSTED_PLATFORM_CONTROLS</code>) scope the infrastructure trust appropriate to a managed service and are consistent with the CCiTC SaaS evaluation model; they do not contradict the Base PP&#8217;s operational environment assumptions.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2287,19 +2703,22 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <p>The Base PP does not define cryptographic SFRs. It addresses the protection of transmitted data through the environmental assumption <code>A.CONNECT</code>, which also discharges the <code>FPT_ITT.1</code> dependency of <code>FPT_TRC.1</code> for distributed TOEs.</p>
 </div>
 <div class="paragraph">
-<p>For PP-Configurations that include this PP-Module, the DBMS Cryptographic Functions Module is mandatory and provides TOE-enforced protection for data transmitted between the TOE and external entities through its mandatory <code>FDP_DIT_EXT.1</code> requirement, using TLS and X.509 components from the applicable Functional Packages. CCDB-018 provides cryptographic primitives and does not provide TLS or certificate-validation components. <code>FDP_DIT_EXT.1</code> supplements <code>A.CONNECT</code>; it does not replace it. The assumption is retained in full and remains the basis for the aspects the TOE does not enforce — in particular the protection of transfers between separate parts of a distributed TOE, the leg of <code>A.CONNECT</code> that discharges the <code>FPT_ITT.1</code> dependency of <code>FPT_TRC.1</code>; in a DBaaS deployment that inter-TSF protection is provided by the Trusted Platform under OE.TRUSTED_PLATFORM. This module inherits, and does not redefine, data-in-transit protection; the inherited requirement strengthens, and does not contradict, the Base PP.</p>
+<p>For PP-Configurations that include this PP-Module, the DBMS Cryptographic Functions Module is mandatory and provides TOE-enforced protection for data transmitted between the TOE and external entities through its mandatory <code>FDP_DIT_EXT.1</code> requirement, using TLS and X.509 components from the applicable Functional Packages [<a href="#TLS_FP">[TLS_FP]</a>][<a href="#X509_FP">[X509_FP]</a>]. CCDB-018 provides cryptographic primitives and does not provide TLS or certificate-validation components. <code>FDP_DIT_EXT.1</code> supplements <code>A.CONNECT</code>; it does not replace it. This module inherits, and does not redefine, data-in-transit protection; the inherited requirement strengthens, and does not contradict, the Base PP.</p>
+</div>
+<div class="paragraph">
+<p>Transfers between separate parts of a distributed TOE are a distinct leg of <code>A.CONNECT</code>, and <code>FDP_DIT_EXT.1</code> does not address them: it covers channels between the TOE and external entities, not inter-TSF transfer. The assumption is therefore retained in full and remains the basis for the inter-TSF leg, which also discharges the <code>FPT_ITT.1</code> dependency of <code>FPT_TRC.1</code>. In a DBaaS deployment that inter-TSF protection is provided by the Trusted Platform under OE.TRUSTED_PLATFORM.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_consistency_of_security_objectives">C.4. Consistency of Security Objectives</h3>
 <div class="paragraph">
-<p>The TOE security objectives introduced by this PP-Module (<code>O.CUSTOMER_CONTROLLED_KEYS</code>, <code>O.LOGICAL_ISOLATION</code>, <code>O.RESOURCE_GOVERNANCE</code>, <code>O.IMMUTABLE_AUDIT</code>, <code>O.PROTECTED_BACKUP</code>) address the DBaaS-specific threats and are additive to the Base PP objectives. The operational environment objectives address the Trusted Platform and external service dependencies and are consistent with the Base PP operational environment objectives.</p>
+<p>The TOE security objectives introduced by this PP-Module (<code>O.CUSTOMER_CONTROLLED_KEYS</code>, <code>O.LOGICAL_ISOLATION</code>, <code>O.RESOURCE_GOVERNANCE</code>, <code>O.IMMUTABLE_AUDIT</code>, <code>O.PROTECTED_BACKUP</code>, <code>O.TRUSTED_UPDATE</code>) address the DBaaS-specific threats and are additive to the Base PP objectives. The operational environment objectives address the Trusted Platform and external service dependencies and are consistent with the Base PP operational environment objectives.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_consistency_of_security_functional_requirements">C.5. Consistency of Security Functional Requirements</h3>
 <div class="paragraph">
-<p>All CC Part 2 components reused in this PP-Module are iterated with a <code>/DBaaS</code> label (<code>FDP_RIP.1/DBaaS</code>, <code>FDP_ACC.2/DBaaS</code>, <code>FDP_ACF.1/DBaaS</code>, <code>FRU_RSA.1/DBaaS</code>, <code>FIA_USB.1/DBaaS</code>, <code>FMT_SMR.1/DBaaS</code>, <code>FMT_SMF.1/DBaaS</code>, <code>FMT_MOF.1/DBaaS-Disable</code>, <code>FMT_MOF.1/DBaaS-Modify</code>, <code>FAU_SEL.1/DBaaS</code>, <code>FAU_STG.2/DBaaS</code>) so that components also defined by the Base PP are refined for the multi-tenant managed-service context without altering the Base PP requirements themselves; the Base PP components remain claimed in their original form. The extended components introduced by this PP-Module (<code>FCS_CKM_DBAAS_EXT.1</code>, <code>FDP_BKP_EXT.1</code>, <code>FRU_RSG_EXT.1</code>, <code>FPT_TUD_DBAAS_EXT.1</code>) are DBaaS-specific, are defined only where no CC Part 2 component provides the required behavior, and do not duplicate or contradict any Base PP or Crypto Module component. Cryptographic functionality is delegated entirely to the mandatory DBMS Cryptographic Functions Module.</p>
+<p>All CC Part 2 components reused in this PP-Module are iterated with a <code>/DBaaS</code> label (<code>FDP_RIP.1/DBaaS</code>, <code>FDP_ACC.1/DBaaS</code>, <code>FDP_ACF.1/DBaaS</code>, <code>FRU_RSA.1/DBaaS</code>, <code>FIA_USB.1/DBaaS</code>, <code>FMT_SMR.1/DBaaS</code>, <code>FMT_SMF.1/DBaaS</code>, <code>FMT_MOF.1/DBaaS-Disable</code>, <code>FMT_MOF.1/DBaaS-Modify</code>, <code>FAU_SEL.1/DBaaS</code>, <code>FAU_STG.2/DBaaS</code>) so that components also defined by the Base PP are refined for the multi-tenant managed-service context without altering the Base PP requirements themselves; the Base PP components remain claimed in their original form. The extended components introduced by this PP-Module (<code>FCS_CKM_DBAAS_EXT.1</code>, <code>FDP_BKP_EXT.1</code>, <code>FRU_RSG_EXT.1</code>, <code>FPT_TUD_DBAAS_EXT.1</code>) are DBaaS-specific, are defined only where no CC Part 2 component provides the required behavior, and do not duplicate or contradict any Base PP or Crypto Module component. Cryptographic functionality is delegated entirely to the mandatory DBMS Cryptographic Functions Module.</p>
 </div>
 </div>
 </div>
@@ -2308,7 +2727,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <h2 id="_sfr_list">Appendix D: SFR List</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. Security Functional Requirements</caption>
+<caption class="title">Table 20. Security Functional Requirements</caption>
 <colgroup>
 <col style="width: 27.2727%;">
 <col style="width: 54.5454%;">
@@ -2337,7 +2756,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Mandatory</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACC.2/DBaaS Tenant Isolation Policy</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ACC.1/DBaaS Tenant Isolation Policy</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Mandatory</p></td>
 </tr>
 <tr>
@@ -2390,7 +2809,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Protection of the TSF (FPT)</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FPT_TUD_DBAAS_EXT.1 Autonomous Trusted Update</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FPT_TUD_DBAAS_EXT.1 Trusted Service Update</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Mandatory</p></td>
 </tr>
 </tbody>
@@ -2401,7 +2820,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <h2 id="_glossary">Appendix E: Glossary</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 20. Terms and Definitions</caption>
+<caption class="title">Table 21. Terms and Definitions</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2418,8 +2837,12 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <td class="tableblock halign-left valign-top"><p class="tableblock">A master encryption key whose use is controlled by the customer (tenant), such that the service provider cannot obtain plaintext key material through TOE interfaces. Includes BYOK, HYOK, external KMS-managed keys, and key-reference or key-handle models.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service Event Stream</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The tenant-visible service-level audit channel in which lifecycle and control-plane events concerning a tenant&#8217;s service instance are recorded. Distinct from the DBMS audit trail and available when the database is not serving connections; may be implemented by the TSF or delivered through an audit or event service of the Trusted Platform, as identified in the ST. See the auditable-events refinement.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Service Provider Administrator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An administrator who operates the managed DBMS service on behalf of the provider. Constrained by this module from accessing customer-controlled key material and tenant data except through interfaces and roles explicitly identified in the ST.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Module-level role label for an administrator who operates the managed DBMS service on behalf of the provider. Constrained by this module from accessing customer-controlled key material and tenant data except through interfaces and roles explicitly identified in the ST. The ST maps this label to the TOE&#8217;s own role terminology (see the FMT_SMR.1/DBaaS application note).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tenant</p></td>
@@ -2427,7 +2850,11 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tenant Administrator</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A customer role that manages tenant data and tenant-level configuration to the extent permitted by the evaluated configuration. Excluded from disabling security-critical functions identified in this module.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Module-level role label for a customer role that manages tenant data and tenant-level configuration to the extent permitted by the evaluated configuration. Excluded from disabling security-critical functions identified in this module. The ST maps this label to the TOE&#8217;s own role terminology (see the FMT_SMR.1/DBaaS application note).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Module-level role label for a customer role that accesses tenant data through the tenant-facing database interfaces without tenant-level administrative authority. The ST maps this label to the TOE&#8217;s own role terminology (see the FMT_SMR.1/DBaaS application note).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Trusted Platform</p></td>
@@ -2445,7 +2872,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <h2 id="_acronyms">Appendix F: Acronyms</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 21. Acronyms used in this PP-Module</caption>
+<caption class="title">Table 22. Acronyms used in this PP-Module</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -2545,7 +2972,7 @@ The mechanisms selected in FCS_CKM_DBAAS_EXT.1.1 couple to the Key Origin select
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2026-07-08 17:07:12 -0500
+Last updated 2026-07-18 20:02:33 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

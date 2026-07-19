@@ -594,8 +594,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#FCS_COP_1_KeyedHash">A.4.4. FCS_COP.1/KeyedHash Cryptographic Operation - Keyed Hash</a></li>
 <li><a href="#FCS_COP_1_SigVer">A.4.5. FCS_COP.1/SigVer Cryptographic Operation - Signature Verification</a></li>
 <li><a href="#FCS_COP_1_KeyWrap">A.4.6. FCS_COP.1/KeyWrap Cryptographic Operation - Key Wrapping</a></li>
-<li><a href="#FCS_COP_1_SKC">A.4.7. FCS_COP.1/SKC Cryptographic Operation - Symmetric-Key Cryptography</a></li>
-<li><a href="#FCS_COP_1_XOF">A.4.8. FCS_COP.1/XOF Extendable-Output Function</a></li>
+<li><a href="#FCS_COP_1_KeyEncap">A.4.7. FCS_COP.1/KeyEncap Cryptographic Operation - Key Encapsulation</a></li>
+<li><a href="#FCS_COP_1_SKC">A.4.8. FCS_COP.1/SKC Cryptographic Operation - Symmetric-Key Cryptography</a></li>
+<li><a href="#FCS_COP_1_XOF">A.4.9. FCS_COP.1/XOF Extendable-Output Function</a></li>
 </ul>
 </li>
 <li><a href="#_catalogue_derived_one_time_value_and_random_bit_generation_components">A.5. Catalogue-Derived One-Time Value and Random Bit Generation Components</a>
@@ -834,6 +835,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Added an application note to the FPT_TST.1/RBG and FPT_FLS.1/RBG iterations assigning their evaluation treatment to the Supporting Document: evaluation methods are expected from the Catalogue Evaluation Methods; until a scheme-recognized version is available, Certification Body-approved CMVP (FIPS 140-3) module-validation evidence may cover self-test execution and failure behavior, with the TOE-integration residue evaluated per the SD&#8217;s transitional coverage.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Added post-quantum selections ahead of their Catalogue publication, per the CNSA 2.0 trajectory of the Enterprise Enhanced use case. FCS_COP.1/SigVer gains an ML-DSA row (ML-DSA-44/65/87, pure and HashML-DSA, FIPS PUB 204); the application note states the anticipation of the post-Version 1.0 Catalogue, the applicability of the Crypto SD&#8217;s transitional CAVP evidence mechanism, and the verification-only rationale for the SP 800-208 stateful hash-based schemes (signature generation, including hash-based state management, is a signing-infrastructure function and no signature-generation component is offered). New optional FCS_COP.1/KeyEncap component (ML-KEM-512/768/1024, FIPS PUB 203) for KEM-based establishment or transport of symmetric keying material outside protocol scope, resolving the previously dangling FCS_COP.1/KeyEncap dependency references; protocol KEMs remain Functional Package-governed. Enterprise Enhanced SigVer row now permits ML-DSA-87 alongside the SP 800-208 schemes, and a KeyEncap row requires ML-KEM-1024 when the optional component is claimed. Use-case scope statements updated: post-quantum signature verification and key encapsulation are now in-module; protocol and certificate PQC remain with the Functional Packages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_COP.1/KeyEncap converted from Optional to Selection-Based, brought in through new element FDP_ITC_EXT.1.4: keying material transferred over the trusted channel is protected by the channel alone or by supplementary end-to-end key wrapping (FCS_COP.1/KeyWrap) or key encapsulation (FCS_COP.1/KeyEncap), modeling the wrapped-key and encapsulated-key delivery patterns of key-management protocols. The channel-alone selection keeps every current TOE conformant; a supplementary selection triggers the corresponding component through the module&#8217;s Exact Conformance machinery rather than an out-of-loop optional appendix. ECD mirrored; dependency tables, component inventory, and Enterprise Enhanced row aligned; Optional Requirements appendix again empty.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1114,7 +1125,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This optional use case applies when a deployment requires the cryptographic selections applicable to this PP-Module to align with FIPS 140-3 [<a href="#FIPS_140_3">[FIPS_140_3]</a>], current NIAP requirements represented by the Protection Profile for Application Software [<a href="#NIAP_APP_PP">[NIAP_APP_PP]</a>], and CNSA 2.0 [<a href="#CNSA_2">[CNSA_2]</a>]. The use case does not define new cryptographic SFRs or Evaluation Activities. It constrains operations in the consumed Catalogue components through <a href="#enterprise_enhanced_template">Enterprise Enhanced Use Case Selection Template</a>.</p>
 </div>
 <div class="paragraph">
-<p>The Enterprise Enhanced use case addresses only cryptographic functions within the scope of this module, principally symmetric data protection, key derivation and protection, hashing, one-time values, and random bit generation. Protocol, certificate, asymmetric, and post-quantum requirements are supplied by the applicable Functional Packages or other Requirements Documents. Selection of this use case therefore demonstrates alignment of the in-scope operations; it does not by itself assert FIPS 140-3 validation, NIAP approval, CNSA 2.0 conformance for an entire product, or eligibility for any product list.</p>
+<p>The Enterprise Enhanced use case addresses only cryptographic functions within the scope of this module, principally symmetric data protection, key derivation and protection, hashing, one-time values, random bit generation, signature verification, and key encapsulation. Protocol and certificate requirements are supplied by the applicable Functional Packages or other Requirements Documents, including post-quantum key establishment within protocols. Within this module&#8217;s scope, the ML-DSA and SP 800-208 rows of <code>FCS_COP.1/SigVer</code> and the ML-KEM completions of <code>FCS_COP.1/KeyEncap</code> carry the applicable post-quantum selections. Selection of this use case therefore demonstrates alignment of the in-scope operations; it does not by itself assert FIPS 140-3 validation, NIAP approval, CNSA 2.0 conformance for an entire product, or eligibility for any product list.</p>
 </div>
 </div>
 </div>
@@ -1832,7 +1843,14 @@ The following conventions are used for SFR operations and module-specific refine
 <p><strong>FDP_ITC_EXT.1.3</strong> The trusted channel shall be implemented using mutual TLS claimed from the Functional Package for TLS v2.1 [<a href="#TLS_FP">[TLS_FP]</a>].</p>
 </div>
 <div class="paragraph">
+<p><strong>FDP_ITC_EXT.1.4</strong> Keying material transferred over the trusted channel shall be protected by [selection: the trusted channel alone, supplementary end-to-end protection of the transferred keying material using [selection: key wrapping claimed as <code>FCS_COP.1/KeyWrap</code>, key encapsulation claimed as <code>FCS_COP.1/KeyEncap</code>]].</p>
+</div>
+<div class="paragraph">
 <p><strong>Application Note:</strong> This SFR is required when "Imported from External Entity" or "Externally Managed" is selected in <code>FCS_CKM_EXT.1.1</code>. It covers both one-time key import (e.g., BYOK) and ongoing external key-management integration (e.g., a KMIP-conformant key manager [<a href="#KMIP">[KMIP]</a>]); the key-management protocol messages are carried over the mutual TLS channel, and the protocol itself is not evaluated — the channel protection and the key-handling properties of <code>FCS_CKM_EXT.1</code> are. Mutual TLS is mandatory for both paths.</p>
+</div>
+<div class="paragraph">
+<p>+
+FDP_ITC_EXT.1.4 models the wrapped-key and encapsulated-key delivery patterns of key-management protocols: keying material may additionally be delivered wrapped under a pre-established symmetric key or encapsulated to a recipient public key, providing end-to-end protection that holds through intermediaries beyond the TLS endpoint. Selecting a supplementary mechanism includes the corresponding <code>FCS_COP.1/KeyWrap</code> or <code>FCS_COP.1/KeyEncap</code> component; the trusted channel remains mandatory in every case, and "the trusted channel alone" is the expected selection for TOEs without a wrapped- or encapsulated-delivery function.</p>
 </div>
 <div class="sect4">
 <h5 id="_dependencies_4">11.2.1.1. Dependencies</h5>
@@ -1851,6 +1869,10 @@ The following conventions are used for SFR operations and module-specific refine
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FCS_TLSC_EXT.1 / FCS_TLSS_EXT.1 mutual TLS components</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Satisfied by Functional Package for TLS v2.1 [<a href="#TLS_FP">[TLS_FP]</a>]. The ST author must claim the applicable TLS client or server component for the TOE role, including the selections and certificate-authentication support needed for mutual TLS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_COP.1/KeyWrap or FCS_COP.1/KeyEncap (conditional)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Included when supplementary end-to-end protection is selected in <code>FDP_ITC_EXT.1.4</code>; satisfied by the corresponding consumed component.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2503,7 +2525,7 @@ The following conventions are used for SFR operations and module-specific refine
 <div class="sect3">
 <h4 id="FCS_COP_1_SigVer">A.4.5. FCS_COP.1/SigVer Cryptographic Operation - Signature Verification</h4>
 <div class="paragraph">
-<p><strong>Source and modification:</strong> CCDB-018 Section 4.8. All Catalogue rows are retained. In this PP-Module the component is included when the TOE verifies signatures for an in-scope DBMS function such as autonomous or provider-managed update verification. Protocol-specific signature verification remains governed by the applicable Functional Package.</p>
+<p><strong>Source and modification:</strong> CCDB-018 Section 4.8. All Catalogue rows are retained, and an ML-DSA row is added ahead of its Catalogue publication (see the Application Note). In this PP-Module the component is included when the TOE verifies signatures for an in-scope DBMS function such as autonomous or provider-managed update verification. Protocol-specific signature verification remains governed by the applicable Functional Package.</p>
 </div>
 <div class="paragraph">
 <p>Hierarchical to: No other components.</p>
@@ -2574,6 +2596,12 @@ The following conventions are used for SFR operations and module-specific refine
 <td class="tableblock halign-left valign-top"><p class="tableblock">FIPS PUB 186-5 and RFC 8032</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ML-DSA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Module-Lattice-Based Digital Signature Algorithm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter set [selection: ML-DSA-44, ML-DSA-65, ML-DSA-87]; [selection: pure ML-DSA, HashML-DSA with [selection: SHA-512, SHAKE256]]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FIPS PUB 204</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">LMS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Leighton-Micali Signature</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Private key size and SHA-256/SHAKE256 parameters, Winternitz parameter, and tree height selected as specified by the Catalogue</p></td>
@@ -2601,6 +2629,10 @@ The following conventions are used for SFR operations and module-specific refine
 </table>
 <div class="paragraph">
 <p><strong>Application Note:</strong> When a public verification key is integrity protected within the TOE, the ST may select no key-import, generation, or derivation dependency. The selected hash or XOF component remains included. DSA is retained only for verification of legacy signatures as permitted by the Catalogue.</p>
+</div>
+<div class="paragraph">
+<p>+
+The ML-DSA row anticipates the Catalogue&#8217;s post-Version 1.0 development: FIPS PUB 204 is final, CAVP validates ML-DSA implementations, and the transitional evidence mechanism of the Crypto SD applies to this row in the same way as to the published rows until the corresponding Catalogue entry and Evaluation Methods are available. Pure ML-DSA has no hash dependency; HashML-DSA includes the selected Hash or XOF component. This module defines signature verification only: signature generation — including the state management on which the security of the stateful hash-based schemes depends (NIST SP 800-208) — is a function of the signing infrastructure that produces DBMS software and artifacts, not of a DBMS, and no signature-generation component is offered. LMS, HSS, XMSS, and XMSSMT therefore appear here strictly for verification.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2665,7 +2697,50 @@ The following conventions are used for SFR operations and module-specific refine
 </div>
 </div>
 <div class="sect3">
-<h4 id="FCS_COP_1_SKC">A.4.7. FCS_COP.1/SKC Cryptographic Operation - Symmetric-Key Cryptography</h4>
+<h4 id="FCS_COP_1_KeyEncap">A.4.7. FCS_COP.1/KeyEncap Cryptographic Operation - Key Encapsulation</h4>
+<div class="paragraph">
+<p><strong>Source and modification:</strong> Anticipates the CCDB-018 post-Version 1.0 key-encapsulation component (see the Application Note). This component is included when supplementary key-encapsulation protection of transferred keying material is selected in <code>FDP_ITC_EXT.1.4</code>. Key encapsulation within a cryptographic protocol (for example, hybrid key establishment in TLS) remains governed by the applicable Functional Package and is not claimed through this component.</p>
+</div>
+<div class="paragraph">
+<p>Hierarchical to: No other components.</p>
+</div>
+<div class="paragraph">
+<p>Dependencies: [<code>FDP_ITC.1</code>, <code>FDP_ITC.2</code>, <code>FCS_CKM.1</code>, or no other component]; <code>FCS_CKM.6</code>; <code>FCS_RBG.1</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>FCS_COP.1.1/KeyEncap</strong> The TSF shall perform [key encapsulation and decapsulation] in accordance with a specified cryptographic algorithm [selection: cryptographic algorithm] and cryptographic algorithm parameters [selection: cryptographic algorithm parameters] that meet the following: [selection: list of standards].</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 11. Allowed completions of FCS_COP.1/KeyEncap</caption>
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 23.0769%;">
+<col style="width: 30.7692%;">
+<col style="width: 30.7693%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Identifier</th>
+<th class="tableblock halign-left valign-top">Cryptographic Algorithm</th>
+<th class="tableblock halign-left valign-top">Algorithm Parameters</th>
+<th class="tableblock halign-left valign-top">List of Standards</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ML-KEM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Module-Lattice-Based Key-Encapsulation Mechanism</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter set [selection: ML-KEM-512, ML-KEM-768, ML-KEM-1024]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FIPS PUB 203</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Application Note:</strong> This component anticipates the Catalogue&#8217;s post-Version 1.0 key-encapsulation development: FIPS PUB 203 is final, CAVP validates ML-KEM implementations, and the transitional evidence mechanism of the Crypto SD applies until the corresponding Catalogue entry and Evaluation Methods are available. The encapsulation and decapsulation keys and the derived shared secret are cryptographic keys and secret values for the purposes of <code>FCS_CKM.6</code>, and <code>FCS_RBG.1</code> supplies the randomness consumed by encapsulation and key generation. The decapsulation key pair is either provisioned to the TOE or generated by the TSF; TSF key-pair generation (FIPS PUB 203 ML-KEM.KeyGen) is claimed within this component and is covered by the same CAVP validation scope as encapsulation and decapsulation, so no separate asymmetric key-generation component is consumed for it. When this component is included, the dependency selections of <code>FCS_RBG.1</code> that name <code>FCS_COP.1/KeyEncap</code> may be completed accordingly, and the component supports the same key-protection objective tracing as <code>FCS_COP.1/KeyWrap</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="FCS_COP_1_SKC">A.4.8. FCS_COP.1/SKC Cryptographic Operation - Symmetric-Key Cryptography</h4>
 <div class="paragraph">
 <p><strong>Source and modification:</strong> CCDB-018 Section 4.10. All Catalogue rows are retained.</p>
 </div>
@@ -2679,7 +2754,7 @@ The following conventions are used for SFR operations and module-specific refine
 <p><strong>FCS_COP.1.1/SKC</strong> The TSF shall perform [symmetric-key encryption/decryption] in accordance with a specified cryptographic algorithm [selection: cryptographic algorithm] and cryptographic key sizes [selection: cryptographic key sizes] that meet the following: [selection: list of standards].</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 11. Allowed completions of FCS_COP.1/SKC</caption>
+<caption class="title">Table 12. Allowed completions of FCS_COP.1/SKC</caption>
 <colgroup>
 <col style="width: 9.0909%;">
 <col style="width: 36.3636%;">
@@ -2822,7 +2897,7 @@ The following conventions are used for SFR operations and module-specific refine
 </div>
 </div>
 <div class="sect3">
-<h4 id="FCS_COP_1_XOF">A.4.8. FCS_COP.1/XOF Extendable-Output Function</h4>
+<h4 id="FCS_COP_1_XOF">A.4.9. FCS_COP.1/XOF Extendable-Output Function</h4>
 <div class="paragraph">
 <p><strong>Source and modification:</strong> CCDB-018 Section 4.11. All Catalogue rows are retained.</p>
 </div>
@@ -2836,7 +2911,7 @@ The following conventions are used for SFR operations and module-specific refine
 <p><strong>FCS_COP.1.1/XOF</strong> The TSF shall perform [extendable-output function] in accordance with a specified cryptographic algorithm [selection: cryptographic algorithm] and parameters [selection: parameters] that meet the following: [selection: list of standards].</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 12. Allowed completions of FCS_COP.1/XOF</caption>
+<caption class="title">Table 13. Allowed completions of FCS_COP.1/XOF</caption>
 <colgroup>
 <col style="width: 22.2222%;">
 <col style="width: 33.3333%;">
@@ -2886,7 +2961,7 @@ The following conventions are used for SFR operations and module-specific refine
 <p><strong>FCS_OTV_EXT.1.1</strong> The TSF shall perform cryptographic one-time value generation for [selection: algorithm or mode] using the output of a [selection: random bit generator as defined in <code>FCS_RBG.1</code>, deterministic OTV construction, [assignment: OTV construction method]] and sizes of length that meet the following: [selection: list of standards].</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 13. Allowed completions of FCS_OTV_EXT.1</caption>
+<caption class="title">Table 14. Allowed completions of FCS_OTV_EXT.1</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 30%;">
@@ -2991,7 +3066,7 @@ The following conventions are used for SFR operations and module-specific refine
 <p><strong>FCS_RBG.1.1</strong> The TSF shall perform deterministic random bit generation services using [selection: DRBG algorithm] in accordance with [selection: list of standards] after initialization.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 14. Allowed completions of FCS_RBG.1.1</caption>
+<caption class="title">Table 15. Allowed completions of FCS_RBG.1.1</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 41.6666%;">
@@ -3129,7 +3204,7 @@ The following conventions are used for SFR operations and module-specific refine
 <p>An ST claiming <code>[USE CASE 2] Enterprise Enhanced</code> shall satisfy every applicable row below. The template constrains operations in components already consumed from CCDB-018 and, for <code>FCS_CKM_EXT.1.2</code>, the DEK protection selection of this module; it does not add or replace a Catalogue component. A TOE that does not satisfy this template may still conform under <code>[USE CASE 1] General-Purpose Cryptographic Deployment</code>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 15. Enterprise Enhanced cryptographic selection template</caption>
+<caption class="title">Table 16. Enterprise Enhanced cryptographic selection template</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 41.6666%;">
@@ -3190,19 +3265,24 @@ The following conventions are used for SFR operations and module-specific refine
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>FCS_COP.1/SigVer</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">When the TOE verifies signatures on DBMS software or firmware updates, select LMS, HSS, XMSS, and/or XMSSMT with parameters permitted by NIST SP 800-208 and the applicable CNSA 2.0 transition policy. Do not use a legacy DSA, RSA, ECDSA, KCDSA, or EdDSA row to satisfy this use-case entry.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">CNSA 2.0 software/firmware signature verification choices available in CCDB-018 Version 1.0 and current NIAP transition treatment.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When the TOE verifies signatures on DBMS software or firmware updates, select ML-DSA with the ML-DSA-87 parameter set, and/or LMS, HSS, XMSS, or XMSSMT with parameters permitted by NIST SP 800-208 and the applicable CNSA 2.0 transition policy. Do not use a legacy DSA, RSA, ECDSA, KCDSA, or EdDSA row to satisfy this use-case entry.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CNSA 2.0 signature algorithms — ML-DSA-87 (FIPS PUB 204) and the SP 800-208 hash-based schemes — per the applicable transition policy and current NIAP treatment.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>FCS_COP.1/KeyWrap</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Select AES in KW, KWP, CCM, or GCM mode with a 256-bit key. When GCM is selected, use a 128-bit tag and the deterministic 96-bit IV construction required by the Catalogue row.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FIPS-approved AES key-protection modes and CNSA 2.0 AES-256.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FCS_COP.1/KeyEncap</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When key encapsulation is selected in <code>FDP_ITC_EXT.1.4</code>, select ML-KEM with the ML-KEM-1024 parameter set.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CNSA 2.0 key-establishment algorithm ML-KEM-1024 (FIPS PUB 203).</p></td>
+</tr>
 </tbody>
 </table>
 <div style="page-break-after: always;"></div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 16. Enterprise Enhanced cryptographic selection template (continued)</caption>
+<caption class="title">Table 17. Enterprise Enhanced cryptographic selection template (continued)</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 41.6666%;">
@@ -3244,7 +3324,7 @@ The following conventions are used for SFR operations and module-specific refine
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Application Note:</strong> FIPS 140-3 specifies requirements for cryptographic modules rather than a standalone algorithm-selection list. This template restricts Catalogue operations to functions suitable for the stated alignment target, but the ST shall make any cryptographic-module validation claim separately and shall identify the validated module, certificate, boundary, approved mode, and version when such a claim is made. CNSA 2.0 public-key, digital-signature, key-establishment, and post-quantum selections are outside the DBMS data-protection scope of this module and are addressed by applicable Functional Packages or other Requirements Documents.</p>
+<p><strong>Application Note:</strong> FIPS 140-3 specifies requirements for cryptographic modules rather than a standalone algorithm-selection list. This template restricts Catalogue operations to functions suitable for the stated alignment target, but the ST shall make any cryptographic-module validation claim separately and shall identify the validated module, certificate, boundary, approved mode, and version when such a claim is made. CNSA 2.0 protocol and certificate selections remain outside this module and are addressed by applicable Functional Packages or other Requirements Documents; within this module&#8217;s scope, the <code>FCS_COP.1/SigVer</code> and <code>FCS_COP.1/KeyEncap</code> rows above carry the CNSA 2.0 signature-verification and key-establishment algorithms.</p>
 </div>
 <div class="paragraph">
 <p><strong>Evaluation Note:</strong> The evaluator verifies triggered Catalogue components, completed operations, and any Enterprise Enhanced claim. Use [<a href="#Crypto_Eval_Methods">[Crypto_Eval_Methods]</a>] when recognized. Until then, the Crypto SD allows Certification Body-recognized CAVP, CMVP, or equivalent evidence for covered algorithm correctness, requires an approved method for gaps, and retains all DBMS integration activities.</p>
@@ -3540,6 +3620,9 @@ d) Detailed: Certificate validation results during channel establishment.</p>
 <div class="paragraph">
 <p><strong>FDP_ITC_EXT.1.3</strong> The trusted channel shall be implemented using mutual TLS claimed from the Functional Package for TLS v2.1 [<a href="#TLS_FP">[TLS_FP]</a>].</p>
 </div>
+<div class="paragraph">
+<p><strong>FDP_ITC_EXT.1.4</strong> Keying material transferred over the trusted channel shall be protected by [selection: the trusted channel alone, supplementary end-to-end protection of the transferred keying material using [selection: key wrapping claimed as FCS_COP.1/KeyWrap, key encapsulation claimed as FCS_COP.1/KeyEncap]].</p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -3669,7 +3752,7 @@ c) Detailed: Certificate validation results during channel establishment.</p>
 </dl>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 17. Security Functional Requirements</caption>
+<caption class="title">Table 18. Security Functional Requirements</caption>
 <colgroup>
 <col style="width: 27.2727%;">
 <col style="width: 54.5454%;">
@@ -3725,6 +3808,10 @@ c) Detailed: Certificate validation results during channel establishment.</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Selection-Based</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_COP.1/KeyEncap Cryptographic Operation - Key Encapsulation</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Selection-Based; included when supplementary key encapsulation is selected in <code>FDP_ITC_EXT.1.4</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_COP.1/KeyWrap Cryptographic Operation - Key Wrapping</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Selection-Based</p></td>
 </tr>
@@ -3759,28 +3846,24 @@ c) Detailed: Certificate validation results during channel establishment.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_RBG.5 Random Bit Generation - Combining Entropy Sources</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Selection-Based</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">Protection of the TSF (FPT)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">Protection of the TSF (FPT)</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FPT_FLS.1/RBG Failure with Preservation of Secure State</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Selection-Based</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FPT_TST.1/RBG TSF Self-Testing</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Selection-Based</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="3"><p class="tableblock">User Data Protection (FDP)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle" rowspan="3"><p class="tableblock">User Data Protection (FDP)</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_DAR_EXT.1 Data-at-Rest Encryption Strategy</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Mandatory</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_DIT_EXT.1 Data-in-Transit Protection</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Mandatory</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">FDP_ITC_EXT.1 Trusted Channel for Key Import and External Key Management</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Selection-Based</p></td>
 </tr>
 </tbody>
 </table>
@@ -3790,7 +3873,7 @@ c) Detailed: Certificate validation results during channel establishment.</p>
 <div class="sect2">
 <h3 id="_sfr_dependency_summary">E.1. SFR Dependency Summary</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 18. SFR Dependencies</caption>
+<caption class="title">Table 19. SFR Dependencies</caption>
 <colgroup>
 <col style="width: 27.2727%;">
 <col style="width: 36.3636%;">
@@ -3832,7 +3915,12 @@ c) Detailed: Certificate validation results during channel establishment.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_COP.1/SigVer</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Optional key source dependency; <code>FCS_COP.1/Hash</code> or <code>FCS_COP.1/XOF</code></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A protected public verification key may satisfy the no-key-source choice. The consumed Hash or XOF component is included for the selected signature scheme.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A protected public verification key may satisfy the no-key-source choice. The consumed Hash or XOF component is included for the selected signature scheme; pure ML-DSA requires neither.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_COP.1/KeyEncap</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Optional key source dependency; <code>FCS_CKM.6</code>; <code>FCS_RBG.1</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Included through the <code>FDP_ITC_EXT.1.4</code> selection. Resolved by the consumed key-destruction and RBG components; the encapsulation key pair is generated under this component or imported per the selected dependency.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FCS_OTV_EXT.1</p></td>
@@ -3891,7 +3979,7 @@ protocol-specific components (when another protocol selected)</p></td>
 <div class="sect2">
 <h3 id="_dependency_resolution_by_type">F.1. Dependency Resolution by Type</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 19. Dependencies Satisfied by Module SFRs</caption>
+<caption class="title">Table 20. Dependencies Satisfied by Module SFRs</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 40%;">
@@ -3918,7 +4006,7 @@ protocol-specific components (when another protocol selected)</p></td>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 20. Dependencies Satisfied by Catalogue-Derived Components Included in This Module</caption>
+<caption class="title">Table 21. Dependencies Satisfied by Catalogue-Derived Components Included in This Module</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 40%;">
@@ -3955,7 +4043,7 @@ protocol-specific components (when another protocol selected)</p></td>
 </tbody>
 </table>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 21. Dependencies Satisfied by Functional Packages (Conditional)</caption>
+<caption class="title">Table 22. Dependencies Satisfied by Functional Packages (Conditional)</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 40%;">
@@ -4054,7 +4142,7 @@ protocol-specific components (when another protocol selected)</p></td>
 <h2 id="_acronyms">Appendix H: Acronyms</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 22. Acronyms</caption>
+<caption class="title">Table 23. Acronyms</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -4202,7 +4290,7 @@ protocol-specific components (when another protocol selected)</p></td>
 <div id="footer">
 <div id="footer-text">
 Version 0.4<br>
-Last updated 2026-07-08 17:06:03 -0500
+Last updated 2026-07-18 20:02:33 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

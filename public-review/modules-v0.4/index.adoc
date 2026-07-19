@@ -16,13 +16,14 @@
 
 == Introduction
 
-The {iTC-shortname} is publishing Public Review Draft 1 of the DBMS PP-Modules for general public comment. This review package includes the DBMS Cryptographic Functions Module, the DBMS in the Cloud Module, their Supporting Documents, and the PP-Configurations that compose those modules with the DBMS Base PP. The Crypto Module formally consumes CCDB-018 Catalogue components and provides General-Purpose and optional Enterprise Enhanced cryptographic use cases. Because the companion Catalogue Evaluation Methods were not publicly available at the publication date, the Crypto SD also proposes a transitional mechanism for using Certification Body-recognized CAVP, CMVP, or equivalent validation results as evidence for covered algorithm-correctness objectives.
+The {iTC-shortname} is publishing Public Review Draft 1 of the DBMS PP-Modules for general public comment. This review package includes the DBMS Cryptographic Functions Module, the DBMS in the Cloud Module, their Supporting Documents, and the PP-Configurations that compose those modules with the DBMS Base PP. The Crypto Module formally consumes CCDB-018 Catalogue components and provides General-Purpose and optional Enterprise Enhanced cryptographic use cases. Because the companion Catalogue Evaluation Methods were not publicly available at the publication date, the Crypto SD also proposes a transitional mechanism for using Certification Body-recognized CAVP, CMVP, or equivalent validation results as evidence for covered algorithm-correctness objectives. This draft additionally offers post-quantum selections ahead of their Catalogue publication — ML-DSA signature verification and a key-encapsulation component carrying ML-KEM — relying on the same transitional mechanism for FIPS 203 and FIPS 204 algorithm correctness; see the review questions below.
 
 Please send review comments to {iTC-email}.
 
 == Review Status
 
 Publication Date:: 30 June 2026
+Last Revised:: 18 July 2026 (Crypto Module and SD: post-quantum selections; later-track working drafts refreshed)
 End of Comment Period:: To be announced
 Review Phase:: Public Review Draft 1
 
@@ -102,5 +103,7 @@ Reviewers are encouraged to focus on:
 * Whether the optional Enterprise Enhanced use case appropriately constrains only the in-scope Catalogue selections needed for FIPS 140-3, NIAP, and CNSA 2.0 alignment.
 * Whether symmetric key encryption without an integrity mechanism (`FCS_COP.1/SKC`) should remain a permitted DEK-protection option in `FCS_CKM_EXT.1.2` under the General-Purpose use case, or whether key wrapping or authenticated encryption should be required for all conforming TOEs. The Enterprise Enhanced use case already requires key wrapping or authenticated encryption for stored DEKs.
 * Whether the transitional use of CMVP (FIPS 140-3) module-validation evidence for the RBG self-test and failure-behavior iterations (`FPT_TST.1/RBG`, `FPT_FLS.1/RBG`), pending publication of the Catalogue Evaluation Methods, provides sufficient assurance under appropriate Certification Body control.
+* Whether the Crypto Module should offer ML-DSA signature verification (`FCS_COP.1/SigVer`) and ML-KEM key encapsulation (`FCS_COP.1/KeyEncap`, selected through `FDP_ITC_EXT.1.4`) ahead of their publication in the CCDB Cryptographic Catalogue, relying on the transitional CAVP evidence mechanism for FIPS 203 and FIPS 204 algorithm correctness until the corresponding Catalogue entries and Evaluation Methods are available.
+* Whether the General-Purpose use case should retain the full FIPS 203/204 parameter-set families (ML-DSA-44/65/87, ML-KEM-512/768/1024), with the Enterprise Enhanced use case constraining selections to ML-DSA-87 and ML-KEM-1024, or whether only the CNSA 2.0 parameter sets should be offered, as in the AppSW cPP Version 2 approach.
 * Whether the DBMS in the Cloud Module contains only cloud-specific refinements, integration checks, and deployment-channel mapping.
 * Whether the PP-Configurations correctly compose the Base PP and required modules without creating contradictory conformance paths.
