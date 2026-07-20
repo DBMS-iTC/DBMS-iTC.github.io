@@ -16,36 +16,62 @@
 
 :iTC-longname: Database Management Systems
 :iTC-shortname: DBMS-iTC
-:iTC-email: dbms.itc@gmail.com
 :iTC-website: https://dbms-itc.github.io/
 :iTC-GitHub: https://github.com/DBMS-iTC/
 :documents-repo: https://github.com/DBMS-iTC/Documents
 :site-repo: https://github.com/DBMS-iTC/DBMS-iTC.github.io
+:issues-url: https://github.com/DBMS-iTC/Documents/issues/new/choose
+:discussions-url: https://github.com/orgs/DBMS-iTC/discussions
+:participation-guide: /docs/public-review-process.html
 
 [.lead]
-The {iTC-shortname} develops internationally agreed Common Criteria security requirements and evaluation activities for database management systems, their cryptographic services, and their cloud deployment models.
+The {iTC-shortname} develops internationally agreed Common Criteria security requirements and evaluation activities for database management systems, their cryptographic protections, and their tenant-operated and provider-operated cloud deployment models.
 
-[.status-banner]
-****
-*Public review is open.* The Base cPP and Supporting Document Version 2.0 review runs through *10 August 2026*. The coordinated PP-Modules and PP-Configurations are available as Version 0.5 review drafts.
+[cols="1,1,1",role="release-switchboard"]
+|===
 
-link:/public-review/v2.0/[Review the Base cPP and SD] · link:/public-review/modules-v0.5/[Review the module set] · link:/public-review/modules-v0.5/requirements-map.html[Open the interactive review supplement]
-****
+a|
+[.release-label.authoritative-label]#AUTHORITATIVE RELEASE#
+
+*Current evaluation baseline*
+
+DBMS cPP *Version 1.3* and Supporting Document *Version 1.1*.
+
+link:#authoritative-release[View authoritative documents]
+
+a|
+[.release-label.comment-label]#ACTIVE PUBLIC COMMENT#
+
+*Base cPP and SD Version 2.0*
+
+Public Review Draft 1. Comments are due *10 August 2026*.
+
+link:#active-public-comment[Review Version 2.0]
+
+a|
+[.release-label.module-label]#FULL MODULE REVIEW#
+
+*PP-Modules and PP-Configurations Version 0.5*
+
+Crypto + Cloud and Crypto + DBaaS review families; not an authoritative release.
+
+link:#module-review[Review the module set]
+|===
 
 [.quick-links]
 ====
-* link:/cPP/cPP_DBMS_V1.3.pdf[*Current official cPP*] +
-Version 1.3 · PDF
-* link:/SD/SD_DBMS_V1.1.pdf[*Current official SD*] +
-Version 1.1 · PDF
 * link:/public-review/status.html[*Public review status*] +
 Active drafts and review dates
 * link:/docs/PP-config.html[*PP-Configuration architecture*] +
 Base, Crypto, Cloud, and DBaaS composition
 * link:#technical-decisions[*Technical Decisions*] +
 Published DBMS interpretations
-* mailto:{iTC-email}[*Join or contact the iTC*] +
-{iTC-email}
+* {documents-repo}[*Document source repository*] +
+AsciiDoc sources and issue tracking
+* https://www.commoncriteriaportal.org/communities/database_management_systems.cfm[*Common Criteria Portal*] +
+DBMS-iTC community page
+* link:{participation-guide}[*Contribute or contact the iTC*] +
+Use GitHub Issues or Discussions
 ====
 
 toc::[]
@@ -54,49 +80,30 @@ toc::[]
 
 The {iTC-longname} international Technical Community brings together Certification Bodies, Common Criteria laboratories, vendors, government participants, and subject-matter experts to create requirements for repeatable database security evaluations.
 
-The DBMS protection-profile family is being organized around a stable Base cPP, a shared Cryptographic Functions Module, and deployment overlays for cloud-hosted and Database-as-a-Service products. PP-Configurations define the valid combinations presented in a Security Target.
+The DBMS protection-profile family is being organized around a stable Base cPP and two composed module families: Cryptographic Functions + Cloud for tenant-operated deployments, and Cryptographic Functions + DBaaS for provider-operated managed services. PP-Configurations define the valid combinations presented in a Security Target.
 
 * https://www.commoncriteriaportal.org/communities/database_management_systems.cfm[DBMS-iTC page on the Common Criteria Portal]
 * {iTC-GitHub}[DBMS-iTC GitHub organization]
-* mailto:{iTC-email}[Contact or request membership]
+* {discussions-url}[Ask a question or discuss participation]
 
 == Current Status
 
-The currently published evaluation baseline remains the DBMS cPP Version 1.3 and Supporting Document Version 1.1. The iTC is simultaneously reviewing the Version 2.0 Base documents and the Version 0.5 PP-Module architecture.
+[.classification-note]
+====
+The site presents three separate publication states:
 
-.At-a-glance document status
-[cols="2,1,1,2,2",options="header"]
-|===
-|Document family |Version |Status |Key date |Primary link
+* *Authoritative release* identifies the documents currently published for evaluation use.
+* *Active public comment* identifies the formal Version 2.0 review with a defined comment period.
+* *Full module review* identifies the complete Version 0.5 Crypto + Cloud and Crypto + DBaaS review set. It is available for feedback but does not replace either the authoritative release or the Version 2.0 Base-document review.
+====
 
-|DBMS Base cPP
-|1.3
-|Official release
-|21 June 2023 certification
-|link:/cPP/cPP_DBMS_V1.3.pdf[Download PDF]
-
-|DBMS Supporting Document
-|1.1
-|Official release
-|15 March 2023 document date
-|link:/SD/SD_DBMS_V1.1.pdf[Download PDF]
-
-|Base cPP and SD
-|2.0
-|Public Review Draft 1
-|Comments due 10 August 2026
-|link:/public-review/v2.0/[Open review set]
-
-|PP-Modules and PP-Configurations
-|0.5
-|Public Review Draft 1
-|Revised 20 July 2026
-|link:/public-review/modules-v0.5/[Open review set]
-|===
-
-== Current Published Documents
+[[authoritative-release]]
+[.release-section.authoritative-section]
+== Authoritative Release
 
 These are the documents currently published for use. Public-review drafts are listed separately and do not replace the official baseline until the publication process is complete.
+
+[.status-chip.authoritative-chip]#CURRENT EVALUATION BASELINE#
 
 .Official DBMS document set
 [cols="3,1,2,2",options="header"]
@@ -114,9 +121,11 @@ These are the documents currently published for use. Public-review drafts are li
 |link:/SD/SD_DBMS_V1.1.pdf[PDF]
 |===
 
-== Current Documents for Review
+[[active-public-comment]]
+[.release-section.public-comment-section]
+== Active Public Comment: Base cPP and SD Version 2.0
 
-=== Base cPP and Supporting Document Version 2.0
+[.status-chip.comment-chip]#PUBLIC REVIEW DRAFT 1#
 
 Publication date:: 26 June 2026
 End of comment period:: 10 August 2026
@@ -128,39 +137,35 @@ The review set includes PDF and HTML editions, tracked-change PDFs, and text-dif
 * link:/public-review/v2.0/cPP_DBMS_V2.0.pdf[Base cPP Version 2.0 PDF]
 * link:/public-review/v2.0/SD_DBMS_V2.0.pdf[Supporting Document Version 2.0 PDF]
 
-=== PP-Modules and PP-Configurations Version 0.5
+[[module-review]]
+[.release-section.module-review-section]
+== Module Review: Full PP-Module and PP-Configuration Set Version 0.5
+
+[.status-chip.module-chip]#FULL MODULE SET — PUBLIC REVIEW DRAFT 1#
 
 Publication date:: 30 June 2026
 Last revised:: 20 July 2026
 Review phase:: Public Review Draft 1
 
-The coordinated module review set contains three PP-Modules, three Supporting Documents, and three PP-Configurations. The Cryptographic Functions and Cloud modules are on the first publication track; the DBaaS material is included for architectural review on a later publication track.
+The coordinated review release contains all three PP-Modules, all three Supporting Documents, and all three PP-Configurations. The deployment-oriented review is organized around two complete composition families: Crypto + Cloud and Crypto + DBaaS. The Cryptographic Functions Module is included in both families and is reviewed in the context of each deployment model.
 
-.Module review families
-[cols="2,2,1,2",options="header"]
+.Module review composition families
+[cols="2,3,1,3",options="header"]
 |===
-|Layer |Document family |Version |Publication track
+|Review family |Included module documents |Version |PP-Configuration
 
-|Shared security service
-|DBMS Cryptographic Functions Module and SD
+|Crypto + Cloud
+|DBMS Cryptographic Functions Module and SD; DBMS in the Cloud Module and SD
 |0.5
-|First module publication set
+|Base cPP + Crypto + Cloud
 
-|Deployment overlay
-|DBMS in the Cloud Module and SD
+|Crypto + DBaaS
+|DBMS Cryptographic Functions Module and SD; Database-as-a-Service Module and SD
 |0.5
-|First module publication set
-
-|Managed-service overlay
-|Database-as-a-Service Module and SD
-|0.5
-|Later publication track
-
-|Composition
-|Crypto, Cloud + Crypto, and DBaaS + Crypto PP-Configurations
-|0.5
-|Aligned with their modules
+|Base cPP + Crypto + DBaaS
 |===
+
+The Crypto-only PP-Configuration remains in the review package as the foundational Base cPP + Crypto composition used by both deployment-oriented families.
 
 * link:/public-review/modules-v0.5/[Open the complete Version 0.5 review set]
 * link:/public-review/modules-v0.5/requirements-map.html[Use the Reader's Guide and Requirements Explorer]
@@ -170,8 +175,9 @@ The coordinated module review set contains three PP-Modules, three Supporting Do
 
 [.architecture-list]
 . *Base cPP* — establishes the common DBMS TOE, security problem, core SFRs, assurance requirements, and evaluation baseline.
-. *Cryptographic Functions Module* — owns shared cryptographic services, protected channels, key-management integration, D@RE cryptography, and the coordinated classical/PQC selections.
-. *Cloud or DBaaS deployment overlay* — adds only the security behavior and evidence specific to the selected deployment and service-responsibility model.
+. *Cryptographic Functions Module* — appears in both review families and owns the common cryptographic requirements, protected channels, key-management integration, D@RE cryptography, and the coordinated classical/PQC selections.
+. *Crypto + Cloud* — combines those cryptographic requirements with the security behavior and evidence for a tenant-operated cloud deployment.
+. *Crypto + DBaaS* — combines those cryptographic requirements with tenant isolation, provider-role separation, and the evidence model for a provider-operated managed database service.
 . *PP-Configuration* — identifies the valid Base-plus-module composition claimed by the Security Target.
 
 The link:/public-review/modules-v0.5/requirements-map.html[interactive review supplement] provides a reader-oriented architecture walkthrough and traces SFRs, operations, dependencies, Evaluation Activities, and tests to the owning documents.
@@ -199,7 +205,7 @@ Technical Decisions clarify or modify the interpretation of published DBMS requi
 
 == Archives and Previous Versions
 
-Archived material remains available for traceability. Its presence does not indicate that it is currently acceptable for new evaluations.
+Archived material remains available for traceability. These artifacts are neither the current authoritative release nor an active review set, and their presence does not indicate that they are acceptable for new evaluations.
 
 .Document and review archive
 [cols="2,1,2,3",options="header"]
@@ -224,10 +230,12 @@ Archived material remains available for traceability. Its presence does not indi
 
 == Participate and Source Repositories
 
-Public review depends on input from Certification Bodies, laboratories, vendors, users, and researchers. Review comments and membership questions may be sent to mailto:{iTC-email}[{iTC-email}]. Repository issues and pull requests provide public traceability for proposed changes.
+Public review depends on input from Certification Bodies, laboratories, vendors, users, and researchers. Use a GitHub Issue for a specific document change that should be tracked to resolution, or a GitHub Discussion for a broader design, community, or participation topic.
 
 * {documents-repo}[Authoritative DBMS document sources]
-* {documents-repo}/issues[Document issue tracker]
+* {issues-url}[Submit a document comment using an issue template]
+* {discussions-url}[Browse or start a DBMS-iTC discussion]
+* link:{participation-guide}[Read the issue and discussion tutorial]
 * {site-repo}[Website and public-review collateral source]
 * https://www.commoncriteriaportal.org/communities/database_management_systems.cfm[Common Criteria Portal community page]
 

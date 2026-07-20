@@ -34,7 +34,7 @@ This PP-Configuration was developed by the {iTC-longname} international Technica
 
 |0.4
 |2026-06-30
-|Initial public review draft. Defines the PP-Configuration for provider-operated DBaaS deployments using the DBMS Base PP, DBMS DBaaS Module, and DBMS Cryptographic Functions Module, including formal CCDB-018 consumption and the optional Enterprise Enhanced use case. This configuration remains on a later publication track than the Cloud and Crypto module set.
+|Initial public review draft. Defines the PP-Configuration for provider-operated DBaaS deployments using the DBMS Base PP, DBMS DBaaS Module, and DBMS Cryptographic Functions Module, including formal CCDB-018 consumption and the optional Enterprise Enhanced use case.
 
 |0.4
 |2026-07-14
@@ -66,9 +66,9 @@ This PP-Configuration combines the {base-pp} ({base-pp-version}), the collaborat
 
 The configuration is intended for provider-operated managed database services where the cloud service provider operates and manages the DBMS on behalf of tenants. The DBMS DBaaS Module defines managed-service requirements for tenant isolation, resource governance, backup and restore, immutable audit behavior, and provider-administrator restrictions. The DBMS Cryptographic Functions Module defines the mandatory DBMS cryptographic requirements used by the DBaaS deployment.
 
-=== Publication Track
+=== Review Set Placement
 
-This PP-Configuration is included in the module public review package. It remains on a later publication track than the DBMS Cryptographic Functions Module and DBMS in the Cloud Module.
+This PP-Configuration is included in the full Version 0.5 module review release as the Crypto + DBaaS composition family. It is published for review alongside the Crypto + Cloud family and uses the same DBMS Cryptographic Functions Module as its mandatory cryptographic component.
 
 === PP-Configuration Reference
 

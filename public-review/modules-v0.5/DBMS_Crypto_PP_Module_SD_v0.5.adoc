@@ -44,7 +44,7 @@
 
 |0.4
 |2026-07-07
-|FDP_DIT_EXT.1 application note generalized to modules claimed alongside this module; removed the reference to the DBMS DBaaS Module as a published configuration (later publication track).
+|FDP_DIT_EXT.1 application note generalized to modules claimed alongside this module and aligned with both the Crypto + Cloud and Crypto + DBaaS review families.
 
 |0.4
 |2026-07-08

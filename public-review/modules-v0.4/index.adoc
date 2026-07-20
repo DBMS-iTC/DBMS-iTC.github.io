@@ -10,15 +10,17 @@
 
 :iTC-longname: Database Management Systems
 :iTC-shortname: DBMS-iTC
-:iTC-email: dbms.itc@gmail.com
 :iTC-website: https://dbms-itc.github.io/
 :iTC-GitHub: https://github.com/dbms-itc/
+:issues-url: https://github.com/DBMS-iTC/Documents/issues/new/choose
+:discussions-url: https://github.com/orgs/DBMS-iTC/discussions
+:participation-guide: ../../docs/public-review-process.html
 
 == Introduction
 
 The {iTC-shortname} is publishing Public Review Draft 1 of the DBMS PP-Modules for general public comment. This review package includes the DBMS Cryptographic Functions Module, the DBMS in the Cloud Module, their Supporting Documents, and the PP-Configurations that compose those modules with the DBMS Base PP. The Crypto Module formally consumes CCDB-018 Catalogue components and provides General-Purpose and optional Enterprise Enhanced cryptographic use cases. Because the companion Catalogue Evaluation Methods were not publicly available at the publication date, the Crypto SD also proposes a transitional mechanism for using Certification Body-recognized CAVP, CMVP, or equivalent validation results as evidence for covered algorithm-correctness objectives. This draft additionally offers post-quantum selections ahead of their Catalogue publication — ML-DSA signature verification and a key-encapsulation component carrying ML-KEM — relying on the same transitional mechanism for FIPS 203 and FIPS 204 algorithm correctness; see the review questions below.
 
-Please send review comments to {iTC-email}.
+This snapshot is archived. Submit a current document comment through the {issues-url}[DBMS issue-template chooser], or use {discussions-url}[DBMS-iTC Discussions] for a broader topic. See the {participation-guide}[participation tutorial] for instructions.
 
 == Review Status
 

@@ -9,15 +9,17 @@
 
 :iTC-longname: Database Management Systems
 :iTC-shortname: DBMS-iTC
-:iTC-email: dbms.itc@gmail.com
 :iTC-website: https://dbms-itc.github.io/
 :iTC-GitHub: https://github.com/dbms-itc/
+:issues-url: https://github.com/DBMS-iTC/Documents/issues/new/choose
+:discussions-url: https://github.com/orgs/DBMS-iTC/discussions
+:participation-guide: ../docs/public-review-process.html
 
 == Introduction
 
 The current status of public review drafts for the {iTC-longname} iTC can be seen on this page.
 
-Please send review comments to {iTC-email}.
+Submit specific document comments through the {issues-url}[DBMS issue-template chooser]. Use {discussions-url}[DBMS-iTC Discussions] for broader questions or proposals. The {participation-guide}[participation tutorial] explains both paths.
 
 == Review Status Phase
 
@@ -48,7 +50,7 @@ End of Comment Period:: 10 August 2026
 |link:v2.0/[Review Draft Set]
 |Public Review Draft 1
 
-|DBMS PP-Modules and PP-Configurations
+|Full DBMS PP-Module and PP-Configuration Set (Crypto + Cloud and Crypto + DBaaS)
 |0.5
 |link:modules-v0.5/[Module Review Draft Set]
 |Public Review Draft 1

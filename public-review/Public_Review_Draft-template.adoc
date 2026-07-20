@@ -1,18 +1,20 @@
-= Public Review Draft 1 of the _Coffee Maker_ iTC <Document(s) for review>
+= Public Review Draft 1 for DBMS-iTC <Document(s) for Review>
 :showtitle:
 :toc:
 :toclevels: 3
 :table-caption: Table
 :doctype: book
 :revnumber: 0.3
-:revdate: 2020-06-03
+:revdate: 2026-07-20
 :xrefstyle: full
 
-:iTC-longname: Coffee Maker
-:iTC-shortname: CM-iTC
-:iTC-email: cm.itc@gmail.com
-:iTC-website: https://coffeemaker.github.io/
-:iTC-GitHub: https://github.com/coffeemaker/repository/
+:iTC-longname: Database Management Systems
+:iTC-shortname: DBMS-iTC
+:iTC-website: https://dbms-itc.github.io/
+:iTC-GitHub: https://github.com/DBMS-iTC/Documents/
+:issues-url: https://github.com/DBMS-iTC/Documents/issues/new/choose
+:discussions-url: https://github.com/orgs/DBMS-iTC/discussions
+:participation-guide: ../docs/public-review-process.html
 
 == Introduction
 
@@ -25,7 +27,7 @@ A description of the expectations of the review period should be placed here.
 
 The document(s) will follow the Public Review Process as specified at {iTC-website}/Review_Process.html[{iTC-longname} Public Review Process].
 
-Please email {iTC-email} if there are any questions about the Review process.
+Submit specific review comments through the {issues-url}[DBMS issue-template chooser]. Use {discussions-url}[DBMS-iTC Discussions] for broader questions or proposals, and see the {participation-guide}[participation tutorial] for instructions.
 
 == Review Status Phase
 The document(s) listed here are in the *Public Review Draft 1* phase.

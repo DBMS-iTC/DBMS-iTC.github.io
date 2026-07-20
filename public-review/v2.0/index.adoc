@@ -10,15 +10,17 @@
 
 :iTC-longname: Database Management Systems
 :iTC-shortname: DBMS-iTC
-:iTC-email: dbms.itc@gmail.com
 :iTC-website: https://dbms-itc.github.io/
 :iTC-GitHub: https://github.com/dbms-itc/
+:issues-url: https://github.com/DBMS-iTC/Documents/issues/new/choose
+:discussions-url: https://github.com/orgs/DBMS-iTC/discussions
+:participation-guide: ../../docs/public-review-process.html
 
 == Introduction
 
 The {iTC-shortname} is publishing Public Review Draft 1 of Version 2.0 of the DBMS collaborative Protection Profile and its Supporting Document for general public comment.
 
-Please send review comments to {iTC-email}.
+Submit specific cPP or Supporting Document comments through the {issues-url}[DBMS issue-template chooser]. Use {discussions-url}[DBMS-iTC Discussions] for broader questions or proposals. The {participation-guide}[participation tutorial] provides step-by-step instructions.
 
 == Review Status
 

@@ -796,7 +796,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-07</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Package Conformance now requires the TLS FP v2.1 claim (and X.509 FP v1.0 where certificate authentication applies) rather than disclaiming functional package claims; Exact Conformance permits extended components defined in Functional Packages claimed per Package Conformance; Conformance Claim Rationale adds identification of claimed Functional Packages. SFR List application note on FDP_DIT_EXT.1 names the Cloud Module as the added-module configuration and references the DBMS DBaaS Module as planned on a later publication track.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Package Conformance now requires the TLS FP v2.1 claim (and X.509 FP v1.0 where certificate authentication applies) rather than disclaiming functional package claims; Exact Conformance permits extended components defined in Functional Packages claimed per Package Conformance; Conformance Claim Rationale adds identification of claimed Functional Packages. SFR List application note on FDP_DIT_EXT.1 identifies both the Crypto + Cloud and Crypto + DBaaS review families.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
@@ -3826,7 +3826,7 @@ c) Detailed: Certificate validation results during channel establishment.</p>
 <div class="sect2">
 <h3 id="_consistency_across_pp_configurations">D.5. Consistency Across PP-Configurations</h3>
 <div class="paragraph">
-<p>This module&#8217;s consistency argument is identical in every allowed PP-Configuration — claimed with the Base PP alone or together with the DBMS Cloud Module (and, on a later publication track, planned modules such as the DBMS DBaaS Module). Modules claimed alongside this module reference and scope its requirements; they do not modify them. No additional per-configuration consistency analysis therefore arises from this module.</p>
+<p>This module&#8217;s consistency argument is identical in every allowed PP-Configuration — claimed with the Base PP alone, together with the DBMS Cloud Module, or together with the DBMS DBaaS Module. Modules claimed alongside this module reference and scope its requirements; they do not modify them. No additional per-configuration consistency analysis therefore arises from this module.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4013,7 +4013,7 @@ c) Detailed: Certificate validation results during channel establishment.</p>
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Application Note on FDP_DIT_EXT.1:</strong> The Data-in-Transit Protection requirement (<code>FDP_DIT_EXT.1</code>) is mandatory and is defined in this module. It applies to every PP-Configuration that includes this module, including the standalone <code>cPP_DBMS + DBMS Cryptographic Module</code> configuration and the configuration that adds the DBMS Cloud Module. Modules claimed alongside this module reference, and do not redefine, FDP_DIT_EXT.1; they identify the deployment-specific channels (for example, cloud IAM, audit export, or tenant-facing connections) to which it applies. Planned modules on a later publication track, such as the DBMS DBaaS Module, are expected to follow the same pattern. The ST author includes the applicable TLS and X.509 components from the Functional Package for TLS v2.1 [<a href="#TLS_FP">[TLS_FP]</a>] and the Functional Package for X.509 Certificates [<a href="#X509_FP">[X509_FP]</a>].</p>
+<p><strong>Application Note on FDP_DIT_EXT.1:</strong> The Data-in-Transit Protection requirement (<code>FDP_DIT_EXT.1</code>) is mandatory and is defined in this module. It applies to every PP-Configuration that includes this module, including the standalone <code>cPP_DBMS + DBMS Cryptographic Module</code> configuration, the Crypto + Cloud configuration, and the Crypto + DBaaS configuration. Modules claimed alongside this module reference, and do not redefine, FDP_DIT_EXT.1; they identify the deployment-specific channels (for example, cloud IAM, audit export, or tenant-facing connections) to which it applies. The ST author includes the applicable TLS and X.509 components from the Functional Package for TLS v2.1 [<a href="#TLS_FP">[TLS_FP]</a>] and the Functional Package for X.509 Certificates [<a href="#X509_FP">[X509_FP]</a>].</p>
 </div>
 <div class="sect2">
 <h3 id="_sfr_dependency_summary">E.1. SFR Dependency Summary</h3>
@@ -4446,7 +4446,7 @@ protocol-specific components (when another protocol selected)</p></td>
 <div id="footer">
 <div id="footer-text">
 Version 0.5<br>
-Last updated 2026-07-20 17:03:00 -0500
+Last updated 2026-07-20 17:52:22 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

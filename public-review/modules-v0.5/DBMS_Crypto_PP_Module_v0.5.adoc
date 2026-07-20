@@ -82,7 +82,7 @@ JISEC - Japan IT Security Evaluation and Certification Scheme
 
 |0.4
 |2026-07-07
-|Package Conformance now requires the TLS FP v2.1 claim (and X.509 FP v1.0 where certificate authentication applies) rather than disclaiming functional package claims; Exact Conformance permits extended components defined in Functional Packages claimed per Package Conformance; Conformance Claim Rationale adds identification of claimed Functional Packages. SFR List application note on FDP_DIT_EXT.1 names the Cloud Module as the added-module configuration and references the DBMS DBaaS Module as planned on a later publication track.
+|Package Conformance now requires the TLS FP v2.1 claim (and X.509 FP v1.0 where certificate authentication applies) rather than disclaiming functional package claims; Exact Conformance permits extended components defined in Functional Packages claimed per Package Conformance; Conformance Claim Rationale adds identification of claimed Functional Packages. SFR List application note on FDP_DIT_EXT.1 identifies both the Crypto + Cloud and Crypto + DBaaS review families.
 
 |0.4
 |2026-07-08
@@ -1767,7 +1767,7 @@ The Base PP claims no FCS components, so the FCS components of this module — b
 
 === Consistency Across PP-Configurations
 
-This module's consistency argument is identical in every allowed PP-Configuration — claimed with the Base PP alone or together with the DBMS Cloud Module (and, on a later publication track, planned modules such as the DBMS DBaaS Module). Modules claimed alongside this module reference and scope its requirements; they do not modify them. No additional per-configuration consistency analysis therefore arises from this module.
+This module's consistency argument is identical in every allowed PP-Configuration — claimed with the Base PP alone, together with the DBMS Cloud Module, or together with the DBMS DBaaS Module. Modules claimed alongside this module reference and scope its requirements; they do not modify them. No additional per-configuration consistency analysis therefore arises from this module.
 
 [#dit_base_consistency]
 === Consistency with the Base PP Data-in-Transit Treatment
@@ -1901,7 +1901,7 @@ Optional:: The requirement may be included in the ST at the ST author's discreti
 
 |===
 
-*Application Note on FDP_DIT_EXT.1:* The Data-in-Transit Protection requirement (`FDP_DIT_EXT.1`) is mandatory and is defined in this module. It applies to every PP-Configuration that includes this module, including the standalone `cPP_DBMS + DBMS Cryptographic Module` configuration and the configuration that adds the DBMS Cloud Module. Modules claimed alongside this module reference, and do not redefine, FDP_DIT_EXT.1; they identify the deployment-specific channels (for example, cloud IAM, audit export, or tenant-facing connections) to which it applies. Planned modules on a later publication track, such as the DBMS DBaaS Module, are expected to follow the same pattern. The ST author includes the applicable TLS and X.509 components from the Functional Package for TLS v2.1 [<<TLS_FP>>] and the Functional Package for X.509 Certificates [<<X509_FP>>].
+*Application Note on FDP_DIT_EXT.1:* The Data-in-Transit Protection requirement (`FDP_DIT_EXT.1`) is mandatory and is defined in this module. It applies to every PP-Configuration that includes this module, including the standalone `cPP_DBMS + DBMS Cryptographic Module` configuration, the Crypto + Cloud configuration, and the Crypto + DBaaS configuration. Modules claimed alongside this module reference, and do not redefine, FDP_DIT_EXT.1; they identify the deployment-specific channels (for example, cloud IAM, audit export, or tenant-facing connections) to which it applies. The ST author includes the applicable TLS and X.509 components from the Functional Package for TLS v2.1 [<<TLS_FP>>] and the Functional Package for X.509 Certificates [<<X509_FP>>].
 
 === SFR Dependency Summary
 

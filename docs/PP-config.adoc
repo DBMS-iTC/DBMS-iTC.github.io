@@ -9,15 +9,19 @@
 
 :iTC-longname: Database Management Systems
 :iTC-shortname: DBMS-iTC
-:iTC-email: dbms.itc@gmail.com
 :iTC-website: https://github.com/DBMS-iTC
 :iTC-GitHub: https://github.com/DBMS-iTC/DBMS-iTC.github.io
 :pp-name: collaborative Protection Profile for Database Management Systems
 :pp-version: Version 2.0
+:issues-url: https://github.com/DBMS-iTC/Documents/issues/new/choose
+:discussions-url: https://github.com/orgs/DBMS-iTC/discussions
+:participation-guide: public-review-process.html
 
 == Introduction
 
-This page identifies the PP-Modules that the {iTC-shortname} has defined for use with the {pp-name} ({pp-version}) in PP-Configurations. It records compatibility relationships among the DBMS Base PP and DBMS PP-Modules; it does not itself replace a formal PP-Configuration when one is required by a scheme or publication package.
+This page identifies the PP-Modules that the {iTC-shortname} has defined for use with the {pp-name} ({pp-version}) in PP-Configurations. The Version 0.5 review set is organized around Crypto + Cloud and Crypto + DBaaS composition families. This page records their compatibility relationships; it does not itself replace a formal PP-Configuration when one is required by a scheme or publication package.
+
+Use the {issues-url}[DBMS issue templates] for a specific composition or document change and {discussions-url}[DBMS-iTC Discussions] for a broader architecture topic. See the {participation-guide}[participation tutorial] for step-by-step instructions.
 
 == Current Compatible Components
 
@@ -32,15 +36,21 @@ This page identifies the PP-Modules that the {iTC-shortname} has defined for use
 
 |collaborative PP-Module for DBMS Cryptographic Functions
 |Version 0.5, 2026-07-20
-|Draft module set
+|Full module review set
 |{iTC-shortname}
-|May be claimed with the DBMS Base PP as `cPP_DBMS + DBMS Cryptographic Functions Module`. Also required by the DBMS in the Cloud Module.
+|May be claimed with the DBMS Base PP as `cPP_DBMS + DBMS Cryptographic Functions Module`. Required by both the Crypto + Cloud and Crypto + DBaaS composition families.
 
 |collaborative PP-Module for DBMS in the Cloud
 |Version 0.5, 2026-07-20
-|Draft module set
+|Full module review set
 |{iTC-shortname}
 |May be claimed only in a PP-Configuration that includes the DBMS Base PP and the DBMS Cryptographic Functions Module: `cPP_DBMS + DBMS in the Cloud Module + DBMS Cryptographic Functions Module`.
+
+|collaborative PP-Module for Database-as-a-Service (DBaaS)
+|Version 0.5, 2026-07-20
+|Full module review set
+|{iTC-shortname}
+|May be claimed only in a PP-Configuration that includes the DBMS Base PP and the DBMS Cryptographic Functions Module: `cPP_DBMS + DBMS DBaaS Module + DBMS Cryptographic Functions Module`. This provider-operated family is mutually exclusive with the tenant-operated DBMS in the Cloud Module.
 
 |===
 
@@ -76,28 +86,13 @@ link:../public-review/modules-v0.5/PPC_DBMS_DBAAS_CRYPTO_v0.5.adoc[AsciiDoc]
 
 == Components Under Development
 
-.Components under development
-[%header,cols="2,1,1,1,2"]
-|===
-|Component
-|Version / Date
-|Status
-|Responsible iTC
-|Expected PP-Configuration Use
-
-|collaborative PP-Module for Database-as-a-Service (DBaaS)
-|Version 0.5, 2026-07-20
-|Public review draft, later publication track
-|{iTC-shortname}
-|Expected to require the DBMS Base PP and the DBMS Cryptographic Functions Module. This module is intended for provider-operated managed database services and is mutually exclusive with the tenant-operated DBMS in the Cloud Module.
-
-|===
+No additional DBMS PP-Modules are currently listed outside the full Version 0.5 review set.
 
 == Configuration Notes
 
 === DBMS Cryptographic Functions Module
 
-The DBMS Cryptographic Functions Module is reusable across DBMS PP-Configurations. It defines the DBMS-specific requirements for key management, data-at-rest encryption, and data-in-transit protection while formally consuming applicable CCDB-018 Catalogue components. Every PP-Configuration supports the General-Purpose Cryptographic Deployment use case and may additionally claim the Enterprise Enhanced use case. Enterprise Enhanced constrains Catalogue selections for FIPS 140-3, NIAP, and CNSA 2.0 alignment but does not create a separate PP-Configuration.
+The DBMS Cryptographic Functions Module is the common cryptographic component of both the Crypto + Cloud and Crypto + DBaaS composition families. It defines the DBMS-specific requirements for key management, data-at-rest encryption, and data-in-transit protection while formally consuming applicable CCDB-018 Catalogue components. Every PP-Configuration supports the General-Purpose Cryptographic Deployment use case and may additionally claim the Enterprise Enhanced use case. Enterprise Enhanced constrains Catalogue selections for FIPS 140-3, NIAP, and CNSA 2.0 alignment but does not create a separate PP-Configuration.
 
 === DBMS in the Cloud Module
 
@@ -105,7 +100,7 @@ The DBMS in the Cloud Module addresses tenant-operated DBMS deployments on cloud
 
 === DBMS DBaaS Module
 
-The DBMS DBaaS Module addresses provider-operated managed database services. It is included in the module public review package and remains on a later publication track than the Cloud and Crypto modules. A TOE should claim either the DBMS in the Cloud Module or the DBMS DBaaS Module according to whether the tenant or provider operates the DBMS.
+The DBMS DBaaS Module addresses provider-operated managed database services. It is included in the full module review release as the Crypto + DBaaS family. A TOE should claim either the DBMS in the Cloud Module or the DBMS DBaaS Module according to whether the tenant or provider operates the DBMS.
 
 == Archived Components
 

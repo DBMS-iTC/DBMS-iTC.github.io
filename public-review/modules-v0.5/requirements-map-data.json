@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-20T22:03:47.772Z",
+  "generatedAt": "2026-07-20T22:54:05.262Z",
   "artifacts": [
     {
       "id": "base",
@@ -20,7 +20,7 @@
       "shortLabel": "Crypto",
       "label": "DBMS Cryptographic Functions Module 0.5",
       "kind": "module",
-      "digest": "The shared cryptographic layer for the module configurations. It defines data-at-rest and data-in-transit strategies, Master Key origin and DEK protection, external key-management channels, and the Catalogue components used to realize those strategies.",
+      "digest": "The common cryptographic component of both the Crypto + Cloud and Crypto + DBaaS review families. It defines data-at-rest and data-in-transit strategies, Master Key origin and DEK protection, external key-management channels, and the Catalogue components used to realize those strategies.",
       "owns": "DBMS cryptographic integration, key lifecycle, data-at-rest protection, and the requirement to claim TLS for external channels.",
       "defers": "Protocol details, certificate processing, and protocol-level post-quantum mechanisms remain in the applicable Functional Packages.",
       "reviewPrompt": "Does the ST describe one coherent key hierarchy from origin through use, derivation, storage, recovery, and destruction?",
@@ -69,7 +69,7 @@
       "url": "PPC_DBMS_CRYPTO_v0.5.html",
       "note": "General-purpose or Enterprise Enhanced cryptographic deployment.",
       "operator": "Product administrator",
-      "deployment": "A DBMS product using the shared cryptographic architecture without a cloud-specific deployment overlay.",
+      "deployment": "A DBMS product using the common cryptographic foundation without a cloud-specific deployment module.",
       "boundaryQuestion": "Which cryptographic operations occur in the TOE, and which are supplied by an external key manager or protocol package?"
     },
     {

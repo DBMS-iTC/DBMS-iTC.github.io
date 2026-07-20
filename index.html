@@ -21,30 +21,59 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>The DBMS-iTC develops internationally agreed Common Criteria security requirements and evaluation activities for database management systems, their cryptographic services, and their cloud deployment models.</p>
+<p>The DBMS-iTC develops internationally agreed Common Criteria security requirements and evaluation activities for database management systems, their cryptographic protections, and their tenant-operated and provider-operated cloud deployment models.</p>
 </div>
-<div class="sidebarblock status-banner">
-<div class="content">
+<table class="tableblock frame-all grid-all stretch release-switchboard">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="release-label authoritative-label">AUTHORITATIVE RELEASE</span></p>
+</div>
 <div class="paragraph">
-<p><strong>Public review is open.</strong> The Base cPP and Supporting Document Version 2.0 review runs through <strong>10 August 2026</strong>. The coordinated PP-Modules and PP-Configurations are available as Version 0.5 review drafts.</p>
+<p><strong>Current evaluation baseline</strong></p>
 </div>
 <div class="paragraph">
-<p><a href="/public-review/v2.0/">Review the Base cPP and SD</a> · <a href="/public-review/modules-v0.5/">Review the module set</a> · <a href="/public-review/modules-v0.5/requirements-map.html">Open the interactive review supplement</a></p>
+<p>DBMS cPP <strong>Version 1.3</strong> and Supporting Document <strong>Version 1.1</strong>.</p>
 </div>
+<div class="paragraph">
+<p><a href="#authoritative-release">View authoritative documents</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="release-label comment-label">ACTIVE PUBLIC COMMENT</span></p>
 </div>
+<div class="paragraph">
+<p><strong>Base cPP and SD Version 2.0</strong></p>
 </div>
+<div class="paragraph">
+<p>Public Review Draft 1. Comments are due <strong>10 August 2026</strong>.</p>
+</div>
+<div class="paragraph">
+<p><a href="#active-public-comment">Review Version 2.0</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><span class="release-label module-label">FULL MODULE REVIEW</span></p>
+</div>
+<div class="paragraph">
+<p><strong>PP-Modules and PP-Configurations Version 0.5</strong></p>
+</div>
+<div class="paragraph">
+<p>Crypto + Cloud and Crypto + DBaaS review families; not an authoritative release.</p>
+</div>
+<div class="paragraph">
+<p><a href="#module-review">Review the module set</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 <div class="exampleblock quick-links">
 <div class="content">
 <div class="ulist">
 <ul>
-<li>
-<p><a href="/cPP/cPP_DBMS_V1.3.pdf"><strong>Current official cPP</strong></a><br>
-Version 1.3 · PDF</p>
-</li>
-<li>
-<p><a href="/SD/SD_DBMS_V1.1.pdf"><strong>Current official SD</strong></a><br>
-Version 1.1 · PDF</p>
-</li>
 <li>
 <p><a href="/public-review/status.html"><strong>Public review status</strong></a><br>
 Active drafts and review dates</p>
@@ -58,8 +87,16 @@ Base, Crypto, Cloud, and DBaaS composition</p>
 Published DBMS interpretations</p>
 </li>
 <li>
-<p><a href="mailto:dbms.itc@gmail.com"><strong>Join or contact the iTC</strong></a><br>
-<a href="mailto:dbms.itc@gmail.com">dbms.itc@gmail.com</a></p>
+<p><a href="https://github.com/DBMS-iTC/Documents"><strong>Document source repository</strong></a><br>
+AsciiDoc sources and issue tracking</p>
+</li>
+<li>
+<p><a href="https://www.commoncriteriaportal.org/communities/database_management_systems.cfm"><strong>Common Criteria Portal</strong></a><br>
+DBMS-iTC community page</p>
+</li>
+<li>
+<p><a href="/docs/public-review-process.html"><strong>Contribute or contact the iTC</strong></a><br>
+Use GitHub Issues or Discussions</p>
 </li>
 </ul>
 </div>
@@ -70,13 +107,9 @@ Published DBMS interpretations</p>
 <ul class="sectlevel1">
 <li><a href="#_introduction">Introduction</a></li>
 <li><a href="#_current_status">Current Status</a></li>
-<li><a href="#_current_published_documents">Current Published Documents</a></li>
-<li><a href="#_current_documents_for_review">Current Documents for Review</a>
-<ul class="sectlevel2">
-<li><a href="#_base_cpp_and_supporting_document_version_2_0">Base cPP and Supporting Document Version 2.0</a></li>
-<li><a href="#_pp_modules_and_pp_configurations_version_0_5">PP-Modules and PP-Configurations Version 0.5</a></li>
-</ul>
-</li>
+<li><a href="#authoritative-release">Authoritative Release</a></li>
+<li><a href="#active-public-comment">Active Public Comment: Base cPP and SD Version 2.0</a></li>
+<li><a href="#module-review">Module Review: Full PP-Module and PP-Configuration Set Version 0.5</a></li>
 <li><a href="#_security_architecture_at_a_glance">Security Architecture at a Glance</a></li>
 <li><a href="#technical-decisions">Technical Decisions</a></li>
 <li><a href="#_archives_and_previous_versions">Archives and Previous Versions</a></li>
@@ -92,7 +125,7 @@ Published DBMS interpretations</p>
 <p>The Database Management Systems international Technical Community brings together Certification Bodies, Common Criteria laboratories, vendors, government participants, and subject-matter experts to create requirements for repeatable database security evaluations.</p>
 </div>
 <div class="paragraph">
-<p>The DBMS protection-profile family is being organized around a stable Base cPP, a shared Cryptographic Functions Module, and deployment overlays for cloud-hosted and Database-as-a-Service products. PP-Configurations define the valid combinations presented in a Security Target.</p>
+<p>The DBMS protection-profile family is being organized around a stable Base cPP and two composed module families: Cryptographic Functions + Cloud for tenant-operated deployments, and Cryptographic Functions + DBaaS for provider-operated managed services. PP-Configurations define the valid combinations presented in a Security Target.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -103,7 +136,7 @@ Published DBMS interpretations</p>
 <p><a href="https://github.com/DBMS-iTC/">DBMS-iTC GitHub organization</a></p>
 </li>
 <li>
-<p><a href="mailto:dbms.itc@gmail.com">Contact or request membership</a></p>
+<p><a href="https://github.com/orgs/DBMS-iTC/discussions">Ask a question or discuss participation</a></p>
 </li>
 </ul>
 </div>
@@ -112,68 +145,39 @@ Published DBMS interpretations</p>
 <div class="sect1">
 <h2 id="_current_status"><a class="anchor" href="#_current_status"></a><a class="link" href="#_current_status">Current Status</a></h2>
 <div class="sectionbody">
+<div class="exampleblock classification-note">
+<div class="content">
 <div class="paragraph">
-<p>The currently published evaluation baseline remains the DBMS cPP Version 1.3 and Supporting Document Version 1.1. The iTC is simultaneously reviewing the Version 2.0 Base documents and the Version 0.5 PP-Module architecture.</p>
+<p>The site presents three separate publication states:</p>
 </div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. At-a-glance document status</caption>
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Document family</th>
-<th class="tableblock halign-left valign-top">Version</th>
-<th class="tableblock halign-left valign-top">Status</th>
-<th class="tableblock halign-left valign-top">Key date</th>
-<th class="tableblock halign-left valign-top">Primary link</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS Base cPP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Official release</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">21 June 2023 certification</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/cPP/cPP_DBMS_V1.3.pdf">Download PDF</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS Supporting Document</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Official release</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">15 March 2023 document date</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/SD/SD_DBMS_V1.1.pdf">Download PDF</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Base cPP and SD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public Review Draft 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Comments due 10 August 2026</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/public-review/v2.0/">Open review set</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PP-Modules and PP-Configurations</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Public Review Draft 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Revised 20 July 2026</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/public-review/modules-v0.5/">Open review set</a></p></td>
-</tr>
-</tbody>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Authoritative release</strong> identifies the documents currently published for evaluation use.</p>
+</li>
+<li>
+<p><strong>Active public comment</strong> identifies the formal Version 2.0 review with a defined comment period.</p>
+</li>
+<li>
+<p><strong>Full module review</strong> identifies the complete Version 0.5 Crypto + Cloud and Crypto + DBaaS review set. It is available for feedback but does not replace either the authoritative release or the Version 2.0 Base-document review.</p>
+</li>
+</ul>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_current_published_documents"><a class="anchor" href="#_current_published_documents"></a><a class="link" href="#_current_published_documents">Current Published Documents</a></h2>
+</div>
+</div>
+</div>
+<div class="sect1 release-section authoritative-section">
+<h2 id="authoritative-release"><a class="anchor" href="#authoritative-release"></a><a class="link" href="#authoritative-release">Authoritative Release</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>These are the documents currently published for use. Public-review drafts are listed separately and do not replace the official baseline until the publication process is complete.</p>
 </div>
+<div class="paragraph">
+<p><span class="status-chip authoritative-chip">CURRENT EVALUATION BASELINE</span></p>
+</div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Official DBMS document set</caption>
+<caption class="title">Table 1. Official DBMS document set</caption>
 <colgroup>
 <col style="width: 37.5%;">
 <col style="width: 12.5%;">
@@ -205,11 +209,12 @@ Published DBMS interpretations</p>
 </table>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_current_documents_for_review"><a class="anchor" href="#_current_documents_for_review"></a><a class="link" href="#_current_documents_for_review">Current Documents for Review</a></h2>
+<div class="sect1 release-section public-comment-section">
+<h2 id="active-public-comment"><a class="anchor" href="#active-public-comment"></a><a class="link" href="#active-public-comment">Active Public Comment: Base cPP and SD Version 2.0</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_base_cpp_and_supporting_document_version_2_0"><a class="anchor" href="#_base_cpp_and_supporting_document_version_2_0"></a><a class="link" href="#_base_cpp_and_supporting_document_version_2_0">Base cPP and Supporting Document Version 2.0</a></h3>
+<div class="paragraph">
+<p><span class="status-chip comment-chip">PUBLIC REVIEW DRAFT 1</span></p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Publication date</dt>
@@ -243,8 +248,13 @@ Published DBMS interpretations</p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_pp_modules_and_pp_configurations_version_0_5"><a class="anchor" href="#_pp_modules_and_pp_configurations_version_0_5"></a><a class="link" href="#_pp_modules_and_pp_configurations_version_0_5">PP-Modules and PP-Configurations Version 0.5</a></h3>
+</div>
+<div class="sect1 release-section module-review-section">
+<h2 id="module-review"><a class="anchor" href="#module-review"></a><a class="link" href="#module-review">Module Review: Full PP-Module and PP-Configuration Set Version 0.5</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="status-chip module-chip">FULL MODULE SET — PUBLIC REVIEW DRAFT 1</span></p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Publication date</dt>
@@ -262,51 +272,42 @@ Published DBMS interpretations</p>
 </dl>
 </div>
 <div class="paragraph">
-<p>The coordinated module review set contains three PP-Modules, three Supporting Documents, and three PP-Configurations. The Cryptographic Functions and Cloud modules are on the first publication track; the DBaaS material is included for architectural review on a later publication track.</p>
+<p>The coordinated review release contains all three PP-Modules, all three Supporting Documents, and all three PP-Configurations. The deployment-oriented review is organized around two complete composition families: Crypto + Cloud and Crypto + DBaaS. The Cryptographic Functions Module is included in both families and is reviewed in the context of each deployment model.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. Module review families</caption>
+<caption class="title">Table 2. Module review composition families</caption>
 <colgroup>
-<col style="width: 28.5714%;">
-<col style="width: 28.5714%;">
-<col style="width: 14.2857%;">
-<col style="width: 28.5715%;">
+<col style="width: 22.2222%;">
+<col style="width: 33.3333%;">
+<col style="width: 11.1111%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Layer</th>
-<th class="tableblock halign-left valign-top">Document family</th>
+<th class="tableblock halign-left valign-top">Review family</th>
+<th class="tableblock halign-left valign-top">Included module documents</th>
 <th class="tableblock halign-left valign-top">Version</th>
-<th class="tableblock halign-left valign-top">Publication track</th>
+<th class="tableblock halign-left valign-top">PP-Configuration</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Shared security service</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS Cryptographic Functions Module and SD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Crypto + Cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS Cryptographic Functions Module and SD; DBMS in the Cloud Module and SD</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">First module publication set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base cPP + Crypto + Cloud</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deployment overlay</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS in the Cloud Module and SD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Crypto + DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS Cryptographic Functions Module and SD; Database-as-a-Service Module and SD</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0.5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">First module publication set</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Managed-service overlay</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Database-as-a-Service Module and SD</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Later publication track</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Composition</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Crypto, Cloud + Crypto, and DBaaS + Crypto PP-Configurations</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.5</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Aligned with their modules</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base cPP + Crypto + DBaaS</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>The Crypto-only PP-Configuration remains in the review package as the foundational Base cPP + Crypto composition used by both deployment-oriented families.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -322,7 +323,6 @@ Published DBMS interpretations</p>
 </div>
 </div>
 </div>
-</div>
 <div class="sect1">
 <h2 id="_security_architecture_at_a_glance"><a class="anchor" href="#_security_architecture_at_a_glance"></a><a class="link" href="#_security_architecture_at_a_glance">Security Architecture at a Glance</a></h2>
 <div class="sectionbody">
@@ -332,10 +332,13 @@ Published DBMS interpretations</p>
 <p><strong>Base cPP</strong> — establishes the common DBMS TOE, security problem, core SFRs, assurance requirements, and evaluation baseline.</p>
 </li>
 <li>
-<p><strong>Cryptographic Functions Module</strong> — owns shared cryptographic services, protected channels, key-management integration, D@RE cryptography, and the coordinated classical/PQC selections.</p>
+<p><strong>Cryptographic Functions Module</strong> — appears in both review families and owns the common cryptographic requirements, protected channels, key-management integration, D@RE cryptography, and the coordinated classical/PQC selections.</p>
 </li>
 <li>
-<p><strong>Cloud or DBaaS deployment overlay</strong> — adds only the security behavior and evidence specific to the selected deployment and service-responsibility model.</p>
+<p><strong>Crypto + Cloud</strong> — combines those cryptographic requirements with the security behavior and evidence for a tenant-operated cloud deployment.</p>
+</li>
+<li>
+<p><strong>Crypto + DBaaS</strong> — combines those cryptographic requirements with tenant isolation, provider-role separation, and the evidence model for a provider-operated managed database service.</p>
 </li>
 <li>
 <p><strong>PP-Configuration</strong> — identifies the valid Base-plus-module composition claimed by the Security Target.</p>
@@ -354,7 +357,7 @@ Published DBMS interpretations</p>
 <p>Technical Decisions clarify or modify the interpretation of published DBMS requirements. Evaluations should use the TDs applicable to the claimed document versions.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 4. Published Technical Decisions</caption>
+<caption class="title">Table 3. Published Technical Decisions</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 57.1428%;">
@@ -390,10 +393,10 @@ Published DBMS interpretations</p>
 <h2 id="_archives_and_previous_versions"><a class="anchor" href="#_archives_and_previous_versions"></a><a class="link" href="#_archives_and_previous_versions">Archives and Previous Versions</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Archived material remains available for traceability. Its presence does not indicate that it is currently acceptable for new evaluations.</p>
+<p>Archived material remains available for traceability. These artifacts are neither the current authoritative release nor an active review set, and their presence does not indicate that they are acceptable for new evaluations.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 5. Document and review archive</caption>
+<caption class="title">Table 4. Document and review archive</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 12.5%;">
@@ -435,7 +438,7 @@ Published DBMS interpretations</p>
 <h2 id="_participate_and_source_repositories"><a class="anchor" href="#_participate_and_source_repositories"></a><a class="link" href="#_participate_and_source_repositories">Participate and Source Repositories</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Public review depends on input from Certification Bodies, laboratories, vendors, users, and researchers. Review comments and membership questions may be sent to <a href="mailto:dbms.itc@gmail.com">dbms.itc@gmail.com</a>. Repository issues and pull requests provide public traceability for proposed changes.</p>
+<p>Public review depends on input from Certification Bodies, laboratories, vendors, users, and researchers. Use a GitHub Issue for a specific document change that should be tracked to resolution, or a GitHub Discussion for a broader design, community, or participation topic.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -443,7 +446,13 @@ Published DBMS interpretations</p>
 <p><a href="https://github.com/DBMS-iTC/Documents">Authoritative DBMS document sources</a></p>
 </li>
 <li>
-<p><a href="https://github.com/DBMS-iTC/Documents/issues">Document issue tracker</a></p>
+<p><a href="https://github.com/DBMS-iTC/Documents/issues/new/choose">Submit a document comment using an issue template</a></p>
+</li>
+<li>
+<p><a href="https://github.com/orgs/DBMS-iTC/discussions">Browse or start a DBMS-iTC discussion</a></p>
+</li>
+<li>
+<p><a href="/docs/public-review-process.html">Read the issue and discussion tutorial</a></p>
 </li>
 <li>
 <p><a href="https://github.com/DBMS-iTC/DBMS-iTC.github.io">Website and public-review collateral source</a></p>
@@ -466,7 +475,7 @@ Published DBMS interpretations</p>
 <div id="footer">
 <div id="footer-text">
 Version 2<br>
-Last updated 2026-07-20 17:12:49 -0500
+Last updated 2026-07-20 18:06:26 -0500
 </div>
 </div>
 </body>

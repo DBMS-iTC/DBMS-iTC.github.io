@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.26">
-<title>Allowed Components for the DBMS cPP</title>
+<title>Participating in DBMS-iTC Public Reviews</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -437,161 +437,288 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Allowed Components for the DBMS cPP</h1>
+<h1>Participating in DBMS-iTC Public Reviews</h1>
 <div class="details">
-<span id="revnumber">version 0.5,</span>
+<span id="revnumber">version 1.0,</span>
 <span id="revdate">2026-07-20</span>
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_introduction">Introduction</h2>
+<div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>This page identifies the PP-Modules that the DBMS-iTC has defined for use with the collaborative Protection Profile for Database Management Systems (Version 2.0) in PP-Configurations. The Version 0.5 review set is organized around Crypto + Cloud and Crypto + DBaaS composition families. This page records their compatibility relationships; it does not itself replace a formal PP-Configuration when one is required by a scheme or publication package.</p>
+<div class="paragraph lead">
+<p>The DBMS-iTC uses public GitHub Issues and Discussions as its primary contact and review channels. This keeps proposed changes, rationale, decisions, and follow-up visible to reviewers and document editors.</p>
 </div>
-<div class="paragraph">
-<p>Use the <a href="https://github.com/DBMS-iTC/Documents/issues/new/choose">DBMS issue templates</a> for a specific composition or document change and <a href="https://github.com/orgs/DBMS-iTC/discussions">DBMS-iTC Discussions</a> for a broader architecture topic. See the public-review-process.html[participation tutorial] for step-by-step instructions.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_current_compatible_components">Current Compatible Components</h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Current compatible components</caption>
 <colgroup>
-<col style="width: 28.5714%;">
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 14.2857%;">
-<col style="width: 28.5715%;">
+<col style="width: 22.2222%;">
+<col style="width: 44.4444%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Component</th>
-<th class="tableblock halign-left valign-top">Version / Date</th>
-<th class="tableblock halign-left valign-top">Status</th>
-<th class="tableblock halign-left valign-top">Responsible iTC</th>
-<th class="tableblock halign-left valign-top">Use in PP-Configurations</th>
+<th class="tableblock halign-left valign-top">Channel</th>
+<th class="tableblock halign-left valign-top">Use it for</th>
+<th class="tableblock halign-left valign-top">Start here</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">collaborative PP-Module for DBMS Cryptographic Functions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version 0.5, 2026-07-20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Full module review set</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS-iTC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">May be claimed with the DBMS Base PP as <code>cPP_DBMS + DBMS Cryptographic Functions Module</code>. Required by both the Crypto + Cloud and Crypto + DBaaS composition families.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitHub Issue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A specific defect, ambiguity, missing requirement, proposed wording change, evaluation-activity correction, or formal request for interpretation that should be tracked to resolution.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/DBMS-iTC/Documents/issues/new/choose">Choose an issue template</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">collaborative PP-Module for DBMS in the Cloud</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version 0.5, 2026-07-20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Full module review set</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS-iTC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">May be claimed only in a PP-Configuration that includes the DBMS Base PP and the DBMS Cryptographic Functions Module: <code>cPP_DBMS + DBMS in the Cloud Module + DBMS Cryptographic Functions Module</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitHub Discussion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A broader design question, early proposal, cross-document topic, community or membership question, or idea that would benefit from conversation before a concrete change is defined.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/orgs/DBMS-iTC/discussions/new/choose">Start a discussion topic</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">collaborative PP-Module for Database-as-a-Service (DBaaS)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version 0.5, 2026-07-20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Full module review set</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DBMS-iTC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">May be claimed only in a PP-Configuration that includes the DBMS Base PP and the DBMS Cryptographic Functions Module: <code>cPP_DBMS + DBMS DBaaS Module + DBMS Cryptographic Functions Module</code>. This provider-operated family is mutually exclusive with the tenant-operated DBMS in the Cloud Module.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Website issue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A broken link, inaccessible artifact, rendering defect, or problem with the public-review website rather than the technical content of a DBMS document.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/DBMS-iTC/DBMS-iTC.github.io/issues/new">Report a website problem</a></p></td>
 </tr>
 </tbody>
 </table>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">On this page</div>
+<ul class="sectlevel1">
+<li><a href="#_before_you_submit">Before You Submit</a></li>
+<li><a href="#_submit_a_review_issue_using_a_template">Submit a Review Issue Using a Template</a>
+<ul class="sectlevel2">
+<li><a href="#_information_that_makes_an_issue_actionable">Information That Makes an Issue Actionable</a></li>
+</ul>
+</li>
+<li><a href="#_start_a_discussion_topic">Start a Discussion Topic</a></li>
+<li><a href="#_move_from_discussion_to_a_tracked_change">Move From Discussion to a Tracked Change</a></li>
+<li><a href="#_direct_links">Direct Links</a></li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_public_review_pp_configurations">Public Review PP-Configurations</h2>
+<h2 id="_before_you_submit">Before You Submit</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Formal Public Review Draft 1 PP-Configuration documents for the DBMS module set are available at <a href="../public-review/modules-v0.5/">DBMS PP-Modules Version 0.5 Public Review Draft 1</a>.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sign in to a GitHub account. GitHub requires an authenticated account to open an issue or start a discussion.</p>
+</li>
+<li>
+<p>Search the <a href="https://github.com/DBMS-iTC/Documents/issues">existing issues</a> and <a href="https://github.com/orgs/DBMS-iTC/discussions">existing discussions</a> for the same topic.</p>
+</li>
+<li>
+<p>Identify the affected document, version, section, table, or requirement identifier.</p>
+</li>
+<li>
+<p>Keep each issue focused on one independently resolvable change. Use a discussion when the scope or preferred resolution is not yet clear.</p>
+</li>
+<li>
+<p>Do not include confidential evaluation evidence, proprietary product information, credentials, or other material that should not be public.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_submit_a_review_issue_using_a_template">Submit a Review Issue Using a Template</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the <a href="https://github.com/DBMS-iTC/Documents/issues/new/choose">DBMS Documents issue-template chooser</a>.</p>
+</li>
+<li>
+<p>Select <strong>Get started</strong> beside the template that best matches the comment.</p>
+</li>
+<li>
+<p>Keep the template&#8217;s title prefix and add a short, specific summary.</p>
+</li>
+<li>
+<p>Complete every relevant prompt. A proposed resolution or example replacement text makes a comment much easier to evaluate.</p>
+</li>
+<li>
+<p>Use the <strong>Preview</strong> tab to check formatting and links, then select <strong>Submit new issue</strong>.</p>
+</li>
+<li>
+<p>Follow the issue for questions, proposed edits, and the recorded disposition.</p>
+</li>
+</ol>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. Public review PP-Configurations</caption>
+<caption class="title">Table 1. Issue-template guide</caption>
 <colgroup>
-<col style="width: 40%;">
-<col style="width: 20%;">
-<col style="width: 40%;">
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">PP-Configuration</th>
-<th class="tableblock halign-left valign-top">Version / Date</th>
-<th class="tableblock halign-left valign-top">Links</th>
+<th class="tableblock halign-left valign-top">Template</th>
+<th class="tableblock halign-left valign-top">Choose it when</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PP-Configuration for cPP_DBMS and DBMS Cryptographic Functions Module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version 0.5, 2026-07-20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../public-review/modules-v0.5/PPC_DBMS_CRYPTO_v0.5.pdf">PDF</a><br>
-<a href="../public-review/modules-v0.5/PPC_DBMS_CRYPTO_v0.5.html">HTML</a><br>
-<a href="../public-review/modules-v0.5/PPC_DBMS_CRYPTO_v0.5.adoc">AsciiDoc</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cPP change request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The comment concerns the DBMS Base cPP, its security problem definition, conformance claims, SFRs, SARs, or supporting rationale.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PP-Configuration for cPP_DBMS, DBMS in the Cloud Module, and DBMS Cryptographic Functions Module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version 0.5, 2026-07-20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../public-review/modules-v0.5/PPC_DBMS_CLOUD_CRYPTO_v0.5.pdf">PDF</a><br>
-<a href="../public-review/modules-v0.5/PPC_DBMS_CLOUD_CRYPTO_v0.5.html">HTML</a><br>
-<a href="../public-review/modules-v0.5/PPC_DBMS_CLOUD_CRYPTO_v0.5.adoc">AsciiDoc</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PP-Module change request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The comment concerns the Cryptographic Functions, Cloud, or DBaaS PP-Module. Identify whether the impact is in Crypto + Cloud, Crypto + DBaaS, or both families.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">PP-Configuration for cPP_DBMS, DBMS DBaaS Module, and DBMS Cryptographic Functions Module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Version 0.5, 2026-07-20</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="../public-review/modules-v0.5/PPC_DBMS_DBAAS_CRYPTO_v0.5.pdf">PDF</a><br>
-<a href="../public-review/modules-v0.5/PPC_DBMS_DBAAS_CRYPTO_v0.5.html">HTML</a><br>
-<a href="../public-review/modules-v0.5/PPC_DBMS_DBAAS_CRYPTO_v0.5.adoc">AsciiDoc</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SD change request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The comment concerns an Evaluation Activity, test, evidence expectation, evaluator guidance, or other Supporting Document content.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PP-Configuration change request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The comment concerns composition, compatibility, mandatory modules, conformance, or another PP-Configuration rule.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request for Interpretation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A published requirement or Evaluation Activity needs a formal interpretation. Check the current Technical Decisions first and submit one question per request.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="_information_that_makes_an_issue_actionable">Information That Makes an Issue Actionable</h3>
+<div class="paragraph">
+<p>Include the following whenever it applies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Document title and version.</p>
+</li>
+<li>
+<p>Section title, page, table, SFR, SAR, Evaluation Activity, or stable HTML link.</p>
+</li>
+<li>
+<p>The current text or behavior that creates the problem.</p>
+</li>
+<li>
+<p>The security, evaluation, interoperability, or editorial impact.</p>
+</li>
+<li>
+<p>Proposed replacement text or a concrete resolution.</p>
+</li>
+<li>
+<p>Relevant standards, implementation evidence, diagrams, or related issues and discussions.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Example issue outline</div>
+<div class="content">
+<div class="paragraph">
+<p><strong>Title:</strong> <code>[MODULE CHANGE] Clarify the tenant identifier binding in FIA_USB.1/DBaaS</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Document and location:</strong> DBMS DBaaS PP-Module 0.5, FIA_USB.1/DBaaS application note.</p>
+</div>
+<div class="paragraph">
+<p><strong>Problem:</strong> State the ambiguity and the interpretations a reader could reasonably reach.</p>
+</div>
+<div class="paragraph">
+<p><strong>Proposed resolution:</strong> Supply replacement wording or describe the intended rule precisely.</p>
+</div>
+<div class="paragraph">
+<p><strong>Composition impact:</strong> Crypto + DBaaS; identify any corresponding Supporting Document activity that also needs adjustment.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_components_under_development">Components Under Development</h2>
+<h2 id="_start_a_discussion_topic">Start a Discussion Topic</h2>
 <div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open <a href="https://github.com/orgs/DBMS-iTC/discussions">DBMS-iTC Discussions</a> and search for an existing conversation.</p>
+</li>
+<li>
+<p>Select <strong>New discussion</strong> or use the <a href="https://github.com/orgs/DBMS-iTC/discussions/new/choose">direct discussion-category chooser</a>.</p>
+</li>
+<li>
+<p>Choose the category that best fits the topic.</p>
+</li>
+<li>
+<p>Enter a descriptive title that names the technology area or document family.</p>
+</li>
+<li>
+<p>In the body, explain the context, affected documents, question to resolve, important alternatives, and your preferred direction if you have one.</p>
+</li>
+<li>
+<p>Select <strong>Start discussion</strong> and follow the topic for replies.</p>
+</li>
+</ol>
+</div>
 <div class="paragraph">
-<p>No additional DBMS PP-Modules are currently listed outside the full Version 0.5 review set.</p>
+<p>A strong discussion opening normally answers four questions:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>What decision or uncertainty should the community address?</p>
+</li>
+<li>
+<p>Which DBMS documents or review families are affected?</p>
+</li>
+<li>
+<p>What alternatives or constraints should participants consider?</p>
+</li>
+<li>
+<p>What outcome would allow the topic to become a concrete document change?</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configuration_notes">Configuration Notes</h2>
+<h2 id="_move_from_discussion_to_a_tracked_change">Move From Discussion to a Tracked Change</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_dbms_cryptographic_functions_module">DBMS Cryptographic Functions Module</h3>
 <div class="paragraph">
-<p>The DBMS Cryptographic Functions Module is the common cryptographic component of both the Crypto + Cloud and Crypto + DBaaS composition families. It defines the DBMS-specific requirements for key management, data-at-rest encryption, and data-in-transit protection while formally consuming applicable CCDB-018 Catalogue components. Every PP-Configuration supports the General-Purpose Cryptographic Deployment use case and may additionally claim the Enterprise Enhanced use case. Enterprise Enhanced constrains Catalogue selections for FIPS 140-3, NIAP, and CNSA 2.0 alignment but does not create a separate PP-Configuration.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_dbms_in_the_cloud_module">DBMS in the Cloud Module</h3>
-<div class="paragraph">
-<p>The DBMS in the Cloud Module addresses tenant-operated DBMS deployments on cloud infrastructure or platform services. It requires the DBMS Cryptographic Functions Module so that data-at-rest and data-in-transit protection remain TOE-enforced requirements rather than environmental assumptions.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_dbms_dbaas_module">DBMS DBaaS Module</h3>
-<div class="paragraph">
-<p>The DBMS DBaaS Module addresses provider-operated managed database services. It is included in the full module review release as the Crypto + DBaaS family. A TOE should claim either the DBMS in the Cloud Module or the DBMS DBaaS Module according to whether the tenant or provider operates the DBMS.</p>
-</div>
+<p>When a discussion produces a concrete change, open the appropriate issue template and include the discussion URL. The issue becomes the tracked unit of work; the discussion remains the background and decision record. Maintainers may also create an issue directly from a discussion when the topic is ready for implementation.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_archived_components">Archived Components</h2>
+<h2 id="_direct_links">Direct Links</h2>
 <div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/DBMS-iTC/Documents/issues/new/choose">Submit a DBMS document issue</a></p>
+</li>
+<li>
+<p><a href="https://github.com/DBMS-iTC/Documents/issues">Browse existing DBMS document issues</a></p>
+</li>
+<li>
+<p><a href="https://github.com/orgs/DBMS-iTC/discussions">Browse DBMS-iTC Discussions</a></p>
+</li>
+<li>
+<p><a href="https://github.com/orgs/DBMS-iTC/discussions/new/choose">Create a DBMS-iTC discussion</a></p>
+</li>
+<li>
+<p><a href="https://github.com/DBMS-iTC/Documents">Browse the DBMS document sources</a></p>
+</li>
+<li>
+<p><a href="https://github.com/DBMS-iTC/DBMS-iTC.github.io/issues/new">Report a website or publication-collateral problem</a></p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>No DBMS PP-Configuration components have been archived.</p>
+<p>For more help with the GitHub interface, see GitHub&#8217;s guides to <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue">creating an issue</a> and <a href="https://docs.github.com/en/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion">participating in a discussion</a>.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.5<br>
-Last updated 2026-07-20 18:06:57 -0500
+Version 1.0<br>
+Last updated 2026-07-20 18:06:13 -0500
 </div>
 </div>
 </body>

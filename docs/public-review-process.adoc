@@ -1,145 +1,132 @@
-= Public Review Process for the _Coffee Maker_ iTC Documentation
+= Participating in DBMS-iTC Public Reviews
 :showtitle:
-:toc:
+:toc: macro
+:toc-title: On this page
 :toclevels: 3
 :table-caption: Table
-:imagesdir: images
-:revnumber: 0.2
-:revdate: 2020-06-03
+:icons: font
+:revnumber: 1.0
+:revdate: 2026-07-20
 :xrefstyle: full
 
-:iTC-longname: Coffee Maker
-:iTC-shortname: CM-iTC
-:iTC-email: cm.itc@gmail.com
-:iTC-website: https://coffeemaker.github.io/
-:iTC-GitHub: https://github.com/coffeemaker/repository/
+:documents-repo: https://github.com/DBMS-iTC/Documents
+:issues-url: https://github.com/DBMS-iTC/Documents/issues/new/choose
+:open-issues-url: https://github.com/DBMS-iTC/Documents/issues
+:discussions-url: https://github.com/orgs/DBMS-iTC/discussions
+:new-discussion-url: https://github.com/orgs/DBMS-iTC/discussions/new/choose
+:site-issues-url: https://github.com/DBMS-iTC/DBMS-iTC.github.io/issues/new
 
-== Introduction
+[.lead]
+The DBMS-iTC uses public GitHub Issues and Discussions as its primary contact and review channels. This keeps proposed changes, rationale, decisions, and follow-up visible to reviewers and document editors.
 
-[REVIEW]
-====
-This document calls the review period "Public Review Draft 1" and shows covering multiple documents at one time. Other terms can be used for the review (I have seen "Working Draft/Implementation Draft" and others). Any term can be used, but be consistent throughout the document.
-====
+[cols="2,4,3",options="header"]
+|===
+|Channel |Use it for |Start here
 
-This describes the Public Review Process used by the {iTC-shortname} for the preparation and eventual publication of the documentation being produced. Specific announcements will be handled individually.
+|GitHub Issue
+|A specific defect, ambiguity, missing requirement, proposed wording change, evaluation-activity correction, or formal request for interpretation that should be tracked to resolution.
+|{issues-url}[Choose an issue template]
 
-Please email {iTC-email} if there are any questions about the Review process.
+|GitHub Discussion
+|A broader design question, early proposal, cross-document topic, community or membership question, or idea that would benefit from conversation before a concrete change is defined.
+|{new-discussion-url}[Start a discussion topic]
 
-== Document Release Process
-The {iTC-shortname} follows the document release process below for the publication of documents. While ideally the cPP and SD would be released at the same time, this may not be the case and different documents may pass through the review process in parallel.
-
-[ditaa,Review_Draft_Process,png]
-....
-                                  
-    +----------+    +----------+   +----------+   +----------+   +----------+
-    |          |    |          |   | Public   |   |          |   | Public   |
-    | Internal |    |  Public  |   | Review   |   |  Public  |   | Review   |
-    |  Draft   |--> |  Review  |-->| Draft 1  |-->|  Review  |-->| Draft 2  |-+
-    |          |    |  Draft 1 |   | Update   |   |  Draft 2 |   | Update   | |
-    |          |    |  (45d)   |   | (60d)    |   |  (45d)   |   | (60d)    | |
-    +----------+    +----------+   +----------+   +----------+   +----------+ |
-                                                                              |
-            +-----------------------------------------------------------------+
-            |   +----------+   +----------+   +-----------+
-            |   |          |   |          |   |           |
-            |   | Proposed |   | Proposed |   | Final     |
-            +-->|  Draft   |-->|  Update  |-->| Document  |
-                |          |   |          |   | Published |
-                | (30d)    |   | (10d)    |   |           |
-                +----------+   +----------+   +-----------+
-....
-
-[REVIEW]
-====
-The time periods here can be adjusted based on what the iTC thinks is best. The time periods are generally considered the maximum time, but could be adjusted generally or individually. Note that if you do change them for a specific document review process that this should be called out explicitly with the review announcement covering that document.
-====
-
-.Review Timeline
-[[timeline]]
-[%header,cols=".^1,.^1,.^2"]
+|Website issue
+|A broken link, inaccessible artifact, rendering defect, or problem with the public-review website rather than the technical content of a DBMS document.
+|{site-issues-url}[Report a website problem]
 |===
 
-|Phase
-|Time
-|Description
+toc::[]
 
-|Internal Draft
-|
-|The normal, pre-release process for creating the documents
+== Before You Submit
 
-|Public Review Draft 1
-|45 days
-|{iTC-shortname} has voted according to Terms of Reference to release this version for public review. Public (i.e. from non-iTC participants) comments are accepted during this period
+. Sign in to a GitHub account. GitHub requires an authenticated account to open an issue or start a discussion.
+. Search the {open-issues-url}[existing issues] and {discussions-url}[existing discussions] for the same topic.
+. Identify the affected document, version, section, table, or requirement identifier.
+. Keep each issue focused on one independently resolvable change. Use a discussion when the scope or preferred resolution is not yet clear.
+. Do not include confidential evaluation evidence, proprietary product information, credentials, or other material that should not be public.
 
-|Public Review Draft 1 Update
-|Up to 60 days
-|The {iTC-shortname} will review all received comments and update the documents accordingly
+== Submit a Review Issue Using a Template
 
-|Public Review Draft 2
-|45 days
-|{iTC-shortname} has voted according to Terms of Reference to release this version for public review. Public (i.e. from non-iTC participants) comments are accepted during this period
+. Open the {issues-url}[DBMS Documents issue-template chooser].
+. Select *Get started* beside the template that best matches the comment.
+. Keep the template's title prefix and add a short, specific summary.
+. Complete every relevant prompt. A proposed resolution or example replacement text makes a comment much easier to evaluate.
+. Use the *Preview* tab to check formatting and links, then select *Submit new issue*.
+. Follow the issue for questions, proposed edits, and the recorded disposition.
 
-PAD Toolbox drafts will be published with this review (final review on toolboxes may proceed independently from rest of documents).
+.Issue-template guide
+[cols="2,4",options="header"]
+|===
+|Template |Choose it when
 
-|Public Review Draft 2 Update
-|Up to 60 days
-|The {iTC-shortname} will review all received comments and update the documents accordingly
+|cPP change request
+|The comment concerns the DBMS Base cPP, its security problem definition, conformance claims, SFRs, SARs, or supporting rationale.
 
-|Public Review Draft 3 (Optional, not shown)
-|45 days
-|{iTC-shortname} has voted according to Terms of Reference to release this version for public review. Public (i.e. from non-iTC participants) comments are accepted during this period
+|PP-Module change request
+|The comment concerns the Cryptographic Functions, Cloud, or DBaaS PP-Module. Identify whether the impact is in Crypto + Cloud, Crypto + DBaaS, or both families.
 
-|Public Review Draft 3 Update (Optional, not shown)
-|Up to 60 days
-|The {iTC-shortname} will review all received comments and update the documents accordingly
+|SD change request
+|The comment concerns an Evaluation Activity, test, evidence expectation, evaluator guidance, or other Supporting Document content.
 
-|Proposed Draft
-|30 days
-|{iTC-shortname} has voted according to Terms of Reference to propose this as the final document. Public (i.e. from non-iTC participants) comments are accepted during this period
+|PP-Configuration change request
+|The comment concerns composition, compatibility, mandatory modules, conformance, or another PP-Configuration rule.
 
-|Proposed Update
-|10 days
-|{iTC-shortname} reviews any further comments and prepares the document for final publishing (updating all dates, producing official versions for publication)
-
-|Final Document Published
-|
-|Documents are posted to Common Criteria Portal
-
+|Request for Interpretation
+|A published requirement or Evaluation Activity needs a formal interpretation. Check the current Technical Decisions first and submit one question per request.
 |===
 
-The {iTC-shortname} may decide, based on the comments received during the Public Review Draft 2 period, that a Public Review Draft 3 period is needed. Public announcement of a third Review Draft or a Proposed Draft will be made once all comments have been addressed.
+=== Information That Makes an Issue Actionable
 
-=== Review Process
-There are two ways to contribute comments and suggestions to the {iTC-shortname}. The first is through GitHub, the second by spreadsheet. It should be noted however that comments that are received via the spreadsheet will be added to the GitHub platform to allow for a comprehensive discussion. Also, feedback for comments is only provided via the answers in the GitHub. 
+Include the following whenever it applies:
 
-Each comment should have a suggested resolution be proposed if a change is needed to the document.
+* Document title and version.
+* Section title, page, table, SFR, SAR, Evaluation Activity, or stable HTML link.
+* The current text or behavior that creates the problem.
+* The security, evaluation, interoperability, or editorial impact.
+* Proposed replacement text or a concrete resolution.
+* Relevant standards, implementation evidence, diagrams, or related issues and discussions.
 
-[REVIEW]
+.Example issue outline
 ====
-It is possible that the iTC will not want to use GitHub for direct entry though for many reasons it is actually preferable (since you then do not need to enter that information in manually). If the iTC would prefer to not use GitHub, then this section should be removed.
+*Title:* `[MODULE CHANGE] Clarify the tenant identifier binding in FIA_USB.1/DBaaS`
+
+*Document and location:* DBMS DBaaS PP-Module 0.5, FIA_USB.1/DBaaS application note.
+
+*Problem:* State the ambiguity and the interpretations a reader could reasonably reach.
+
+*Proposed resolution:* Supply replacement wording or describe the intended rule precisely.
+
+*Composition impact:* Crypto + DBaaS; identify any corresponding Supporting Document activity that also needs adjustment.
 ====
 
-==== GitHub Review Process
-To use GitHub to submit comments, you must have a GitHub account (and it is assumed you know how to use GitHub). Each comment should be submitted as an individual {iTC-GitHub}/issues[Issue] with the Label "Public Review" assigned. Pull Requests created for any issues will be linked to these Issues for traceability.
+== Start a Discussion Topic
 
-==== Comment Matrix Spreadsheet Review Process
-In the <<SupDocTable>> table there is a link to the Comment Matrix spreadsheet. There are instructions for using the Matrix on the second worksheet. Please create a separate copy of the spreadsheet for each document.
+. Open {discussions-url}[DBMS-iTC Discussions] and search for an existing conversation.
+. Select *New discussion* or use the {new-discussion-url}[direct discussion-category chooser].
+. Choose the category that best fits the topic.
+. Enter a descriptive title that names the technology area or document family.
+. In the body, explain the context, affected documents, question to resolve, important alternatives, and your preferred direction if you have one.
+. Select *Start discussion* and follow the topic for replies.
 
-Email the spreadsheets to {iTC-email}.
+A strong discussion opening normally answers four questions:
 
-.Supporting Documents
-[[SupDocTable]]
-[cols=".^1,^.^1",options="header"]
-|===
+. What decision or uncertainty should the community address?
+. Which DBMS documents or review families are affected?
+. What alternatives or constraints should participants consider?
+. What outcome would allow the topic to become a concrete document change?
 
-|Title
-|Link
+== Move From Discussion to a Tracked Change
 
-|Comment Matrix
-|{iTC-website}Comments-Matrix.xlsx[Download Comment Matrix]
+When a discussion produces a concrete change, open the appropriate issue template and include the discussion URL. The issue becomes the tracked unit of work; the discussion remains the background and decision record. Maintainers may also create an issue directly from a discussion when the topic is ready for implementation.
 
+== Direct Links
 
-|===
+* {issues-url}[Submit a DBMS document issue]
+* {open-issues-url}[Browse existing DBMS document issues]
+* {discussions-url}[Browse DBMS-iTC Discussions]
+* {new-discussion-url}[Create a DBMS-iTC discussion]
+* {documents-repo}[Browse the DBMS document sources]
+* {site-issues-url}[Report a website or publication-collateral problem]
 
-== Additional Notes
-The documents under review are the current state of output. Two major areas of discussion within the {iTC-shortname} that are still under consideration within are noted below. 
+For more help with the GitHub interface, see GitHub's guides to https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue[creating an issue] and https://docs.github.com/en/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion[participating in a discussion].
