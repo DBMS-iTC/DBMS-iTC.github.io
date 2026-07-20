@@ -1,0 +1,2990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.26">
+<title>Supporting Document: Evaluation Activities for collaborative PP-Module for Database-as-a-Service (DBaaS)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock pre>code{display:block}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>Supporting Document: Evaluation Activities for collaborative PP-Module for Database-as-a-Service (DBaaS)</h1>
+<div class="details">
+<span id="revnumber">version 0.5,</span>
+<span id="revdate">2026-07-20</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_revision_history">1. Revision History</a></li>
+<li><a href="#_introduction">2. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#_technology_area_and_scope_of_supporting_document">2.1. Technology Area and Scope of Supporting Document</a></li>
+<li><a href="#_structure_of_the_document">2.2. Structure of the Document</a></li>
+<li><a href="#_terminology">2.3. Terminology</a></li>
+<li><a href="#_managed_service_evaluation_constraint">2.4. Managed-Service Evaluation Constraint</a></li>
+<li><a href="#_evidence_vantages">2.5. Evidence Vantages</a></li>
+<li><a href="#_relationship_to_other_documents">2.6. Relationship to Other Documents</a></li>
+</ul>
+</li>
+<li><a href="#_general_guidance_for_evaluators">3. General Guidance for Evaluators</a>
+<ul class="sectlevel2">
+<li><a href="#_verifying_the_trusted_platform">3.1. Verifying the Trusted Platform</a></li>
+<li><a href="#_toe_toe_platform_and_trusted_platform_boundary_enumeration">3.2. TOE, TOE Platform, and Trusted Platform Boundary Enumeration</a></li>
+<li><a href="#_evaluator_access_strategy">3.3. Evaluator Access Strategy</a></li>
+<li><a href="#_audit_channel_identification">3.4. Audit Channel Identification</a></li>
+<li><a href="#_tenant_isolation_testing_strategy">3.5. Tenant Isolation Testing Strategy</a></li>
+<li><a href="#_external_service_dependencies">3.6. External Service Dependencies</a></li>
+<li><a href="#_handling_selections_and_assignments">3.7. Handling Selections and Assignments</a></li>
+</ul>
+</li>
+<li><a href="#_assurance_activities_overview">4. Assurance Activities Overview</a>
+<ul class="sectlevel2">
+<li><a href="#_assurance_approach_rationale">4.1. Assurance Approach Rationale</a></li>
+<li><a href="#_mapping_to_base_pp_sars">4.2. Mapping to Base PP SARs</a>
+<ul class="sectlevel3">
+<li><a href="#_inherited_sar_families">4.2.1. Inherited SAR Families</a></li>
+<li><a href="#_applying_base_pp_sar_activities">4.2.2. Applying Base PP SAR Activities</a></li>
+</ul>
+</li>
+<li><a href="#_dbaas_specific_assurance_activities">4.3. DBaaS-Specific Assurance Activities</a>
+<ul class="sectlevel3">
+<li><a href="#_ase_security_target_evaluation">4.3.1. ASE: Security Target Evaluation</a></li>
+<li><a href="#_adv_development">4.3.2. ADV: Development</a></li>
+<li><a href="#_alc_life_cycle_support">4.3.3. ALC: Life-cycle Support</a></li>
+<li><a href="#_ate_tests">4.3.4. ATE: Tests</a></li>
+<li><a href="#_ava_vulnerability_assessment">4.3.5. AVA: Vulnerability Assessment</a></li>
+</ul>
+</li>
+<li><a href="#_documentation_requirements">4.4. Documentation Requirements</a>
+<ul class="sectlevel3">
+<li><a href="#_agd_ope_operational_user_guidance_dbaas_specific_requirements">4.4.1. AGD_OPE: Operational User Guidance — DBaaS-Specific Requirements</a></li>
+<li><a href="#_agd_pre_preparative_procedures_service_provisioning">4.4.2. AGD_PRE: Preparative Procedures — Service Provisioning</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fcs_class_cryptographic_support">5. FCS Class: Cryptographic Support</a>
+<ul class="sectlevel2">
+<li><a href="#_fcs_ckm_dbaas_ext_1_customer_controlled_keys">5.1. FCS_CKM_DBAAS_EXT.1 Customer-Controlled Keys</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities">5.1.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities">5.1.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities">5.1.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities">5.1.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fdp_class_user_data_protection">6. FDP Class: User Data Protection</a>
+<ul class="sectlevel2">
+<li><a href="#_fdp_rip_1dbaas_residual_information_protection">6.1. FDP_RIP.1/DBaaS Residual Information Protection</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_2">6.1.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_2">6.1.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_2">6.1.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_2">6.1.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fdp_acc_1dbaas_tenant_isolation_policy">6.2. FDP_ACC.1/DBaaS Tenant Isolation Policy</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_3">6.2.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_3">6.2.1.1. TSS Activities</a></li>
+<li><a href="#_test_activities_3">6.2.1.2. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fdp_acf_1dbaas_tenant_isolation_policy_rules">6.3. FDP_ACF.1/DBaaS Tenant Isolation Policy Rules</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_4">6.3.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_4">6.3.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_3">6.3.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_4">6.3.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fdp_bkp_ext_1_protected_backup_and_restore">6.4. FDP_BKP_EXT.1 Protected Backup and Restore</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_5">6.4.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_5">6.4.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_4">6.4.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_5">6.4.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fru_class_resource_utilisation">7. FRU Class: Resource Utilisation</a>
+<ul class="sectlevel2">
+<li><a href="#_fru_rsa_1dbaas_and_fru_rsg_ext_1_resource_governance">7.1. FRU_RSA.1/DBaaS and FRU_RSG_EXT.1 Resource Governance</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_6">7.1.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_6">7.1.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_5">7.1.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_6">7.1.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fia_class_identification_and_authentication">8. FIA Class: Identification and Authentication</a>
+<ul class="sectlevel2">
+<li><a href="#_fia_usb_1dbaas_user_subject_binding">8.1. FIA_USB.1/DBaaS User-Subject Binding</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_7">8.1.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_7">8.1.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_6">8.1.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_7">8.1.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fmt_class_security_management">9. FMT Class: Security Management</a>
+<ul class="sectlevel2">
+<li><a href="#_fmt_smr_1dbaas_security_roles">9.1. FMT_SMR.1/DBaaS Security Roles</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_8">9.1.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_8">9.1.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_7">9.1.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_8">9.1.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fmt_smf_1dbaas_specification_of_management_functions">9.2. FMT_SMF.1/DBaaS Specification of Management Functions</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_9">9.2.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_9">9.2.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_8">9.2.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_9">9.2.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fmt_mof_1dbaas_disable_and_fmt_mof_1dbaas_modify_management_of_security_functions_behaviour">9.3. FMT_MOF.1/DBaaS-Disable and FMT_MOF.1/DBaaS-Modify Management of Security Functions Behaviour</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_10">9.3.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_10">9.3.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_9">9.3.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_10">9.3.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fau_class_security_audit">10. FAU Class: Security Audit</a>
+<ul class="sectlevel2">
+<li><a href="#_fau_sel_1dbaas_selective_audit">10.1. FAU_SEL.1/DBaaS Selective Audit</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_11">10.1.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_11">10.1.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_10">10.1.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_11">10.1.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fau_stg_2dbaas_protected_audit_trail_storage_immutable_audit_stream">10.2. FAU_STG.2/DBaaS Protected Audit Trail Storage (Immutable Audit Stream)</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_12">10.2.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_12">10.2.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_11">10.2.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_12">10.2.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_fpt_class_protection_of_the_tsf">11. FPT Class: Protection of the TSF</a>
+<ul class="sectlevel2">
+<li><a href="#_fpt_tud_dbaas_ext_1_trusted_service_update">11.1. FPT_TUD_DBAAS_EXT.1 Trusted Service Update</a>
+<ul class="sectlevel3">
+<li><a href="#_evaluation_activities_13">11.1.1. Evaluation Activities</a>
+<ul class="sectlevel4">
+<li><a href="#_tss_activities_13">11.1.1.1. TSS Activities</a></li>
+<li><a href="#_guidance_activities_12">11.1.1.2. Guidance Activities</a></li>
+<li><a href="#_test_activities_13">11.1.1.3. Test Activities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_cross_reference_to_cem_work_units">Appendix A: Cross-Reference to CEM Work Units</a>
+<ul class="sectlevel2">
+<li><a href="#_sfr_evaluation_activities_to_cem_mapping">A.1. SFR Evaluation Activities to CEM Mapping</a></li>
+<li><a href="#_sar_considerations_to_cem_mapping">A.2. SAR Considerations to CEM Mapping</a></li>
+</ul>
+</li>
+<li><a href="#_evidence_vantage_mapping">Appendix B: Evidence Vantage Mapping</a></li>
+<li><a href="#_test_environment_guidance_for_dbaas_evaluators">Appendix C: Test Environment Guidance for DBaaS Evaluators</a>
+<ul class="sectlevel2">
+<li><a href="#_recommended_test_configuration">C.1. Recommended Test Configuration</a></li>
+<li><a href="#_production_safety_constraints">C.2. Production-Safety Constraints</a></li>
+<li><a href="#_test_data_handling">C.3. Test Data Handling</a></li>
+</ul>
+</li>
+<li><a href="#_document_references">Appendix D: Document References</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_revision_history">1. Revision History</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Revision history</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Version</th>
+<th class="tableblock halign-left valign-middle">Date</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.1</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-01-25</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Initial draft of Evaluation Activities for DBaaS deployments.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.2</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-05-14</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned the SD with the CCiTC SaaS evaluation model: added the managed-service evaluation constraint, trusted-platform evidence handling, tenant-interface testing strategy, and per-SFR Evaluation Activities.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.3</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-06-30</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned with the v0.3 PP-Module: renamed iterated Base PP components to <code>/DBaaS</code>, added Evaluation Activities for <code>FMT_SMR.1/DBaaS</code>, <code>FMT_SMF.1/DBaaS</code>, and <code>FDP_BKP_EXT.1</code>, added explicit TOE/Platform/Trusted-Platform boundary enumeration guidance, and aligned references with cPP_DBMS Version 2.0 and the DBMS Cryptographic Functions Module Version 0.3. This SD remains in draft and is expected to mature on a later schedule than the Cloud and Crypto Module SDs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-06-30</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Refocused the FDP_BKP_EXT.1 Evaluation Activities on provider-plaintext-restore prevention and restore tenant-binding, with data-at-rest confidentiality of backups evaluated under the DBMS Cryptographic Functions Module SD. Version aligned with the v0.4 module and SD set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-07</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Managed-Service Evaluation Constraint contrast sentence updated: tenant-operated deployments cover both cloud-native and lift-and-shift models.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-07</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned SD sections with the module&#8217;s component changes: resource governance activities moved to an FRU class section covering FRU_RSA.1/DBaaS and FRU_RSG_EXT.1; FIA_USB.1/DBaaS; FMT_MOF.1/DBaaS-Disable and -Modify; FAU_STG.2/DBaaS; FAU_SEL.1/DBaaS audit-query scoping noted as evaluated under FDP_ACF.1/DBaaS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-08</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Renamed the FPT_TUD_EXT.2 section to FPT_TUD_DBAAS_EXT.1 following the module&#8217;s family rename.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-14</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned with the module&#8217;s maturity pass. FPT_TUD_DBAAS_EXT.1 activities rewritten for the Trusted Service Update design: TSS coverage of the declared deployment model, signed deployment artifacts, verification point, TSF/environment split of the update pipeline, and tenant version visibility; new signature-verification and tenant-version-visibility tests. Evaluator Access Strategy (provider-supported demonstration, recorded in the ETR) now invoked explicitly in the tests that require provider access: FDP_BKP_EXT.1 Test 1 (with an explicit ciphertext pass criterion), FMT_SMR.1/DBaaS Test 1, FMT_SMF.1/DBaaS Test 1, and FAU_STG.2/DBaaS Test 2. Added the OE.PROVIDER_ROLE_SEPARATION verification to Trusted Platform verification (distinct service and platform administrative populations, least privilege, corporate vertical integration permitted). Added Guidance Activities for FDP_RIP.1/DBaaS, FIA_USB.1/DBaaS, and FAU_SEL.1/DBaaS. Added the X.509 Functional Package reference.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-14</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Structural completion to the Cloud/Crypto SD baseline. Added the Assurance Activities Overview: inherited SAR family mapping and DBaaS-specific considerations for ASE (managed-service ST verification, including the A.TRUSTED_PLATFORM_ADMIN population check), ADV (tenant-facing and provider service interface scope), ALC (continuous-deployment CM identification via the FPT_TUD_DBAAS_EXT.1.3 revision identifier, delivery reinterpreted as the authorized deployment path, ALC_FLR.3 coupled to trusted service update and bounded deferral), ATE (tenant-vantage testing, provider test evidence, revision-parity rule for non-production instances), and AVA (tenant-vantage vulnerability analysis and penetration testing with production-safety constraints); plus AGD_OPE and AGD_PRE documentation requirements for the service model. Added Introduction Structure and Terminology sections, a Handling Selections and Assignments section enumerating every open operation of the module, a complete Cross-Reference to CEM Work Units covering all SFR sections and the SAR considerations, and Test Environment Guidance for DBaaS Evaluators (two-tenant minimum, revocable external key, revision-verified demonstration instance, production-safety constraints).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-14</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned with the module&#8217;s two design corrections. FCS_CKM_DBAAS_EXT.1 activities now verify the tenant-authorization constraint on any claimed recovery mechanism (TSS and Guidance coverage; new Test 2 step exercising the mechanism and its audit record). FDP_ACC.2/DBaaS section renamed to FDP_ACC.1/DBaaS with a TSS check that the Tenant Isolation SFP is scoped as subset access control.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Follow-on fixes from the audit-channel and vantage analysis. FIA_USB.1/DBaaS TSS activities verify tenant binding of subjects acting for automated autonomous management logic; FMT_SMF.1/DBaaS Test 1 gains a conditional step verifying an autonomous-action record identifies the autonomous subject with tenant attribution and tenant visibility. Audit Channel Identification verifies the per-channel retention and export treatment under P.AUDIT_RETENTION. FCS_CKM_DBAAS_EXT.1 recovery step may be performed jointly with FDP_BKP_EXT.1 Test 2, verifying restore tenant binding in the same run. Relationship to Other Documents names the two Base PP areas whose realization splits across planes: FIA (database authentication is TSF at V1; control-plane authentication via a cloud identity provider is verified under OE.EXTERNAL_SERVICES) and time (Base PP time activities do not apply to service event stream timestamps).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned with the module&#8217;s service event stream audit channel. New Audit Channel Identification section in General Guidance: the evaluator verifies the ST&#8217;s per-event channel assignment, the stream&#8217;s implementing mechanism and boundary allocation, its tenant retrieval interface, and tenant visibility of provider-initiated records, before performing any audit-record check; channel substitution in either direction is not permitted. FCS_CKM_DBAAS_EXT.1 Test 2/2a and the recovery step now verify the enforcement-transition and recovery records in the ST-identified service event stream, retrievable while the database is not serving connections. FAU_STG.2/DBaaS scoped to the DBMS audit trail. ASE_TSS checks the channel identification is provided.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Added the Assurance Approach Rationale to the Assurance Activities Overview: the package substitutes requirement-bound adversarial testing for design-artifact depth (the SD&#8217;s test legs are predominantly negative); at tenant vantage the reachable attack surface substantially coincides with the tested interface set; the certificate window matches the architectural cadence of the certified properties, with in-window operational change covered by continuously monitored Trusted Platform evidence and TSF change by ALC_FLR.3 plus the revision identifier; and the three assurance layers (algorithm validation, this PP-Configuration, cloud authorization) compose without duplication.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Defined the four evidence vantages for managed-service evaluation (V1 tenant data plane, V2 tenant service control plane, V3 evaluator-controlled external services, V4 provider-internal operations) and added the informative Evidence Vantage Mapping appendix assigning vantages to every test activity, with scoping notes on where provider participation is required. The Evaluator Access Strategy now starts from this mapping and records deviations in the ETR. Relationship to Other Documents states the composition rule for the DBaaS PP-Configuration: Base PP and Crypto Module SD activities are executed from these vantages, with the Evaluator Access Strategy applied where they assume access the managed-service model does not provide. Provider-supported demonstration added to the managed-service evidence methods list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned with the module&#8217;s role-label clarification. Terminology states the global interpretation rule: role names in Evaluation Activities are the module&#8217;s role labels, and the evaluator uses the TOE roles the ST maps to them. FMT_SMR.1/DBaaS TSS activities verify the mapping is present, unambiguous, and preserves the provider/tenant authority boundaries; Test 1 verifies the mapped TOE roles under their TOE names; ASE_TSS checks the mapping is provided.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-18</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned with the module&#8217;s key-state enforcement interval assignment in FCS_CKM_DBAAS_EXT.1.3. Handling Selections and Assignments now lists the interval with its permitted-completion constraints. TSS activities require the key-state detection mechanism, any unreachability grace period, and the derivation of the completed interval from detection latency, grace period, and cached-key lifetime; Guidance activities require the interval and post-expiration service state to be documented. Test 2 rewritten to verify denial no later than interval expiration with the enforcement-state transition audit record; new Test 2a exercises key-provider unreachability against the documented grace behavior, with a provider-evidence fallback where connectivity cannot be interrupted.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.4</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-20</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Aligned customer-controlled key evaluation with the Crypto Module&#8217;s role-specific ML-KEM design. Added TSS and guidance checks for the "Established through Key Encapsulation" origin, TOE-versus-external operation allocation, KEM-to-Master-Key derivation, and ongoing customer authorization. Added Test 4 and evidence-vantage mapping to verify that a KEM-established Master Key remains subject to the bounded customer revocation requirement; algorithm and integration testing remains in the Crypto Module SD.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.5</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-20</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Rolled the completed managed-service Evaluation Activities, evidence-vantage model, provider-supported demonstration paths, and Crypto Module coordination into the Version 0.5 review set.</p></td>
+</tr>
+</tbody>
+</table>
+<!-- toc disabled -->
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">2. Introduction</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_technology_area_and_scope_of_supporting_document">2.1. Technology Area and Scope of Supporting Document</h3>
+<div class="paragraph">
+<p>This Supporting Document (SD) defines Evaluation Activities (EAs) for the <strong>collaborative PP-Module for Database-as-a-Service</strong> (DBMS_MOD_DBAAS), version 0.5. The technology area addressed is a Database Management System (DBMS) offered as a managed Database-as-a-Service, in which the cloud service provider operates and manages the DBMS on behalf of tenants.</p>
+</div>
+<div class="paragraph">
+<p>This SD provides Evaluation Activities that evaluators shall perform to determine whether a TOE satisfies the Security Functional Requirements (SFRs) specified in the DBaaS PP-Module. These activities complement the Evaluation Activities defined in the Supporting Document for the collaborative Protection Profile for Database Management Systems (cPP_DBMS SD), which remains applicable for all SFRs inherited from the Base PP, and the Supporting Document for the DBMS Cryptographic Functions Module, which provides cryptographic, data-at-rest, data-in-transit, and key-management Evaluation Activities.</p>
+</div>
+<div class="paragraph">
+<p>The Evaluation Activities in this SD are derived from the Common Evaluation Methodology (CEM:2022) work units and are aligned with the CCiTC Guidance for Cloud Evaluations Software-as-a-Service (SaaS) model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_structure_of_the_document">2.2. Structure of the Document</h3>
+<div class="paragraph">
+<p>This SD is organized as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Introduction</strong>: scope, the managed-service evaluation constraint, the evidence vantages (V1–V4) from which test evidence is collected, terminology, and document relationships;</p>
+</li>
+<li>
+<p><strong>General Guidance for Evaluators</strong>: Trusted Platform verification (including provider role separation), boundary enumeration, the Evaluator Access Strategy, audit channel identification, tenant isolation testing strategy, external service dependencies, and the handling of selections and assignments;</p>
+</li>
+<li>
+<p><strong>Assurance Activities Overview</strong>: the inherited SAR families and the DBaaS-specific considerations for ASE, ADV, ALC, ATE, and AVA, together with the DBaaS documentation requirements for AGD_OPE and AGD_PRE;</p>
+</li>
+<li>
+<p><strong>Per-SFR Evaluation Activities</strong> (FCS, FDP, FRU, FIA, FMT, FAU, FPT classes): TSS, Guidance, and Test activities for each SFR of the PP-Module;</p>
+</li>
+<li>
+<p><strong>Appendices</strong>: cross-reference to CEM work units, the evidence vantage mapping for every test activity, test environment guidance, and document references.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_terminology">2.3. Terminology</h3>
+<div class="paragraph">
+<p>Terms defined in the Glossary of the DBaaS PP-Module [<a href="#DBMS_MOD_DBAAS">[DBMS_MOD_DBAAS]</a>] (Customer-Controlled Key, Service Provider Administrator, Tenant, Tenant Administrator, Tenant User, Trusted Platform, TOE Platform) are used in this SD with the same meanings. The following evaluator-facing terms are additionally used:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Tenant context</dt>
+<dd>
+<p>An evaluator-provisioned tenant of the service, together with its users, roles, data, and tenant-scoped resources, used as a test subject. The Tenant Isolation Testing Strategy requires at least two distinct tenant contexts.</p>
+</dd>
+<dt class="hdlist1">Provider-supported demonstration</dt>
+<dd>
+<p>An evaluation activity performed by or with the service provider under the Evaluator Access Strategy, in which the evaluator directs and observes the exercise of functionality that requires provider access, and records the method and results in the ETR.</p>
+</dd>
+<dt class="hdlist1">Service software revision</dt>
+<dd>
+<p>The state of the deployed DBMS service software identified by the version or revision identifier of FPT_TUD_DBAAS_EXT.1.3. For continuously deployed services this identifier takes the place of a traditional version number for CM identification, testing parity, and flaw-remediation verification.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Role names in the Evaluation Activities of this SD — Tenant User, Tenant Administrator, Service Provider Administrator — are the module-level role labels of <code>FMT_SMR.1/DBaaS</code>. Per that component&#8217;s application note, the TOE is not required to name its roles verbatim; the ST maps each label to the TOE&#8217;s own role terminology. Wherever an activity directs the evaluator to act as, provision, or observe one of these roles, the evaluator shall use the TOE role or roles the ST maps to that label.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_managed_service_evaluation_constraint">2.4. Managed-Service Evaluation Constraint</h3>
+<div class="paragraph">
+<p>Unlike a tenant-operated cloud deployment (cloud-native or lift-and-shift), the DBaaS TOE is a provider-operated managed service. The evaluator typically does not have access to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the underlying operating system;</p>
+</li>
+<li>
+<p>the hypervisor or physical hardware;</p>
+</li>
+<li>
+<p>raw process memory;</p>
+</li>
+<li>
+<p>provider operational tooling; or</p>
+</li>
+<li>
+<p>Service Provider administrative accounts.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Evaluation Activities in this SD are therefore designed to be performed through:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Tenant interfaces</strong>: standard SQL clients, tenant-facing web consoles, APIs, audit views, and management interfaces accessible to the customer.</p>
+</li>
+<li>
+<p><strong>Documentation review</strong>: analysis of the ST, TSS, operational guidance, and provider architecture descriptions.</p>
+</li>
+<li>
+<p><strong>Scheme-accepted evidence</strong>: cloud authorization, certification, scheme policy, or other evidence accepted by the applicable evaluation scheme for Trusted Platform assumptions and operational environment objectives.</p>
+</li>
+<li>
+<p><strong>Provider-supported demonstration</strong>: exercise of provider-restricted functionality directed and observed by the evaluator under the Evaluator Access Strategy, recorded in the ETR.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_evidence_vantages">2.5. Evidence Vantages</h3>
+<div class="paragraph">
+<p>Test evidence for this SD — and, when the DBaaS PP-Configuration is evaluated, for Base PP and Crypto Module activities executed against the managed service (see <a href="#_relationship_to_other_documents">Section 2.6, &#8220;Relationship to Other Documents&#8221;</a>) — is collected from four vantages. The vantage identifiers V1 through V4 are used throughout this SD, and the Evidence Vantage Mapping appendix assigns them to every test activity.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">V1 — Tenant data plane</dt>
+<dd>
+<p>The database interfaces of an evaluator-provisioned tenant context — SQL clients, drivers, and database-level APIs — exercised as the TOE roles mapped to the Tenant User and Tenant Administrator labels. This is the vantage of the Base PP&#8217;s ordinary user and administrator activities.</p>
+</dd>
+<dt class="hdlist1">V2 — Tenant service control plane</dt>
+<dd>
+<p>The tenant-facing management surface of the cloud service — service consoles, management APIs, and command-line tools available to the evaluation tenancy — used to provision tenant contexts, configure customer-controlled keys, initiate backup and restore, configure resource quotas and audit export where tenant-visible, and query the service software revision. This vantage is evaluator-driven and requires no provider involvement beyond the evaluation tenancy itself. Which functions appear at V2 rather than V4 varies by TOE and is settled by the ST&#8217;s interface identification and role-label mapping.</p>
+</dd>
+<dt class="hdlist1">V3 — Evaluator-controlled external services</dt>
+<dd>
+<p>Services outside the TOE but under evaluator control, on which tests depend as instruments: the external key management service holding the revocable test key (through which key revocation and key-provider unreachability are induced) and the external audit sink (at which audit export is observed).</p>
+</dd>
+<dt class="hdlist1">V4 — Provider-internal operations</dt>
+<dd>
+<p>Functions exercisable only by the service provider: provider administrative roles, the update deployment pipeline, restore paths not exposed at V2, and fleet operations. This vantage is never directly accessible to the evaluator; its evidence is obtained through provider-supported demonstration, provider test evidence, or provider documentation under the Evaluator Access Strategy, with every such reliance recorded in the ETR.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>A test whose primary vantage is V1–V3 is executed by the evaluator without provider involvement; a test with a V4 leg requires provider participation that the laboratory and provider should schedule when scoping the evaluation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relationship_to_other_documents">2.6. Relationship to Other Documents</h3>
+<div class="paragraph">
+<p>This SD is used in conjunction with:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>cPP_DBMS SD</strong>, Version 2.0: Evaluation Activities for SFRs inherited from the Base PP.</p>
+</li>
+<li>
+<p><strong>DBMS Cryptographic Functions Module SD</strong>, Version 0.5: cryptographic, data-at-rest, data-in-transit, key-management, and algorithm-validation Evaluation Activities.</p>
+</li>
+<li>
+<p><strong>DBaaS PP-Module</strong>, version 0.5: requirements definition.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Where SFRs are iterated by the PP-Module as <code>/DBaaS</code>, the Evaluation Activities in this SD supplement those in the Base PP SD for the tenant-scoped refinements.</p>
+</div>
+<div class="paragraph">
+<p>When the DBaaS PP-Configuration is evaluated, the Base PP SD and Crypto Module SD activities are executed against the same provider-operated managed service as the activities of this SD. Those documents were written for TOEs where the evaluator holds full administrative access; under this PP-Configuration their activities are executed from the vantages defined in <a href="#_evidence_vantages">Section 2.5, &#8220;Evidence Vantages&#8221;</a>. A Base PP or Crypto Module activity exercisable through the tenant data plane (V1) or tenant service control plane (V2) is performed there unchanged. Where such an activity assumes host-level, operating-system, or full-DBA access that the managed-service model does not provide to tenants, the evaluator shall apply the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>) — determining whether the SD in question permits reliance on TSS review, operational guidance, scheme-accepted evidence, or a provider-supported demonstration (V4) — and shall record each such reliance in the ETR.</p>
+</div>
+<div class="paragraph">
+<p>Two Base PP areas warrant naming, because their realization splits across planes in a managed service. Identification and authentication: the Base PP&#8217;s FIA activities apply to the database authentication interfaces of the TOE (V1); authentication to the tenant service control plane (V2) is typically performed by a cloud identity provider, which is an external service under OE.EXTERNAL_SERVICES and is verified as an external service dependency rather than under the Base PP FIA activities — the ST&#8217;s boundary enumeration identifies which authentication surfaces are TSF. Time: audit timestamps for DBMS audit trail records derive from the time source the Base PP activities verify, while service event stream records derive from the Trusted Platform&#8217;s time service under OE.EXTERNAL_SERVICES; the evaluator relies on the ST&#8217;s identification of each and does not apply the Base PP time activities to the stream.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_guidance_for_evaluators">3. General Guidance for Evaluators</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_verifying_the_trusted_platform">3.1. Verifying the Trusted Platform</h3>
+<div class="paragraph">
+<p>The evaluator shall review the ST and operational guidance to identify the Trusted Platform relied upon by the TOE. The evaluator shall verify that the ST identifies the cloud authorization, certification, scheme policy, or other evidence submitted to support the Trusted Platform assumptions and Operational Environment objectives. The evaluator shall confirm that the stated scope of the evidence covers the identified Cloud Service Offering, region, services, and evaluated configuration, and shall document this reliance in the ETR.</p>
+</div>
+<div class="paragraph">
+<p>The evaluation authority determines whether the submitted evidence is acceptable under the applicable scheme policy, including recognized authorization programs, assurance levels, currency, and exceptions. The evaluator does not independently establish Trusted Platform acceptance criteria or treat cloud authorization evidence as satisfying a TOE SFR unless the applicable requirement expressly permits use of a platform-provided mechanism.</p>
+</div>
+<div class="paragraph">
+<p><strong>Provider role separation (OE.PROVIDER_ROLE_SEPARATION).</strong> The evaluator shall verify that the provider&#8217;s role and account model documentation demonstrates that administrative authority over the DBaaS service and administrative authority over the Trusted Platform are exercised through logically distinct roles, accounts, and control planes, assigned according to least privilege, such that no single administrative identity holds both. Vertical integration — the same provider operating both the service and the platform — is permitted; the verification addresses the administrative populations and their control planes, not corporate structure. Where the documentation alone is not sufficient, the evaluator shall use a provider-supported demonstration of the role and account model (for example, enumeration of the distinct administrative directories, IAM domains, or control planes) under the Evaluator Access Strategy, and shall record the evidence relied upon in the ETR.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_toe_toe_platform_and_trusted_platform_boundary_enumeration">3.2. TOE, TOE Platform, and Trusted Platform Boundary Enumeration</h3>
+<div class="paragraph">
+<p>Because a DBaaS architecture may allocate components and supporting services differently, the evaluator shall confirm that the boundary between TOE-enforced behavior and platform-provided properties is explicitly enumerated and is consistent with all claimed SFRs, assumptions, and Operational Environment objectives. Provider ownership or operation of a component does not by itself determine its allocation.</p>
+</div>
+<div class="paragraph">
+<p>The evaluator shall:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Verify that the TSS enumerates, for each claimed SFR, the security behavior performed by the TOE and any supporting property relied upon from the TOE Platform, Trusted Platform, or another operational environment component.</p>
+</li>
+<li>
+<p>Verify that a claimed SFR is not allocated wholly to the Trusted Platform or operational environment unless the applicable requirement expressly permits use of a platform-provided mechanism. Where such use is permitted, verify that the TSS distinguishes the evaluated TSF behavior from the external property on which it relies.</p>
+</li>
+<li>
+<p>For each external reliance, verify that the allocation is supported by operational guidance and is linked to an assumption or Operational Environment objective. Where the TOE behavior at the boundary is testable through tenant-accessible interfaces, apply the relevant test activities in this SD.</p>
+</li>
+<li>
+<p>Record in the ETR each external reliance, the applicable assumption or Operational Environment objective, the identified evidence, and the applicable scheme policy or acceptance decision.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This enumeration is the primary mechanism by which the TOE/Trusted-Platform boundary is made explicit and evaluable; the per-SFR TSS activities below compel the enumeration, and the test activities verify it wherever the evaluated configuration permits.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_evaluator_access_strategy">3.3. Evaluator Access Strategy</h3>
+<div class="paragraph">
+<p>The evaluator shall identify the interfaces available in the evaluated configuration and map each test to one or more tenant-accessible or provider-supported evaluation interfaces. The Evidence Vantage Mapping appendix (<a href="#_evidence_vantage_mapping">Appendix B, <em>Evidence Vantage Mapping</em></a>) provides the expected vantage assignment for every test activity of this SD; the evaluator shall use it as the starting point for this mapping and shall record in the ETR any deviation driven by the evaluated configuration — in particular, functions the mapping places at the tenant service control plane (V2) that the evaluated TOE exposes only to provider roles (V4), or the reverse. When a direct test is not feasible because the function is outside the TOE boundary or requires provider-only access, the evaluator shall determine whether the SD permits reliance on TSS review, operational guidance, scheme-accepted evidence, or a provider-supported demonstration.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_audit_channel_identification">3.4. Audit Channel Identification</h3>
+<div class="paragraph">
+<p>The module&#8217;s auditable-events refinement assigns each auditable event to the DBMS audit trail or to the service event stream (or, for events whose plane varies by TOE, to either as identified in the ST). Before performing any test activity that verifies an audit record, the evaluator shall verify that the ST identifies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>for each module auditable event, the channel that carries it, consistent with the Audit Channel column of the module&#8217;s auditable-events table;</p>
+</li>
+<li>
+<p>the mechanism that implements the service event stream, its allocation to the TOE, TOE Platform, or Trusted Platform, and the tenant interface through which its records are retrieved (typically at the tenant service control plane, V2);</p>
+</li>
+<li>
+<p>how service event stream records concerning a tenant&#8217;s service instance, customer-controlled keys, or backups are made visible to that tenant regardless of the acting subject, including provider-initiated and service-initiated actions;</p>
+</li>
+<li>
+<p>the retention and export treatment of each channel under P.AUDIT_RETENTION: which DBMS audit trail records and which service event stream records are exportable to tenants, and whether any claimed audit export function covers service event stream records; and</p>
+</li>
+<li>
+<p>where the service event stream is delivered by the Trusted Platform, the reliance on OE.TRUSTED_PLATFORM and OE.EXTERNAL_SERVICES for its integrity and availability, recorded in the ETR with the Trusted Platform verification.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each per-SFR test activity of this SD that checks for an audit record is performed against the channel the ST identifies for that event. An audit record required in the service event stream is not satisfied by a record in the DBMS audit trail that becomes unreadable when the database stops serving connections, and the reverse substitution is likewise not permitted.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tenant_isolation_testing_strategy">3.5. Tenant Isolation Testing Strategy</h3>
+<div class="paragraph">
+<p>Testing for logical isolation requires the evaluator to provision at least two distinct tenant contexts, such as separate tenants, databases, pluggable databases, schemas, namespaces, or accounts, depending on the ST claim. The evaluator shall attempt cross-tenant access through the same interfaces available to the tenant in the evaluated configuration.</p>
+</div>
+<div class="paragraph">
+<p>The evaluator shall avoid relying on undocumented provider privileges as primary test mechanisms unless those privileges are part of the evaluated configuration or are used only to set up or observe the test under controlled conditions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_external_service_dependencies">3.6. External Service Dependencies</h3>
+<div class="paragraph">
+<p>When the TOE relies on external key management, identity provider, logging, object storage, backup, management, or trusted time services, the evaluator shall verify that the ST identifies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>whether the service is part of the TOE, TOE Platform, Trusted Platform, or operational environment;</p>
+</li>
+<li>
+<p>which SFRs, assumptions, and operational environment objectives depend on the service;</p>
+</li>
+<li>
+<p>what evidence supports the service&#8217;s claimed security properties; and</p>
+</li>
+<li>
+<p>which operational guidance configures the service for the evaluated configuration.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_handling_selections_and_assignments">3.7. Handling Selections and Assignments</h3>
+<div class="paragraph">
+<p>The PP-Module leaves the following operations open for completion by the ST author. For each, the evaluator shall verify that the ST completes the operation with permitted content, that the completion is consistent with the TSS, and that the corresponding test activities of this SD exercise the completed value rather than the generic placeholder:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FCS_CKM_DBAAS_EXT.1.1</code> — the customer-controlled key mechanism selection, which shall couple to the Crypto Module&#8217;s Key Origin selection as required by the module&#8217;s application note;</p>
+</li>
+<li>
+<p><code>FCS_CKM_DBAAS_EXT.1.3</code> — the assigned key-state enforcement interval, which shall be a fixed documented bound covering worst-case key-state detection latency, any unreachability grace period, and the lifetime of any cached key material, as required by the module&#8217;s application note (an indefinite interval, or one extensible by service provider action, is not a permitted completion);</p>
+</li>
+<li>
+<p><code>FDP_RIP.1.1/DBaaS</code> — the shared-resource selection and any assigned additional resources;</p>
+</li>
+<li>
+<p><code>FDP_ACF.1.3/DBaaS</code> and <code>FDP_ACF.1.4/DBaaS</code> — the assigned explicit-authorization and explicit-denial rules (an assignment completed as "none" is acceptable);</p>
+</li>
+<li>
+<p><code>FRU_RSA.1.1/DBaaS</code> — the controlled-resource selection, any assigned additional resources, and the simultaneity selection;</p>
+</li>
+<li>
+<p><code>FRU_RSG_EXT.1.1</code> — the enforcement-action selection or assigned action;</p>
+</li>
+<li>
+<p><code>FMT_SMR.1.1/DBaaS</code> — the selection of automated autonomous management logic and any assigned additional roles;</p>
+</li>
+<li>
+<p><code>FMT_SMF.1.1/DBaaS</code> — any assigned additional management functions;</p>
+</li>
+<li>
+<p><code>FMT_MOF.1.1/DBaaS-Modify</code> — the assigned additional functions and the authorized-role selection;</p>
+</li>
+<li>
+<p><code>FPT_TUD_DBAAS_EXT.1.1</code> — the deployment-model selection and, where tenant-configurable deferral is selected, the assigned maximum deferral period.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Where a completed selection makes an activity of this SD inapplicable (for example, deferral tests when uniform rolling deployment is selected), the evaluator shall record the inapplicability and its basis in the ETR rather than omitting the activity silently.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_assurance_activities_overview">4. Assurance Activities Overview</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_assurance_approach_rationale">4.1. Assurance Approach Rationale</h3>
+<div class="paragraph">
+<p>The assurance package is EAL2 augmented by ALC_FLR.3, and the number understates where the assurance comes from. EAL2 bounds the design evidence — interface specification and basic subsystem design, without implementation representation — but confidence in the TOE&#8217;s security behavior is produced by this SD&#8217;s Evaluation Activities, and those are predominantly negative: cross-tenant access is attempted through every documented interface and denied; metadata, audit, and residual-data isolation are probed from a second tenant context; plaintext key export is attempted through every tenant-facing interface and denied; key revocation is enforced within the completed key-state enforcement interval; plaintext restore is attempted against an explicit ciphertext pass criterion; unauthorized quota modification, tenant-binding manipulation, audit tampering, and the disabling of audit or encryption are each attempted and denied; an invalid update signature is presented and rejected. The package substitutes requirement-bound adversarial testing for design-artifact depth.</p>
+</div>
+<div class="paragraph">
+<p>That substitution is unusually effective for this TOE type. Against locally installed software an attacker holds the binary, the file system, and process memory, so interface-level testing exercises a modest fraction of the reachable attack surface — closing the remainder is what implementation-level design assurance exists for. A tenant of a provider-operated DBaaS reaches the TOE only through the documented tenant interfaces: SQL, programmatic APIs, and the tenant service control plane. The tenant-reachable attack surface therefore substantially coincides with the interface set these Evaluation Activities exercise, and AVA_VAN.2 penetration testing probes the same vantage for paths the documentation does not admit.</p>
+</div>
+<div class="paragraph">
+<p>The evaluation is point-in-time, and the certificate window is matched to what is being certified. The properties this PP-Module evaluates — the tenant-isolation architecture, the customer-controlled key hierarchy, the restore path, the update mechanism — are architectural, and change on a cadence no faster than scheme certificate-validity windows. Change that does occur inside a validity window divides into two streams, each with its own assurance: operational change (configuration, platform, personnel) belongs to the Trusted Platform, whose accepted evidence — cloud authorization under frameworks such as FedRAMP, IRAP, or C5 — carries the continuous operational monitoring of the production environment that CC assurance continuity, being change-driven and evaluator-mediated, does not; TSF change is governed by ALC_FLR.3 and the trusted service update requirement, whose tenant-queryable revision identifier identifies every deployed change and supplies the CM identification on which assurance continuity depends. Nor is the certificate unattended between evaluations: schemes engage listed products on major vulnerabilities, require impact analysis or a remediation plan, and reserve delisting for non-response. The residual difference from authorization-framework continuous monitoring is cadence and object — a standing, scheduled evidence flow about the operating environment versus event-driven oversight of the product — and the standing flow is precisely what the consumed Trusted Platform evidence supplies. This division follows the object of each regime, not a limit of the CC language: the ALC class carries development-environment analogues of much of the operational control surface (ALC_DVS for physical and personnel security, ALC_CMC and ALC_CMS for change control, ALC_DEL for delivery, ALC_FLR for flaw handling), and site-certification practice shows those families can be audited in depth. This PP-Configuration claims the EAL2 subset of that class and consumes the cloud authorization for the operational surface instead — a non-duplication choice, not a capability gap.</p>
+</div>
+<div class="paragraph">
+<p>The composition is deliberate and non-duplicative. Cloud authorization frameworks assess whether the provider organization operates the service responsibly; they do not functionally test whether a security mechanism is correct — no assessor under those frameworks provisions two tenants and attempts cross-tenant access, revokes a key and times enforcement, or attempts a plaintext restore. Algorithm validation (CAVP, CMVP, and the CCDB-018 catalogue, consumed through the mandatory DBMS Cryptographic Functions Module) assesses cryptographic correctness but not service behavior. This PP-Configuration supplies the layer between them: independent, specification-bound demonstration that the service&#8217;s tenant-facing security mechanisms behave as claimed. Each layer is consumed, not duplicated — algorithm validation enters through the Crypto Module, and cloud authorization enters as scheme-accepted Trusted Platform evidence.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mapping_to_base_pp_sars">4.2. Mapping to Base PP SARs</h3>
+<div class="paragraph">
+<p>The DBaaS PP-Module inherits all Security Assurance Requirements (SARs) from the collaborative Protection Profile for Database Management Systems (cPP_DBMS): EAL2 augmented by ALC_FLR.3. No additional or modified SARs are introduced by this PP-Module. The provider-operated managed-service model does, however, change how several inherited SAR families are exercised; those considerations are defined in this section.</p>
+</div>
+<div class="sect3">
+<h4 id="_inherited_sar_families">4.2.1. Inherited SAR Families</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">SAR Family</th>
+<th class="tableblock halign-left valign-top">Components</th>
+<th class="tableblock halign-left valign-top">Primary SD Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADV (Development)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADV_ARC.1, ADV_FSP.2, ADV_TDS.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cPP_DBMS SD + managed-service interface considerations in this SD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AGD (Guidance Documents)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AGD_OPE.1, AGD_PRE.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cPP_DBMS SD + DBaaS-specific documentation requirements in this SD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ALC (Life-cycle Support)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ALC_CMC.2, ALC_CMS.2, ALC_DEL.1, ALC_FLR.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cPP_DBMS SD + continuous-deployment and flaw-remediation considerations in this SD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE (Security Target Evaluation)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_CCL.1, ASE_ECD.1, ASE_INT.1, ASE_OBJ.2, ASE_REQ.2, ASE_SPD.1, ASE_TSS.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cPP_DBMS SD + PP-Module conformance and allocation verification in this SD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ATE (Tests)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ATE_COV.1, ATE_FUN.1, ATE_IND.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cPP_DBMS SD + managed-service testing strategy in this SD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AVA (Vulnerability Assessment)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AVA_VAN.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cPP_DBMS SD + tenant-vantage vulnerability analysis in this SD</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_applying_base_pp_sar_activities">4.2.2. Applying Base PP SAR Activities</h4>
+<div class="paragraph">
+<p>For each SAR inherited from the cPP_DBMS, the evaluator shall:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Perform all Evaluation Activities specified in the cPP_DBMS SD;</p>
+</li>
+<li>
+<p>Apply the managed-service considerations from this SD where applicable, using the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>) where an activity requires provider access; and</p>
+</li>
+<li>
+<p>Document findings, including every reliance on provider-supported demonstration or provider documentation, in the Evaluation Technical Report (ETR).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dbaas_specific_assurance_activities">4.3. DBaaS-Specific Assurance Activities</h3>
+<div class="sect3">
+<h4 id="_ase_security_target_evaluation">4.3.1. ASE: Security Target Evaluation</h4>
+<div class="paragraph">
+<p>In addition to the Base PP ST evaluation activities, the evaluator shall verify:</p>
+</div>
+<div class="paragraph">
+<p><strong>ASE_INT (ST Introduction):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The TOE description accurately describes the provider-operated managed-service architecture and identifies the tenant-facing database, administrative, and programmatic interfaces;</p>
+</li>
+<li>
+<p>The TOE boundary distinguishes the TOE from the TOE Platform and Trusted Platform consistently with the module&#8217;s Security Function Allocation requirements;</p>
+</li>
+<li>
+<p>The TOE reference identifies the evaluated service software by the same version or revision identifier that tenants can query under FPT_TUD_DBAAS_EXT.1.3.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>ASE_CCL (Conformance Claims):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The PP-Configuration is exactly <code>cPP_DBMS + DBMS DBaaS Module + DBMS Cryptographic Functions Module</code>, and conformance is claimed as Exact Conformance;</p>
+</li>
+<li>
+<p>The DBMS in the Cloud Module is not claimed (the modules are mutually exclusive);</p>
+</li>
+<li>
+<p>The FCS_CKM_DBAAS_EXT.1.1 mechanism selections couple correctly to the Crypto Module&#8217;s Key Origin selections as required by the module&#8217;s application note.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>ASE_SPD (Security Problem Definition):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All threats, assumptions, and organizational security policies of the PP-Module are included;</p>
+</li>
+<li>
+<p>The ST does not extend A.TRUSTED_PLATFORM_ADMIN to the Service Provider Administrator population (this would contradict OE.PROVIDER_ROLE_SEPARATION and vacate T.KEY_DISCLOSURE_TO_PROVIDER_ADMIN).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>ASE_OBJ (Security Objectives):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>TOE and OE objectives trace to the security problem definition as defined in the module, including OE.PROVIDER_ROLE_SEPARATION;</p>
+</li>
+<li>
+<p>The ST identifies how each OE objective is upheld in the evaluated configuration, including the evidence intended to demonstrate provider role separation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>ASE_TSS (TOE Summary Specification):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The TSS provides the per-SFR TOE/environment enumeration required by <a href="#_toe_toe_platform_and_trusted_platform_boundary_enumeration">Section 3.2, &#8220;TOE, TOE Platform, and Trusted Platform Boundary Enumeration&#8221;</a>;</p>
+</li>
+<li>
+<p>The TSS provides the role-label mapping required by the module&#8217;s FMT_SMR.1/DBaaS application note, on which the role references throughout this SD&#8217;s activities depend;</p>
+</li>
+<li>
+<p>The ST provides the audit channel identification required by <a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a>, including the service event stream mechanism, its boundary allocation, and its tenant retrieval interface;</p>
+</li>
+<li>
+<p>The TSS describes the end-to-end update process and the customer-controlled key architecture at the level of detail required by the per-SFR activities of this SD.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adv_development">4.3.2. ADV: Development</h4>
+<div class="paragraph">
+<p>The Base PP&#8217;s ADV_ARC.1, ADV_FSP.2, and ADV_TDS.1 activities apply to the DBMS service. The evaluator shall additionally verify:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The functional specification covers the tenant-facing database, administrative, and programmatic interfaces and the provider service administration interfaces that terminate at the TOE; interfaces internal to the Trusted Platform are outside the functional specification&#8217;s scope and shall not be used to satisfy it;</p>
+</li>
+<li>
+<p>The security architecture description explains how the TSF preserves tenant separation and TSF self-protection in a shared, provider-operated service, consistent with the Tenant Isolation SFP;</p>
+</li>
+<li>
+<p>Where design evidence describes provider-internal mechanisms not observable from tenant interfaces, the evaluator relies on the developer&#8217;s design documentation and provider-supported demonstration under the Evaluator Access Strategy, recording the reliance in the ETR.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_alc_life_cycle_support">4.3.3. ALC: Life-cycle Support</h4>
+<div class="paragraph">
+<p>The managed-service model changes how the ALC families are exercised. The evaluator shall apply the Base PP ALC activities with the following interpretations:</p>
+</div>
+<div class="paragraph">
+<p><strong>ALC_CMC.2 / ALC_CMS.2 (Configuration Management):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CM evidence shall uniquely identify the deployed service software. For continuously deployed services, the CM reference is the version or revision identifier of FPT_TUD_DBAAS_EXT.1.3: the evaluator shall verify that the identifier queryable by tenants corresponds to a CM-tracked configuration item, so that the evaluated TOE is identifiable in production;</p>
+</li>
+<li>
+<p>The CM scope includes the deployment artifacts to which signature verification applies under FPT_TUD_DBAAS_EXT.1.2.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>ALC_DEL.1 (Delivery):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In a provider-operated service there is no delivery of the TOE to the consumer; the delivery procedure is the provider&#8217;s deployment path from CM-controlled artifacts to the running service. The evaluator shall verify that the documented delivery procedure is the authorized update process evaluated under FPT_TUD_DBAAS_EXT.1, including its signature verification, and shall not require consumer-side delivery evidence that the service model cannot produce.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>ALC_FLR.3 (Systematic Flaw Remediation):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The flaw remediation procedures shall connect to the trusted service update mechanism: remediation of a security flaw reaches tenants through the update path of FPT_TUD_DBAAS_EXT.1, and the evaluator shall verify the procedures identify remediation timelines, the tenant notification or advisory mechanism, and how a tenant determines — via the version or revision identifier — that a remediated service software revision is serving them;</p>
+</li>
+<li>
+<p>Where the deployment model includes tenant-configurable deferral, the evaluator shall verify the flaw remediation procedures address security-critical flaws in relation to the maximum deferral period.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ate_tests">4.3.4. ATE: Tests</h4>
+<div class="paragraph">
+<p><strong>ATE_COV.1 / ATE_FUN.1 (Developer Testing):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Developer test evidence may cover provider-restricted functions that the evaluator cannot exercise directly; the evaluator shall verify that the developer&#8217;s test coverage includes those functions and shall use that evidence, together with provider-supported demonstration, when applying the corresponding test activities of this SD.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>ATE_IND.2 (Independent Testing):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Independent testing is conducted from the tenant vantage through the interfaces of the evaluated configuration, per the Managed-Service Evaluation Constraint (<a href="#_managed_service_evaluation_constraint">Section 2.4, &#8220;Managed-Service Evaluation Constraint&#8221;</a>) and the Tenant Isolation Testing Strategy (<a href="#_tenant_isolation_testing_strategy">Section 3.5, &#8220;Tenant Isolation Testing Strategy&#8221;</a>);</p>
+</li>
+<li>
+<p>Where a test requires provider access, the evaluator shall use provider-supported demonstration under the Evaluator Access Strategy and record the method and results in the ETR;</p>
+</li>
+<li>
+<p>Testing may be performed on a non-production instance of the service provided the evaluator verifies, using the FPT_TUD_DBAAS_EXT.1.3 identifier or CM evidence, that the tested instance runs the same service software revision as the evaluated production configuration;</p>
+</li>
+<li>
+<p>The evaluator shall confirm that the audit records relied upon by the test activities of this SD are generated as required by the module&#8217;s auditable-events refinement of the Base PP&#8217;s Table 4.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ava_vulnerability_assessment">4.3.5. AVA: Vulnerability Assessment</h4>
+<div class="paragraph">
+<p><strong>AVA_VAN.2 (Vulnerability Analysis):</strong></p>
+</div>
+<div class="paragraph">
+<p>The evaluator&#8217;s public-domain vulnerability search shall include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>published vulnerabilities in the DBMS engine lineage underlying the service, including vulnerabilities disclosed against non-service distributions of the same engine;</p>
+</li>
+<li>
+<p>published vulnerabilities and advisories for the managed service itself; and</p>
+</li>
+<li>
+<p>vulnerability classes specific to multi-tenant managed services: cross-tenant isolation escape through SQL, metadata, or diagnostic channels; tenant-context confusion in session or connection handling; audit-scope leakage; resource-exhaustion attacks on shared components; key-reference confusion or authorization bypass in customer-controlled key integration; and abuse of restore or export paths.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Penetration testing shall:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>be conducted from the tenant vantage, using both least-privileged tenant user and Tenant Administrator contexts, against evaluator-provisioned tenants only — the evaluator shall never direct isolation or exhaustion testing at tenants not provisioned for the evaluation;</p>
+</li>
+<li>
+<p>focus on the TOE&#8217;s tenant-facing attack surface; the Trusted Platform itself is not the subject of penetration testing, but the evaluator shall attempt to reach Trusted Platform assumptions through TOE interfaces (for example, attempting to obtain platform credentials, metadata-service access, or provider-role capabilities from a tenant context) and verify that such attempts fail;</p>
+</li>
+<li>
+<p>respect the production-safety constraints of <a href="#_test_environment_guidance_for_dbaas_evaluators">Appendix C, <em>Test Environment Guidance for DBaaS Evaluators</em></a>, coordinating resource-exhaustion and update-path testing with the provider and preferring a non-production instance at the same service software revision.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_documentation_requirements">4.4. Documentation Requirements</h3>
+<div class="sect3">
+<h4 id="_agd_ope_operational_user_guidance_dbaas_specific_requirements">4.4.1. AGD_OPE: Operational User Guidance — DBaaS-Specific Requirements</h4>
+<div class="paragraph">
+<p>The operational user guidance shall include managed-service sections addressing:</p>
+</div>
+<div class="paragraph">
+<p><strong>Shared-Responsibility Description:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Which security functions are operated by the provider and which are configured or exercised by the tenant, consistent with the ST&#8217;s Security Function Allocation;</p>
+</li>
+<li>
+<p>The tenant-facing interfaces of the evaluated configuration.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Customer-Controlled Key Operations:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configuring customer-controlled keys (import, external KMS integration, key references, or customer-authorized ML-KEM establishment) per the coupled Crypto Module Key Origin;</p>
+</li>
+<li>
+<p>Key rotation, revocation, and disabling of the TOE&#8217;s authorization to use a key;</p>
+</li>
+<li>
+<p>Expected TOE behavior on revocation and any documented recovery mechanism, including the tenant authorization its use requires.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Audit Operations:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Tenant-scoped audit query, audit selection configuration, and audit export;</p>
+</li>
+<li>
+<p>The tenant-visible audit events for the module&#8217;s SFRs.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Resource Governance:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configuring tenant resource quotas and enforcement behavior, and monitoring quota enforcement.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Service Updates:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Querying the current service version or revision identifier;</p>
+</li>
+<li>
+<p>Update notifications, deferral options or maintenance windows where claimed, and the maximum deferral period.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_agd_pre_preparative_procedures_service_provisioning">4.4.2. AGD_PRE: Preparative Procedures — Service Provisioning</h4>
+<div class="paragraph">
+<p>For a provider-operated service, preparative procedures address how a tenant provisions and configures the service into the evaluated configuration. The preparative procedures shall include:</p>
+</div>
+<div class="paragraph">
+<p><strong>Provisioning:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How to subscribe to or provision the service such that the resulting instance corresponds to the evaluated configuration (service tier, region or deployment options, and security-relevant provisioning parameters);</p>
+</li>
+<li>
+<p>How to verify that the provisioned service is the evaluated TOE, using the version or revision identifier of FPT_TUD_DBAAS_EXT.1.3.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Initial Secure Configuration:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enabling and configuring customer-controlled keys before placing protected data in the service;</p>
+</li>
+<li>
+<p>Configuring tenant roles, audit export, and resource governance to the evaluated configuration.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Verification:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Confirming, through tenant-accessible status and audit interfaces, that the initial configuration matches the evaluated configuration.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The evaluator shall verify these guidance elements are present and accurate by applying the documented procedures when provisioning the evaluation tenants.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fcs_class_cryptographic_support">5. FCS Class: Cryptographic Support</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fcs_ckm_dbaas_ext_1_customer_controlled_keys">5.1. FCS_CKM_DBAAS_EXT.1 Customer-Controlled Keys</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities">5.1.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities">5.1.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS describes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the customer-controlled key management architecture;</p>
+</li>
+<li>
+<p>the supported customer-controlled key models, such as BYOK, HYOK, external KMS integration, key references, key handles, or customer-authorized ML-KEM establishment;</p>
+</li>
+<li>
+<p>the boundary between TOE key-management logic and external key management services;</p>
+</li>
+<li>
+<p>the protocols and authentication mechanisms used for external key management service access, including the trusted channel specified by the DBMS Cryptographic Functions Module and applicable Functional Packages;</p>
+</li>
+<li>
+<p>whether plaintext customer-controlled master key material is imported into, stored by, cached by, wrapped by, transformed by, or re-exported by the TOE;</p>
+</li>
+<li>
+<p>how the TOE prevents service provider administrators from viewing, exporting, recovering, or otherwise obtaining plaintext customer-controlled master key material through TOE interfaces;</p>
+</li>
+<li>
+<p>the applicable DBMS-specific and Catalogue-derived components included through the DBMS Cryptographic Functions Module for key import, key wrapping, key destruction, and data-at-rest encryption, together with Functional Package components for trusted channels;</p>
+</li>
+<li>
+<p>when ML-KEM establishment is selected, the mapping to the Crypto Module&#8217;s "Established through Key Encapsulation" origin; the TOE role in <code>FCS_COP.1/KeyEncap</code>; the optional local-KeyGen claim in <code>FCS_CKM.1/KEM</code>; the <code>FCS_CKM.5</code> Master Key derivation and context; raw shared-secret destruction; and every operation allocated to an external KMS or customer-controlled service; and</p>
+</li>
+<li>
+<p>the TOE behavior when authorization to use the applicable customer-controlled master key is revoked, unavailable, or denied;</p>
+</li>
+<li>
+<p>the mechanism by which the TOE detects key-state changes at the external key provider (for example, a polling interval or an event notification channel), any grace period during which the TOE continues operating on cached key material while the external key provider is unreachable, and how the completed key-state enforcement interval of FCS_CKM_DBAAS_EXT.1.3 covers the sum of worst-case detection latency, any such grace period, and the lifetime of cached key material; and</p>
+</li>
+<li>
+<p>where a recovery mechanism is claimed under FCS_CKM_DBAAS_EXT.1.3, how its use requires authorization by the tenant or an agent under the tenant&#8217;s control, and how that use is audited. A recovery mechanism exercisable by the service provider without tenant authorization does not satisfy the requirement.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the TOE caches key material, key handles, or derived keys after successful KMS authorization, the evaluator shall verify that the TSS identifies the cache duration, protection mechanism, revocation behavior, and conditions under which cached material is invalidated, and that the cache duration is consistent with the completed key-state enforcement interval.</p>
+</div>
+<div class="paragraph">
+<p>When customer-authorized ML-KEM establishment is selected, the evaluator shall verify that the customer or its authorized external entity retains a control whose revocation, unavailability, or denial is enforced within the assigned key-state enforcement interval. A one-time KEM exchange after which the provider can use the derived Master Key indefinitely without further customer authorization does not satisfy the module&#8217;s customer-controlled model. Algorithm correctness, KEM role testing, derivation-context testing, and invalid-ciphertext behavior are evaluated under the Crypto Module SD and are not duplicated here.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities">5.1.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>how a customer configures customer-controlled keys for the TOE;</p>
+</li>
+<li>
+<p>how a customer revokes or disables the TOE&#8217;s authorization to use an external key;</p>
+</li>
+<li>
+<p>expected TOE behavior after key authorization is revoked, unavailable, or denied, including the documented key-state enforcement interval, any unreachability grace period within it, and the service state the TOE enters when the interval expires;</p>
+</li>
+<li>
+<p>any documented recovery mechanism that permits protected data access after revocation, including the tenant authorization its use requires; and</p>
+</li>
+<li>
+<p>any customer-visible audit or status information related to key use, key failures, or key authorization.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For customer-authorized ML-KEM establishment, the evaluator shall additionally verify that the guidance describes the customer-controlled peer or key configuration, how the customer authorizes establishment, how the customer revokes or denies continued use, the bounded enforcement behavior, and which ML-KEM operations are performed by the TOE versus an external service.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities">5.1.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Provider Inaccessibility Verification</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure the TOE to use a customer-controlled master key or external key reference as described in the operational guidance.</p>
+</li>
+<li>
+<p>Access protected database data as an authorized tenant user or tenant administrator.</p>
+</li>
+<li>
+<p>Verify that access succeeds.</p>
+</li>
+<li>
+<p>Attempt to export, view, recover, or display the plaintext master key material through each tenant-facing DBMS interface and management interface available in the evaluated configuration.</p>
+</li>
+<li>
+<p>Verify that each attempt is denied or that the interface exposes only non-sensitive key identifiers, references, status, or metadata.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 2: Key Revocation Behavior</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure the TOE to use an external customer-controlled key or key authorization mechanism.</p>
+</li>
+<li>
+<p>Access protected database data as an authorized tenant user or tenant administrator.</p>
+</li>
+<li>
+<p>Revoke, disable, or deny the TOE&#8217;s authorization to use the external key according to the operational guidance.</p>
+</li>
+<li>
+<p>Attempt to access protected database data in the TOE, repeating the attempt until the completed key-state enforcement interval of FCS_CKM_DBAAS_EXT.1.3 has elapsed.</p>
+</li>
+<li>
+<p>Verify that access is denied no later than the expiration of the completed key-state enforcement interval, except for data available through an explicitly documented and evaluated recovery mechanism.</p>
+</li>
+<li>
+<p>Verify that the transition to the key-unavailable enforcement state generates the audit record required by the module&#8217;s auditable-events table, in the service event stream identified in the ST (<a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a>) — the record must be retrievable by the tenant while the database is not serving connections.</p>
+</li>
+<li>
+<p>If a recovery mechanism is claimed, exercise it: verify that it cannot be completed without authorization by the tenant or an agent under the tenant&#8217;s control, and that its use generates the audit record required by the module&#8217;s auditable-events table in the ST-identified service event stream. Where the recovery mechanism is a restore from backup, this step may be performed jointly with FDP_BKP_EXT.1 Test 2, and the evaluator shall verify the restore tenant binding required there in the same run.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Continued access to protected data during the completed key-state enforcement interval is not a test failure; access continuing beyond its expiration is.</p>
+</div>
+<div class="paragraph">
+<p><strong>Test 2a: Key Provider Unreachability Behavior</strong></p>
+</div>
+<div class="paragraph">
+<p>Where the TSS documents a grace period during which the TOE continues operating on cached key material while the external key provider is unreachable, the evaluator shall, where the test environment permits interrupting the TOE&#8217;s connectivity to the external key management service:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Access protected database data as an authorized tenant user or tenant administrator.</p>
+</li>
+<li>
+<p>Make the external key management service unreachable to the TOE without revoking key authorization.</p>
+</li>
+<li>
+<p>Verify that any continued access to protected data does not extend beyond the completed key-state enforcement interval, and that the TOE transitions to the key-unavailable enforcement state with the required audit record in the ST-identified service event stream.</p>
+</li>
+<li>
+<p>Restore connectivity and verify that data access resumes only through the documented resumption behavior described in the TSS or operational guidance.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Where the test environment does not permit interrupting connectivity, the evaluator shall verify the unreachability behavior through provider-supported demonstration or provider test evidence, recorded in the ETR.</p>
+</div>
+<div class="paragraph">
+<p>If the TOE caches key material, key handles, or derived keys after successful KMS authorization, the evaluator shall confirm during Test 2 and Test 2a that no cached material extends access to protected data beyond the completed key-state enforcement interval.</p>
+</div>
+<div class="paragraph">
+<p><strong>Test 3: Key Material Handling Evidence</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Review audit records, status views, error messages, diagnostic outputs, backup metadata, and management outputs that are tenant-accessible in the evaluated configuration.</p>
+</li>
+<li>
+<p>Verify that plaintext customer-controlled master key material is not disclosed.</p>
+</li>
+<li>
+<p>If provider-supported observation is used for non-tenant-accessible diagnostics, verify that the observation method and results are documented in the ETR.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 4: Customer Control of a KEM-Established Master Key</strong></p>
+</div>
+<div class="paragraph">
+<p>Applicable when customer-authorized ML-KEM establishment is selected in <code>FCS_CKM_DBAAS_EXT.1.1</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure the evaluator-controlled external entity and cause the TOE to establish and derive the Master Key using the Crypto Module procedure.</p>
+</li>
+<li>
+<p>Verify that the customer can authorize establishment and that protected database data is accessible after successful establishment.</p>
+</li>
+<li>
+<p>Revoke, disable, or deny the customer&#8217;s authorization, or make the customer-controlled establishment service unavailable, as described in the guidance.</p>
+</li>
+<li>
+<p>Verify that the TOE prevents access to the protected database data no later than the assigned key-state enforcement interval, including expiration of any documented cache or reauthorization interval.</p>
+</li>
+<li>
+<p>Verify through tenant-visible status or service-event-stream evidence that the failed or revoked authorization and key-unavailable enforcement transition are attributable to the affected customer or service instance without exposing the raw ML-KEM shared secret or derived Master Key.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Expected result: The KEM-established model remains customer-controlled after establishment; loss or revocation of customer authorization is enforced within the claimed bound, and neither KEM nor Master Key secret material is disclosed through DBaaS interfaces.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fdp_class_user_data_protection">6. FDP Class: User Data Protection</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fdp_rip_1dbaas_residual_information_protection">6.1. FDP_RIP.1/DBaaS Residual Information Protection</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_2">6.1.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_2">6.1.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall review the TSS to determine whether tenant data can be present in shared DBMS memory, buffer cache, temporary storage, query work areas, diagnostic structures, or other shared DBMS resources. The evaluator shall verify that the TSS describes how such resources are cleared, reinitialized, or access-controlled before allocation to another tenant.</p>
+</div>
+<div class="paragraph">
+<p>The evaluator shall verify that the TSS identifies which residual information protections are implemented by the TOE and which are provided by the TOE Platform, Trusted Platform, or operational environment.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_2">6.1.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance identifies any tenant-visible operations that release shared resources (for example, dropping temporary objects, closing sessions, or purging objects) and any configuration relevant to residual information protection in the evaluated configuration.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_2">6.1.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Tenant-Interface Residual Data Test</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Provision two tenant contexts in the evaluated configuration.</p>
+</li>
+<li>
+<p>As Tenant A, create data with a unique pattern unlikely to appear elsewhere in the system.</p>
+</li>
+<li>
+<p>Exercise TOE functionality that places the data into the claimed shared resource, such as queries that use buffer cache, temporary storage, sort areas, or query work areas.</p>
+</li>
+<li>
+<p>Release the resource using documented tenant operations, such as dropping temporary objects, closing sessions, purging objects, or completing the workload.</p>
+</li>
+<li>
+<p>As Tenant B, use documented tenant interfaces to allocate comparable resources and attempt to observe Tenant A&#8217;s unique pattern.</p>
+</li>
+<li>
+<p>Verify that Tenant B cannot observe Tenant A&#8217;s data through tenant-accessible interfaces.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Where tenant-accessible interfaces permit repeatable testing, the evaluator shall perform the test through those interfaces. The evaluator is not required to inspect raw process memory unless such access is available in the evaluated configuration and permitted by the test environment.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fdp_acc_1dbaas_tenant_isolation_policy">6.2. FDP_ACC.1/DBaaS Tenant Isolation Policy</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_3">6.2.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_3">6.2.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS identifies the subjects, objects, and operations covered by the Tenant Isolation SFP. The evaluator shall verify that the TSS identifies the tenant boundary used by the TOE, such as tenants, databases, pluggable databases, schemas, namespaces, accounts, tablespaces, tenant identifiers, or other DBMS constructs.</p>
+</div>
+<div class="paragraph">
+<p>The evaluator shall also verify that the TSS scopes the Tenant Isolation SFP as subset access control consistent with the module&#8217;s application note: tenant-scoped subjects, objects, and operations under this SFP, with subjects and objects outside its scope governed by the Base PP&#8217;s access control SFPs in the composed ST.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_3">6.2.1.2. Test Activities</h5>
+<div class="paragraph">
+<p>The test activities for <code>FDP_ACC.1/DBaaS</code> are performed with the <code>FDP_ACF.1/DBaaS</code> tenant isolation policy rule tests.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fdp_acf_1dbaas_tenant_isolation_policy_rules">6.3. FDP_ACF.1/DBaaS Tenant Isolation Policy Rules</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_4">6.3.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_4">6.3.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS describes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the security attributes used to enforce the Tenant Isolation SFP, including tenant identifier, user identifier, service role, object owner, object tenant identifier, object type, and operation;</p>
+</li>
+<li>
+<p>how tenant subjects are bound to tenant identifiers;</p>
+</li>
+<li>
+<p>how tenant data objects, tenant metadata objects, and tenant audit records are labeled, scoped, or otherwise associated with tenant identifiers;</p>
+</li>
+<li>
+<p>the treatment of global system metadata visible to multiple tenants;</p>
+</li>
+<li>
+<p>any evaluated cross-tenant sharing mechanism and the authorization model for that mechanism; and</p>
+</li>
+<li>
+<p>how service provider administrative subjects are restricted from tenant data access except through interfaces and roles explicitly identified in the ST.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_3">6.3.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes how tenant boundaries are provisioned, how tenant users and service accounts are associated with tenant identifiers, and how any evaluated cross-tenant sharing mechanism is configured and revoked.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_4">6.3.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Data Cross-Access Prevention</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Provision Tenant A and Tenant B in the evaluated configuration.</p>
+</li>
+<li>
+<p>Create tenant data objects in Tenant A with names and values known to the evaluator.</p>
+</li>
+<li>
+<p>As Tenant B, attempt to access Tenant A&#8217;s objects through documented SQL, API, management, import/export, backup, restore, and tenant administration interfaces available in the evaluated configuration.</p>
+</li>
+<li>
+<p>Verify that all unauthorized attempts fail.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 2: Metadata Isolation</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As Tenant A, create objects with distinct names.</p>
+</li>
+<li>
+<p>As Tenant B, query system catalogs, metadata views, information schema views, management APIs, search interfaces, and monitoring views available to tenants.</p>
+</li>
+<li>
+<p>Verify that Tenant B sees only Tenant B metadata and metadata explicitly defined as global system metadata.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 3: Tenant Audit Record Isolation</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generate audit events in Tenant A and Tenant B.</p>
+</li>
+<li>
+<p>As Tenant A, query tenant-accessible audit records.</p>
+</li>
+<li>
+<p>Verify that only Tenant A audit records are returned unless an evaluated provider, cross-tenant, or compliance function explicitly authorizes broader access.</p>
+</li>
+<li>
+<p>Verify that Tenant B-specific usernames, object names, query text, or tenant data are not visible to Tenant A through tenant audit interfaces.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 4: Evaluated Cross-Tenant Sharing</strong></p>
+</div>
+<div class="paragraph">
+<p>If the ST claims an evaluated cross-tenant sharing mechanism:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure sharing between Tenant A and Tenant B according to the operational guidance.</p>
+</li>
+<li>
+<p>Verify that Tenant B can access only the shared objects, metadata, or records authorized by Tenant A or by the evaluated sharing policy.</p>
+</li>
+<li>
+<p>Revoke the sharing authorization.</p>
+</li>
+<li>
+<p>Verify that Tenant B can no longer access the previously shared objects, metadata, or records.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fdp_bkp_ext_1_protected_backup_and_restore">6.4. FDP_BKP_EXT.1 Protected Backup and Restore</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_5">6.4.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_5">6.4.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS describes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the backup and restore architecture for protected tenant data, including whether backups are created, stored, and restored by the TOE, the TOE Platform, or an external backup or object storage service;</p>
+</li>
+<li>
+<p>the reliance on <code>FDP_DAR_EXT.1</code> of the DBMS Cryptographic Functions Module for the data-at-rest protection of backup data (this SD does not retest data-at-rest protection, which is covered by the DBMS Cryptographic Functions Module SD);</p>
+</li>
+<li>
+<p>how the TOE prevents a service provider administrator from restoring or exporting protected tenant data in plaintext without authorized use of the applicable customer-controlled master key; and</p>
+</li>
+<li>
+<p>how restored tenant data is bound to the originating tenant identifier so that a restore does not place data outside the Tenant Isolation SFP.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If backup storage or restore orchestration is provided by an external service, the evaluator shall verify the TSS identifies whether the restore authorization and tenant binding are TOE functionality or are addressed by OE.EXTERNAL_SERVICES; the data-at-rest protection of externally stored backups is assessed under <code>FDP_DAR_EXT.1</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_4">6.4.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes how backups are configured, how restore is authorized, the roles permitted to perform restore, and any customer-visible status or audit information for backup and restore operations.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_5">6.4.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Note:</strong> The data-at-rest confidentiality of backup data is evaluated under <code>FDP_DAR_EXT.1</code> of the DBMS Cryptographic Functions Module SD and is not retested here. The activities below address the backup and restore-path properties specific to this module.</p>
+</div>
+<div class="paragraph">
+<p><strong>Test 1: Provider Plaintext Restore Prevention</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As a Service Provider Administrator role, or the closest role available in the evaluated configuration, attempt to restore or export Tenant A protected data in plaintext without authorized use of the customer-controlled key. Where no such role is available to the evaluator, this test shall be performed as a provider-supported demonstration under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>), with the demonstration method and results recorded in the ETR.</p>
+</li>
+<li>
+<p>Verify that the operation is denied, or that any restored or exported artifact remains ciphertext under the customer-controlled key hierarchy. <strong>Pass criterion:</strong> absent an authorized grant of the applicable customer-controlled key, no step of the restore or export path yields plaintext Tenant A data.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 2: Restore Tenant Binding</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Restore a Tenant A backup according to the operational guidance.</p>
+</li>
+<li>
+<p>As Tenant B, attempt to access the restored Tenant A data.</p>
+</li>
+<li>
+<p>Verify that restored data remains within the Tenant A isolation boundary and is not accessible to Tenant B.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fru_class_resource_utilisation">7. FRU Class: Resource Utilisation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fru_rsa_1dbaas_and_fru_rsg_ext_1_resource_governance">7.1. FRU_RSA.1/DBaaS and FRU_RSG_EXT.1 Resource Governance</h3>
+<div class="paragraph">
+<p>The activities below address the quota enforcement required by <code>FRU_RSA.1/DBaaS</code> and the enforcement action required by <code>FRU_RSG_EXT.1</code> together, as they are exercised by the same workloads.</p>
+</div>
+<div class="sect3">
+<h4 id="_evaluation_activities_6">7.1.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_6">7.1.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS describes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the DBMS-managed resources subject to tenant quotas or limits (the completion of the FRU_RSA.1.1/DBaaS selection);</p>
+</li>
+<li>
+<p>the resource governance mechanism, such as resource managers, quotas, workload queues, throttling, session limits, or query governors;</p>
+</li>
+<li>
+<p>the enforcement action claimed in FRU_RSG_EXT.1.1 for operations that exceed configured limits;</p>
+</li>
+<li>
+<p>the authorized roles that can configure resource governance; and</p>
+</li>
+<li>
+<p>how resource governance is applied to tenants, users, service accounts, and workloads.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_5">7.1.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes how to configure tenant resource limits and how to monitor quota enforcement.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_6">7.1.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Resource Limit Enforcement</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure a resource quota for a tenant according to the operational guidance.</p>
+</li>
+<li>
+<p>Initiate a workload that exceeds the configured limit.</p>
+</li>
+<li>
+<p>Verify that the TOE performs the enforcement action claimed in FRU_RSG_EXT.1.1, such as queueing, throttling, rejection, or termination.</p>
+</li>
+<li>
+<p>Verify that the TOE remains available for other tenant operations that do not exceed their configured limits.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 2: Unauthorized Resource Governance Modification</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Authenticate as a role that is not authorized to modify resource governance settings.</p>
+</li>
+<li>
+<p>Attempt to increase or disable the tenant resource quota.</p>
+</li>
+<li>
+<p>Verify that the operation is denied.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fia_class_identification_and_authentication">8. FIA Class: Identification and Authentication</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fia_usb_1dbaas_user_subject_binding">8.1. FIA_USB.1/DBaaS User-Subject Binding</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_7">8.1.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_7">8.1.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS describes how tenant identifier, user identifier, and service role attributes are associated with subjects acting on behalf of users or service accounts, and how the TOE prevents tenant-controlled inputs from changing the bound tenant identifier except through an evaluated mechanism. Where automated autonomous management logic is selected in <code>FMT_SMR.1/DBaaS</code>, the evaluator shall verify the TSS describes how subjects acting on its behalf within a tenant context bind the affected tenant&#8217;s identifier, as required by the module&#8217;s application note.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_6">8.1.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes how tenant users and service accounts are provisioned so that they bind to the correct tenant identifier, and identifies any evaluated mechanism by which a bound tenant identifier can legitimately change.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_7">8.1.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Tenant ID Binding Verification</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Authenticate as a tenant user.</p>
+</li>
+<li>
+<p>Execute a documented query or API call that returns the current tenant context, session attributes, or equivalent DBMS context.</p>
+</li>
+<li>
+<p>Verify that the returned tenant identifier matches the authenticated tenant.</p>
+</li>
+<li>
+<p>Attempt to change the tenant identifier by using user-controlled session parameters, connection attributes, request headers, or SQL variables that are available to the tenant.</p>
+</li>
+<li>
+<p>Verify that unauthorized tenant identifier changes are denied or ignored.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 2: Audit Correlation</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Perform an auditable action as Tenant A.</p>
+</li>
+<li>
+<p>Query the audit trail through tenant-accessible interfaces.</p>
+</li>
+<li>
+<p>Verify that the audit record is stamped with the correct tenant identifier and user identifier.</p>
+</li>
+<li>
+<p>Authenticate as Tenant B.</p>
+</li>
+<li>
+<p>Attempt to access the Tenant A audit record.</p>
+</li>
+<li>
+<p>Verify that Tenant B cannot access the Tenant A audit record unless an evaluated sharing or compliance function explicitly permits access.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fmt_class_security_management">9. FMT Class: Security Management</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fmt_smr_1dbaas_security_roles">9.1. FMT_SMR.1/DBaaS Security Roles</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_8">9.1.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_8">9.1.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS identifies the roles maintained by the TOE and provides the mapping required by the module&#8217;s FMT_SMR.1/DBaaS application note from each module role label — Tenant User, Tenant Administrator, Service Provider Administrator — to the TOE role, privilege set, group, or account class that realizes it, together with any automated autonomous management logic or other roles claimed in the ST. The TOE is not required to name its roles verbatim; the evaluator shall instead verify that every label is mapped, that the mapping is unambiguous, and that no single TOE role combines Service Provider Administrator authority with tenant-scoped authority in a way that vacates the separation enforced by the <code>FMT_MOF.1/DBaaS</code> iterations, <code>FDP_ACF.1/DBaaS</code>, or <code>FCS_CKM_DBAAS_EXT.1</code>. The evaluator shall verify the TSS describes how users and service accounts are associated with these roles and how the roles map to the management restrictions in the <code>FMT_MOF.1/DBaaS</code> iterations and the access-control rules in <code>FDP_ACF.1/DBaaS</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_7">9.1.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes how each role is assigned, the privileges associated with each role, and the separation between Tenant Administrator and Service Provider Administrator capabilities.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_8">9.1.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Role Maintenance and Association</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Using the interfaces available in the evaluated configuration, enumerate the roles recognized by the TOE.</p>
+</li>
+<li>
+<p>Verify that the TOE roles to which the ST maps the module&#8217;s role labels are present under their TOE names.</p>
+</li>
+<li>
+<p>Associate a test user with a tenant role and verify that the user receives the privileges defined for that role and no others.</p>
+</li>
+<li>
+<p>For roles that are not tenant-visible (Service Provider Administrator, automated autonomous management logic), verify their presence and privilege boundaries through a provider-supported demonstration or provider role documentation under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>), recorded in the ETR.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fmt_smf_1dbaas_specification_of_management_functions">9.2. FMT_SMF.1/DBaaS Specification of Management Functions</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_9">9.2.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_9">9.2.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS identifies the management functions provided by the TOE, including configuration of customer-controlled key references and key-management integration, tenant resource quotas, audit export and retention, update deployment (including tenant deferral policy or maintenance windows where selected), and any evaluated cross-tenant sharing mechanism. The evaluator shall verify the TSS identifies, for each management function, the authorized roles defined by <code>FMT_SMR.1/DBaaS</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_8">9.2.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes how to perform each claimed management function and which role is authorized to perform it.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_9">9.2.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Management Function Availability</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each claimed management function, perform the function as an authorized role using the interfaces available in the evaluated configuration.</p>
+</li>
+<li>
+<p>Verify that the function operates as described.</p>
+</li>
+<li>
+<p>Attempt the same function as an unauthorized role and verify that it is denied. This test may be performed jointly with the <code>FMT_MOF.1/DBaaS</code> iteration tests.</p>
+</li>
+<li>
+<p>For management functions restricted to provider roles that are not available to the evaluator, perform the authorized-role leg through a provider-supported demonstration under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>), recorded in the ETR; the unauthorized-role denial leg shall still be tested directly through tenant interfaces.</p>
+</li>
+<li>
+<p>Where automated autonomous management logic is selected in <code>FMT_SMR.1/DBaaS</code>, identify at least one record of an autonomous management action in the ST-identified audit channel and verify that it identifies the autonomous subject as the actor and, where the action affected a tenant context, carries the affected tenant&#8217;s identifier and is visible to that tenant.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fmt_mof_1dbaas_disable_and_fmt_mof_1dbaas_modify_management_of_security_functions_behaviour">9.3. FMT_MOF.1/DBaaS-Disable and FMT_MOF.1/DBaaS-Modify Management of Security Functions Behaviour</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_10">9.3.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_10">9.3.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS identifies the security functions that cannot be disabled in the evaluated configuration (<code>FMT_MOF.1/DBaaS-Disable</code>) and the roles authorized to modify DBaaS security functions such as resource governance, patching and updates, and audit export (<code>FMT_MOF.1/DBaaS-Modify</code>).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_9">9.3.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes the roles authorized to modify each claimed DBaaS security function and the expected behavior when unauthorized roles attempt modification.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_10">9.3.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Audit Immutability Control</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Authenticate as a tenant administrator.</p>
+</li>
+<li>
+<p>Attempt to disable audit generation for TOE-required audit events.</p>
+</li>
+<li>
+<p>Verify that the operation is denied.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 2: Encryption Immutability Control</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Authenticate as a tenant administrator.</p>
+</li>
+<li>
+<p>Attempt to disable data-at-rest encryption for protected tenant data.</p>
+</li>
+<li>
+<p>Verify that the operation is denied.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 3: Role Restriction Verification</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Authenticate as a tenant administrator or other role not authorized to manage provider or root-level functions.</p>
+</li>
+<li>
+<p>Attempt to grant provider, root, or equivalent administrative privileges to a standard tenant user.</p>
+</li>
+<li>
+<p>Verify that the operation is denied.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fau_class_security_audit">10. FAU Class: Security Audit</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fau_sel_1dbaas_selective_audit">10.1. FAU_SEL.1/DBaaS Selective Audit</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_11">10.1.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_11">10.1.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS describes how audit event selection is scoped by tenant identifier, user identifier, service role, object identifier, and event type. Restriction of audit record queries to the owning tenant is an access-control rule of <code>FDP_ACF.1/DBaaS</code> and is evaluated there; Test 1 below may be performed jointly with the <code>FDP_ACF.1/DBaaS</code> tests.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_10">10.1.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes how audit selection is configured, the attributes on which selection can be based, and the roles authorized to change tenant-scoped audit selection.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_11">10.1.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Audit Scope Leakage</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generate audit events in Tenant A and Tenant B.</p>
+</li>
+<li>
+<p>As Tenant A administrator, query the audit logs.</p>
+</li>
+<li>
+<p>Verify that only Tenant A records are returned unless an evaluated provider, cross-tenant, or compliance function explicitly authorizes broader access.</p>
+</li>
+<li>
+<p>Analyze the query results to ensure no Tenant B data, usernames, object names, query text, or tenant identifiers are visible to Tenant A unless explicitly authorized by the evaluated configuration.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fau_stg_2dbaas_protected_audit_trail_storage_immutable_audit_stream">10.2. FAU_STG.2/DBaaS Protected Audit Trail Storage (Immutable Audit Stream)</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_12">10.2.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_12">10.2.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS describes how the TOE prevents unauthorised modification and deletion of stored audit records, including that no tenant-facing interface provides audit modification or deletion functions. If audit records are exported to an external sink, the evaluator shall verify the TSS identifies whether the export mechanism, external sink, or both are part of the TOE or operational environment.</p>
+</div>
+<div class="paragraph">
+<p><code>FAU_STG.2/DBaaS</code> applies to the DBMS audit trail. Protection, tenant visibility, and retrieval of service event stream records are defined by the module&#8217;s auditable-events refinement and verified under <a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a>; they are not retested here.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_11">10.2.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes audit retention, audit export configuration, authorized audit query roles, and any recovery or archival mechanism for audit records.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_12">10.2.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Test 1: Deletion and Modification Prevention</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As a tenant administrator, identify an audit record generated by the TOE.</p>
+</li>
+<li>
+<p>Attempt to delete or modify that record through documented tenant interfaces, such as SQL DELETE or UPDATE commands, management APIs, or tenant audit tools.</p>
+</li>
+<li>
+<p>Verify that the operation is denied.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 2: Audit Export Verification</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure audit export to an external sink according to the operational guidance. Where audit export configuration is restricted to provider roles not available to the evaluator, this step shall be performed through a provider-supported demonstration under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>), recorded in the ETR.</p>
+</li>
+<li>
+<p>Generate audit events.</p>
+</li>
+<li>
+<p>Verify that the external sink receives the expected events.</p>
+</li>
+<li>
+<p>Attempt to stop, redirect, or weaken the audit export pipeline as a tenant administrator.</p>
+</li>
+<li>
+<p>Verify that the unauthorized operation is denied.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fpt_class_protection_of_the_tsf">11. FPT Class: Protection of the TSF</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_fpt_tud_dbaas_ext_1_trusted_service_update">11.1. FPT_TUD_DBAAS_EXT.1 Trusted Service Update</h3>
+<div class="sect3">
+<h4 id="_evaluation_activities_13">11.1.1. Evaluation Activities</h4>
+<div class="sect4">
+<h5 id="_tss_activities_13">11.1.1.1. TSS Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the TSS describes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the end-to-end update process for the DBMS service software, from the provider&#8217;s authorized update process through deployment, including the deployment model selected in FPT_TUD_DBAAS_EXT.1.1 (uniform rolling deployment, tenant-configurable deferral, or tenant-selectable maintenance windows);</p>
+</li>
+<li>
+<p>the deployment artifacts to which signature verification applies, the signature format used (for example X.509 certificate-based, OpenPGP, or detached signatures over deployment artifacts), and the point in the deployment path at which verification occurs — before the updated software is placed into service;</p>
+</li>
+<li>
+<p>the signature algorithm and hash, as completions of the <code>FCS_COP.1/SigVer</code> component included through the DBMS Cryptographic Functions Module, and how the verification key is integrity protected;</p>
+</li>
+<li>
+<p>which parts of the update pipeline are TSF and which reside in the operational environment, together with the TOE-side enforcement points (an ST in which update handling lies wholly outside the TOE boundary cannot claim this component); and</p>
+</li>
+<li>
+<p>the mechanism by which tenants determine the version or revision identifier of the service software currently serving them, and how that identifier maps to deployed service software.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Where certificate path validation is part of signature verification, the evaluator shall verify the TSS identifies the applicable components of the Functional Package for X.509 Certificates [<a href="#X509_FP">[X509_FP]</a>].</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_guidance_activities_12">11.1.1.2. Guidance Activities</h5>
+<div class="paragraph">
+<p>The evaluator shall verify the operational guidance describes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>how a tenant queries the current service version or revision identifier;</p>
+</li>
+<li>
+<p>customer-visible update status and notifications;</p>
+</li>
+<li>
+<p>update deferral options or maintenance windows, where those selections are claimed, including the maximum deferral period; and</p>
+</li>
+<li>
+<p>any tenant-visible configuration related to updates.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_test_activities_13">11.1.1.3. Test Activities</h5>
+<div class="paragraph">
+<p><strong>Note:</strong> Testing live patching in a production DBaaS environment can be disruptive, and update deployment is a provider-controlled operation. Where the evaluator cannot initiate or observe an update directly, the evaluator shall use the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>): a provider-supported demonstration of the update path on a non-production instance, together with audit records and deployment evidence, recorded in the ETR.</p>
+</div>
+<div class="paragraph">
+<p><strong>Test 1: Update Verification and Provenance</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Through a provider-supported demonstration or on a non-production instance, observe the deployment of a service software update.</p>
+</li>
+<li>
+<p>Verify that the deployment evidence identifies the update source as the provider&#8217;s authorized update process.</p>
+</li>
+<li>
+<p>Verify that signature verification of the identified deployment artifacts occurs before the updated software is placed into service, using the algorithm and key documented in the TSS.</p>
+</li>
+<li>
+<p>Where feasible in the demonstration environment, present an artifact with an invalid or missing signature and verify that it is not placed into service and that the failure is audited.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 2: Tenant Non-Interference</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Authenticate as a tenant administrator.</p>
+</li>
+<li>
+<p>Attempt to block, bypass, or indefinitely delay security updates using tenant-accessible configuration settings, beyond any deferral or maintenance-window allowance claimed in FPT_TUD_DBAAS_EXT.1.1.</p>
+</li>
+<li>
+<p>Verify that updates are applied according to the evaluated update policy, and that any claimed deferral is bounded by the documented maximum deferral period.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 3: Tenant Version Visibility</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As a tenant user or tenant administrator, query the service version or revision identifier through the documented interface.</p>
+</li>
+<li>
+<p>Verify that an identifier is returned and matches the deployed service software identified in the update evidence of Test 1 or in provider-supported deployment records.</p>
+</li>
+<li>
+<p>Where an update is observed during the evaluation (Test 1), verify that the identifier changes accordingly.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cross_reference_to_cem_work_units">Appendix A: Cross-Reference to CEM Work Units</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Evaluation Activities of this SD are narrative refinements of CEM:2022 work units: TSS Activities refine the ASE_TSS.1 examination work units, Guidance Activities refine the AGD_OPE.1 and AGD_PRE.1 examination work units, and Test Activities refine the ATE_IND.2 test-devising and test-conduct work units. The table below enumerates this mapping for every SFR section of this SD, followed by the mapping for the DBaaS-specific SAR considerations of the Assurance Activities Overview. Provider-supported demonstrations performed under the Evaluator Access Strategy are conducted and recorded as part of the ATE_IND.2 (or, for AVA activities, AVA_VAN.2) work units they support.</p>
+</div>
+<div class="sect2">
+<h3 id="_sfr_evaluation_activities_to_cem_mapping">A.1. SFR Evaluation Activities to CEM Mapping</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 28.5714%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">SFR Section</th>
+<th class="tableblock halign-left valign-top">CEM Work Unit(s)</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1, AGD_OPE.1-4; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests 1–4, including provider-inaccessibility, revocation, and conditional KEM-established customer-control testing; coordinates with the Crypto Module SD for key lifecycle, role-specific ML-KEM, derivation, and trusted channel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_RIP.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-interface residual data testing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACC.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test coverage provided under FDP_ACF.1/DBaaS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACF.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1, AGD_OPE.1-4; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests 1–4 (data, metadata, audit isolation, and evaluated sharing)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_BKP_EXT.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1, AGD_OPE.1-4; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test 1 may be performed as a provider-supported demonstration; data-at-rest confidentiality of backups is evaluated under the Crypto Module SD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FRU_RSA.1/DBaaS and FRU_RSG_EXT.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Joint quota-enforcement and enforcement-action testing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FIA_USB.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-binding and audit-correlation testing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_SMR.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1, AGD_OPE.1-4; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provider-role verification may use provider-supported demonstration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_SMF.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1, AGD_OPE.1-4; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provider-restricted functions may use provider-supported demonstration for the authorized leg</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_MOF.1/DBaaS-Disable and FMT_MOF.1/DBaaS-Modify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1, AGD_OPE.1-4; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tests 1–3 (audit and encryption immutability, role restriction)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_SEL.1/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Audit-scope leakage testing, jointly with FDP_ACF.1/DBaaS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_STG.2/DBaaS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1, AGD_OPE.1-4; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Export configuration step may use provider-supported demonstration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FPT_TUD_DBAAS_EXT.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_TSS.1-1; AGD_OPE.1-1, AGD_OPE.1-4; ATE_IND.2-3, ATE_IND.2-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update verification typically performed as a provider-supported demonstration on a non-production instance at the evaluated service software revision</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_sar_considerations_to_cem_mapping">A.2. SAR Considerations to CEM Mapping</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 28.5714%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">SD Section</th>
+<th class="tableblock halign-left valign-top">CEM Work Unit(s)</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE: Security Target Evaluation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ASE_INT.1, ASE_CCL.1, ASE_SPD.1, ASE_OBJ.2, ASE_TSS.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supplements the Base PP ASE activities with managed-service verification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADV: Development</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ADV_ARC.1, ADV_FSP.2, ADV_TDS.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Managed-service interface scope and tenant-separation architecture</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ALC: Life-cycle Support</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ALC_CMC.2, ALC_CMS.2, ALC_DEL.1, ALC_FLR.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Continuous-deployment CM identification, deployment-path delivery interpretation, and flaw-remediation coupling to FPT_TUD_DBAAS_EXT.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ATE: Tests</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ATE_COV.1, ATE_FUN.1, ATE_IND.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-vantage independent testing, provider test evidence for provider-restricted functions, revision-parity requirement for non-production instances</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AVA: Vulnerability Assessment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AVA_VAN.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-vantage vulnerability analysis and penetration testing with production-safety constraints</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Documentation Requirements (AGD)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AGD_OPE.1, AGD_PRE.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DBaaS-specific operational guidance and service-provisioning preparative procedures</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_evidence_vantage_mapping">Appendix B: Evidence Vantage Mapping</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The table below assigns each test activity of this SD to the evidence vantages defined in <a href="#_evidence_vantages">Section 2.5, &#8220;Evidence Vantages&#8221;</a>. The assignment is informative: it states where evidence is <strong>expected</strong> to be collected for a typical provider-operated DBaaS TOE, so that laboratories can plan tenancy provisioning, external-service setup, and provider participation when scoping the evaluation. The evaluated TOE&#8217;s interface exposure governs — the ST&#8217;s interface identification and role-label mapping determine which functions sit at V2 rather than V4 for a given TOE, and the evaluator records deviations from this table in the ETR under the Evaluator Access Strategy.</p>
+</div>
+<div class="paragraph">
+<p>TSS and Guidance Activities are documentation review and are not listed; only Test Activities appear.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Evidence vantages by test activity</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 22.2222%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Test Activity</th>
+<th class="tableblock halign-left valign-top">Vantage(s)</th>
+<th class="tableblock halign-left valign-top">Evidence collected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 Test 1 (Provider Inaccessibility)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Key-export and key-display attempts through every tenant-facing database and management interface; denial or metadata-only responses.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 Test 2 (Key Revocation)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V3 → V1, V2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Revocation induced at the evaluator&#8217;s external KMS (V3); denial of data access observed at the database interfaces (V1); enforcement-state transition and its record verified in the ST-identified service event stream, retrieved through its tenant interface (V2).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 Test 2a (Key Provider Unreachability)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V3 → V1, V2; V4 fallback</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KMS connectivity interrupted (V3); grace-period behavior, enforcement-state transition, and resumption observed at V1/V2. Where connectivity cannot be interrupted, provider-supported demonstration or provider test evidence (V4).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 Test 3 (Key Material Handling Evidence)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2; V4 for non-tenant diagnostics</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-accessible audit records, status views, error messages, and backup metadata reviewed for key-material disclosure; provider-supported observation for diagnostics not exposed to tenants.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 Test 4 (KEM-Established Customer Control)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V3 → V1, V2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ML-KEM peer and authorization controlled at V3; successful establishment and data use observed at V1/V2; revocation or unavailability induced at V3; bounded denial and the service-event-stream transition verified at V1/V2.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_RIP.1/DBaaS Test 1 (Residual Data)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1 (V2 to provision)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Two tenant contexts provisioned at V2; unique-pattern write, resource release, and cross-tenant observation attempts all at V1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACF.1/DBaaS Tests 1–4 (Tenant Isolation)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1 (V2 to provision and configure sharing)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cross-tenant data, metadata, and audit access attempts at V1; tenant provisioning and any evaluated sharing configuration at V2.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_BKP_EXT.1 Test 1 (Provider Plaintext Restore Prevention)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V4 (V2 where a closest-available role exists)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provider-supported demonstration of a plaintext restore/export attempt without the customer-controlled key; ciphertext pass criterion verified in the demonstration output.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FDP_BKP_EXT.1 Test 2 (Restore Tenant Binding)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V2 → V1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Restore initiated from the tenant service control plane; tenant-binding of restored data verified through cross-tenant access attempts at V1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FRU_RSA.1/DBaaS and FRU_RSG_EXT.1 Test 1 (Resource Limit Enforcement)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V2 → V1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quota configured at V2; over-limit workload driven and enforcement action observed at V1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FRU_RSA.1/DBaaS and FRU_RSG_EXT.1 Test 2 (Unauthorized Quota Modification)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Quota-modification attempt by an unauthorized role, at whichever plane exposes the setting; denial observed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FIA_USB.1/DBaaS Tests 1–2 (Tenant Binding, Audit Correlation)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-context queries, binding-manipulation attempts, and audit-record correlation through database interfaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_SMR.1/DBaaS Test 1 (Role Maintenance)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2; V4 for provider roles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enumeration of mapped TOE roles and privilege verification at tenant vantages; provider-role presence and boundaries by provider-supported demonstration or provider role documentation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_SMF.1/DBaaS Test 1 (Management Functions)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V2 (V1 for database-level functions); V4 for the authorized leg of provider-restricted functions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Each claimed management function exercised as an authorized role; denial leg always tested directly from tenant vantages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FMT_MOF.1/DBaaS Tests 1–3 (Immutability and Role Restriction)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-administrator attempts to disable audit, disable encryption, and escalate privileges; denial observed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_SEL.1/DBaaS Test 1 (Audit Scope Leakage)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cross-tenant audit queries and result analysis through tenant audit interfaces.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_STG.2/DBaaS Test 1 (Deletion/Modification Prevention)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Audit-record tamper attempts through documented tenant interfaces; denial observed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAU_STG.2/DBaaS Test 2 (Audit Export)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V2 (V4 where provider-restricted) → V3; tamper leg V1, V2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Export configured at V2 or by provider-supported demonstration; delivery verified at the evaluator&#8217;s external sink (V3); pipeline-tamper attempts from tenant vantages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FPT_TUD_DBAAS_EXT.1 Test 1 (Update Verification and Provenance)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provider-supported demonstration of the update path on a revision-parity non-production instance, including signature verification and, where feasible, an invalid-signature artifact.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FPT_TUD_DBAAS_EXT.1 Test 2 (Tenant Non-Interference)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-accessible update-configuration settings exercised against the evaluated update policy and deferral bound.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FPT_TUD_DBAAS_EXT.1 Test 3 (Tenant Version Visibility)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Service revision identifier queried through the documented tenant interface and matched against deployment evidence.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Laboratories scoping an evaluation against the DBaaS PP-Configuration should note the V4 concentrations: FDP_BKP_EXT.1 Test 1 and FPT_TUD_DBAAS_EXT.1 Test 1 require provider participation in substantially all evaluations, and FMT_SMR.1/DBaaS, FMT_SMF.1/DBaaS, FAU_STG.2/DBaaS Test 2, and the FCS_CKM_DBAAS_EXT.1 Test 2a fallback require it whenever the evaluated TOE restricts the relevant function to provider roles. All remaining test activities are executable from the evaluation tenancy and evaluator-controlled external services without provider involvement.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_environment_guidance_for_dbaas_evaluators">Appendix C: Test Environment Guidance for DBaaS Evaluators</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_recommended_test_configuration">C.1. Recommended Test Configuration</h3>
+<div class="paragraph">
+<p>The following configuration is recommended for independent testing of a provider-operated DBaaS TOE:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Tenant contexts</strong>: at least two evaluator-provisioned tenant contexts (Tenant A and Tenant B) in the evaluated configuration; a third tenant context is recommended where an evaluated cross-tenant sharing mechanism is claimed, so that sharing and non-sharing tenants can be distinguished;</p>
+</li>
+<li>
+<p><strong>Customer-controlled keys</strong>: an external key management service instance under evaluator control, holding a revocable test key, so that FCS_CKM_DBAAS_EXT.1 revocation behavior can be exercised without provider involvement; when ML-KEM establishment is selected, the service or a complementary test harness also supports the claimed parameter set and TOE role without exposing shared-secret material through operational interfaces;</p>
+</li>
+<li>
+<p><strong>Audit sink</strong>: an evaluator-controlled external audit sink for FAU_STG.2/DBaaS export testing;</p>
+</li>
+<li>
+<p><strong>Workload tooling</strong>: load-generation tooling sufficient to exceed configured tenant resource quotas for the FRU tests;</p>
+</li>
+<li>
+<p><strong>Demonstration environment</strong>: for provider-supported demonstrations (update path, provider-role functions, restore testing), a non-production instance of the service verified — via the FPT_TUD_DBAAS_EXT.1.3 identifier or CM evidence — to run the same service software revision as the evaluated configuration.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_production_safety_constraints">C.2. Production-Safety Constraints</h3>
+<div class="paragraph">
+<p>Because the TOE is a live, shared, provider-operated service:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Isolation and resource-exhaustion testing shall be directed only at evaluator-provisioned tenant contexts; the evaluator shall never target tenants not provisioned for the evaluation;</p>
+</li>
+<li>
+<p>Resource-exhaustion workloads shall be coordinated with the provider and bounded so that enforcement, not platform degradation, is what the test observes;</p>
+</li>
+<li>
+<p>Update-path and restore testing shall be performed on the non-production demonstration instance unless the provider supports safe execution in the evaluated configuration;</p>
+</li>
+<li>
+<p>The evaluator shall respect the service terms applicable to the evaluation tenancy and record any provider-imposed constraint that limits a test, together with the compensating evidence used, in the ETR.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_test_data_handling">C.3. Test Data Handling</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Use synthetic test data containing no actual sensitive information; unique, searchable patterns (as required by the FDP_RIP.1/DBaaS test) shall be generated for the evaluation;</p>
+</li>
+<li>
+<p>Delete evaluation tenants, test data, keys, and audit sinks after the evaluation completes;</p>
+</li>
+<li>
+<p>Document data handling, tenant deprovisioning, and key destruction in the ETR.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_document_references">Appendix D: Document References</h2>
+<div class="sectionbody">
+<div class="ulist bibliography">
+<ul class="bibliography">
+<li>
+<p><span id="CC1">[CC1]</span> Common Criteria for Information Technology Security Evaluation, Part 1: Introduction and general model, CCMB-2022-11-001, CC:2022 Revision 1, November 2022.</p>
+</li>
+<li>
+<p><span id="CC2">[CC2]</span> Common Criteria for Information Technology Security Evaluation, Part 2: Security functional requirements, CCMB-2022-11-002, CC:2022 Revision 1, November 2022.</p>
+</li>
+<li>
+<p><span id="CC3">[CC3]</span> Common Criteria for Information Technology Security Evaluation, Part 3: Security assurance requirements, CCMB-2022-11-003, CC:2022 Revision 1, November 2022.</p>
+</li>
+<li>
+<p><span id="CC4">[CC4]</span> Common Criteria for Information Technology Security Evaluation, Part 4: Framework for the specification of evaluation methods and activities, CCMB-2022-11-004, CC:2022 Revision 1, November 2022.</p>
+</li>
+<li>
+<p><span id="CC5">[CC5]</span> Common Criteria for Information Technology Security Evaluation, Part 5: Pre-defined packages of security requirements, CCMB-2022-11-005, CC:2022 Revision 1, November 2022.</p>
+</li>
+<li>
+<p><span id="CCE">[CCE]</span> Common Criteria for Information Technology Security Evaluation, Errata and interpretation for CC:2022 (Release 1) and CEM:2022 (Release 1), CCMB-002, Version 1.1, July 22, 2024.</p>
+</li>
+<li>
+<p><span id="CEM">[CEM]</span> Common Methodology for Information Technology Security Evaluation, Evaluation methodology, CCMB-2022-11-006, CEM:2022 Revision 1, November 2022.</p>
+</li>
+<li>
+<p><span id="DBMS_MOD_DBAAS">[DBMS_MOD_DBAAS]</span> collaborative PP-Module for Database-as-a-Service (DBaaS), Version 0.5, 2026-07-20.</p>
+</li>
+<li>
+<p><span id="cPP_DBMS">[cPP_DBMS]</span> collaborative Protection Profile for Database Management Systems, Version 2.0, 27 April 2026.</p>
+</li>
+<li>
+<p><span id="cPP_DBMS_SD">[cPP_DBMS_SD]</span> Supporting Document Mandatory Technical Document Evaluation Activities for the collaborative Protection Profile for Database Management Systems, Version 2.0, 27 April 2026.</p>
+</li>
+<li>
+<p><span id="DBMS_MOD_CRYPTO">[DBMS_MOD_CRYPTO]</span> collaborative PP-Module for DBMS Cryptographic Functions, Version 0.5, 2026-07-20.</p>
+</li>
+<li>
+<p><span id="DBMS_MOD_CRYPTO_SD">[DBMS_MOD_CRYPTO_SD]</span> Supporting Document - Evaluation Activities for DBMS Cryptographic Functions Module, Version 0.5, 2026-07-20.</p>
+</li>
+<li>
+<p><span id="Crypto_Catalog">[Crypto_Catalog]</span> Specification of Functional Requirements for Cryptography (CCDB-018), Version 1.0, January 2025.</p>
+</li>
+<li>
+<p><span id="TLS_FP">[TLS_FP]</span> Functional Package for Transport Layer Security (TLS), Version 2.1, 2025-08-25.</p>
+</li>
+<li>
+<p><span id="X509_FP">[X509_FP]</span> Functional Package for X.509 Certificates, Version 1.0. Available at <a href="https://commoncriteria.github.io/X509/release-1.0/X509-release.html">commoncriteria.github.io/X509</a>.</p>
+</li>
+<li>
+<p><span id="CCiTC_SaaS">[CCiTC_SaaS]</span> Common Criteria in the Cloud Technical Community, Guidance for Cloud Evaluations, Version 1.1.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 0.5<br>
+Last updated 2026-07-20 16:34:48 -0500
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code[data-lang]')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
+</body>
+</html>

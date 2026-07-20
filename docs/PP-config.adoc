@@ -4,12 +4,12 @@
 :toclevels: 4
 :imagesdir: images
 :icons: font
-:revnumber: 0.4
-:revdate: 2026-06-30
+:revnumber: 0.5
+:revdate: 2026-07-20
 
 :iTC-longname: Database Management Systems
 :iTC-shortname: DBMS-iTC
-:iTC-email: cm-itc-mailing-list@gmail.com
+:iTC-email: dbms.itc@gmail.com
 :iTC-website: https://github.com/DBMS-iTC
 :iTC-GitHub: https://github.com/DBMS-iTC/DBMS-iTC.github.io
 :pp-name: collaborative Protection Profile for Database Management Systems
@@ -31,13 +31,13 @@ This page identifies the PP-Modules that the {iTC-shortname} has defined for use
 |Use in PP-Configurations
 
 |collaborative PP-Module for DBMS Cryptographic Functions
-|Version 0.4, 2026-06-30
+|Version 0.5, 2026-07-20
 |Draft module set
 |{iTC-shortname}
 |May be claimed with the DBMS Base PP as `cPP_DBMS + DBMS Cryptographic Functions Module`. Also required by the DBMS in the Cloud Module.
 
 |collaborative PP-Module for DBMS in the Cloud
-|Version 0.4, 2026-06-30
+|Version 0.5, 2026-07-20
 |Draft module set
 |{iTC-shortname}
 |May be claimed only in a PP-Configuration that includes the DBMS Base PP and the DBMS Cryptographic Functions Module: `cPP_DBMS + DBMS in the Cloud Module + DBMS Cryptographic Functions Module`.
@@ -46,7 +46,7 @@ This page identifies the PP-Modules that the {iTC-shortname} has defined for use
 
 == Public Review PP-Configurations
 
-Formal Public Review Draft 1 PP-Configuration documents for the DBMS module set are available at link:../public-review/modules-v0.4/[DBMS PP-Modules Version 0.4 Public Review Draft 1].
+Formal Public Review Draft 1 PP-Configuration documents for the DBMS module set are available at link:../public-review/modules-v0.5/[DBMS PP-Modules Version 0.5 Public Review Draft 1].
 
 .Public review PP-Configurations
 [%header,cols="2,1,2"]
@@ -56,22 +56,22 @@ Formal Public Review Draft 1 PP-Configuration documents for the DBMS module set 
 |Links
 
 |PP-Configuration for cPP_DBMS and DBMS Cryptographic Functions Module
-|Version 0.4, 2026-06-30
-|link:../public-review/modules-v0.4/PPC_DBMS_CRYPTO_v0.4.pdf[PDF] +
-link:../public-review/modules-v0.4/PPC_DBMS_CRYPTO_v0.4.html[HTML] +
-link:../public-review/modules-v0.4/PPC_DBMS_CRYPTO_v0.4.adoc[AsciiDoc]
+|Version 0.5, 2026-07-20
+|link:../public-review/modules-v0.5/PPC_DBMS_CRYPTO_v0.5.pdf[PDF] +
+link:../public-review/modules-v0.5/PPC_DBMS_CRYPTO_v0.5.html[HTML] +
+link:../public-review/modules-v0.5/PPC_DBMS_CRYPTO_v0.5.adoc[AsciiDoc]
 
 |PP-Configuration for cPP_DBMS, DBMS in the Cloud Module, and DBMS Cryptographic Functions Module
-|Version 0.4, 2026-06-30
-|link:../public-review/modules-v0.4/PPC_DBMS_CLOUD_CRYPTO_v0.4.pdf[PDF] +
-link:../public-review/modules-v0.4/PPC_DBMS_CLOUD_CRYPTO_v0.4.html[HTML] +
-link:../public-review/modules-v0.4/PPC_DBMS_CLOUD_CRYPTO_v0.4.adoc[AsciiDoc]
+|Version 0.5, 2026-07-20
+|link:../public-review/modules-v0.5/PPC_DBMS_CLOUD_CRYPTO_v0.5.pdf[PDF] +
+link:../public-review/modules-v0.5/PPC_DBMS_CLOUD_CRYPTO_v0.5.html[HTML] +
+link:../public-review/modules-v0.5/PPC_DBMS_CLOUD_CRYPTO_v0.5.adoc[AsciiDoc]
 
 |PP-Configuration for cPP_DBMS, DBMS DBaaS Module, and DBMS Cryptographic Functions Module
-|Version 0.4, 2026-06-30
-|link:../public-review/modules-v0.4/PPC_DBMS_DBAAS_CRYPTO_v0.4.pdf[PDF] +
-link:../public-review/modules-v0.4/PPC_DBMS_DBAAS_CRYPTO_v0.4.html[HTML] +
-link:../public-review/modules-v0.4/PPC_DBMS_DBAAS_CRYPTO_v0.4.adoc[AsciiDoc]
+|Version 0.5, 2026-07-20
+|link:../public-review/modules-v0.5/PPC_DBMS_DBAAS_CRYPTO_v0.5.pdf[PDF] +
+link:../public-review/modules-v0.5/PPC_DBMS_DBAAS_CRYPTO_v0.5.html[HTML] +
+link:../public-review/modules-v0.5/PPC_DBMS_DBAAS_CRYPTO_v0.5.adoc[AsciiDoc]
 |===
 
 == Components Under Development
@@ -86,7 +86,7 @@ link:../public-review/modules-v0.4/PPC_DBMS_DBAAS_CRYPTO_v0.4.adoc[AsciiDoc]
 |Expected PP-Configuration Use
 
 |collaborative PP-Module for Database-as-a-Service (DBaaS)
-|Version 0.4, 2026-06-30
+|Version 0.5, 2026-07-20
 |Public review draft, later publication track
 |{iTC-shortname}
 |Expected to require the DBMS Base PP and the DBMS Cryptographic Functions Module. This module is intended for provider-operated managed database services and is mutually exclusive with the tenant-operated DBMS in the Cloud Module.

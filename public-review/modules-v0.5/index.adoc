@@ -1,0 +1,143 @@
+= Public Review Draft 1 for DBMS PP-Modules Version 0.5
+:showtitle:
+:toc:
+:toclevels: 2
+:table-caption: Table
+:doctype: book
+:revnumber: 0.5
+:revdate: 2026-07-20
+:xrefstyle: full
+
+:iTC-longname: Database Management Systems
+:iTC-shortname: DBMS-iTC
+:iTC-email: dbms.itc@gmail.com
+:iTC-website: https://dbms-itc.github.io/
+:iTC-GitHub: https://github.com/dbms-itc/
+
+== Introduction
+
+The {iTC-shortname} is publishing Public Review Draft 1 of the DBMS PP-Modules for general public comment. Version 0.5 includes the DBMS Cryptographic Functions Module, the DBMS in the Cloud Module, the DBMS Database-as-a-Service Module, their Supporting Documents, and the three PP-Configurations that compose those modules with the DBMS Base PP. The Crypto Module formally consumes CCDB-018 Catalogue components and provides General-Purpose and optional Enterprise Enhanced cryptographic use cases. Because the companion Catalogue Evaluation Methods were not publicly available at the publication date, the Crypto SD also proposes a transitional mechanism for using Certification Body-recognized CAVP, CMVP, or equivalent validation results as evidence for covered algorithm-correctness objectives. This draft additionally offers post-quantum selections in anticipation of corresponding Catalogue collateral - ML-DSA signature verification and role-specific ML-KEM key generation, encapsulation, and decapsulation - relying on the same transitional mechanism for FIPS 203 and FIPS 204 algorithm correctness; see the review questions below.
+
+Please send review comments to {iTC-email}.
+
+== Review Status
+
+Publication Date:: 30 June 2026
+Last Revised:: 20 July 2026 (Version 0.5: priority-finding closure, role-specific ML-KEM model, complete review-set refresh)
+End of Comment Period:: To be announced
+Review Phase:: Public Review Draft 1
+
+== Publication Track
+
+The DBMS Cryptographic Functions Module and DBMS in the Cloud Module are intended for the first module publication set. The DBMS DBaaS Module and its PP-Configuration remain on a later publication track, but their Version 0.5 working drafts are included in this review set so the complete alternative-deployment architecture can be reviewed together.
+
+== Module Documents for Review
+
+.Module Review Draft Set
+[cols="3,1,2,3",options="header"]
+|===
+|Title |Version |Publication Track |Links
+
+|collaborative PP-Module for DBMS Cryptographic Functions
+|0.5
+|First module publication set
+|link:DBMS_Crypto_PP_Module_v0.5.pdf[PDF] +
+link:DBMS_Crypto_PP_Module_v0.5.html[HTML] +
+link:DBMS_Crypto_PP_Module_v0.5.adoc[AsciiDoc]
+
+|Supporting Document: Evaluation Activities for collaborative PP-Module for DBMS Cryptographic Functions
+|0.5
+|First module publication set
+|link:DBMS_Crypto_PP_Module_SD_v0.5.pdf[PDF] +
+link:DBMS_Crypto_PP_Module_SD_v0.5.html[HTML] +
+link:DBMS_Crypto_PP_Module_SD_v0.5.adoc[AsciiDoc]
+
+|collaborative PP-Module for DBMS in the Cloud
+|0.5
+|First module publication set
+|link:DBMS_Cloud_PP_Module_v0.5.pdf[PDF] +
+link:DBMS_Cloud_PP_Module_v0.5.html[HTML] +
+link:DBMS_Cloud_PP_Module_v0.5.adoc[AsciiDoc]
+
+|Supporting Document: Evaluation Activities for collaborative PP-Module for DBMS in the Cloud
+|0.5
+|First module publication set
+|link:DBMS_Cloud_PP_Module_SD_v0.5.pdf[PDF] +
+link:DBMS_Cloud_PP_Module_SD_v0.5.html[HTML] +
+link:DBMS_Cloud_PP_Module_SD_v0.5.adoc[AsciiDoc]
+
+|collaborative PP-Module for Database-as-a-Service (DBaaS)
+|0.5
+|Later module publication track
+|link:DBMS_DBaaS_PP_Module_v0.5.pdf[PDF] +
+link:DBMS_DBaaS_PP_Module_v0.5.html[HTML] +
+link:DBMS_DBaaS_PP_Module_v0.5.adoc[AsciiDoc]
+
+|Supporting Document: Evaluation Activities for collaborative PP-Module for Database-as-a-Service (DBaaS)
+|0.5
+|Later module publication track
+|link:DBMS_DBaaS_PP_Module_SD_v0.5.pdf[PDF] +
+link:DBMS_DBaaS_PP_Module_SD_v0.5.html[HTML] +
+link:DBMS_DBaaS_PP_Module_SD_v0.5.adoc[AsciiDoc]
+|===
+
+== PP-Configurations for Review
+
+.PP-Configuration Review Draft Set
+[cols="3,1,2,3",options="header"]
+|===
+|Title |Version |Publication Track |Links
+
+|PP-Configuration for cPP_DBMS and DBMS Cryptographic Functions Module
+|0.5
+|First module publication set
+|link:PPC_DBMS_CRYPTO_v0.5.pdf[PDF] +
+link:PPC_DBMS_CRYPTO_v0.5.html[HTML] +
+link:PPC_DBMS_CRYPTO_v0.5.adoc[AsciiDoc]
+
+|PP-Configuration for cPP_DBMS, DBMS in the Cloud Module, and DBMS Cryptographic Functions Module
+|0.5
+|First module publication set
+|link:PPC_DBMS_CLOUD_CRYPTO_v0.5.pdf[PDF] +
+link:PPC_DBMS_CLOUD_CRYPTO_v0.5.html[HTML] +
+link:PPC_DBMS_CLOUD_CRYPTO_v0.5.adoc[AsciiDoc]
+
+|PP-Configuration for cPP_DBMS, DBMS Database-as-a-Service Module, and DBMS Cryptographic Functions Module
+|0.5
+|Later module publication track
+|link:PPC_DBMS_DBAAS_CRYPTO_v0.5.pdf[PDF] +
+link:PPC_DBMS_DBAAS_CRYPTO_v0.5.html[HTML] +
+link:PPC_DBMS_DBAAS_CRYPTO_v0.5.adoc[AsciiDoc]
+|===
+
+== Base PP
+
+These modules and PP-Configurations are designed for use with the DBMS Base PP Version 2.0. The DBMS Version 2.0 public review draft is available at link:../v2.0/[DBMS Version 2.0 Public Review Draft 1].
+
+== Interactive Review Supplement
+
+The link:requirements-map.html[DBMS Module Review Supplement] provides two linked views of the review set:
+
+* A Reader's Guide that explains the division of responsibility among the Base cPP, Crypto Module, and the alternative Cloud and DBaaS deployment overlays; walks the selected PP-Configuration through the major security-architecture concerns; and provides an `ADV_ARC.1` completeness checklist.
+* A Requirements Explorer that traces requirements, open operations, selection and dependency triggers, Supporting Document activities, and tests back to their owning artifacts.
+
+The supplement is a non-normative review aid. The PP, PP-Modules, PP-Configurations, and Supporting Documents remain the authoritative sources.
+
+== Review Focus
+
+Reviewers are encouraged to focus on:
+
+* Whether the DBMS Cryptographic Functions Module correctly owns the shared DBMS cryptographic requirements, including `FDP_DIT_EXT.1`.
+* Whether the Crypto Module clearly distinguishes Catalogue-derived SFRs, ECDs, dependencies, and Evaluation Activities from DBMS-iTC-originated integration requirements.
+* Whether the explicit Master Key protection selection in `FCS_CKM_EXT.1.2` cleanly and testably separates TOE-enforced cryptographic protection, non-exportable hardware-backed storage, and transient-only handling from supporting operational-environment storage protection.
+* Whether the normative Crypto Module audit-event refinement captures the required key-lifecycle and protected-channel events without permitting secret key material or protected payloads in audit records.
+* Whether the Crypto SD's transitional validation-evidence mechanism provides sufficient implementation, operating-environment, capability-coverage, residual-testing, and reporting controls without treating CAVP or CMVP as a substitute for DBMS integration activities.
+* Whether the optional Enterprise Enhanced use case appropriately constrains only the in-scope Catalogue selections needed for FIPS 140-3, NIAP, and CNSA 2.0 alignment.
+* Whether symmetric key encryption without an integrity mechanism (`FCS_COP.1/SKC`) should remain a permitted DEK-protection option in `FCS_CKM_EXT.1.2` under the General-Purpose use case, or whether key wrapping or authenticated encryption should be required for all conforming TOEs. The Enterprise Enhanced use case already requires key wrapping or authenticated encryption for stored DEKs.
+* Whether the transitional use of CMVP (FIPS 140-3) module-validation evidence for the RBG self-test and failure-behavior iterations (`FPT_TST.1/RBG`, `FPT_FLS.1/RBG`), pending publication of the Catalogue Evaluation Methods, provides sufficient assurance under appropriate Certification Body control.
+* Whether the Crypto Module should offer ML-DSA signature verification (`FCS_COP.1/SigVer`) and role-specific ML-KEM KeyGen, encapsulation, and decapsulation (`FCS_CKM.1/KEM` and `FCS_COP.1/KeyEncap`) in anticipation of corresponding CCDB Cryptographic Catalogue collateral, relying on the transitional CAVP evidence mechanism for FIPS 203 and FIPS 204 algorithm correctness until the corresponding Catalogue entries and Evaluation Methods are available.
+* Whether the General-Purpose use case should retain the full FIPS 203/204 parameter-set families (ML-DSA-44/65/87, ML-KEM-512/768/1024), with the Enterprise Enhanced use case constraining selections to ML-DSA-87 and ML-KEM-1024, or whether only the CNSA 2.0 parameter sets should be offered, as in the AppSW cPP Version 2 approach.
+* Whether the DBMS in the Cloud Module contains only cloud-specific refinements, integration checks, and deployment-channel mapping.
+* Whether the Cloud SD's stable activity-group identifiers and complete CEM mapping provide sufficient traceability for every FAU, FIA, FMT, FPT, FDP, and SAR Evaluation Activity.
+* Whether the DBaaS Module's tenant-isolation, customer-controlled-key, provider-role-separation, trusted-update, service-event, and managed-service evidence models are sufficiently mature despite its later publication track.
+* Whether the PP-Configurations correctly compose the Base PP and required modules without creating contradictory conformance paths.
