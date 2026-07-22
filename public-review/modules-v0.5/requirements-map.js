@@ -76,6 +76,7 @@
     empty: document.getElementById('empty-state'),
     workspace: document.getElementById('workspace'),
     reader: document.getElementById('reader-panel'),
+    readerResizer: document.getElementById('reader-resizer'),
     readerTitle: document.getElementById('reader-title'),
     readerFrame: document.getElementById('document-frame'),
     readerNewWindow: document.getElementById('reader-new-window'),
@@ -389,9 +390,13 @@
   function renderElement(element) {
     return `
       <div class="element">
-        <div class="element-id">${escapeHtml(element.id)}</div>
+        <div class="element-heading">
+          <span class="element-kicker">Requirement element</span>
+          <span class="element-id">${escapeHtml(element.id)}</span>
+          ${element.operations.length ? `<span class="element-operation-count">${element.operations.length} open operation${element.operations.length === 1 ? '' : 's'}</span>` : ''}
+        </div>
         <p class="source-text">${escapeHtml(element.text)}</p>
-        ${element.operations.length ? `<div class="operation-list">${element.operations.map(renderOperation).join('')}</div>` : ''}
+        ${element.operations.length ? `<div class="operation-list"><p class="operation-list-title">Open operations</p>${element.operations.map(renderOperation).join('')}</div>` : ''}
       </div>
     `;
   }
@@ -534,11 +539,11 @@
           <span class="requirement-title-block">
             <span class="requirement-title">${escapeHtml(requirement.title)}</span>
             ${renderTriggerSummary(requirement)}
-          </span>
-          <span class="requirement-metrics">
-            <span>${requirement.elements.length} element${requirement.elements.length === 1 ? '' : 's'}</span>
-            <span>${requirement.operations.length} operation${requirement.operations.length === 1 ? '' : 's'}</span>
-            <span>${requirement.activities.length} EA${requirement.activities.length === 1 ? '' : 's'}</span>
+            <span class="requirement-metrics">
+              <span>${requirement.elements.length} element${requirement.elements.length === 1 ? '' : 's'}</span>
+              <span>${requirement.operations.length} operation${requirement.operations.length === 1 ? '' : 's'}</span>
+              <span>${requirement.activities.length} EA${requirement.activities.length === 1 ? '' : 's'}</span>
+            </span>
           </span>
         </summary>
         <div class="requirement-body">
@@ -1224,6 +1229,7 @@
 
   function openSource(url, title) {
     elements.reader.hidden = false;
+    elements.readerResizer.hidden = false;
     elements.workspace.classList.add('reader-open');
     elements.readerTitle.textContent = title || 'Source document';
     elements.readerFrame.src = url;
@@ -1232,8 +1238,27 @@
 
   function closeReader() {
     elements.reader.hidden = true;
+    elements.readerResizer.hidden = true;
     elements.workspace.classList.remove('reader-open');
     elements.readerFrame.src = 'about:blank';
+  }
+
+  function readerWidthBounds() {
+    const workspaceWidth = elements.workspace.getBoundingClientRect().width;
+    return {
+      min: 360,
+      max: Math.max(360, Math.min(900, workspaceWidth - 560)),
+    };
+  }
+
+  function setReaderWidth(width) {
+    const { min, max } = readerWidthBounds();
+    const value = Math.round(Math.max(min, Math.min(max, width)));
+    document.documentElement.style.setProperty('--reader-width', `${value}px`);
+    elements.readerResizer.setAttribute('aria-valuemin', String(min));
+    elements.readerResizer.setAttribute('aria-valuemax', String(max));
+    elements.readerResizer.setAttribute('aria-valuenow', String(value));
+    try { localStorage.setItem('dbms-requirements-reader-width', String(value)); } catch (_) { /* Storage is optional. */ }
   }
 
   function setZoom(value) {
@@ -1398,6 +1423,26 @@
   document.getElementById('expand-all').addEventListener('click', () => elements.map.querySelectorAll('details').forEach((detail) => { detail.open = true; }));
   document.getElementById('collapse-all').addEventListener('click', () => elements.map.querySelectorAll('details').forEach((detail) => { detail.open = false; }));
   document.getElementById('reader-close').addEventListener('click', closeReader);
+  elements.readerResizer.addEventListener('pointerdown', (event) => {
+    if (window.matchMedia('(max-width: 1050px)').matches) return;
+    event.preventDefault();
+    elements.readerResizer.setPointerCapture(event.pointerId);
+    const resize = (moveEvent) => setReaderWidth(elements.workspace.getBoundingClientRect().right - moveEvent.clientX);
+    const finish = () => {
+      elements.readerResizer.removeEventListener('pointermove', resize);
+      elements.readerResizer.removeEventListener('pointerup', finish);
+      elements.readerResizer.removeEventListener('pointercancel', finish);
+    };
+    elements.readerResizer.addEventListener('pointermove', resize);
+    elements.readerResizer.addEventListener('pointerup', finish);
+    elements.readerResizer.addEventListener('pointercancel', finish);
+  });
+  elements.readerResizer.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    const current = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--reader-width')) || 560;
+    setReaderWidth(current + (event.key === 'ArrowLeft' ? 24 : -24));
+  });
   document.getElementById('clear-filters').addEventListener('click', () => {
     state.query = '';
     state.categories = new Set(Object.keys(categoryLabels));
@@ -1412,6 +1457,10 @@
   });
 
   renderTypeFilters();
+  try {
+    const savedReaderWidth = Number(localStorage.getItem('dbms-requirements-reader-width'));
+    if (Number.isFinite(savedReaderWidth)) setReaderWidth(savedReaderWidth);
+  } catch (_) { /* Storage is optional. */ }
   renderLegend();
   setZoom(1);
   rerender();
