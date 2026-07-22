@@ -10,17 +10,15 @@
 
 :iTC-longname: Database Management Systems
 :iTC-shortname: DBMS-iTC
+:iTC-email: dbms.itc@gmail.com
 :iTC-website: https://dbms-itc.github.io/
 :iTC-GitHub: https://github.com/dbms-itc/
-:issues-url: https://github.com/DBMS-iTC/Documents/issues/new/choose
-:discussions-url: https://github.com/orgs/DBMS-iTC/discussions
-:participation-guide: ../../docs/public-review-process.html
 
 == Introduction
 
 The {iTC-shortname} is publishing Public Review Draft 1 of Version 2.0 of the DBMS collaborative Protection Profile and its Supporting Document for general public comment.
 
-Submit specific cPP or Supporting Document comments through the {issues-url}[DBMS issue-template chooser]. Use {discussions-url}[DBMS-iTC Discussions] for broader questions or proposals. The {participation-guide}[participation tutorial] provides step-by-step instructions.
+Please send review comments to {iTC-email}.
 
 == Review Status
 
@@ -39,22 +37,20 @@ Review Phase:: Public Review Draft 1
 |2.0
 |link:cPP_DBMS_V2.0.pdf[PDF] +
 link:cPP_DBMS_V2.0.html[HTML] +
-link:cPPChanges.pdf[Tracked changes PDF] +
-link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.pdf[Text diff PDF] +
-link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.html[Text diff HTML]
+link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.pdf[Substantive change report PDF] +
+link:cPP_DBMS_V2.0_tracked_changes_from_v1.3.html[Substantive change report HTML]
 
 |Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Database Management Systems
 |2.0
 |link:SD_DBMS_V2.0.pdf[PDF] +
 link:SD_DBMS_V2.0.html[HTML] +
-link:SDChanges.pdf[Tracked changes PDF] +
-link:SD_DBMS_V2.0_tracked_changes_from_v1.1.pdf[Text diff PDF] +
-link:SD_DBMS_V2.0_tracked_changes_from_v1.1.html[Text diff HTML]
+link:SD_DBMS_V2.0_tracked_changes_from_v1.1.pdf[Substantive change report PDF] +
+link:SD_DBMS_V2.0_tracked_changes_from_v1.1.html[Substantive change report HTML]
 |===
 
 == Baseline
 
-The tracked changes documents compare the review drafts against the last official documents posted on this site:
+The substantive content diffs compare the review drafts against the last official documents posted on this site. They intentionally omit pagination and other presentation-only changes:
 
 * link:/cPP/cPP_DBMS_V1.3.pdf[cPP v1.3], dated 13 March 2023
 * link:/SD/SD_DBMS_V1.1.pdf[SD v1.1], dated 15 March 2023
