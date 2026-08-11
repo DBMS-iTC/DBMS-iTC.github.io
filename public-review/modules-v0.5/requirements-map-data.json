@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T19:40:41.005Z",
+  "generatedAt": "2026-08-11T20:24:21.523Z",
   "artifacts": [
     {
       "id": "base",
@@ -507,7 +507,8 @@
         "reviewChecks": [
           "The enforcement point is identified for every data-plane and management-plane request.",
           "Default attributes are restrictive and revocation reaches active subjects and cached authorization state.",
-          "Provider roles do not silently inherit tenant data access in a DBaaS deployment."
+          "Provider roles do not silently inherit tenant data access in a DBaaS deployment.",
+          "For FMT_MTD_EXT.1, use a unique non-production environment-variable canary in a likely diagnostic path; verify it is absent from client responses, application and audit logs, and diagnostic output, repeating only for distinct TSF paths."
         ],
         "owners": [
           "base",
@@ -1354,7 +1355,8 @@
         "reviewChecks": [
           "The architecture, functional specification, design, guidance, and test inventory describe the same interfaces and enforcement points.",
           "Dynamic SQL or other generated query-language paths are analyzed for injection and cannot bypass access control or audit.",
-          "For managed services, every activity has an evidence vantage and any provider participation or scheme-accepted evidence is recorded."
+          "For managed services, every activity has an evidence vantage and any provider participation or scheme-accepted evidence is recorded.",
+          "The evaluator inventories claimed variants, groups only variants sharing the same TSF implementation and security-relevant configuration, tests one representative per group plus every non-equivalent path, and records the coverage mapping and rationale in the ETR."
         ],
         "owners": [
           "base"

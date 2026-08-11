@@ -254,7 +254,7 @@
           ${requirements.map((requirement) => `
             <button class="requirement-chip js-jump-requirement" type="button" data-requirement-uid="${escapeAttribute(requirement.uid)}" title="Open ${escapeAttribute(requirement.id)} in the Requirements Explorer">
               <strong>${escapeHtml(requirement.id)}</strong>
-              <span>${escapeHtml(categoryLabels[requirement.category])} &middot; ${requirement.activityCount} EA / ${requirement.testCount} test${requirement.testCount === 1 ? '' : 's'}</span>
+              <span>${escapeHtml(categoryLabels[requirement.category])} &middot; ${requirement.activityCount} EA / ${requirement.testCount} test activit${requirement.testCount === 1 ? 'y' : 'ies'}</span>
             </button>
           `).join('')}
         </div>
@@ -290,7 +290,7 @@
             <div class="domain-module-list">
               ${ownerOrder.filter((owner) => byOwner.has(owner)).map((owner) => renderDomainModule(owner, byOwner.get(owner))).join('')}
             </div>
-            <p class="domain-evidence-summary">${requirements.length} mapped requirements lead to ${activityCount} evaluation activities, including ${testCount} tests. Select any requirement to open its normative text and evidence trail.</p>
+            <p class="domain-evidence-summary">${requirements.length} mapped requirements lead to ${activityCount} evaluation activities, including ${testCount} test activit${testCount === 1 ? 'y' : 'ies'}. This count does not imply every operational permutation is executed. Select any requirement to open its normative text and evidence trail.</p>
           </section>
           <section>
             <h4>Review checks</h4>
@@ -362,7 +362,7 @@
       </section>
 
       <section class="guide-handoff" aria-label="Continue to the requirements explorer">
-        <div><h2>Ready for the requirement-level review?</h2><p>Use the same scope to inspect inclusion triggers, open operations, normative text, Supporting Document activities, and tests.</p></div>
+        <div><h2>Ready for the requirement-level review?</h2><p>Use the same scope to inspect inclusion triggers, open operations, normative text, Supporting Document activities, and test activities.</p></div>
         <button type="button" data-page-mode="explorer">Open Requirements Explorer</button>
       </section>
     `;
@@ -1182,7 +1182,7 @@
     const visibleTriggerCount = state.view === 'triggers'
       ? visibleTriggers.length
       : selectionTriggers.filter((trigger) => visibleUids.has(trigger.sourceUid) && (!trigger.targetUid || visibleUids.has(trigger.targetUid))).length;
-    elements.summary.innerHTML = `<strong>${matches.length}</strong> requirements &nbsp; <strong>${visibleTriggerCount}</strong> inclusion relationships &nbsp; <strong>${totals.elements}</strong> elements &nbsp; <strong>${totals.operations}</strong> open operations &nbsp; <strong>${totals.activities}</strong> evaluation activities &nbsp; <strong>${totals.tests}</strong> tests`;
+    elements.summary.innerHTML = `<strong>${matches.length}</strong> requirements &nbsp; <strong>${visibleTriggerCount}</strong> inclusion relationships &nbsp; <strong>${totals.elements}</strong> elements &nbsp; <strong>${totals.operations}</strong> open operations &nbsp; <strong>${totals.activities}</strong> evaluation activities &nbsp; <strong>${totals.tests}</strong> test activit${totals.tests === 1 ? 'y' : 'ies'}`;
     openHashTarget();
   }
 
