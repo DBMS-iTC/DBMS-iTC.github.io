@@ -9,7 +9,7 @@
 :icons: font
 :doctype: book
 :revnumber: 0.5
-:revdate: 2026-07-20
+:revdate: 2026-08-11
 :xrefstyle: full
 
 :iTC-shortname: DBMS-iTC
@@ -81,6 +81,10 @@
 |0.5
 |2026-07-20
 |Assigned stable identifiers to every narrative SFR TSS, Guidance, and Test activity group and added complete CEM work-unit mapping for those groups, eliminating the prior dual-format traceability gap. Rolled all Crypto coordination references to the Version 0.5 module set.
+
+|0.5
+|2026-08-11
+|Refined broad Cloud evaluation activities to use documented equivalence classes and representative tests, while preserving coverage of each distinct TSF implementation and security-relevant configuration.
 
 |===
 
@@ -366,9 +370,9 @@ When performing independent testing of cloud-deployed TOEs, evaluators shall con
 *Test Environment Setup:*
 
 * The evaluator may conduct testing in the vendor's cloud environment, the evaluator's cloud environment, or a combination
-* The test environment shall be representative of claimed deployment configurations
+* The test environment shall be representative of each distinct claimed deployment configuration and TSF implementation path, using representative instances as described in the Representative Testing and Equivalence Classes Application Note.
 * The evaluator shall document the cloud provider, region, and resource types used for testing
-* Test configurations shall include claimed cloud service integrations (IAM, logging, secret management)
+* Test configurations shall include representative claimed cloud service integrations for each distinct TSF integration path (IAM, logging, secret management)
 
 *Test Repeatability:*
 
@@ -379,13 +383,13 @@ When performing independent testing of cloud-deployed TOEs, evaluators shall con
 
 *Test Coverage:*
 
-* Tests shall cover all claimed deployment configurations (single instance, clustered, containerized)
-* Tests shall exercise cloud-specific interfaces (IAM authentication, audit export, secret retrieval)
-* Tests shall verify behavior under both normal and error conditions
+* Tests shall cover each distinct claimed deployment configuration and TSF implementation path (single instance, clustered, containerized)
+* Tests shall exercise representative cloud-specific interfaces (IAM authentication, audit export, secret retrieval) for each distinct TSF implementation and security-relevant configuration path
+* Tests shall verify representative normal and error conditions for each distinct TSF behavior or handling path
 
 ==== Handling Elastic and Ephemeral Resources
 
-Cloud deployments may involve dynamic resource allocation. The evaluator shall:
+Cloud deployments may involve dynamic resource allocation. For each distinct claimed deployment or orchestration implementation path, the evaluator shall use representative instances as described in the Representative Testing and Equivalence Classes Application Note to:
 
 * Verify that the TOE maintains security properties during scale-out and scale-in operations
 * Verify that security-relevant state is preserved or correctly reconstructed after instance replacement
@@ -394,7 +398,7 @@ Cloud deployments may involve dynamic resource allocation. The evaluator shall:
 
 ==== Evaluating Integration with Cloud Services
 
-When the TOE integrates with cloud-native services, the evaluator shall:
+When the TOE integrates with cloud-native services, the evaluator shall apply the following checks to representative integration instances covering each distinct TSF implementation and security-relevant configuration path, as described in the Representative Testing and Equivalence Classes Application Note:
 
 *For Cloud IAM Integration (FIA_UID_EXT.1):*
 
@@ -486,7 +490,7 @@ The DBMS Cloud Module requires the inclusion of the DBMS Crypto Module. The eval
 * Apply the cPP_DBMS SD for SFRs inherited from the Base PP.
 
 *Verify Mandatory TLS Usage:*
-Because the TOE is deployed in the cloud, the evaluator shall verify that `FDP_DIT_EXT.1` identifies the protocol used for each external service channel and that the corresponding Functional Package components are included. TLS components are expected for cloud management interfaces exposed to untrusted networks, including web interfaces that provide HTTPS over TLS. The Cloud SD verifies that these components are mapped to deployed cloud interfaces and integration paths; the Crypto SD verifies the DBMS-specific cryptographic integration behavior, and the Functional Package SD verifies the protocol behavior.
+Because the TOE is deployed in the cloud, the evaluator shall verify that `FDP_DIT_EXT.1` identifies the protocol used for each distinct external service-channel implementation path and that the corresponding Functional Package components are included. TLS components are expected for cloud management interfaces exposed to untrusted networks, including web interfaces that provide HTTPS over TLS. The Cloud SD verifies that these components are mapped to deployed cloud interfaces and integration paths; the Crypto SD verifies the DBMS-specific cryptographic integration behavior, and the Functional Package SD verifies the protocol behavior. Equivalent endpoint instances are scoped using the Representative Testing and Equivalence Classes Application Note.
 
 *Handling Data-at-Rest Selections:*
 The evaluator shall apply the DBMS Crypto Module SD for `FDP_DAR_EXT.1` testing and use this Cloud SD only for cloud-deployment integration checks, such as storage coverage, key-management integration, and guidance consistency.
@@ -498,6 +502,11 @@ When multiple SDs provide Evaluation Activities for related functionality:
 . This SD takes precedence for cloud-specific SFRs defined in the PP-Module.
 . The DBMS Crypto Module SD takes precedence for cryptographic SFRs.
 . The cPP_DBMS SD applies for SFRs inherited without modification.
+
+[[representative-testing-equivalence-classes]]
+==== Application Note: Representative Testing and Equivalence Classes
+
+Where an activity refers to each, every, all, or no interface, the evaluator shall inventory the claimed variants and group only variants that share the same TSF implementation and security-relevant configuration. The evaluator shall test at least one representative of each group and every non-equivalent implementation path; review the complete inventory and record the mapping and rationale in the ETR. The activity does not require testing every operational instance, endpoint, data object, error condition, node, or deployment permutation unless it implements a distinct TSF path or the activity expressly says otherwise.
 
 == Assurance Activities Overview
 
@@ -764,19 +773,19 @@ Expected result: Audit records for start-up and shutdown events are present with
 
 *Test 2: Auditable Event Generation - Administrative Actions*
 
-The evaluator shall perform administrative actions through each available interface (CLI, API, web console if applicable) and verify:
+The evaluator shall inventory administrative interfaces and perform representative administrative actions through each distinct audit-generation implementation and security-relevant configuration path, in accordance with the Representative Testing and Equivalence Classes Application Note, and verify:
 
 . Each administrative action generates an appropriate audit record.
 . The audit record contains: date/time, event type, subject identity (the administrator), and outcome (success).
 . For cloud-specific deployments, the tenant identifier and source IP address are recorded.
 
-Expected result: All administrative actions result in correctly formatted audit records with cloud-specific context.
+Expected result: Representative administrative actions result in correctly formatted audit records with cloud-specific context.
 
 *Test 3: Auditable Event Generation - Authentication Events*
 
 The evaluator shall:
 
-. Attempt successful authentication using each supported authentication mechanism (local, cloud IAM, federated directory).
+. Attempt successful authentication using a representative mechanism from each distinct supported authentication implementation and security-relevant configuration path (local, cloud IAM, federated directory, as claimed).
 . Attempt failed authentication using invalid credentials.
 . Verify audit records are generated for both successful and failed authentication attempts.
 . Verify external identity provider authentication events are recorded when federated authentication is used.
@@ -800,14 +809,14 @@ Expected result: All sampled audit records contain the required content and clou
 
 *Test 5: Cloud-Specific Event Auditing*
 
-The evaluator shall trigger each cloud-specific auditable event type and verify recording:
+The evaluator shall trigger a representative cloud-specific auditable event from each distinct audit-generation implementation path and verify recording, including the following when claimed:
 
 . Administrative action via cloud interface (e.g., API call to modify configuration)
 . Configuration or deployment change
 . External identity provider authentication event
 . Access to cloud secret management integration (if applicable)
 
-Expected result: Cloud-specific events are recorded with appropriate context.
+Expected result: The representative cloud-specific events are recorded with appropriate context.
 
 *Test 6: Negative Test - Audit Tampering Attempt*
 
@@ -1034,8 +1043,8 @@ Expected result: Unauthorized deletion attempts are prevented.
 
 The evaluator shall:
 
-. As an unprivileged user, attempt to modify stored audit records through each TSF interface that exposes audit data.
-. Verify each modification attempt is denied.
+. As an unprivileged user, attempt to modify stored audit records through a representative TSF interface from each distinct audit-data access and modification-control implementation path.
+. Verify each selected modification attempt is denied.
 
 Expected result: Unauthorized modifications are prevented (the module completes the FAU_STG.2.2/Cloud selection as "prevent").
 
@@ -1126,7 +1135,7 @@ The evaluator shall verify the guidance describes:
 
 *Test 1: Audit Export to Cloud Logging Service*
 
-For each cloud-native logging service specified in the ST:
+The evaluator shall inventory the cloud-native logging services specified in the ST and, in accordance with the Representative Testing and Equivalence Classes Application Note, select a representative destination from each distinct audit-export implementation and security-relevant configuration path:
 
 . Configure audit export to the cloud logging service.
 . Generate auditable events on the TOE.
@@ -1175,11 +1184,11 @@ Expected result: The TSF handles export destination unavailability according to 
 
 If the TSF supports exporting to multiple destinations:
 
-. Configure export to multiple cloud logging services simultaneously.
+. Configure a representative multi-destination set that covers each distinct simultaneous-export implementation and security-relevant configuration path.
 . Generate auditable events.
-. Verify records appear in all configured destinations.
+. Verify records appear in every destination in the configured representative set.
 
-Expected result: Audit records are exported to all configured destinations.
+Expected result: Audit records are exported to every destination in the configured representative set.
 
 *Test 6: Export Credential Authentication*
 
@@ -1272,7 +1281,7 @@ The evaluator shall verify the guidance describes:
 
 The evaluator shall, without providing identity:
 
-. Attempt a representative set of TSF-mediated actions through each available interface (for example, query execution, configuration query, and management operations).
+. Attempt a representative set of TSF-mediated actions through a representative interface from each distinct pre-identification enforcement implementation and security-relevant configuration path (for example, query execution, configuration query, and management operations).
 . Verify each attempt is refused before identification and authentication complete.
 
 Expected result: No TSF-mediated action is permitted before identification and authentication. This test complements, and does not duplicate, the Base PP SD's FIA_UID.2/FIA_UAU.2 activities; it exercises the cloud-facing interfaces this module adds.
@@ -1461,14 +1470,14 @@ The evaluator shall perform the following tests:
 
 *Test 1: Role-Based Access Enforcement for Management Functions*
 
-For each security function identified in the TSS:
+The evaluator shall inventory the security functions and management operations identified in the TSS. For each distinct TSF role-authorization enforcement implementation and security-relevant configuration path, the evaluator shall select a representative security function and management operation in accordance with the Representative Testing and Equivalence Classes Application Note:
 
 . Step: Authenticate as a user assigned to an authorized role for managing the function.
-. Step: Attempt to perform each permitted management operation (determine behavior, disable, enable, modify).
-. Expected Result: All operations succeed for authorized roles.
+. Step: Attempt to perform the selected permitted management operation (determine behavior, disable, enable, modify, as applicable).
+. Expected Result: The selected operation succeeds for the authorized role.
 . Step: Authenticate as a user assigned to a role NOT authorized to manage the function.
-. Step: Attempt each management operation.
-. Expected Result: All operations are denied with appropriate error messages.
+. Step: Attempt the same selected management operation.
+. Expected Result: The selected operation is denied with an appropriate error message.
 
 *Test 2: Cloud IAM Integration for Management Authorization*
 
@@ -1485,16 +1494,17 @@ If the TOE integrates with external identity providers:
 
 For clustered or distributed DBMS deployments:
 
-. Step: Verify that management restrictions are consistently enforced across all cluster nodes.
-. Step: Attempt management operations via different nodes in the cluster.
-. Expected Result: Role-based restrictions are identical regardless of which node handles the request.
+. Step: Select representative nodes that cover each distinct cluster management-authorization and deployment path.
+. Step: Verify that management restrictions are consistently enforced through the selected nodes.
+. Expected Result: Role-based restrictions are identical for the selected nodes within the same implementation path.
 . Step: If the cluster includes separate management and data plane components, verify restrictions apply to management plane access.
 
 *Test 4: API and CLI Management Interface Restrictions*
 
 . Step: Enumerate all management APIs and CLI commands exposed by the TOE.
-. Step: For each interface, attempt operations requiring elevated privileges using both authorized and unauthorized credentials.
-. Expected Result: Access controls are consistently enforced across all interfaces.
+. Step: Group the interfaces by TSF role-authorization enforcement implementation and security-relevant configuration, then select a representative interface from each group.
+. Step: For each selected interface, attempt an operation requiring elevated privileges using both authorized and unauthorized credentials.
+. Expected Result: Access controls are consistently enforced across the representative interfaces for all distinct implementation paths.
 
 ---
 
@@ -1576,7 +1586,7 @@ The evaluator shall verify that the operational guidance (AGD_OPE/AGD_PRE):
 
 *Test 1: Role-Based Access to TSF Data*
 
-For each type of TSF data and each operation (query, modify, delete, clear):
+The evaluator shall inventory the types of TSF data and operations (query, modify, delete, clear), and select a representative data-and-operation combination from each distinct TSF authorization-enforcement implementation and security-relevant configuration path, in accordance with the Representative Testing and Equivalence Classes Application Note:
 
 . Step: Authenticate as a user with an authorized role for the operation.
 . Step: Perform the operation.
@@ -1587,7 +1597,7 @@ For each type of TSF data and each operation (query, modify, delete, clear):
 
 *Test 2: AWS Secrets Manager Integration*
 
-If AWS Secrets Manager is supported:
+If AWS Secrets Manager is supported and selected as a representative under Test 7:
 
 . Step: Configure the TOE to retrieve database credentials from AWS Secrets Manager.
 . Step: Verify the TOE authenticates to Secrets Manager using IAM role assumption.
@@ -1599,7 +1609,7 @@ If AWS Secrets Manager is supported:
 
 *Test 3: Azure Key Vault Integration*
 
-If Azure Key Vault is supported:
+If Azure Key Vault is supported and selected as a representative under Test 7:
 
 . Step: Configure the TOE to retrieve secrets from Azure Key Vault.
 . Step: Verify the TOE authenticates using managed identity or service principal.
@@ -1611,7 +1621,7 @@ If Azure Key Vault is supported:
 
 *Test 4: HashiCorp Vault Integration*
 
-If HashiCorp Vault is supported:
+If HashiCorp Vault is supported and selected as a representative under Test 7:
 
 . Step: Configure the TOE to retrieve secrets from Vault using the appropriate auth method (e.g., Kubernetes auth, AppRole).
 . Step: Verify successful authentication and secret retrieval.
@@ -1621,11 +1631,14 @@ If HashiCorp Vault is supported:
 
 *Test 5: Environment Variable Protection*
 
-. Step: Configure sensitive data to be passed via environment variables.
-. Step: Verify the TOE does not log or expose environment variable values in error messages.
-. Step: Attempt to retrieve environment variable values through the TOE's interfaces (APIs, logs, debug endpoints).
-. Expected Result: Sensitive environment variable values are not exposed.
-. Step: For containerized deployments, verify environment variables are not exposed via container inspection commands to unauthorized users.
+. Step: Configure a unique, non-production canary value as sensitive data passed via an environment variable.
+. Step: Induce a representative error condition for each distinct TOE error-handling or logging path that could expose the canary, and inspect the resulting client-visible error, application or error logs, audit output, and diagnostic interfaces exposed by that path.
+. Step: Verify the canary value is not present in any inspected output.
+. Step: Attempt to retrieve or cause output of the canary through a representative interface from each distinct exposure or data-access path (APIs, logs, debug endpoints).
+. Expected Result: The canary value is not exposed.
+. Step: For containerized deployments, verify the canary is not exposed via representative container-inspection exposure paths to unauthorized users.
+
+*Application Note:* This negative-protection test uses the canary to exercise the distinct error-handling and exposure paths that could reveal an environment variable. It does not require inducing every possible error condition or interrogating every operational endpoint; the Representative Testing and Equivalence Classes Application Note applies.
 
 *Test 6: Credential Memory Protection*
 
@@ -1637,16 +1650,16 @@ If HashiCorp Vault is supported:
 
 *Test 7: Secret Retrieval Security*
 
-For each supported cloud secret management system:
+The evaluator shall inventory supported cloud secret management systems and group them by TSF retrieval, authentication, rotation, and secret-handling implementation and security-relevant configuration. In accordance with the Representative Testing and Equivalence Classes Application Note, the evaluator shall select at least one representative system from each group:
 
 . Configure the TOE to retrieve a secret (e.g., database connection string or master key) from the cloud service.
 . Verify the retrieval request is made over a secure channel (for example, HTTPS over TLS).
 . Verify the secret is not logged in plaintext by the TOE upon retrieval.
 . If the retrieved secret is a cryptographic key (and the ST claims `FCS_CKM_EXT.1` in the Crypto Module), verify that the TOE handles the key material according to the Crypto Module's `FCS_CKM.6` key destruction claims and does not persist it to non-volatile storage in plaintext.
 
-Expected result: Secrets are retrieved securely and handled appropriately in memory.
+Expected result: Secrets for each representative system are retrieved securely and handled appropriately in memory.
 
-*Application Note:* General retrieval of configuration values, credentials, or non-key secrets from a cloud secret management service is evaluated as Cloud Module `FMT_MTD_EXT.1` behavior with the retrieval channel protected by `FDP_DIT_EXT.1`. If the retrieved value is a Master Key imported from an external entity under the Crypto Module BYOK path, `FCS_CKM_EXT.1.1` selects "Imported from External Entity", which triggers `FDP_ITC_EXT.1` and mandatory mutual TLS. HTTPS/TLS secret retrieval under `FDP_DIT_EXT.1` does not by itself satisfy the Crypto Module Master Key import requirement.
+*Application Note:* Tests 2 through 4 provide service-specific procedures for systems selected as Test 7 representatives or implementing a distinct TSF path. General retrieval of configuration values, credentials, or non-key secrets from a cloud secret management service is evaluated as Cloud Module `FMT_MTD_EXT.1` behavior with the retrieval channel protected by `FDP_DIT_EXT.1`. If the retrieved value is a Master Key imported from an external entity under the Crypto Module BYOK path, `FCS_CKM_EXT.1.1` selects "Imported from External Entity", which triggers `FDP_ITC_EXT.1` and mandatory mutual TLS. HTTPS/TLS secret retrieval under `FDP_DIT_EXT.1` does not by itself satisfy the Crypto Module Master Key import requirement.
 
 === FMT_SMF.1/Cloud Specification of Management Functions (Cloud)
 
@@ -1718,7 +1731,7 @@ The evaluator shall verify that the operational guidance (AGD_OPE/AGD_PRE):
 *Test 1: Audit Selection Configuration*
 
 . Step: Access the audit selection configuration interface.
-. Step: Configure audit selection based on each available criterion (user identity, tenant identifier, event type, etc.).
+. Step: Configure audit selection using a representative criterion from each distinct audit-selection evaluation and security-relevant configuration path (user identity, tenant identifier, event type, etc.).
 . Step: Generate events matching and not matching the selection criteria.
 . Expected Result: Only events matching the criteria are audited.
 . Step: Restart the TOE.
@@ -1726,7 +1739,7 @@ The evaluator shall verify that the operational guidance (AGD_OPE/AGD_PRE):
 
 *Test 2: Audit Export Configuration*
 
-. Step: Configure audit export to each supported destination.
+. Step: Inventory supported audit-export destinations and configure audit export to a representative destination from each distinct export implementation and security-relevant configuration path.
 . Step: Generate auditable events.
 . Step: Verify events are exported to the configured destination.
 . Step: Misconfigure the export destination (invalid credentials, unreachable endpoint).
@@ -1988,7 +2001,7 @@ For other orchestration platforms:
 
 *Test 5: Notification Mechanism Verification*
 
-For each configured notification recipient:
+For each distinct configured notification-delivery mechanism and security-relevant configuration path, select a representative recipient in accordance with the Representative Testing and Equivalence Classes Application Note:
 
 . Step: Trigger a monitored condition.
 . Step: Verify the notification is received by the configured recipient.
@@ -2035,14 +2048,14 @@ The evaluator shall verify the operational guidance describes any configuration 
 
 *Test 1: Secure State Preservation*
 
-For each failure type claimed in the ST (or, where a failure type cannot practically be induced in the test environment, for a representative subset with the remainder verified through simulation or provider-supported demonstration recorded in the ETR):
+The evaluator shall inventory the failure types claimed in the ST and map them to the secure-state transition implementation and security-relevant configuration described in the TSS. For each distinct secure-state transition implementation path, the evaluator shall induce or simulate a representative claimed failure type. Where a representative failure cannot practically be induced in the test environment, the evaluator shall use simulation or provider-supported demonstration and record it in the ETR:
 
 . Induce or simulate the failure according to the TSS description (for example, revoking connectivity to a required cloud service, detaching storage, or terminating an instance through the orchestrator).
 . Verify the TOE enters the secure state defined in the TSS.
 . While the TOE is in the secure state, attempt to access protected data or perform a security-relevant operation, and verify the attempt is refused consistent with the TSS definition of the secure state.
 . Recover the TOE per the operational guidance and verify normal operation resumes.
 
-Expected result: For each claimed failure type, the TOE preserves the TSS-defined secure state and protected data is not exposed during the failure condition.
+Expected result: For each distinct secure-state transition implementation path, the TOE preserves the TSS-defined secure state and protected data is not exposed during the representative failure condition.
 
 === FPT_ITT.1 Internal TSF Data Transfer Protection
 
@@ -2124,7 +2137,8 @@ If modification protection is selected:
 
 For clustered deployments:
 
-. Step: Verify all nodes in the cluster use protected communication channels.
+. Step: Select representative nodes and communication links that cover each distinct protected cluster-communication implementation and security-relevant configuration path.
+. Step: Verify the selected nodes use protected communication channels.
 . Step: Attempt to add a rogue node to the cluster without proper credentials.
 . Expected Result: The rogue node is rejected.
 . Step: Verify legitimate cluster operations succeed with protection enabled.
@@ -2215,7 +2229,7 @@ The evaluator shall verify that the operational guidance (AGD_OPE/AGD_PRE):
 
 *Test 1: Version Query*
 
-. Step: Use each available interface to query the current TOE version.
+. Step: Use a representative version-query interface from each distinct TSF version-reporting implementation and security-relevant configuration path to query the current TOE version.
 . Expected Result: Version information is returned accurately.
 . Step: Verify the version information matches the installed TOE version.
 
@@ -2494,6 +2508,8 @@ NOTE: The cryptographic testing activities for encryption algorithms, TLS protoc
 
 The FDP activities in this SD coordinate Cloud Module evaluation with the mandatory DBMS Crypto Module. Data-at-rest cryptographic behavior and core data-in-transit cryptographic protocol behavior are evaluated under the Crypto Module SD; this Cloud SD verifies cloud-deployment mapping and integration.
 
+*Application Note:* The Representative Testing and Equivalence Classes Application Note applies to the Cloud coordination activities below. Complete inventories of storage objects and interfaces remain required as mapping and documentation evidence; the independent integration tests select representatives only after grouping variants that share the same TSF implementation and security-relevant configuration.
+
 The evaluator shall:
 
 1. Verify the ST includes the mandatory DBMS Crypto Module.
@@ -2519,7 +2535,7 @@ The Cloud PP-Module does not define a Cloud-local `FDP_DAR_EXT.1` requirement. D
 | The evaluator shall verify the ST includes the DBMS Crypto Module in the PP-Configuration claim and identifies the selected Crypto Module `FDP_DAR_EXT.1` strategy.
 
 | EA-FDP_DAR_EXT.1.1-2
-| The evaluator shall examine the TSS to verify it maps cloud-deployed persistent storage objects to the data-at-rest protection described for the selected Crypto Module strategy, including database files, transaction or redo logs, temporary files, backup or archive data, configuration data containing security parameters, and credential or key material where applicable.
+| The evaluator shall examine the TSS to verify it maps an inventory of cloud-deployed persistent storage objects to the data-at-rest protection described for the selected Crypto Module strategy, including database files, transaction or redo logs, temporary files, backup or archive data, configuration data containing security parameters, and credential or key material where applicable, and identifies the equivalence groups used for representative integration testing.
 
 | EA-FDP_DAR_EXT.1.1-3
 | The evaluator shall verify the TSS describes any cloud-specific integration used to support data-at-rest protection, such as cloud HSMs, key vault services, storage classes, volume types, object storage, deployment automation, or secret retrieval. Detailed cryptographic key management and algorithm testing remains governed by the DBMS Crypto Module SD.
@@ -2550,7 +2566,7 @@ The Cloud PP-Module does not define a Cloud-local `FDP_DAR_EXT.1` requirement. D
 | The evaluator shall verify that cryptographic testing for data-at-rest encryption is performed under the DBMS Crypto Module evaluation and that the Cloud Module ETR references the applicable Crypto Module test results.
 
 | EA-FDP_DAR_EXT.1.3-2
-| The evaluator shall independently verify cloud-deployment integration for data-at-rest protection, including that encrypted storage coverage remains consistent across deployment automation, scaling, restart, migration, backup, and restore scenarios claimed by the TOE.
+| The evaluator shall independently verify cloud-deployment integration for each distinct data-at-rest protection implementation and security-relevant deployment path, using representative claimed lifecycle scenarios (deployment automation, scaling, restart, migration, backup, and restore, as applicable) to confirm that encrypted storage coverage remains consistent.
 
 |===
 
@@ -2561,7 +2577,7 @@ The Cloud PP-Module does not define a Cloud-local `FDP_DAR_EXT.1` requirement. D
 | Work Unit | Activity
 
 | EA-FDP_DAR_EXT.1.4-1
-| When testing in cloud environments, the evaluator shall:
+| When testing in cloud environments, the evaluator shall select representative lifecycle scenarios that cover each distinct cloud-deployment and encryption-integration implementation path claimed by the TOE. As applicable, the selected scenarios shall:
 
 a) Verify the encryption configuration persists across instance stop/start cycles
 b) Verify encryption is maintained when storage volumes are detached and reattached
@@ -2569,7 +2585,7 @@ c) Verify encryption configuration is preserved during cloud orchestration opera
 d) Verify audit records are generated for encryption configuration changes
 
 | EA-FDP_DAR_EXT.1.4-2
-| The evaluator shall verify that cloud-specific storage types used by the TOE are covered by the encryption mechanism, including:
+| The evaluator shall inventory the cloud-specific storage types used by the TOE, group only types that share the same Crypto Module protection mapping and cloud-integration implementation, and verify a representative storage object from each group is covered by the encryption mechanism, including:
 
 a) Root volumes (if TOE binaries/config are stored there)
 b) Data volumes (where database files reside)
@@ -2595,7 +2611,7 @@ The Cloud PP-Module does not define a Cloud-local `FDP_DIT_EXT.1` requirement. D
 | Work Unit | Activity
 
 | EA-FDP_DIT_EXT.1.1-1
-| The evaluator shall verify the TSS identifies all external interfaces that transmit data requiring protection, including:
+| The evaluator shall verify the TSS identifies a complete inventory of external interfaces that transmit data requiring protection and records the equivalence groups used for representative testing, including:
 
 * Client-to-DBMS connections (queries, results)
 * Administrative interfaces (management consoles, APIs)
@@ -2604,10 +2620,10 @@ The Cloud PP-Module does not define a Cloud-local `FDP_DIT_EXT.1` requirement. D
 * Inter-node communication (for distributed deployments, addressed separately by FPT_ITT.1)
 
 | EA-FDP_DIT_EXT.1.1-2
-| The evaluator shall verify the TSS clearly identifies which selection was made in the Crypto Module `FDP_DIT_EXT.1.1` and specifies which cloud-facing interfaces use which protection mechanism. For HTTPS interfaces, the TSS shall describe the interface as HTTP over the selected TLS channel.
+| The evaluator shall verify the TSS clearly identifies which selection was made in the Crypto Module `FDP_DIT_EXT.1.1`, maps each inventory entry to its protection mechanism and test-equivalence group, and specifies which cloud-facing interface groups use which protection mechanism. For HTTPS interfaces, the TSS shall describe the interface as HTTP over the selected TLS channel.
 
 | EA-FDP_DIT_EXT.1.1-3
-| The evaluator shall verify the TSS describes the TOE's cloud-deployment behavior when a protected connection cannot be established, such as external identity provider, audit export, secret retrieval, or management API connection failure. The detailed certificate validation and protocol mismatch behavior is evaluated under the Crypto Module SD; this activity verifies that the cloud integration fails securely and does not fall back to an unprotected path.
+| The evaluator shall verify the TSS describes the TOE's cloud-deployment behavior for each distinct protected-connection failure-handling path, such as external identity provider, audit export, secret retrieval, or management API connection failure. The detailed certificate validation and protocol mismatch behavior is evaluated under the Crypto Module SD; this activity verifies that the cloud integration fails securely and does not fall back to an unprotected path.
 
 |===
 
@@ -2620,7 +2636,7 @@ The Cloud PP-Module does not define a Cloud-local `FDP_DIT_EXT.1` requirement. D
 | Work Unit | Activity
 
 | EA-FDP_DIT_EXT.1.1-4
-| The evaluator shall verify the ST includes the applicable requirements from the TLS Functional Package for each TLS-protected cloud-facing interface, including `FCS_TLSC_EXT.1`, `FCS_TLSS_EXT.1`, or both as applicable to the TOE role. The evaluator shall verify the TSS maps each interface to its TLS client or server behavior without duplicating TLS protocol evaluation.
+| The evaluator shall verify the ST includes the applicable requirements from the TLS Functional Package for each TLS-protected cloud-facing interface group, including `FCS_TLSC_EXT.1`, `FCS_TLSS_EXT.1`, or both as applicable to the TOE role. The evaluator shall verify the TSS maps each inventory entry to its TLS client or server behavior without duplicating TLS protocol evaluation.
 
 | EA-FDP_DIT_EXT.1.1-5
 | The evaluator shall verify the TSS describes the cloud deployment parameters that select or constrain the Crypto Module protected channel behavior, including:
@@ -2632,7 +2648,7 @@ d) Integration with cloud certificate management or secrets management services
 e) Behavior when cloud routing, load balancer, proxy, or service mesh configuration affects channel termination or re-encryption
 
 | EA-FDP_DIT_EXT.1.1-6
-| The evaluator shall verify the TSS identifies which TOE interfaces act as:
+| The evaluator shall verify the TSS identifies which TOE interface groups act as:
 
 a) TLS clients (covered by `FCS_TLSC_EXT.1`)
 b) TLS servers (covered by `FCS_TLSS_EXT.1`)
@@ -2689,7 +2705,7 @@ e) The cloud interfaces and deployment paths where the protocol is used
 | The evaluator shall verify that the alternative protocol is covered by scheme-acceptable evaluation activities through the Crypto Module claim. The Cloud SD does not create a new cryptographic protocol evaluation method for the alternative protocol.
 
 | EA-FDP_DIT_EXT.1.1-13
-| The evaluator shall verify the cloud deployment does not use the alternative protocol on any interface not mapped to the corresponding Crypto Module claim.
+| The evaluator shall review the complete interface inventory and mapping to verify the cloud deployment does not use the alternative protocol on an interface not mapped to the corresponding Crypto Module claim.
 
 |===
 
@@ -2702,7 +2718,7 @@ e) The cloud interfaces and deployment paths where the protocol is used
 | EA-FDP_DIT_EXT.1.2-1
 | The evaluator shall examine the operational guidance to verify it describes how to configure data-in-transit protection in cloud environments, including:
 
-a) Enabling TLS on all applicable interfaces, including HTTPS over TLS where applicable
+a) Enabling TLS on each documented applicable interface group, including HTTPS over TLS where applicable
 b) Certificate installation and configuration procedures
 c) Cipher suite configuration (if configurable)
 d) Client certificate requirements (for mTLS deployments)
@@ -2725,7 +2741,7 @@ c) How to diagnose connection failures related to TLS/certificate issues
 d) Certificate renewal and rotation procedures
 
 | EA-FDP_DIT_EXT.1.2-4
-| The evaluator shall verify the guidance identifies all TOE interfaces requiring protection and provides interface-specific configuration instructions for cloud deployment scenarios.
+| The evaluator shall verify the guidance identifies the complete inventory of TOE interfaces requiring protection and provides configuration instructions for each distinct interface group in cloud deployment scenarios.
 
 |===
 
@@ -2738,15 +2754,15 @@ d) Certificate renewal and rotation procedures
 | EA-FDP_DIT_EXT.1.3-1
 | *For TLS selections, including HTTPS over TLS:* The evaluator shall verify that protocol testing is performed under the applicable TLS Functional Package evaluation and coordinated with the DBMS Crypto Module integration evaluation. The evaluator shall confirm:
 
-a) `FCS_TLSC_EXT.1` testing covers TLS client behavior for all client interfaces
-b) `FCS_TLSS_EXT.1` testing covers TLS server behavior for all server interfaces
+a) `FCS_TLSC_EXT.1` testing covers a representative TLS client interface from each distinct client implementation and security-relevant configuration path
+b) `FCS_TLSS_EXT.1` testing covers a representative TLS server interface from each distinct server implementation and security-relevant configuration path
 c) HTTPS interfaces are mapped to the underlying TLS client or server testing, with HTTP-specific enforcement checked by this Cloud SD
 d) Test results are documented in the Crypto Module ETR
 
 NOTE: The evaluator is not required to duplicate TLS protocol testing. Coordination with the Crypto Module evaluation team is sufficient.
 
 | EA-FDP_DIT_EXT.1.3-2
-| The evaluator shall independently verify cloud deployment enforcement for representative protected interfaces:
+| The evaluator shall independently verify cloud deployment enforcement for representative protected interfaces selected in accordance with the Representative Testing and Equivalence Classes Application Note:
 
 a) Unprotected access paths, such as plaintext HTTP for an HTTPS management interface, are disabled, rejected, or redirected exactly as described in the ST and guidance
 b) The deployed cloud route, load balancer, proxy, or service mesh preserves the protected channel properties claimed for the interface, including re-encryption where TLS is terminated before the TOE
@@ -2756,7 +2772,7 @@ d) Evidence from the Crypto Module evaluation covers detailed TLS, X.509, and ci
 | EA-FDP_DIT_EXT.1.3-3
 | *For alternative protocols:* The evaluator shall coordinate with the Crypto Module evaluation and execute only Cloud-specific integration tests needed to verify:
 
-a) The protocol is used only on the cloud-facing interfaces identified in the ST
+a) The protocol is used only on the cloud-facing interface groups identified in the ST, as confirmed by the complete interface inventory
 b) The deployment does not expose an unprotected fallback path for those interfaces
 c) The protocol operates as described in the cloud deployment guidance
 d) The Crypto Module evaluation covers the cryptographic behavior of the protocol
@@ -2770,7 +2786,7 @@ d) The Crypto Module evaluation covers the cryptographic behavior of the protoco
 | Work Unit | Activity
 
 | EA-FDP_DIT_EXT.1.4-1
-| When testing in cloud environments, the evaluator shall verify data-in-transit protection for:
+| When testing in cloud environments, the evaluator shall select representative connections that cover each distinct claimed cloud route, network topology, and data-in-transit protection implementation path, including:
 
 a) Connections from external networks (internet-facing)
 b) Connections within the cloud VPC/VNet (private network)
@@ -2778,21 +2794,21 @@ c) Connections across availability zones
 d) Connections across cloud regions (if applicable)
 
 | EA-FDP_DIT_EXT.1.4-2
-| The evaluator shall verify the TOE correctly handles cloud load balancer scenarios:
+| The evaluator shall verify representative cloud load balancer scenarios that cover each distinct TLS termination, passthrough, or re-encryption implementation path:
 
 a) TLS termination at load balancer (with re-encryption to TOE)
 b) TLS passthrough to TOE
 c) End-to-end encryption through load balancers
 
 | EA-FDP_DIT_EXT.1.4-3
-| The evaluator shall verify:
+| The evaluator shall verify representative certificate lifecycle and connection-event scenarios for each distinct certificate-management and audit-event implementation path:
 
 a) Certificate rotation does not cause connection failures for active sessions
 b) The TOE handles certificate refresh from cloud services appropriately
 c) Audit records capture TLS connection establishment/failure events
 
 | EA-FDP_DIT_EXT.1.4-4
-| The evaluator shall verify that data-in-transit protection is maintained when:
+| The evaluator shall select representative lifecycle conditions that cover each distinct deployment and data-in-transit protection implementation path, and verify that protection is maintained when:
 
 a) The TOE is scaled horizontally (new instances)
 b) The TOE is migrated between hosts
@@ -3018,14 +3034,14 @@ c) The verification process described in guidance can be followed successfully
 
 ==== ATE_IND.2: Cloud Independent Testing Guidance
 
-The following activities provide guidance for evaluator independent testing in cloud environments.
+The following activities provide guidance for evaluator independent testing in cloud environments. The Representative Testing and Equivalence Classes Application Note applies to test-environment selection and scenario selection below.
 
 [cols="1,4",options="header"]
 |===
 | Work Unit | Activity
 
 | EA-ATE_IND.Cloud-1
-| *Test Environment Setup:* The evaluator shall establish a test environment that reflects realistic cloud deployment, including:
+| *Test Environment Setup:* The evaluator shall establish a test environment that reflects realistic cloud deployment and represents each distinct claimed TSF deployment path. The environment need not reproduce every operational provider, region, node, or resource permutation unless it implements a distinct TSF path. It shall include:
 
 a) Deployment in a supported cloud provider environment (or functional equivalent)
 b) Configuration of required cloud services (IAM, KMS, logging)
@@ -3047,10 +3063,10 @@ e) TOE configuration (referencing guidance procedures used)
 a) Test procedures shall be repeatable across instance replacements
 b) Test data shall be preserved across instance terminations (if needed)
 c) Tests shall not depend on specific instance identifiers
-d) Tests shall verify security properties persist through orchestration events
+d) Tests shall verify security properties persist through representative orchestration events for each distinct deployment or orchestration implementation path
 
 | EA-ATE_IND.Cloud-4
-| *Handling Elastic/Scaling Events:* The evaluator shall test TOE behavior during scaling operations:
+| *Handling Elastic/Scaling Events:* The evaluator shall select representative scaling operations that cover each distinct scaling and security-state implementation path:
 
 a) Security properties maintained when scaling out (adding instances)
 b) Security properties maintained when scaling in (removing instances)
@@ -3058,7 +3074,7 @@ c) Session handling during scale events
 d) Audit continuity during scale events
 
 | EA-ATE_IND.Cloud-5
-| *Handling Cloud Service Failures:* The evaluator shall test TOE behavior when cloud services are unavailable:
+| *Handling Cloud Service Failures:* For each distinct claimed cloud-service integration and failure-handling path, the evaluator shall select a representative service-unavailability condition, as applicable:
 
 a) Simulate IAM service unavailability (e.g., network block)
 b) Simulate KMS service unavailability
@@ -3066,7 +3082,7 @@ c) Simulate logging service unavailability
 d) Verify TOE fails securely and does not bypass security checks
 
 | EA-ATE_IND.Cloud-6
-| *Multi-Zone/Multi-Region Testing:* If the TOE supports deployment across availability zones or regions, the evaluator shall test:
+| *Multi-Zone/Multi-Region Testing:* If the TOE supports deployment across availability zones or regions, the evaluator shall select representative topology and failover scenarios that cover each distinct deployment implementation path:
 
 a) Security properties maintained for cross-zone communication
 b) Consistency of security configuration across zones
@@ -3074,10 +3090,10 @@ c) Audit aggregation from multiple zones
 d) Failover behavior maintains security properties
 
 | EA-ATE_IND.Cloud-7
-| *Container-Specific Testing (if applicable):* For containerized deployments, the evaluator shall test:
+| *Container-Specific Testing (if applicable):* For containerized deployments, the evaluator shall select a representative runtime and orchestration combination for each distinct container deployment implementation path. Where supported variants share the same TSF implementation and security-relevant configuration, the evaluator shall review the complete inventory and record the representative mapping and rationale in the ETR. The selected combinations shall test:
 
-a) Security properties with different container runtimes (if supported)
-b) Security properties under different orchestration platforms (Kubernetes, ECS, etc.)
+a) Security properties with the representative container runtime or runtimes selected for each distinct implementation path (if multiple runtimes are supported)
+b) Security properties under the representative orchestration platform or platforms selected for each distinct implementation path (Kubernetes, ECS, etc.)
 c) Resource limit enforcement
 d) Container isolation properties
 

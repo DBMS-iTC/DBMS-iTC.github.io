@@ -441,7 +441,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Supporting Document: Evaluation Activities for collaborative PP-Module for DBMS Cryptographic Functions</h1>
 <div class="details">
 <span id="revnumber">version 0.5,</span>
-<span id="revdate">2026-07-20</span>
+<span id="revdate">2026-08-11</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -474,11 +474,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_use_case_selection_verification">3.1.5. Use Case Selection Verification</a></li>
 </ul>
 </li>
-<li><a href="#_handling_selections_and_assignments">3.2. Handling Selections and Assignments</a>
+<li><a href="#representative-test-selection">3.2. Representative Test Selection</a></li>
+<li><a href="#_handling_selections_and_assignments">3.3. Handling Selections and Assignments</a>
 <ul class="sectlevel3">
-<li><a href="#_evaluating_sfrs_with_selections">3.2.1. Evaluating SFRs with Selections</a></li>
-<li><a href="#_evaluating_sfrs_with_assignments">3.2.2. Evaluating SFRs with Assignments</a></li>
-<li><a href="#_verifying_st_author_made_valid_selections">3.2.3. Verifying ST Author Made Valid Selections</a></li>
+<li><a href="#_evaluating_sfrs_with_selections">3.3.1. Evaluating SFRs with Selections</a></li>
+<li><a href="#_evaluating_sfrs_with_assignments">3.3.2. Evaluating SFRs with Assignments</a></li>
+<li><a href="#_verifying_st_author_made_valid_selections">3.3.3. Verifying ST Author Made Valid Selections</a></li>
 </ul>
 </li>
 </ul>
@@ -493,8 +494,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_documentation_requirements">4.2. Documentation Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#_agd_ope_operational_user_guidance_cryptographic_requirements">4.2.1. AGD_OPE: Operational User Guidance — Cryptographic Requirements</a></li>
-<li><a href="#_agd_pre_preparative_procedures_cryptographic_deployment">4.2.2. AGD_PRE: Preparative Procedures — Cryptographic Deployment</a></li>
+<li><a href="#_agd_ope_operational_user_guidance_cryptographic_requirements">4.2.1. AGD_OPE: Operational User Guidance (Cryptographic Requirements)</a></li>
+<li><a href="#_agd_pre_preparative_procedures_cryptographic_deployment">4.2.2. AGD_PRE: Preparative Procedures (Cryptographic Deployment)</a></li>
 </ul>
 </li>
 </ul>
@@ -708,6 +709,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">0.5</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-20</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Added TSS, guidance, and test coverage for the explicit FCS_CKM_EXT.1.2 Master Key protection models, including cryptographic protection, non-exportable hardware-backed storage, and transient-only handling. Aligned evaluation evidence with the module&#8217;s normative audit-event refinement and rolled the coordinated review set to Version 0.5.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.5</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-08-11</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Refined broad test activities to use inventory-based representative testing while retaining coverage of every distinct TSF implementation path; added ETR mapping and rationale requirements for key, storage, and channel variants.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1077,7 +1083,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>For every uncovered element, the evaluator shall apply a specifically identified method accepted by the responsible Certification Body. Merely stating that a CAVP record exists, or that the Catalogue Evaluation Methods are not yet available, is not sufficient.</p>
 </div>
 <div class="paragraph">
-<p>The transitional mechanism applies equally to the PP-Module&#8217;s anticipated post-Version 1.0 rows — ML-DSA in <code>FCS_COP.1/SigVer</code>, ML-KEM KeyGen in <code>FCS_CKM.1/KEM</code>, and ML-KEM encapsulation or decapsulation in <code>FCS_COP.1/KeyEncap</code>. FIPS PUB 203 and FIPS PUB 204 are final and CAVP validates implementations of both. The validation coverage matrix shall map the ML-KEM KeyGen capability separately from EncapDecap and shall identify which of encapsulation and decapsulation the TOE performs. Algorithm correctness for those selections is otherwise evidenced in the same way as for published Catalogue rows, pending the corresponding Catalogue entries and Evaluation Methods.</p>
+<p>The transitional mechanism applies equally to the PP-Module&#8217;s anticipated post-Version 1.0 rows: ML-DSA in <code>FCS_COP.1/SigVer</code>, ML-KEM KeyGen in <code>FCS_CKM.1/KEM</code>, and ML-KEM encapsulation or decapsulation in <code>FCS_COP.1/KeyEncap</code>. FIPS PUB 203 and FIPS PUB 204 are final and CAVP validates implementations of both. The validation coverage matrix shall map the ML-KEM KeyGen capability separately from EncapDecap and shall identify which of encapsulation and decapsulation the TOE performs. Algorithm correctness for those selections is otherwise evidenced in the same way as for published Catalogue rows, pending the corresponding Catalogue entries and Evaluation Methods.</p>
 </div>
 <div class="paragraph">
 <p>When a scheme-recognized version of [<a href="#Crypto_Eval_Methods">[Crypto_Eval_Methods]</a>] becomes available, that document becomes the primary algorithm evaluation method for this SD. Existing validation results may continue to satisfy individual activities only to the extent permitted by that document or by the responsible Certification Body. The DBMS-specific integration activities in this SD remain applicable and are not displaced by publication of the Catalogue methods.</p>
@@ -1094,7 +1100,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The evaluator shall verify the TSS identifies the DRBG self-tests performed and when they run (per the FPT_TST.1.1/RBG selection), and the failure behavior by which the TOE preserves a secure state per FPT_FLS.1.1/RBG.</p>
 </li>
 <li>
-<p>Where the DRBG implementation is within the boundary of a cryptographic module validated under the CMVP (FIPS 140-3 / ISO/IEC 19790) — whose validation examines pre-operational and conditional self-tests, including DRBG health tests, and the module&#8217;s error states — the evaluator may accept that module validation as evidence for the self-test execution and failure behavior of the validated module, applying the same acceptance conditions as for algorithm validation evidence above (official listing status, implementation identity, operating-environment match, and TSS boundary identification) and recording the determination in the Cryptographic Validation Coverage Matrix.</p>
+<p>Where the DRBG implementation is within the boundary of a cryptographic module validated under the CMVP (FIPS 140-3 / ISO/IEC 19790) (whose validation examines pre-operational and conditional self-tests, including DRBG health tests, and the module&#8217;s error states), the evaluator may accept that module validation as evidence for the self-test execution and failure behavior of the validated module, applying the same acceptance conditions as for algorithm validation evidence above (official listing status, implementation identity, operating-environment match, and TSS boundary identification) and recording the determination in the Cryptographic Validation Coverage Matrix.</p>
 </li>
 <li>
 <p>The TOE-integration residue remains evaluated: the evaluator shall verify, per the TSS, that the TOE refuses RBG-dependent cryptographic services when the module reports a self-test failure or error state. Where inducing the failure is not practical, the evaluator shall use a method accepted by the responsible Certification Body and record it in the evaluation report.</p>
@@ -1224,9 +1230,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_handling_selections_and_assignments">3.2. Handling Selections and Assignments</h3>
+<h3 id="representative-test-selection">3.2. Representative Test Selection</h3>
+<div class="paragraph">
+<p><strong>Application Note:</strong> Where an activity refers to each, every, all, or no interface, the evaluator shall inventory the claimed variants and group only variants that share the same TSF implementation and security-relevant configuration. The evaluator shall test at least one representative of each group and every non-equivalent implementation path; review the complete inventory and record the mapping and rationale in the ETR. The activity does not require testing every operational instance, endpoint, data object, error condition, node, or deployment permutation unless it implements a distinct TSF path or the activity expressly says otherwise.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_handling_selections_and_assignments">3.3. Handling Selections and Assignments</h3>
 <div class="sect3">
-<h4 id="_evaluating_sfrs_with_selections">3.2.1. Evaluating SFRs with Selections</h4>
+<h4 id="_evaluating_sfrs_with_selections">3.3.1. Evaluating SFRs with Selections</h4>
 <div class="paragraph">
 <p>When an SFR includes a selection operation, the evaluator shall:</p>
 </div>
@@ -1276,7 +1288,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_evaluating_sfrs_with_assignments">3.2.2. Evaluating SFRs with Assignments</h4>
+<h4 id="_evaluating_sfrs_with_assignments">3.3.2. Evaluating SFRs with Assignments</h4>
 <div class="paragraph">
 <p>When an SFR includes an assignment operation, the evaluator shall:</p>
 </div>
@@ -1298,7 +1310,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_verifying_st_author_made_valid_selections">3.2.3. Verifying ST Author Made Valid Selections</h4>
+<h4 id="_verifying_st_author_made_valid_selections">3.3.3. Verifying ST Author Made Valid Selections</h4>
 <div class="paragraph">
 <p>The evaluator shall verify that selections are:</p>
 </div>
@@ -1405,7 +1417,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_documentation_requirements">4.2. Documentation Requirements</h3>
 <div class="sect3">
-<h4 id="_agd_ope_operational_user_guidance_cryptographic_requirements">4.2.1. AGD_OPE: Operational User Guidance — Cryptographic Requirements</h4>
+<h4 id="_agd_ope_operational_user_guidance_cryptographic_requirements">4.2.1. AGD_OPE: Operational User Guidance (Cryptographic Requirements)</h4>
 <div class="paragraph">
 <p>The operational user guidance shall include sections addressing:</p>
 </div>
@@ -1462,7 +1474,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_agd_pre_preparative_procedures_cryptographic_deployment">4.2.2. AGD_PRE: Preparative Procedures — Cryptographic Deployment</h4>
+<h4 id="_agd_pre_preparative_procedures_cryptographic_deployment">4.2.2. AGD_PRE: Preparative Procedures (Cryptographic Deployment)</h4>
 <div class="paragraph">
 <p>The preparative procedures shall include:</p>
 </div>
@@ -1607,15 +1619,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Step: Examine system views, status commands, or audit logs that report the encryption algorithm and key size for active encrypted objects.</p>
+<p>Step: Apply <a href="#representative-test-selection">Section 3.2, &#8220;Representative Test Selection&#8221;</a> to inventory active DEK variants. Group DEKs only when they share the same direct-DEK generation implementation and security-relevant algorithm, key-size, and protection configuration, and identify one active DEK representative for each group.</p>
 </li>
 <li>
-<p>Step: Verify the reported key size matches the assignment made in <code>FCS_CKM.1.1/SKG</code> and the corresponding <code>FCS_COP.1/SKC</code> or <code>FCS_COP.1/AEAD</code> claims.</p>
+<p>Step: Examine system views, status commands, or audit logs that report the encryption algorithm and key size for each representative encrypted object.</p>
+</li>
+<li>
+<p>Step: Verify that every reported key size matches the assignment made in <code>FCS_CKM.1.1/SKG</code> and the corresponding <code>FCS_COP.1/SKC</code> or <code>FCS_COP.1/AEAD</code> claims.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Expected result: All active DEKs use the key size(s) specified in the ST. No objects use key sizes not claimed in the ST.</p>
+<p>Expected result: Each representative DEK uses the key size(s) specified in the ST. The ETR inventory and mapping show that every direct-DEK generation variant is covered by a tested representative or is individually tested, and no claimed configuration uses an unclaimed key size.</p>
 </div>
 <hr>
 </div>
@@ -2246,27 +2261,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Step: Identify every Master Key storage or use path and the protection model selected for it in the first selection of <code>FCS_CKM_EXT.1.2</code>.</p>
+<p>Step: Apply <a href="#representative-test-selection">Section 3.2, &#8220;Representative Test Selection&#8221;</a> to the TSS inventory of Master Key storage or use paths. Group paths only when they share the same protection model, TSF implementation, authorization mechanism, and, where applicable, persistent-artifact format or transient-handling behavior; identify one representative path for each group.</p>
 </li>
 <li>
-<p>Step: Using an unauthorized database role and, where applicable, a standard unprivileged platform account, attempt to invoke Master Key operations, read a persistent Master Key artifact, or export the key through the documented key-store interface.</p>
+<p>Step: Using an unauthorized database role and, where applicable, a standard unprivileged platform account, attempt to invoke Master Key operations, read a persistent Master Key artifact, or export the key through the documented key-store interface for each representative path.</p>
 </li>
 <li>
-<p>Step: For a cryptographically protected persistent copy, inspect the protected record and the TSS/developer evidence to verify that the claimed <code>FCS_COP.1/KeyWrap</code> or <code>FCS_COP.1/AEAD</code> operation protects the MEK and that the protecting key is not stored alongside it in an equivalent plaintext form.</p>
+<p>Step: For every representative path with a cryptographically protected persistent copy, inspect the protected record and the TSS/developer evidence to verify that the claimed <code>FCS_COP.1/KeyWrap</code> or <code>FCS_COP.1/AEAD</code> operation protects the MEK and that the protecting key is not stored alongside it in an equivalent plaintext form.</p>
 </li>
 <li>
-<p>Step: For non-exportable hardware-backed storage, exercise the documented export or read interface, or the closest negative operation the interface permits, and verify that plaintext export is refused and only authorized TOE operations can use the key.</p>
+<p>Step: For every representative path with non-exportable hardware-backed storage, exercise the documented export or read interface, or the closest negative operation the interface permits, and verify that plaintext export is refused and only authorized TOE operations can use the key.</p>
 </li>
 <li>
-<p>Step: For a no-persistent-material path, stop and restart the TOE or force it past the documented transient-key lifetime, then inspect the persistent locations and artifacts identified in the TSS and verify that no plaintext or reversibly encoded Master Key remains within the TOE boundary.</p>
+<p>Step: For every representative no-persistent-material path, stop and restart the TOE or force it past the documented transient-key lifetime, then inspect the persistent locations and artifacts identified in the TSS and verify that no plaintext or reversibly encoded Master Key remains within the TOE boundary.</p>
 </li>
 <li>
-<p>Step: Verify that the selected mechanism is TSF behavior within the evaluated TOE boundary and is not satisfied solely by the operational-environment protections assigned to <code>OE.KEY_STORE_PROTECTION</code>.</p>
+<p>Step: Verify that the selected mechanism for every representative path is TSF behavior within the evaluated TOE boundary and is not satisfied solely by the operational-environment protections assigned to <code>OE.KEY_STORE_PROTECTION</code>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Expected result: Each Master Key path implements the protection model selected in the ST; unauthorized use or export is denied; persistent material is cryptographically protected or non-exportable as claimed; transient-only paths leave no persistent Master Key; and environmental storage protection is treated only as supporting protection.</p>
+<p>Expected result: Every Master Key storage or use path is mapped to a tested representative or is individually tested. Each distinct protection-model implementation denies unauthorized use or export; persistent material is cryptographically protected or non-exportable as claimed; transient-only paths leave no persistent Master Key; and environmental storage protection is treated only as supporting protection.</p>
 </div>
 <hr>
 </div>
@@ -2606,6 +2621,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
+<p>Step: Apply <a href="#representative-test-selection">Section 3.2, &#8220;Representative Test Selection&#8221;</a> to the TSS inventory of covered storage-object variants. Group artifacts only when they share the same encryption implementation, security-relevant cryptographic configuration, storage format or encoding, and lifecycle/write path that can affect encryption or plaintext detection; select a representative artifact for each group.</p>
+</li>
+<li>
 <p>Step: If supported by the TOE and consistent with the evaluation configuration, create a positive-control unencrypted object or pre-encryption artifact containing distinctive plaintext strings to confirm the inspection method can locate plaintext when it is present.</p>
 </li>
 <li>
@@ -2621,12 +2639,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Step: Force checkpoints, log flushes, and temporary operations as described in guidance, then stop the DBMS service to flush all in-memory buffers and caches to disk.</p>
 </li>
 <li>
-<p>Step: Map the raw artifacts to the storage-object categories identified in the TSS and scan each covered artifact for the known plaintext strings and expected encoded representations.</p>
+<p>Step: Map the selected raw artifacts to the storage-object categories identified in the TSS and scan each representative artifact for the known plaintext strings and expected encoded representations.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Expected result: The inspection method detects plaintext in the positive-control artifact when one is used. The plaintext strings are not found in storage objects that the TSS claims are encrypted. The observed artifacts correspond to the storage-object categories identified in the TSS.</p>
+<p>Expected result: The inspection method detects plaintext in the positive-control artifact when one is used. The plaintext strings are not found in representative artifacts that the TSS claims are encrypted. The ETR inventory and mapping show that every covered storage-object variant is mapped to a tested representative or is individually tested.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -2638,21 +2656,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Step: Execute queries that generate redo/transaction log entries, undo/rollback entries, temporary sort or spill operations, index maintenance, backup artifacts, and export artifacts containing the same distinctive plaintext strings used in Test 1.</p>
+<p>Step: Using the inventory and mapping from Test 1, execute queries that generate redo/transaction log entries, undo/rollback entries, temporary sort or spill operations, index maintenance, backup artifacts, and export artifacts containing the same distinctive plaintext strings used in Test 1. Where an operation creates a distinct TSF path, select a representative artifact from its own group.</p>
 </li>
 <li>
 <p>Step: Stop the DBMS service or otherwise obtain quiesced raw artifacts according to the guidance.</p>
 </li>
 <li>
-<p>Step: Inspect each covered artifact category identified in the TSS for the distinctive plaintext strings.</p>
+<p>Step: Inspect each selected representative artifact for the distinctive plaintext strings.</p>
 </li>
 <li>
-<p>Step: For each documented exclusion, inspect a representative artifact or review developer evidence sufficient to confirm that the exclusion rationale is accurate.</p>
+<p>Step: For the complete inventory of documented exclusions, inspect a representative artifact for each equivalence group or review developer evidence sufficient to confirm the exclusion rationale for every member of the group.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Expected result: The scope of encryption coverage in practice is consistent with the TSS. Covered artifacts do not contain the distinctive plaintext strings. Documented exclusions are accurate, bounded, and do not expose plaintext user data that the selected strategy claims to protect, unless the artifact is protected by an equivalent claimed mechanism.</p>
+<p>Expected result: The scope of encryption coverage in practice is consistent with the TSS. Tested representative artifacts do not contain the distinctive plaintext strings, and the inventory mapping covers every covered artifact variant. Documented exclusions are accurate, bounded, and do not expose plaintext user data that the selected strategy claims to protect, unless the artifact is protected by an equivalent claimed mechanism.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -2664,7 +2682,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Step: Create a test table containing at least one encrypted column and at least one intentionally unencrypted column as a positive control.</p>
+<p>Step: Apply <a href="#representative-test-selection">Section 3.2, &#8220;Representative Test Selection&#8221;</a> to the TSS inventory of granular-encryption variants and affected artifact variants. Group variants only when they share the same column-encryption implementation, security-relevant cryptographic configuration, storage format, and write path; select a representative encrypted column and artifact for each group.</p>
+</li>
+<li>
+<p>Step: Create a test table containing the selected representative encrypted column or columns and at least one intentionally unencrypted column as a positive control.</p>
 </li>
 <li>
 <p>Step: Insert rows with distinctive known plaintext values in both column types, including values likely to appear in indexes, logs, exports, and backups.</p>
@@ -2676,12 +2697,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Step: Stop the DBMS service or otherwise obtain quiesced raw artifacts.</p>
 </li>
 <li>
-<p>Step: Inspect the raw storage files, relevant index files, logs, exports, and backups using a binary editor or equivalent tool.</p>
+<p>Step: Inspect the raw storage files, relevant index files, logs, exports, and backups corresponding to each selected representative using a binary editor or equivalent tool.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Expected result: Known plaintext values are present for intentionally unencrypted positive-control data when the inspection method can observe raw plaintext. Known plaintext values are not present for encrypted columns in artifacts that the TSS claims are protected. Any artifacts excluded from granular protection match the TSS rationale.</p>
+<p>Expected result: Known plaintext values are present for intentionally unencrypted positive-control data when the inspection method can observe raw plaintext. Known plaintext values are not present for encrypted columns in representative artifacts that the TSS claims are protected. The ETR inventory and mapping show that every distinct granular-encryption implementation path is covered by a tested representative or is individually tested, and any artifacts excluded from granular protection match the TSS rationale.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -2756,7 +2777,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>identifies each channel over which the TOE transmits data to or from external entities, including client-to-database connections, database-to-database connections, management and administrative channels, audit export channels, and connections to external services;</p>
 </li>
 <li>
-<p>identifies the protocol protecting each channel: TLS (including HTTPS over TLS where applicable), which is mandatory for every conforming TOE, or a supplementary protocol claimed in the <code>FDP_DIT_EXT.1.1</code> selection — the evaluator shall verify the TLS Functional Package claim is present regardless of any supplementary protocol, and that any supplementary protocol is claimed from an applicable Functional Package and implemented within the TOE boundary (not by the underlying operating system or kernel);</p>
+<p>identifies the protocol protecting each channel: TLS (including HTTPS over TLS where applicable), which is mandatory for every conforming TOE, or a supplementary protocol claimed in the <code>FDP_DIT_EXT.1.1</code> selection; the evaluator shall verify the TLS Functional Package claim is present regardless of any supplementary protocol, and that any supplementary protocol is claimed from an applicable Functional Package and implemented within the TOE boundary (not by the underlying operating system or kernel);</p>
 </li>
 <li>
 <p>identifies the TLS and X.509 components included from the Functional Package for TLS v2.1 and the Functional Package for X.509 Certificates that implement each protected channel; and</p>
@@ -2781,15 +2802,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Step: Configure each claimed channel according to the operational guidance.</p>
+<p>Step: Apply <a href="#representative-test-selection">Section 3.2, &#8220;Representative Test Selection&#8221;</a> to the TSS inventory of claimed channels. Group channels only when they share the same TSF implementation and security-relevant protocol, endpoint-authentication, and configuration path; identify one representative channel for each group.</p>
 </li>
 <li>
-<p>Step: Establish a connection over each channel and capture the traffic.</p>
+<p>Step: Configure each representative channel according to the operational guidance.</p>
 </li>
 <li>
-<p>Step: Verify that the channel uses the protocol claimed in <code>FDP_DIT_EXT.1.1</code> (e.g., TLS 1.2 or TLS 1.3) and that application data is not transmitted in plaintext.</p>
+<p>Step: Establish a connection over each representative channel and capture the traffic.</p>
+</li>
+<li>
+<p>Step: Verify that every representative channel uses the protocol claimed in <code>FDP_DIT_EXT.1.1</code> (e.g., TLS 1.2 or TLS 1.3) and that application data is not transmitted in plaintext.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>Expected result: Every representative channel uses the claimed protocol and does not transmit application data in plaintext. The ETR inventory and mapping show that every claimed channel is covered by a tested representative or is individually tested.</p>
 </div>
 <div class="paragraph">
 <p><strong>Test 2: Endpoint Authentication</strong></p>
@@ -3166,7 +3193,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Identify the physical or logical storage files used by the TOE for data files, redo/transaction logs, undo files, temporary tablespace, backups, exports, snapshots under TOE control, and database-managed diagnostic or spill files that can contain user data.</p>
+<p>Inventory the physical or logical storage-object variants used by the TOE for data files, redo/transaction logs, undo files, temporary tablespace, backups, exports, snapshots under TOE control, and database-managed diagnostic or spill files that can contain user data. Map each variant to its encryption implementation, security-relevant cryptographic configuration, storage format or lifecycle/write path, and representative-test group in accordance with <a href="#representative-test-selection">Section 3.2, &#8220;Representative Test Selection&#8221;</a>.</p>
 </li>
 <li>
 <p>Confirm the ability to stop the DBMS service and access raw storage files while the service is stopped.</p>
@@ -3175,7 +3202,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Identify and document the location of any keystore files for DEK/MEK storage inspection.</p>
 </li>
 <li>
-<p>Identify any documented exclusions from Storage-Scope or Granular encryption and the evidence needed to confirm the exclusion rationale.</p>
+<p>Inventory any documented exclusions from Storage-Scope or Granular encryption, map them to their representative-test groups, and identify the evidence needed to confirm the exclusion rationale for every group member.</p>
 </li>
 <li>
 <p>Configure a positive-control plaintext artifact when supported, and disable or account for compression, deduplication, encoding, or page-format transformations that could affect storage inspection.</p>
@@ -3222,10 +3249,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Audit log excerpts showing generated records where applicable.</p>
 </li>
 <li>
-<p>Network captures (for FDP_ITC_EXT.1 tests), with session keys excluded.</p>
+<p>Network captures (for FDP_DIT_EXT.1 and FDP_ITC_EXT.1 tests), with session keys excluded.</p>
 </li>
 <li>
-<p>Binary/hex excerpts from storage inspection (for FDP_DAR_EXT.1 tests), including positive-control evidence when used and confirming presence or absence of plaintext across covered and excluded artifacts.</p>
+<p>Binary/hex excerpts from representative storage artifacts (for FDP_DAR_EXT.1 tests), including positive-control evidence when used, the ETR inventory and representative mapping, and evidence that confirms the rationale for documented exclusions.</p>
 </li>
 <li>
 <p>Configuration files or system view output used during testing.</p>
@@ -3501,7 +3528,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footer">
 <div id="footer-text">
 Version 0.5<br>
-Last updated 2026-07-20 17:52:21 -0500
+Last updated 2026-08-11 14:38:38 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

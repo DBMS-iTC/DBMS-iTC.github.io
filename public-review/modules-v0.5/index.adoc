@@ -5,7 +5,7 @@
 :table-caption: Table
 :doctype: book
 :revnumber: 0.5
-:revdate: 2026-07-20
+:revdate: 2026-08-11
 :xrefstyle: full
 
 :iTC-longname: Database Management Systems
@@ -25,7 +25,7 @@ Submit specific PP-Module, Supporting Document, or PP-Configuration comments thr
 == Review Status
 
 Publication Date:: 30 June 2026
-Last Revised:: 20 July 2026 (Version 0.5: priority-finding closure, role-specific ML-KEM model, complete review-set refresh)
+Last Revised:: 11 August 2026 (Version 0.5: pragmatic Supporting Document Evaluation Activity scoping update)
 End of Comment Period:: To be announced
 Review Phase:: Public Review Draft 1
 

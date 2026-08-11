@@ -441,7 +441,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>Supporting Document: Evaluation Activities for collaborative PP-Module for Database-as-a-Service (DBaaS)</h1>
 <div class="details">
 <span id="revnumber">version 0.5,</span>
-<span id="revdate">2026-07-20</span>
+<span id="revdate">2026-08-11</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -464,32 +464,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_evaluator_access_strategy">3.3. Evaluator Access Strategy</a></li>
 <li><a href="#_audit_channel_identification">3.4. Audit Channel Identification</a></li>
 <li><a href="#_tenant_isolation_testing_strategy">3.5. Tenant Isolation Testing Strategy</a></li>
-<li><a href="#_external_service_dependencies">3.6. External Service Dependencies</a></li>
-<li><a href="#_handling_selections_and_assignments">3.7. Handling Selections and Assignments</a></li>
+<li><a href="#_representative_test_scoping">3.6. Representative-Test Scoping</a></li>
+<li><a href="#_external_service_dependencies">3.7. External Service Dependencies</a></li>
+<li><a href="#_handling_selections_and_assignments">3.8. Handling Selections and Assignments</a></li>
 </ul>
 </li>
 <li><a href="#_assurance_activities_overview">4. Assurance Activities Overview</a>
 <ul class="sectlevel2">
 <li><a href="#_assurance_approach_rationale">4.1. Assurance Approach Rationale</a></li>
-<li><a href="#_mapping_to_base_pp_sars">4.2. Mapping to Base PP SARs</a>
+<li><a href="#_negative_property_evidence_and_the_toetrusted_platform_boundary">4.2. Negative-Property Evidence and the TOE/Trusted-Platform Boundary</a></li>
+<li><a href="#_mapping_to_base_pp_sars">4.3. Mapping to Base PP SARs</a>
 <ul class="sectlevel3">
-<li><a href="#_inherited_sar_families">4.2.1. Inherited SAR Families</a></li>
-<li><a href="#_applying_base_pp_sar_activities">4.2.2. Applying Base PP SAR Activities</a></li>
+<li><a href="#_inherited_sar_families">4.3.1. Inherited SAR Families</a></li>
+<li><a href="#_applying_base_pp_sar_activities">4.3.2. Applying Base PP SAR Activities</a></li>
 </ul>
 </li>
-<li><a href="#_dbaas_specific_assurance_activities">4.3. DBaaS-Specific Assurance Activities</a>
+<li><a href="#_dbaas_specific_assurance_activities">4.4. DBaaS-Specific Assurance Activities</a>
 <ul class="sectlevel3">
-<li><a href="#_ase_security_target_evaluation">4.3.1. ASE: Security Target Evaluation</a></li>
-<li><a href="#_adv_development">4.3.2. ADV: Development</a></li>
-<li><a href="#_alc_life_cycle_support">4.3.3. ALC: Life-cycle Support</a></li>
-<li><a href="#_ate_tests">4.3.4. ATE: Tests</a></li>
-<li><a href="#_ava_vulnerability_assessment">4.3.5. AVA: Vulnerability Assessment</a></li>
+<li><a href="#_ase_security_target_evaluation">4.4.1. ASE: Security Target Evaluation</a></li>
+<li><a href="#_adv_development">4.4.2. ADV: Development</a></li>
+<li><a href="#_alc_life_cycle_support">4.4.3. ALC: Life-cycle Support</a></li>
+<li><a href="#_ate_tests">4.4.4. ATE: Tests</a></li>
+<li><a href="#_ava_vulnerability_assessment">4.4.5. AVA: Vulnerability Assessment</a></li>
 </ul>
 </li>
-<li><a href="#_documentation_requirements">4.4. Documentation Requirements</a>
+<li><a href="#_documentation_requirements">4.5. Documentation Requirements</a>
 <ul class="sectlevel3">
-<li><a href="#_agd_ope_operational_user_guidance_dbaas_specific_requirements">4.4.1. AGD_OPE: Operational User Guidance — DBaaS-Specific Requirements</a></li>
-<li><a href="#_agd_pre_preparative_procedures_service_provisioning">4.4.2. AGD_PRE: Preparative Procedures — Service Provisioning</a></li>
+<li><a href="#_agd_ope_operational_user_guidance_dbaas_specific_requirements">4.5.1. AGD_OPE: Operational User Guidance (DBaaS-Specific Requirements)</a></li>
+<li><a href="#_agd_pre_preparative_procedures_service_provisioning">4.5.2. AGD_PRE: Preparative Procedures (Service Provisioning)</a></li>
 </ul>
 </li>
 </ul>
@@ -791,6 +793,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">2026-07-20</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Rolled the completed managed-service Evaluation Activities, evidence-vantage model, provider-supported demonstration paths, and Crypto Module coordination into the Version 0.5 review set.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">0.5</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2026-08-11</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Refined broad Evaluation Activity scoping: representative testing now covers each distinct TSF path, with complete inventory review and ETR rationale, rather than every operational instance or permutation.</p></td>
+</tr>
 </tbody>
 </table>
 <!-- toc disabled -->
@@ -858,7 +865,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </dl>
 </div>
 <div class="paragraph">
-<p>Role names in the Evaluation Activities of this SD — Tenant User, Tenant Administrator, Service Provider Administrator — are the module-level role labels of <code>FMT_SMR.1/DBaaS</code>. Per that component&#8217;s application note, the TOE is not required to name its roles verbatim; the ST maps each label to the TOE&#8217;s own role terminology. Wherever an activity directs the evaluator to act as, provision, or observe one of these roles, the evaluator shall use the TOE role or roles the ST maps to that label.</p>
+<p>Role names in the Evaluation Activities of this SD (Tenant User, Tenant Administrator, Service Provider Administrator) are the module-level role labels of <code>FMT_SMR.1/DBaaS</code>. Per that component&#8217;s application note, the TOE is not required to name its roles verbatim; the ST maps each label to the TOE&#8217;s own role terminology. Wherever an activity directs the evaluator to act as, provision, or observe one of these roles, the evaluator shall use the TOE role or roles the ST maps to that label.</p>
 </div>
 </div>
 <div class="sect2">
@@ -908,23 +915,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_evidence_vantages">2.5. Evidence Vantages</h3>
 <div class="paragraph">
-<p>Test evidence for this SD — and, when the DBaaS PP-Configuration is evaluated, for Base PP and Crypto Module activities executed against the managed service (see <a href="#_relationship_to_other_documents">Section 2.6, &#8220;Relationship to Other Documents&#8221;</a>) — is collected from four vantages. The vantage identifiers V1 through V4 are used throughout this SD, and the Evidence Vantage Mapping appendix assigns them to every test activity.</p>
+<p>Test evidence for this SD, and, when the DBaaS PP-Configuration is evaluated, for Base PP and Crypto Module activities executed against the managed service (see <a href="#_relationship_to_other_documents">Section 2.6, &#8220;Relationship to Other Documents&#8221;</a>), is collected from four vantages. The vantage identifiers V1 through V4 are used throughout this SD, and the Evidence Vantage Mapping appendix assigns them to every test activity.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">V1 — Tenant data plane</dt>
+<dt class="hdlist1">V1 (Tenant data plane)</dt>
 <dd>
-<p>The database interfaces of an evaluator-provisioned tenant context — SQL clients, drivers, and database-level APIs — exercised as the TOE roles mapped to the Tenant User and Tenant Administrator labels. This is the vantage of the Base PP&#8217;s ordinary user and administrator activities.</p>
+<p>The database interfaces of an evaluator-provisioned tenant context (SQL clients, drivers, and database-level APIs) exercised as the TOE roles mapped to the Tenant User and Tenant Administrator labels. This is the vantage of the Base PP&#8217;s ordinary user and administrator activities.</p>
 </dd>
-<dt class="hdlist1">V2 — Tenant service control plane</dt>
+<dt class="hdlist1">V2 (Tenant service control plane)</dt>
 <dd>
-<p>The tenant-facing management surface of the cloud service — service consoles, management APIs, and command-line tools available to the evaluation tenancy — used to provision tenant contexts, configure customer-controlled keys, initiate backup and restore, configure resource quotas and audit export where tenant-visible, and query the service software revision. This vantage is evaluator-driven and requires no provider involvement beyond the evaluation tenancy itself. Which functions appear at V2 rather than V4 varies by TOE and is settled by the ST&#8217;s interface identification and role-label mapping.</p>
+<p>The tenant-facing management surface of the cloud service (service consoles, management APIs, and command-line tools available to the evaluation tenancy) used to provision tenant contexts, configure customer-controlled keys, initiate backup and restore, configure resource quotas and audit export where tenant-visible, and query the service software revision. This vantage is evaluator-driven and requires no provider involvement beyond the evaluation tenancy itself. Which functions appear at V2 rather than V4 varies by TOE and is settled by the ST&#8217;s interface identification and role-label mapping.</p>
 </dd>
-<dt class="hdlist1">V3 — Evaluator-controlled external services</dt>
+<dt class="hdlist1">V3 (Evaluator-controlled external services)</dt>
 <dd>
 <p>Services outside the TOE but under evaluator control, on which tests depend as instruments: the external key management service holding the revocable test key (through which key revocation and key-provider unreachability are induced) and the external audit sink (at which audit export is observed).</p>
 </dd>
-<dt class="hdlist1">V4 — Provider-internal operations</dt>
+<dt class="hdlist1">V4 (Provider-internal operations)</dt>
 <dd>
 <p>Functions exercisable only by the service provider: provider administrative roles, the update deployment pipeline, restore paths not exposed at V2, and fleet operations. This vantage is never directly accessible to the evaluator; its evidence is obtained through provider-supported demonstration, provider test evidence, or provider documentation under the Evaluator Access Strategy, with every such reliance recorded in the ETR.</p>
 </dd>
@@ -956,10 +963,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Where SFRs are iterated by the PP-Module as <code>/DBaaS</code>, the Evaluation Activities in this SD supplement those in the Base PP SD for the tenant-scoped refinements.</p>
 </div>
 <div class="paragraph">
-<p>When the DBaaS PP-Configuration is evaluated, the Base PP SD and Crypto Module SD activities are executed against the same provider-operated managed service as the activities of this SD. Those documents were written for TOEs where the evaluator holds full administrative access; under this PP-Configuration their activities are executed from the vantages defined in <a href="#_evidence_vantages">Section 2.5, &#8220;Evidence Vantages&#8221;</a>. A Base PP or Crypto Module activity exercisable through the tenant data plane (V1) or tenant service control plane (V2) is performed there unchanged. Where such an activity assumes host-level, operating-system, or full-DBA access that the managed-service model does not provide to tenants, the evaluator shall apply the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>) — determining whether the SD in question permits reliance on TSS review, operational guidance, scheme-accepted evidence, or a provider-supported demonstration (V4) — and shall record each such reliance in the ETR.</p>
+<p>When the DBaaS PP-Configuration is evaluated, the Base PP SD and Crypto Module SD activities are executed against the same provider-operated managed service as the activities of this SD. Those documents were written for TOEs where the evaluator holds full administrative access; under this PP-Configuration their activities are executed from the vantages defined in <a href="#_evidence_vantages">Section 2.5, &#8220;Evidence Vantages&#8221;</a>. A Base PP or Crypto Module activity exercisable through the tenant data plane (V1) or tenant service control plane (V2) is performed there unchanged. Where such an activity assumes host-level, operating-system, or full-DBA access that the managed-service model does not provide to tenants, the evaluator shall apply the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>), determining whether the SD in question permits reliance on TSS review, operational guidance, scheme-accepted evidence, or a provider-supported demonstration (V4), and shall record each such reliance in the ETR.</p>
 </div>
 <div class="paragraph">
-<p>Two Base PP areas warrant naming, because their realization splits across planes in a managed service. Identification and authentication: the Base PP&#8217;s FIA activities apply to the database authentication interfaces of the TOE (V1); authentication to the tenant service control plane (V2) is typically performed by a cloud identity provider, which is an external service under OE.EXTERNAL_SERVICES and is verified as an external service dependency rather than under the Base PP FIA activities — the ST&#8217;s boundary enumeration identifies which authentication surfaces are TSF. Time: audit timestamps for DBMS audit trail records derive from the time source the Base PP activities verify, while service event stream records derive from the Trusted Platform&#8217;s time service under OE.EXTERNAL_SERVICES; the evaluator relies on the ST&#8217;s identification of each and does not apply the Base PP time activities to the stream.</p>
+<p>Two Base PP areas warrant naming, because their realization splits across planes in a managed service. Identification and authentication: the Base PP&#8217;s FIA activities apply to the database authentication interfaces of the TOE (V1); authentication to the tenant service control plane (V2) is typically performed by a cloud identity provider, which is an external service under OE.EXTERNAL_SERVICES and is verified as an external service dependency rather than under the Base PP FIA activities; the ST&#8217;s boundary enumeration identifies which authentication surfaces are TSF. Time: audit timestamps for DBMS audit trail records derive from the time source the Base PP activities verify, while service event stream records derive from the Trusted Platform&#8217;s time service under OE.EXTERNAL_SERVICES; the evaluator relies on the ST&#8217;s identification of each and does not apply the Base PP time activities to the stream.</p>
 </div>
 </div>
 </div>
@@ -976,7 +983,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The evaluation authority determines whether the submitted evidence is acceptable under the applicable scheme policy, including recognized authorization programs, assurance levels, currency, and exceptions. The evaluator does not independently establish Trusted Platform acceptance criteria or treat cloud authorization evidence as satisfying a TOE SFR unless the applicable requirement expressly permits use of a platform-provided mechanism.</p>
 </div>
 <div class="paragraph">
-<p><strong>Provider role separation (OE.PROVIDER_ROLE_SEPARATION).</strong> The evaluator shall verify that the provider&#8217;s role and account model documentation demonstrates that administrative authority over the DBaaS service and administrative authority over the Trusted Platform are exercised through logically distinct roles, accounts, and control planes, assigned according to least privilege, such that no single administrative identity holds both. Vertical integration — the same provider operating both the service and the platform — is permitted; the verification addresses the administrative populations and their control planes, not corporate structure. Where the documentation alone is not sufficient, the evaluator shall use a provider-supported demonstration of the role and account model (for example, enumeration of the distinct administrative directories, IAM domains, or control planes) under the Evaluator Access Strategy, and shall record the evidence relied upon in the ETR.</p>
+<p><strong>Provider role separation (OE.PROVIDER_ROLE_SEPARATION).</strong> The evaluator shall verify that the provider&#8217;s role and account model documentation demonstrates that administrative authority over the DBaaS service and administrative authority over the Trusted Platform are exercised through logically distinct roles, accounts, and control planes, assigned according to least privilege, such that no single administrative identity holds both. Vertical integration (the same provider operating both the service and the platform) is permitted; the verification addresses the administrative populations and their control planes, not corporate structure. Where the documentation alone is not sufficient, the evaluator shall use a provider-supported demonstration of the role and account model (for example, enumeration of the distinct administrative directories, IAM domains, or control planes) under the Evaluator Access Strategy, and shall record the evidence relied upon in the ETR.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1010,7 +1017,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_evaluator_access_strategy">3.3. Evaluator Access Strategy</h3>
 <div class="paragraph">
-<p>The evaluator shall identify the interfaces available in the evaluated configuration and map each test to one or more tenant-accessible or provider-supported evaluation interfaces. The Evidence Vantage Mapping appendix (<a href="#_evidence_vantage_mapping">Appendix B, <em>Evidence Vantage Mapping</em></a>) provides the expected vantage assignment for every test activity of this SD; the evaluator shall use it as the starting point for this mapping and shall record in the ETR any deviation driven by the evaluated configuration — in particular, functions the mapping places at the tenant service control plane (V2) that the evaluated TOE exposes only to provider roles (V4), or the reverse. When a direct test is not feasible because the function is outside the TOE boundary or requires provider-only access, the evaluator shall determine whether the SD permits reliance on TSS review, operational guidance, scheme-accepted evidence, or a provider-supported demonstration.</p>
+<p>The evaluator shall identify the interfaces available in the evaluated configuration and map each test to one or more tenant-accessible or provider-supported evaluation interfaces. The Evidence Vantage Mapping appendix (<a href="#_evidence_vantage_mapping">Appendix B, <em>Evidence Vantage Mapping</em></a>) provides the expected vantage assignment for every test activity of this SD; the evaluator shall use it as the starting point for this mapping and shall record in the ETR any deviation driven by the evaluated configuration: in particular, functions the mapping places at the tenant service control plane (V2) that the evaluated TOE exposes only to provider roles (V4), or the reverse. When a direct test is not feasible because the function is outside the TOE boundary or requires provider-only access, the evaluator shall determine whether the SD permits reliance on TSS review, operational guidance, scheme-accepted evidence, or a provider-supported demonstration.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1051,7 +1058,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_external_service_dependencies">3.6. External Service Dependencies</h3>
+<h3 id="_representative_test_scoping">3.6. Representative-Test Scoping</h3>
+<div class="paragraph">
+<p><strong>Application Note:</strong> Where an activity refers to each, every, all, or no interface, the evaluator shall inventory the claimed variants and group only variants that share the same TSF implementation and security-relevant configuration. The evaluator shall test at least one representative of each group and every non-equivalent implementation path; review the complete inventory and record the mapping and rationale in the ETR. The activity does not require testing every operational instance, endpoint, data object, error condition, node, or deployment permutation unless it implements a distinct TSF path or the activity expressly says otherwise.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_external_service_dependencies">3.7. External Service Dependencies</h3>
 <div class="paragraph">
 <p>When the TOE relies on external key management, identity provider, logging, object storage, backup, management, or trusted time services, the evaluator shall verify that the ST identifies:</p>
 </div>
@@ -1073,41 +1086,41 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_handling_selections_and_assignments">3.7. Handling Selections and Assignments</h3>
+<h3 id="_handling_selections_and_assignments">3.8. Handling Selections and Assignments</h3>
 <div class="paragraph">
 <p>The PP-Module leaves the following operations open for completion by the ST author. For each, the evaluator shall verify that the ST completes the operation with permitted content, that the completion is consistent with the TSS, and that the corresponding test activities of this SD exercise the completed value rather than the generic placeholder:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>FCS_CKM_DBAAS_EXT.1.1</code> — the customer-controlled key mechanism selection, which shall couple to the Crypto Module&#8217;s Key Origin selection as required by the module&#8217;s application note;</p>
+<p><code>FCS_CKM_DBAAS_EXT.1.1</code>: the customer-controlled key mechanism selection, which shall couple to the Crypto Module&#8217;s Key Origin selection as required by the module&#8217;s application note;</p>
 </li>
 <li>
-<p><code>FCS_CKM_DBAAS_EXT.1.3</code> — the assigned key-state enforcement interval, which shall be a fixed documented bound covering worst-case key-state detection latency, any unreachability grace period, and the lifetime of any cached key material, as required by the module&#8217;s application note (an indefinite interval, or one extensible by service provider action, is not a permitted completion);</p>
+<p><code>FCS_CKM_DBAAS_EXT.1.3</code>: the assigned key-state enforcement interval, which shall be a fixed documented bound covering worst-case key-state detection latency, any unreachability grace period, and the lifetime of any cached key material, as required by the module&#8217;s application note (an indefinite interval, or one extensible by service provider action, is not a permitted completion);</p>
 </li>
 <li>
-<p><code>FDP_RIP.1.1/DBaaS</code> — the shared-resource selection and any assigned additional resources;</p>
+<p><code>FDP_RIP.1.1/DBaaS</code>: the shared-resource selection and any assigned additional resources;</p>
 </li>
 <li>
-<p><code>FDP_ACF.1.3/DBaaS</code> and <code>FDP_ACF.1.4/DBaaS</code> — the assigned explicit-authorization and explicit-denial rules (an assignment completed as "none" is acceptable);</p>
+<p><code>FDP_ACF.1.3/DBaaS</code> and <code>FDP_ACF.1.4/DBaaS</code>: the assigned explicit-authorization and explicit-denial rules (an assignment completed as "none" is acceptable);</p>
 </li>
 <li>
-<p><code>FRU_RSA.1.1/DBaaS</code> — the controlled-resource selection, any assigned additional resources, and the simultaneity selection;</p>
+<p><code>FRU_RSA.1.1/DBaaS</code>: the controlled-resource selection, any assigned additional resources, and the simultaneity selection;</p>
 </li>
 <li>
-<p><code>FRU_RSG_EXT.1.1</code> — the enforcement-action selection or assigned action;</p>
+<p><code>FRU_RSG_EXT.1.1</code>: the enforcement-action selection or assigned action;</p>
 </li>
 <li>
-<p><code>FMT_SMR.1.1/DBaaS</code> — the selection of automated autonomous management logic and any assigned additional roles;</p>
+<p><code>FMT_SMR.1.1/DBaaS</code>: the selection of automated autonomous management logic and any assigned additional roles;</p>
 </li>
 <li>
-<p><code>FMT_SMF.1.1/DBaaS</code> — any assigned additional management functions;</p>
+<p><code>FMT_SMF.1.1/DBaaS</code>: any assigned additional management functions;</p>
 </li>
 <li>
-<p><code>FMT_MOF.1.1/DBaaS-Modify</code> — the assigned additional functions and the authorized-role selection;</p>
+<p><code>FMT_MOF.1.1/DBaaS-Modify</code>: the assigned additional functions and the authorized-role selection;</p>
 </li>
 <li>
-<p><code>FPT_TUD_DBAAS_EXT.1.1</code> — the deployment-model selection and, where tenant-configurable deferral is selected, the assigned maximum deferral period.</p>
+<p><code>FPT_TUD_DBAAS_EXT.1.1</code>: the deployment-model selection and, where tenant-configurable deferral is selected, the assigned maximum deferral period.</p>
 </li>
 </ul>
 </div>
@@ -1123,25 +1136,37 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_assurance_approach_rationale">4.1. Assurance Approach Rationale</h3>
 <div class="paragraph">
-<p>The assurance package is EAL2 augmented by ALC_FLR.3, and the number understates where the assurance comes from. EAL2 bounds the design evidence — interface specification and basic subsystem design, without implementation representation — but confidence in the TOE&#8217;s security behavior is produced by this SD&#8217;s Evaluation Activities, and those are predominantly negative: cross-tenant access is attempted through every documented interface and denied; metadata, audit, and residual-data isolation are probed from a second tenant context; plaintext key export is attempted through every tenant-facing interface and denied; key revocation is enforced within the completed key-state enforcement interval; plaintext restore is attempted against an explicit ciphertext pass criterion; unauthorized quota modification, tenant-binding manipulation, audit tampering, and the disabling of audit or encryption are each attempted and denied; an invalid update signature is presented and rejected. The package substitutes requirement-bound adversarial testing for design-artifact depth.</p>
+<p>The assurance package is EAL2 augmented by ALC_FLR.3, and the number understates where the assurance comes from. EAL2 bounds the design evidence (interface specification and basic subsystem design, without implementation representation), but confidence in the TOE&#8217;s security behavior is produced by this SD&#8217;s Evaluation Activities, and those are predominantly negative: cross-tenant access is attempted through a representative of each distinct TSF path and denied; metadata, audit, and residual-data isolation are probed from a second tenant context; plaintext key export is attempted through a representative of each distinct applicable TSF path and denied; key revocation is enforced within the completed key-state enforcement interval; plaintext restore is attempted against an explicit ciphertext pass criterion; unauthorized quota modification, tenant-binding manipulation, audit tampering, and the disabling of audit or encryption are each attempted and denied; an invalid update signature is presented and rejected. The package substitutes requirement-bound adversarial testing for design-artifact depth.</p>
 </div>
 <div class="paragraph">
-<p>That substitution is unusually effective for this TOE type. Against locally installed software an attacker holds the binary, the file system, and process memory, so interface-level testing exercises a modest fraction of the reachable attack surface — closing the remainder is what implementation-level design assurance exists for. A tenant of a provider-operated DBaaS reaches the TOE only through the documented tenant interfaces: SQL, programmatic APIs, and the tenant service control plane. The tenant-reachable attack surface therefore substantially coincides with the interface set these Evaluation Activities exercise, and AVA_VAN.2 penetration testing probes the same vantage for paths the documentation does not admit.</p>
+<p>That substitution is unusually effective for this TOE type. Against locally installed software an attacker holds the binary, the file system, and process memory, so interface-level testing exercises a modest fraction of the reachable attack surface; closing the remainder is what implementation-level design assurance exists for. A tenant of a provider-operated DBaaS reaches the TOE only through the documented tenant interfaces: SQL, programmatic APIs, and the tenant service control plane. The tenant-reachable attack surface therefore substantially coincides with the interface set these Evaluation Activities exercise, and AVA_VAN.2 penetration testing probes the same vantage for paths the documentation does not admit.</p>
 </div>
 <div class="paragraph">
-<p>The evaluation is point-in-time, and the certificate window is matched to what is being certified. The properties this PP-Module evaluates — the tenant-isolation architecture, the customer-controlled key hierarchy, the restore path, the update mechanism — are architectural, and change on a cadence no faster than scheme certificate-validity windows. Change that does occur inside a validity window divides into two streams, each with its own assurance: operational change (configuration, platform, personnel) belongs to the Trusted Platform, whose accepted evidence — cloud authorization under frameworks such as FedRAMP, IRAP, or C5 — carries the continuous operational monitoring of the production environment that CC assurance continuity, being change-driven and evaluator-mediated, does not; TSF change is governed by ALC_FLR.3 and the trusted service update requirement, whose tenant-queryable revision identifier identifies every deployed change and supplies the CM identification on which assurance continuity depends. Nor is the certificate unattended between evaluations: schemes engage listed products on major vulnerabilities, require impact analysis or a remediation plan, and reserve delisting for non-response. The residual difference from authorization-framework continuous monitoring is cadence and object — a standing, scheduled evidence flow about the operating environment versus event-driven oversight of the product — and the standing flow is precisely what the consumed Trusted Platform evidence supplies. This division follows the object of each regime, not a limit of the CC language: the ALC class carries development-environment analogues of much of the operational control surface (ALC_DVS for physical and personnel security, ALC_CMC and ALC_CMS for change control, ALC_DEL for delivery, ALC_FLR for flaw handling), and site-certification practice shows those families can be audited in depth. This PP-Configuration claims the EAL2 subset of that class and consumes the cloud authorization for the operational surface instead — a non-duplication choice, not a capability gap.</p>
+<p>The evaluation is point-in-time, and the certificate window is matched to what is being certified. The properties this PP-Module evaluates (the tenant-isolation architecture, the customer-controlled key hierarchy, the restore path, the update mechanism) are architectural, and change on a cadence no faster than scheme certificate-validity windows. Change that does occur inside a validity window divides into two streams, each with its own assurance: operational change (configuration, platform, personnel) belongs to the Trusted Platform, whose accepted evidence (cloud authorization under frameworks such as FedRAMP, IRAP, or C5) carries the continuous operational monitoring of the production environment that CC assurance continuity, being change-driven and evaluator-mediated, does not; TSF change is governed by ALC_FLR.3 and the trusted service update requirement, whose tenant-queryable revision identifier identifies every deployed change and supplies the CM identification on which assurance continuity depends. Nor is the certificate unattended between evaluations: schemes engage listed products on major vulnerabilities, require impact analysis or a remediation plan, and reserve delisting for non-response. The residual difference from authorization-framework continuous monitoring is cadence and object (a standing, scheduled evidence flow about the operating environment versus event-driven oversight of the product), and the standing flow is precisely what the consumed Trusted Platform evidence supplies. This division follows the object of each regime, not a limit of the CC language: the ALC class carries development-environment analogues of much of the operational control surface (ALC_DVS for physical and personnel security, ALC_CMC and ALC_CMS for change control, ALC_DEL for delivery, ALC_FLR for flaw handling), and site-certification practice shows those families can be audited in depth. This PP-Configuration claims the EAL2 subset of that class and consumes the cloud authorization for the operational surface instead: a non-duplication choice, not a capability gap.</p>
 </div>
 <div class="paragraph">
-<p>The composition is deliberate and non-duplicative. Cloud authorization frameworks assess whether the provider organization operates the service responsibly; they do not functionally test whether a security mechanism is correct — no assessor under those frameworks provisions two tenants and attempts cross-tenant access, revokes a key and times enforcement, or attempts a plaintext restore. Algorithm validation (CAVP, CMVP, and the CCDB-018 catalogue, consumed through the mandatory DBMS Cryptographic Functions Module) assesses cryptographic correctness but not service behavior. This PP-Configuration supplies the layer between them: independent, specification-bound demonstration that the service&#8217;s tenant-facing security mechanisms behave as claimed. Each layer is consumed, not duplicated — algorithm validation enters through the Crypto Module, and cloud authorization enters as scheme-accepted Trusted Platform evidence.</p>
+<p>The composition is deliberate and non-duplicative. Cloud authorization frameworks assess whether the provider organization operates the service responsibly; they do not functionally test whether a security mechanism is correct: no assessor under those frameworks provisions two tenants and attempts cross-tenant access, revokes a key and times enforcement, or attempts a plaintext restore. Algorithm validation (CAVP, CMVP, and the CCDB-018 catalogue, consumed through the mandatory DBMS Cryptographic Functions Module) assesses cryptographic correctness but not service behavior. This PP-Configuration supplies the layer between them: independent, specification-bound demonstration that the service&#8217;s tenant-facing security mechanisms behave as claimed. Each layer is consumed, not duplicated: algorithm validation enters through the Crypto Module, and cloud authorization enters as scheme-accepted Trusted Platform evidence.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_mapping_to_base_pp_sars">4.2. Mapping to Base PP SARs</h3>
+<h3 id="_negative_property_evidence_and_the_toetrusted_platform_boundary">4.2. Negative-Property Evidence and the TOE/Trusted-Platform Boundary</h3>
+<div class="paragraph">
+<p>The Evaluation Activities of this SD are predominantly negative, and how each negative property is evidenced is governed by two discriminators: what mediates the property, and proportionality to the assurance target. A property the TOE enforces through its own interfaces is evaluated as TOE behavior; a property of the infrastructure on which the service runs is a Trusted Platform property, addressed through assumptions, Operational Environment objectives, and scheme-accepted evidence, and is not established by testing the TOE. Several of this module&#8217;s exclusion requirements are written to make this boundary self-evident: <code>FCS_CKM_DBAAS_EXT.1.2</code> and <code>FDP_BKP_EXT.1.1</code> prohibit an <strong>interface</strong> by which a service provider administrator obtains plaintext key material or a plaintext restore, so the claim is bound to TOE-mediated surface by construction. For such a property, the proportionate evidence is complete enumeration of the interfaces available in the evaluated configuration and an attempt of the excluded action through a representative of each distinct TSF path under <a href="#_representative_test_scoping">Section 3.6, &#8220;Representative-Test Scoping&#8221;</a> (native ADV_FSP.2 and ADV_ARC.1 territory), extended to a provider-supported demonstration at the provider-internal vantage (V4, see <a href="#_evidence_vantages">Section 2.5, &#8220;Evidence Vantages&#8221;</a>) where a relevant path is exposed only to provider roles, with each such reliance recorded in the ETR under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>).</p>
+</div>
+<div class="paragraph">
+<p>The boundary is a limit on what the Evaluation Activities may claim, not only on what the evaluator can reach. These exclusions bind the TOE&#8217;s interfaces; they neither assert nor are evaluated to establish that a Trusted Platform administrator cannot suppress or bypass a security function by acting through the infrastructure substrate (the memory, storage, network, or control plane the TOE does not own). That residual is held by <code>A.TRUSTED_PLATFORM_ADMIN</code>, which <code>OE.PROVIDER_ROLE_SEPARATION</code> keeps from extending to the Service Provider Administrator who is the threat agent of <code>T.KEY_DISCLOSURE_TO_PROVIDER_ADMIN</code>. An Evaluation Activity shall therefore confirm the absence of a TOE or service interface that performs the excluded action, and shall not attempt to demonstrate that the TOE prevents infrastructure-level suppression or bypass; an activity of the latter kind would evaluate an assumption and implicitly enlarge the TOE boundary. Architecture and interface review, rather than evaluator-conducted control-plane testing, is what holds this line, because it distinguishes a service interface from an infrastructure action where a live negative test against a replicated control plane can conflate the two. A provider environment that replicates the control plane is a permissible venue for a provider-supported demonstration, but its availability does not make evaluator-conducted control-plane penetration an expected method: that depth corresponds to the higher-assurance vulnerability families, and requiring it against an EAL2 package would be disproportionate to the assurance target and would invite findings against surface this PP-Module does not claim.</p>
+</div>
+<div class="paragraph">
+<p>The discriminator is TOE mediation, not provider vantage, and a property the TSF genuinely performs is not excused from executed confirmation merely because it is reachable only through the provider-internal vantage (V4 in <a href="#_evidence_vantages">Section 2.5, &#8220;Evidence Vantages&#8221;</a>). Two consequences follow. First, verification of an update signature under <code>FPT_TUD_DBAAS_EXT.1.2</code> is TSF behavior: its negative leg (an artifact presented with an invalid or absent signature is refused before the software is placed into service) is confirmed by evaluator induction where the evaluated configuration exposes an update-submission interface, and otherwise by a provider-supported demonstration in a non-production instance under evaluator observation, recorded in the ETR. The demonstration is required, not conditional on convenience; only its modality follows the vantage. Second, an auditable event the TSF generates is confirmed at the channel the ST identifies (see <a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a>); where the triggering action is provider-initiated and is already staged as a provider-supported demonstration (an attempted plaintext restore or an attempted export of customer-controlled key material), the same demonstration confirms that the resulting record is produced and is visible to the affected tenant, and the evaluator does not separately reproduce the provider action. Correspondingly, the integrity of a service event stream implemented by the TSF is a TOE-mediated property evaluated as such, while the integrity of a stream delivered by the Trusted Platform is an Operational Environment property under <code>OE.TRUSTED_PLATFORM</code> and <code>OE.EXTERNAL_SERVICES</code>. In every case the rule is the same: test what the TOE mediates, assume what the Trusted Platform controls, and evidence the provider-only TOE-mediated negatives by demonstration proportionate to the EAL2 target.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mapping_to_base_pp_sars">4.3. Mapping to Base PP SARs</h3>
 <div class="paragraph">
 <p>The DBaaS PP-Module inherits all Security Assurance Requirements (SARs) from the collaborative Protection Profile for Database Management Systems (cPP_DBMS): EAL2 augmented by ALC_FLR.3. No additional or modified SARs are introduced by this PP-Module. The provider-operated managed-service model does, however, change how several inherited SAR families are exercised; those considerations are defined in this section.</p>
 </div>
 <div class="sect3">
-<h4 id="_inherited_sar_families">4.2.1. Inherited SAR Families</h4>
+<h4 id="_inherited_sar_families">4.3.1. Inherited SAR Families</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1190,7 +1215,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_applying_base_pp_sar_activities">4.2.2. Applying Base PP SAR Activities</h4>
+<h4 id="_applying_base_pp_sar_activities">4.3.2. Applying Base PP SAR Activities</h4>
 <div class="paragraph">
 <p>For each SAR inherited from the cPP_DBMS, the evaluator shall:</p>
 </div>
@@ -1210,9 +1235,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_dbaas_specific_assurance_activities">4.3. DBaaS-Specific Assurance Activities</h3>
+<h3 id="_dbaas_specific_assurance_activities">4.4. DBaaS-Specific Assurance Activities</h3>
 <div class="sect3">
-<h4 id="_ase_security_target_evaluation">4.3.1. ASE: Security Target Evaluation</h4>
+<h4 id="_ase_security_target_evaluation">4.4.1. ASE: Security Target Evaluation</h4>
 <div class="paragraph">
 <p>In addition to the Base PP ST evaluation activities, the evaluator shall verify:</p>
 </div>
@@ -1295,7 +1320,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_adv_development">4.3.2. ADV: Development</h4>
+<h4 id="_adv_development">4.4.2. ADV: Development</h4>
 <div class="paragraph">
 <p>The Base PP&#8217;s ADV_ARC.1, ADV_FSP.2, and ADV_TDS.1 activities apply to the DBMS service. The evaluator shall additionally verify:</p>
 </div>
@@ -1314,7 +1339,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_alc_life_cycle_support">4.3.3. ALC: Life-cycle Support</h4>
+<h4 id="_alc_life_cycle_support">4.4.3. ALC: Life-cycle Support</h4>
 <div class="paragraph">
 <p>The managed-service model changes how the ALC families are exercised. The evaluator shall apply the Base PP ALC activities with the following interpretations:</p>
 </div>
@@ -1347,7 +1372,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>The flaw remediation procedures shall connect to the trusted service update mechanism: remediation of a security flaw reaches tenants through the update path of FPT_TUD_DBAAS_EXT.1, and the evaluator shall verify the procedures identify remediation timelines, the tenant notification or advisory mechanism, and how a tenant determines — via the version or revision identifier — that a remediated service software revision is serving them;</p>
+<p>The flaw remediation procedures shall connect to the trusted service update mechanism: remediation of a security flaw reaches tenants through the update path of FPT_TUD_DBAAS_EXT.1, and the evaluator shall verify the procedures identify remediation timelines, the tenant notification or advisory mechanism, and how a tenant determines (via the version or revision identifier) that a remediated service software revision is serving them;</p>
 </li>
 <li>
 <p>Where the deployment model includes tenant-configurable deferral, the evaluator shall verify the flaw remediation procedures address security-critical flaws in relation to the maximum deferral period.</p>
@@ -1356,7 +1381,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ate_tests">4.3.4. ATE: Tests</h4>
+<h4 id="_ate_tests">4.4.4. ATE: Tests</h4>
 <div class="paragraph">
 <p><strong>ATE_COV.1 / ATE_FUN.1 (Developer Testing):</strong></p>
 </div>
@@ -1388,7 +1413,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_ava_vulnerability_assessment">4.3.5. AVA: Vulnerability Assessment</h4>
+<h4 id="_ava_vulnerability_assessment">4.4.5. AVA: Vulnerability Assessment</h4>
 <div class="paragraph">
 <p><strong>AVA_VAN.2 (Vulnerability Analysis):</strong></p>
 </div>
@@ -1414,7 +1439,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>be conducted from the tenant vantage, using both least-privileged tenant user and Tenant Administrator contexts, against evaluator-provisioned tenants only — the evaluator shall never direct isolation or exhaustion testing at tenants not provisioned for the evaluation;</p>
+<p>be conducted from the tenant vantage, using both least-privileged tenant user and Tenant Administrator contexts, against evaluator-provisioned tenants only; the evaluator shall never direct isolation or exhaustion testing at tenants not provisioned for the evaluation;</p>
 </li>
 <li>
 <p>focus on the TOE&#8217;s tenant-facing attack surface; the Trusted Platform itself is not the subject of penetration testing, but the evaluator shall attempt to reach Trusted Platform assumptions through TOE interfaces (for example, attempting to obtain platform credentials, metadata-service access, or provider-role capabilities from a tenant context) and verify that such attempts fail;</p>
@@ -1427,9 +1452,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_documentation_requirements">4.4. Documentation Requirements</h3>
+<h3 id="_documentation_requirements">4.5. Documentation Requirements</h3>
 <div class="sect3">
-<h4 id="_agd_ope_operational_user_guidance_dbaas_specific_requirements">4.4.1. AGD_OPE: Operational User Guidance — DBaaS-Specific Requirements</h4>
+<h4 id="_agd_ope_operational_user_guidance_dbaas_specific_requirements">4.5.1. AGD_OPE: Operational User Guidance (DBaaS-Specific Requirements)</h4>
 <div class="paragraph">
 <p>The operational user guidance shall include managed-service sections addressing:</p>
 </div>
@@ -1500,7 +1525,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_agd_pre_preparative_procedures_service_provisioning">4.4.2. AGD_PRE: Preparative Procedures — Service Provisioning</h4>
+<h4 id="_agd_pre_preparative_procedures_service_provisioning">4.5.2. AGD_PRE: Preparative Procedures (Service Provisioning)</h4>
 <div class="paragraph">
 <p>For a provider-operated service, preparative procedures address how a tenant provisions and configures the service into the evaluated configuration. The preparative procedures shall include:</p>
 </div>
@@ -1648,7 +1673,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Verify that access succeeds.</p>
 </li>
 <li>
-<p>Attempt to export, view, recover, or display the plaintext master key material through each tenant-facing DBMS interface and management interface available in the evaluated configuration.</p>
+<p>Use the representative-test scoping application note (<a href="#_representative_test_scoping">Section 3.6, &#8220;Representative-Test Scoping&#8221;</a>) to inventory the DBMS and management interfaces available to tenant or provider roles that expose, or could expose, plaintext master key material and select a representative from each group.</p>
+</li>
+<li>
+<p>Attempt to export, view, recover, or display the plaintext master key material through the selected representative interfaces.</p>
+</li>
+<li>
+<p>Where a relevant interface is restricted to provider roles, perform the corresponding representative attempt through a provider-supported demonstration under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>) and record the method and results in the ETR.</p>
 </li>
 <li>
 <p>Verify that each attempt is denied or that the interface exposes only non-sensitive key identifiers, references, status, or metadata.</p>
@@ -1676,7 +1707,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Verify that access is denied no later than the expiration of the completed key-state enforcement interval, except for data available through an explicitly documented and evaluated recovery mechanism.</p>
 </li>
 <li>
-<p>Verify that the transition to the key-unavailable enforcement state generates the audit record required by the module&#8217;s auditable-events table, in the service event stream identified in the ST (<a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a>) — the record must be retrievable by the tenant while the database is not serving connections.</p>
+<p>Verify that the transition to the key-unavailable enforcement state generates the audit record required by the module&#8217;s auditable-events table, in the service event stream identified in the ST (<a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a>); the record must be retrievable by the tenant while the database is not serving connections.</p>
 </li>
 <li>
 <p>If a recovery mechanism is claimed, exercise it: verify that it cannot be completed without authorization by the tenant or an agent under the tenant&#8217;s control, and that its use generates the audit record required by the module&#8217;s auditable-events table in the ST-identified service event stream. Where the recovery mechanism is a restore from backup, this step may be performed jointly with FDP_BKP_EXT.1 Test 2, and the evaluator shall verify the restore tenant binding required there in the same run.</p>
@@ -1720,13 +1751,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Review audit records, status views, error messages, diagnostic outputs, backup metadata, and management outputs that are tenant-accessible in the evaluated configuration.</p>
+<p>Using a non-production customer-controlled test key whose material is known to the evaluator where the selected key model permits, induce a documented key authorization, lookup, or key-provider failure likely to generate diagnostic output.</p>
+</li>
+<li>
+<p>Apply the representative-test scoping application note (<a href="#_representative_test_scoping">Section 3.6, &#8220;Representative-Test Scoping&#8221;</a>) to review the error response and corresponding audit, status, diagnostic, backup-metadata, and management outputs from the exercised key operation.</p>
+</li>
+<li>
+<p>For every non-equivalent diagnostic TSF path identified in the TSS or operational guidance, induce one representative key-operation failure that reaches the path and review its output.</p>
+</li>
+<li>
+<p>For non-tenant-accessible diagnostics, use provider-supported observation under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>) and verify that the observation method and results are documented in the ETR.</p>
 </li>
 <li>
 <p>Verify that plaintext customer-controlled master key material is not disclosed.</p>
-</li>
-<li>
-<p>If provider-supported observation is used for non-tenant-accessible diagnostics, verify that the observation method and results are documented in the ETR.</p>
 </li>
 </ol>
 </div>
@@ -1891,7 +1928,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Create tenant data objects in Tenant A with names and values known to the evaluator.</p>
 </li>
 <li>
-<p>As Tenant B, attempt to access Tenant A&#8217;s objects through documented SQL, API, management, import/export, backup, restore, and tenant administration interfaces available in the evaluated configuration.</p>
+<p>Use the representative-test scoping application note (<a href="#_representative_test_scoping">Section 3.6, &#8220;Representative-Test Scoping&#8221;</a>) to inventory the documented SQL, API, management, import/export, backup, restore, and tenant administration interfaces capable of accessing tenant data, and select representatives that cover every distinct Tenant Isolation SFP path.</p>
+</li>
+<li>
+<p>As Tenant B, attempt to access Tenant A&#8217;s objects through the selected representative interfaces.</p>
 </li>
 <li>
 <p>Verify that all unauthorized attempts fail.</p>
@@ -1907,7 +1947,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>As Tenant A, create objects with distinct names.</p>
 </li>
 <li>
-<p>As Tenant B, query system catalogs, metadata views, information schema views, management APIs, search interfaces, and monitoring views available to tenants.</p>
+<p>Use the representative-test scoping application note (<a href="#_representative_test_scoping">Section 3.6, &#8220;Representative-Test Scoping&#8221;</a>) to inventory the tenant-visible system catalogs, metadata views, information schema views, management APIs, search interfaces, and monitoring views, and select representatives that cover every distinct metadata-access-control path.</p>
+</li>
+<li>
+<p>As Tenant B, query the selected representative interfaces.</p>
 </li>
 <li>
 <p>Verify that Tenant B sees only Tenant B metadata and metadata explicitly defined as global system metadata.</p>
@@ -2008,6 +2051,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p>Verify that the operation is denied, or that any restored or exported artifact remains ciphertext under the customer-controlled key hierarchy. <strong>Pass criterion:</strong> absent an authorized grant of the applicable customer-controlled key, no step of the restore or export path yields plaintext Tenant A data.</p>
+</li>
+<li>
+<p>Confirm that the same provider-supported demonstration produces the service event stream record required by the module&#8217;s auditable-events table for the attempted plaintext restore or export, and that the record is visible to the affected tenant, reusing the demonstration already staged in the preceding steps rather than separately reproducing the provider action (see <a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a>).</p>
 </li>
 </ol>
 </div>
@@ -2198,7 +2244,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect4">
 <h5 id="_tss_activities_8">9.1.1.1. TSS Activities</h5>
 <div class="paragraph">
-<p>The evaluator shall verify the TSS identifies the roles maintained by the TOE and provides the mapping required by the module&#8217;s FMT_SMR.1/DBaaS application note from each module role label — Tenant User, Tenant Administrator, Service Provider Administrator — to the TOE role, privilege set, group, or account class that realizes it, together with any automated autonomous management logic or other roles claimed in the ST. The TOE is not required to name its roles verbatim; the evaluator shall instead verify that every label is mapped, that the mapping is unambiguous, and that no single TOE role combines Service Provider Administrator authority with tenant-scoped authority in a way that vacates the separation enforced by the <code>FMT_MOF.1/DBaaS</code> iterations, <code>FDP_ACF.1/DBaaS</code>, or <code>FCS_CKM_DBAAS_EXT.1</code>. The evaluator shall verify the TSS describes how users and service accounts are associated with these roles and how the roles map to the management restrictions in the <code>FMT_MOF.1/DBaaS</code> iterations and the access-control rules in <code>FDP_ACF.1/DBaaS</code>.</p>
+<p>The evaluator shall verify the TSS identifies the roles maintained by the TOE and provides the mapping required by the module&#8217;s FMT_SMR.1/DBaaS application note from each module role label (Tenant User, Tenant Administrator, Service Provider Administrator) to the TOE role, privilege set, group, or account class that realizes it, together with any automated autonomous management logic or other roles claimed in the ST. The TOE is not required to name its roles verbatim; the evaluator shall instead verify that every label is mapped, that the mapping is unambiguous, and that no single TOE role combines Service Provider Administrator authority with tenant-scoped authority in a way that vacates the separation enforced by the <code>FMT_MOF.1/DBaaS</code> iterations, <code>FDP_ACF.1/DBaaS</code>, or <code>FCS_CKM_DBAAS_EXT.1</code>. The evaluator shall verify the TSS describes how users and service accounts are associated with these roles and how the roles map to the management restrictions in the <code>FMT_MOF.1/DBaaS</code> iterations and the access-control rules in <code>FDP_ACF.1/DBaaS</code>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -2255,16 +2301,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>For each claimed management function, perform the function as an authorized role using the interfaces available in the evaluated configuration.</p>
+<p>Use the representative-test scoping application note (<a href="#_representative_test_scoping">Section 3.6, &#8220;Representative-Test Scoping&#8221;</a>) to inventory the claimed management functions, their authorized roles, and their interfaces, and select representatives that cover every distinct management-function authorization path.</p>
+</li>
+<li>
+<p>Perform each selected management-function representative as an authorized role using the interfaces available in the evaluated configuration.</p>
+</li>
+<li>
+<p>For selected management-function representatives restricted to provider roles that are not available to the evaluator, perform the authorized-role leg through a provider-supported demonstration under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>), recorded in the ETR; the unauthorized-role denial leg shall still be tested directly through tenant interfaces.</p>
 </li>
 <li>
 <p>Verify that the function operates as described.</p>
 </li>
 <li>
 <p>Attempt the same function as an unauthorized role and verify that it is denied. This test may be performed jointly with the <code>FMT_MOF.1/DBaaS</code> iteration tests.</p>
-</li>
-<li>
-<p>For management functions restricted to provider roles that are not available to the evaluator, perform the authorized-role leg through a provider-supported demonstration under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>), recorded in the ETR; the unauthorized-role denial leg shall still be tested directly through tenant interfaces.</p>
 </li>
 <li>
 <p>Where automated autonomous management logic is selected in <code>FMT_SMR.1/DBaaS</code>, identify at least one record of an autonomous management action in the ST-identified audit channel and verify that it identifies the autonomous subject as the actor and, where the action affected a tenant context, carries the affected tenant&#8217;s identifier and is visible to that tenant.</p>
@@ -2283,6 +2332,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>The evaluator shall verify the TSS identifies the security functions that cannot be disabled in the evaluated configuration (<code>FMT_MOF.1/DBaaS-Disable</code>) and the roles authorized to modify DBaaS security functions such as resource governance, patching and updates, and audit export (<code>FMT_MOF.1/DBaaS-Modify</code>).</p>
 </div>
+<div class="paragraph">
+<p>For <code>FMT_MOF.1/DBaaS-Disable</code>, the evaluator shall confirm, from the TSS and the functional specification, a complete inventory of the interfaces that manage audit generation and data-at-rest encryption, their authorized roles, and their TSF implementation paths. Applying the representative-test scoping application note (<a href="#_representative_test_scoping">Section 3.6, &#8220;Representative-Test Scoping&#8221;</a>) when selecting executed tests, the evaluator shall verify that the inventory identifies no documented interface that permits disabling either function in the evaluated configuration, consistent with the component&#8217;s refinement and aligned to the no-interface idiom of <code>FCS_CKM_DBAAS_EXT.1.2</code> and <code>FDP_BKP_EXT.1.1</code>.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="_guidance_activities_9">9.3.1.2. Guidance Activities</h5>
@@ -2293,34 +2345,46 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect4">
 <h5 id="_test_activities_10">9.3.1.3. Test Activities</h5>
 <div class="paragraph">
-<p><strong>Test 1: Audit Immutability Control</strong></p>
+<p><strong>Test 1: No Interface Disables Audit Generation</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Authenticate as a tenant administrator.</p>
+<p>Confirm, from the TSS and the functional specification, the complete inventory of interfaces that manage audit generation and their role exposure.</p>
 </li>
 <li>
-<p>Attempt to disable audit generation for TOE-required audit events.</p>
+<p>Apply the representative-test scoping application note (<a href="#_representative_test_scoping">Section 3.6, &#8220;Representative-Test Scoping&#8221;</a>) to select representatives that cover every distinct TSF path through which a request to disable audit generation is handled.</p>
 </li>
 <li>
-<p>Verify that the operation is denied.</p>
+<p>Attempt to disable audit generation for TOE-required audit events through the selected tenant-administrator representatives (the tenant data plane V1 and tenant service control plane V2). Where the inventory identifies a relevant provider-only group, perform its representative attempt through a provider-supported demonstration at the provider-internal vantage (V4) under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>) and record the method and results in the ETR.</p>
+</li>
+<li>
+<p>Verify that the selected attempts are denied and that the complete inventory identifies no documented interface that performs the disable.</p>
+</li>
+<li>
+<p>The evaluator does not attempt to establish that infrastructure-level suppression of audit generation by a Trusted Platform administrator is prevented; that residual is held by <code>A.TRUSTED_PLATFORM_ADMIN</code> and is not evaluated as TOE behaviour (see <a href="#_negative_property_evidence_and_the_toe_trusted_platform_boundary">[_negative_property_evidence_and_the_toe_trusted_platform_boundary]</a>).</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Test 2: Encryption Immutability Control</strong></p>
+<p><strong>Test 2: No Interface Disables Data-at-Rest Encryption</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Authenticate as a tenant administrator.</p>
+<p>Confirm, from the TSS and the functional specification, the complete inventory of interfaces that manage data-at-rest encryption and their role exposure.</p>
 </li>
 <li>
-<p>Attempt to disable data-at-rest encryption for protected tenant data.</p>
+<p>Apply the representative-test scoping application note (<a href="#_representative_test_scoping">Section 3.6, &#8220;Representative-Test Scoping&#8221;</a>) to select representatives that cover every distinct TSF path through which a request to disable data-at-rest encryption is handled.</p>
 </li>
 <li>
-<p>Verify that the operation is denied.</p>
+<p>Attempt to disable data-at-rest encryption for protected tenant data through the selected tenant-administrator representatives (V1 and V2). Where the inventory identifies a relevant provider-only group, perform its representative attempt through a provider-supported demonstration at the provider-internal vantage (V4) under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>) and record the method and results in the ETR.</p>
+</li>
+<li>
+<p>Verify that the selected attempts are denied and that the complete inventory identifies no documented interface that performs the disable.</p>
+</li>
+<li>
+<p>The evaluator does not attempt to establish that infrastructure-level suppression of data-at-rest encryption by a Trusted Platform administrator is prevented; that residual is held by <code>A.TRUSTED_PLATFORM_ADMIN</code> and is not evaluated as TOE behaviour (see <a href="#_negative_property_evidence_and_the_toe_trusted_platform_boundary">[_negative_property_evidence_and_the_toe_trusted_platform_boundary]</a>).</p>
 </li>
 </ol>
 </div>
@@ -2398,7 +2462,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>The evaluator shall verify the TSS describes how the TOE prevents unauthorised modification and deletion of stored audit records, including that no tenant-facing interface provides audit modification or deletion functions. If audit records are exported to an external sink, the evaluator shall verify the TSS identifies whether the export mechanism, external sink, or both are part of the TOE or operational environment.</p>
 </div>
 <div class="paragraph">
-<p><code>FAU_STG.2/DBaaS</code> applies to the DBMS audit trail. Protection, tenant visibility, and retrieval of service event stream records are defined by the module&#8217;s auditable-events refinement and verified under <a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a>; they are not retested here.</p>
+<p>Where the ST identifies a service event stream as implemented by the TSF, the evaluator shall verify the TSS describes how the mechanism that protects the DBMS audit trail from unauthorised modification and deletion also protects the records of that stream to the same standard.</p>
+</div>
+<div class="paragraph">
+<p><code>FAU_STG.2/DBaaS</code> protects the DBMS audit trail and any service event stream implemented by the TSF. Where the ST identifies a service event stream as implemented by the TSF, its protection from unauthorised modification and deletion is evaluated here to the same standard as the DBMS audit trail; where the ST identifies the stream as delivered by the Trusted Platform, its integrity is an Operational Environment property under <code>OE.TRUSTED_PLATFORM</code> and <code>OE.EXTERNAL_SERVICES</code>, recorded with the Trusted Platform verification rather than tested as TOE behaviour. Tenant visibility and retrieval of service event stream records remain as defined by the module&#8217;s auditable-events refinement and verified under <a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -2410,7 +2477,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect4">
 <h5 id="_test_activities_12">10.2.1.3. Test Activities</h5>
 <div class="paragraph">
-<p><strong>Test 1: Deletion and Modification Prevention</strong></p>
+<p><strong>Test 1: DBMS Audit Trail Deletion and Modification Prevention</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2418,10 +2485,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>As a tenant administrator, identify an audit record generated by the TOE.</p>
 </li>
 <li>
-<p>Attempt to delete or modify that record through documented tenant interfaces, such as SQL DELETE or UPDATE commands, management APIs, or tenant audit tools.</p>
+<p>As a tenant administrator, through the tenant data plane (V1) and the tenant service control plane (V2), attempt to delete, modify, truncate, drop, or purge that record or its underlying audit storage, using documented tenant interfaces such as SQL DELETE, UPDATE, TRUNCATE, DROP, or PURGE commands, management APIs, or tenant audit tools.</p>
 </li>
 <li>
-<p>Verify that the operation is denied.</p>
+<p>Verify that the operation is prevented.</p>
 </li>
 </ol>
 </div>
@@ -2444,6 +2511,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p>Verify that the unauthorized operation is denied.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Test 3: Service Event Stream Deletion and Modification Prevention (TSF-implemented)</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>This test applies where the ST identifies a service event stream implemented by the TSF. Where the stream is delivered by the Trusted Platform, its integrity is recorded as an Operational Environment property under <code>OE.TRUSTED_PLATFORM</code> and <code>OE.EXTERNAL_SERVICES</code> per <a href="#_audit_channel_identification">Section 3.4, &#8220;Audit Channel Identification&#8221;</a> and is not tested here.</p>
+</li>
+<li>
+<p>Identify a service event stream record generated by the TSF (for example, a key-unavailable enforcement transition, a recovery-mechanism use, an attempted plaintext restore, or an update deployment).</p>
+</li>
+<li>
+<p>Through a provider-supported demonstration at the provider-internal vantage (V4) under the Evaluator Access Strategy (<a href="#_evaluator_access_strategy">Section 3.3, &#8220;Evaluator Access Strategy&#8221;</a>), recorded in the ETR, attempt to delete, modify, or suppress that record as a service provider administrator or service account through TOE interfaces.</p>
+</li>
+<li>
+<p>Verify that the operation is prevented. The evaluator does not attempt tenant-administrator deletion of the service event stream, which exposes no such interface (a tenant&#8217;s relationship to the stream is read-only retrieval), nor does the evaluator attempt to establish that infrastructure-level suppression by a Trusted Platform administrator is prevented (held by <code>A.TRUSTED_PLATFORM_ADMIN</code>; see <a href="#_negative_property_evidence_and_the_toe_trusted_platform_boundary">[_negative_property_evidence_and_the_toe_trusted_platform_boundary]</a>).</p>
 </li>
 </ol>
 </div>
@@ -2470,7 +2556,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>the end-to-end update process for the DBMS service software, from the provider&#8217;s authorized update process through deployment, including the deployment model selected in FPT_TUD_DBAAS_EXT.1.1 (uniform rolling deployment, tenant-configurable deferral, or tenant-selectable maintenance windows);</p>
 </li>
 <li>
-<p>the deployment artifacts to which signature verification applies, the signature format used (for example X.509 certificate-based, OpenPGP, or detached signatures over deployment artifacts), and the point in the deployment path at which verification occurs — before the updated software is placed into service;</p>
+<p>the deployment artifacts to which signature verification applies, the signature format used (for example X.509 certificate-based, OpenPGP, or detached signatures over deployment artifacts), and the point in the deployment path at which verification occurs: before the updated software is placed into service;</p>
 </li>
 <li>
 <p>the signature algorithm and hash, as completions of the <code>FCS_COP.1/SigVer</code> component included through the DBMS Cryptographic Functions Module, and how the verification key is integrity protected;</p>
@@ -2529,7 +2615,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Verify that signature verification of the identified deployment artifacts occurs before the updated software is placed into service, using the algorithm and key documented in the TSS.</p>
 </li>
 <li>
-<p>Where feasible in the demonstration environment, present an artifact with an invalid or missing signature and verify that it is not placed into service and that the failure is audited.</p>
+<p>Present an artifact with an invalid or missing signature and verify that it is not placed into service and that the failure is audited. This negative leg is required, not conditional on convenience: where the evaluated configuration does not expose an update-submission interface through which the evaluator can present such an artifact, the service provider shall demonstrate signature rejection on a non-production instance under evaluator observation, recorded in the ETR (see <a href="#_negative_property_evidence_and_the_toe_trusted_platform_boundary">[_negative_property_evidence_and_the_toe_trusted_platform_boundary]</a>). Only the modality of the demonstration follows the vantage; the rejection itself shall be evidenced.</p>
 </li>
 </ol>
 </div>
@@ -2715,7 +2801,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_evidence_vantage_mapping">Appendix B: Evidence Vantage Mapping</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The table below assigns each test activity of this SD to the evidence vantages defined in <a href="#_evidence_vantages">Section 2.5, &#8220;Evidence Vantages&#8221;</a>. The assignment is informative: it states where evidence is <strong>expected</strong> to be collected for a typical provider-operated DBaaS TOE, so that laboratories can plan tenancy provisioning, external-service setup, and provider participation when scoping the evaluation. The evaluated TOE&#8217;s interface exposure governs — the ST&#8217;s interface identification and role-label mapping determine which functions sit at V2 rather than V4 for a given TOE, and the evaluator records deviations from this table in the ETR under the Evaluator Access Strategy.</p>
+<p>The table below assigns each test activity of this SD to the evidence vantages defined in <a href="#_evidence_vantages">Section 2.5, &#8220;Evidence Vantages&#8221;</a>. The assignment is informative: it states where evidence is <strong>expected</strong> to be collected for a typical provider-operated DBaaS TOE, so that laboratories can plan tenancy provisioning, external-service setup, and provider participation when scoping the evaluation. The evaluated TOE&#8217;s interface exposure governs; the ST&#8217;s interface identification and role-label mapping determine which functions sit at V2 rather than V4 for a given TOE, and the evaluator records deviations from this table in the ETR under the Evaluator Access Strategy.</p>
 </div>
 <div class="paragraph">
 <p>TSS and Guidance Activities are documentation review and are not listed; only Test Activities appear.</p>
@@ -2737,8 +2823,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 Test 1 (Provider Inaccessibility)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Key-export and key-display attempts through every tenant-facing database and management interface; denial or metadata-only responses.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2; V4 for any provider-restricted disclosure path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Representative key-export and key-display attempts for every distinct TSF path; denial or metadata-only responses, with provider-supported demonstration where applicable.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 Test 2 (Key Revocation)</p></td>
@@ -2753,7 +2839,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 Test 3 (Key Material Handling Evidence)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2; V4 for non-tenant diagnostics</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-accessible audit records, status views, error messages, and backup metadata reviewed for key-material disclosure; provider-supported observation for diagnostics not exposed to tenants.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Representative diagnostic-producing key operations cover every distinct diagnostic TSF path; the error, audit, status, diagnostic, backup-metadata, and management outputs are reviewed for key-material disclosure, with provider-supported observation for non-tenant diagnostics.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FCS_CKM_DBAAS_EXT.1 Test 4 (KEM-Established Customer Control)</p></td>
@@ -2768,7 +2854,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FDP_ACF.1/DBaaS Tests 1–4 (Tenant Isolation)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">V1 (V2 to provision and configure sharing)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cross-tenant data, metadata, and audit access attempts at V1; tenant provisioning and any evaluated sharing configuration at V2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Representative cross-tenant data and metadata access attempts cover every distinct Tenant Isolation SFP path at V1; tenant provisioning and any evaluated sharing configuration are at V2.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FDP_BKP_EXT.1 Test 1 (Provider Plaintext Restore Prevention)</p></td>
@@ -2803,12 +2889,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FMT_SMF.1/DBaaS Test 1 (Management Functions)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">V2 (V1 for database-level functions); V4 for the authorized leg of provider-restricted functions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Each claimed management function exercised as an authorized role; denial leg always tested directly from tenant vantages.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Representative management functions cover every distinct authorization path and are exercised as an authorized role; denial leg is tested directly from tenant vantages, with provider-supported authorized legs where required.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FMT_MOF.1/DBaaS Tests 1–3 (Immutability and Role Restriction)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tenant-administrator attempts to disable audit, disable encryption, and escalate privileges; denial observed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1, V2; V4 for any provider-only management path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Representative tenant-administrator and provider-only attempts to disable audit or encryption cover every distinct TSF path; denial and the complete interface inventory are verified. Privilege-escalation denial is observed.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FAU_SEL.1/DBaaS Test 1 (Audit Scope Leakage)</p></td>
@@ -2828,7 +2914,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FPT_TUD_DBAAS_EXT.1 Test 1 (Update Verification and Provenance)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">V4</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Provider-supported demonstration of the update path on a revision-parity non-production instance, including signature verification and, where feasible, an invalid-signature artifact.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provider-supported demonstration of the update path on a revision-parity non-production instance, including signature verification and a required invalid-signature rejection (by evaluator induction where an update-submission interface is exposed, otherwise by provider demonstration recorded in the ETR).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FPT_TUD_DBAAS_EXT.1 Test 2 (Tenant Non-Interference)</p></td>
@@ -2870,7 +2956,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong>Workload tooling</strong>: load-generation tooling sufficient to exceed configured tenant resource quotas for the FRU tests;</p>
 </li>
 <li>
-<p><strong>Demonstration environment</strong>: for provider-supported demonstrations (update path, provider-role functions, restore testing), a non-production instance of the service verified — via the FPT_TUD_DBAAS_EXT.1.3 identifier or CM evidence — to run the same service software revision as the evaluated configuration.</p>
+<p><strong>Demonstration environment</strong>: for provider-supported demonstrations (update path, provider-role functions, restore testing), a non-production instance of the service verified (via the FPT_TUD_DBAAS_EXT.1.3 identifier or CM evidence) to run the same service software revision as the evaluated configuration.</p>
 </li>
 </ul>
 </div>
@@ -2976,7 +3062,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footer">
 <div id="footer-text">
 Version 0.5<br>
-Last updated 2026-07-20 16:34:48 -0500
+Last updated 2026-08-11 14:38:39 -0500
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

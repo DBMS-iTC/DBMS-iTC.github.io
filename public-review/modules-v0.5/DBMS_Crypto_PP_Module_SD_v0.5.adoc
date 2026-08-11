@@ -9,7 +9,7 @@
 :icons: font
 :doctype: book
 :revnumber: 0.5
-:revdate: 2026-07-20
+:revdate: 2026-08-11
 :xrefstyle: full
 
 :iTC-shortname: DBMS-iTC
@@ -81,6 +81,10 @@
 |0.5
 |2026-07-20
 |Added TSS, guidance, and test coverage for the explicit FCS_CKM_EXT.1.2 Master Key protection models, including cryptographic protection, non-exportable hardware-backed storage, and transient-only handling. Aligned evaluation evidence with the module's normative audit-event refinement and rolled the coordinated review set to Version 0.5.
+
+|0.5
+|2026-08-11
+|Refined broad test activities to use inventory-based representative testing while retaining coverage of every distinct TSF implementation path; added ETR mapping and rationale requirements for key, storage, and channel variants.
 
 |===
 
@@ -379,6 +383,11 @@ When the ST claims Enterprise Enhanced, the evaluator shall compare every applic
 
 If the ST makes a FIPS 140-3 [<<FIPS_140_3>>] validation claim, the evaluator shall verify that the claim separately identifies the module certificate, version, cryptographic boundary, and approved mode. Absence of such a validation claim does not change the Catalogue Evaluation Activities, and selection of Enterprise Enhanced alone shall not be reported as FIPS validation, NIAP approval, CNSA 2.0 [<<CNSA_2>>] conformance for the complete product, or product-list eligibility.
 
+[#representative-test-selection]
+=== Representative Test Selection
+
+*Application Note:* Where an activity refers to each, every, all, or no interface, the evaluator shall inventory the claimed variants and group only variants that share the same TSF implementation and security-relevant configuration. The evaluator shall test at least one representative of each group and every non-equivalent implementation path; review the complete inventory and record the mapping and rationale in the ETR. The activity does not require testing every operational instance, endpoint, data object, error condition, node, or deployment permutation unless it implements a distinct TSF path or the activity expressly says otherwise.
+
 === Handling Selections and Assignments
 
 ==== Evaluating SFRs with Selections
@@ -564,10 +573,11 @@ Expected result: The DEK is present only in protected form in persistent storage
 
 Applicable when the TOE directly generates DEKs.
 
-. Step: Examine system views, status commands, or audit logs that report the encryption algorithm and key size for active encrypted objects.
-. Step: Verify the reported key size matches the assignment made in `FCS_CKM.1.1/SKG` and the corresponding `FCS_COP.1/SKC` or `FCS_COP.1/AEAD` claims.
+. Step: Apply <<representative-test-selection>> to inventory active DEK variants. Group DEKs only when they share the same direct-DEK generation implementation and security-relevant algorithm, key-size, and protection configuration, and identify one active DEK representative for each group.
+. Step: Examine system views, status commands, or audit logs that report the encryption algorithm and key size for each representative encrypted object.
+. Step: Verify that every reported key size matches the assignment made in `FCS_CKM.1.1/SKG` and the corresponding `FCS_COP.1/SKC` or `FCS_COP.1/AEAD` claims.
 
-Expected result: All active DEKs use the key size(s) specified in the ST. No objects use key sizes not claimed in the ST.
+Expected result: Each representative DEK uses the key size(s) specified in the ST. The ETR inventory and mapping show that every direct-DEK generation variant is covered by a tested representative or is individually tested, and no claimed configuration uses an unclaimed key size.
 
 ---
 
@@ -864,14 +874,14 @@ Expected result: The observed DEK protection method is consistent with the ST se
 
 *Test 6: Master Key Protection Model Consistency*
 
-. Step: Identify every Master Key storage or use path and the protection model selected for it in the first selection of `FCS_CKM_EXT.1.2`.
-. Step: Using an unauthorized database role and, where applicable, a standard unprivileged platform account, attempt to invoke Master Key operations, read a persistent Master Key artifact, or export the key through the documented key-store interface.
-. Step: For a cryptographically protected persistent copy, inspect the protected record and the TSS/developer evidence to verify that the claimed `FCS_COP.1/KeyWrap` or `FCS_COP.1/AEAD` operation protects the MEK and that the protecting key is not stored alongside it in an equivalent plaintext form.
-. Step: For non-exportable hardware-backed storage, exercise the documented export or read interface, or the closest negative operation the interface permits, and verify that plaintext export is refused and only authorized TOE operations can use the key.
-. Step: For a no-persistent-material path, stop and restart the TOE or force it past the documented transient-key lifetime, then inspect the persistent locations and artifacts identified in the TSS and verify that no plaintext or reversibly encoded Master Key remains within the TOE boundary.
-. Step: Verify that the selected mechanism is TSF behavior within the evaluated TOE boundary and is not satisfied solely by the operational-environment protections assigned to `OE.KEY_STORE_PROTECTION`.
+. Step: Apply <<representative-test-selection>> to the TSS inventory of Master Key storage or use paths. Group paths only when they share the same protection model, TSF implementation, authorization mechanism, and, where applicable, persistent-artifact format or transient-handling behavior; identify one representative path for each group.
+. Step: Using an unauthorized database role and, where applicable, a standard unprivileged platform account, attempt to invoke Master Key operations, read a persistent Master Key artifact, or export the key through the documented key-store interface for each representative path.
+. Step: For every representative path with a cryptographically protected persistent copy, inspect the protected record and the TSS/developer evidence to verify that the claimed `FCS_COP.1/KeyWrap` or `FCS_COP.1/AEAD` operation protects the MEK and that the protecting key is not stored alongside it in an equivalent plaintext form.
+. Step: For every representative path with non-exportable hardware-backed storage, exercise the documented export or read interface, or the closest negative operation the interface permits, and verify that plaintext export is refused and only authorized TOE operations can use the key.
+. Step: For every representative no-persistent-material path, stop and restart the TOE or force it past the documented transient-key lifetime, then inspect the persistent locations and artifacts identified in the TSS and verify that no plaintext or reversibly encoded Master Key remains within the TOE boundary.
+. Step: Verify that the selected mechanism for every representative path is TSF behavior within the evaluated TOE boundary and is not satisfied solely by the operational-environment protections assigned to `OE.KEY_STORE_PROTECTION`.
 
-Expected result: Each Master Key path implements the protection model selected in the ST; unauthorized use or export is denied; persistent material is cryptographically protected or non-exportable as claimed; transient-only paths leave no persistent Master Key; and environmental storage protection is treated only as supporting protection.
+Expected result: Every Master Key storage or use path is mapped to a tested representative or is individually tested. Each distinct protection-model implementation denies unauthorized use or export; persistent material is cryptographically protected or non-exportable as claimed; transient-only paths leave no persistent Master Key; and environmental storage protection is treated only as supporting protection.
 
 ---
 
@@ -1028,14 +1038,15 @@ The evaluator shall verify the guidance describes:
 
 Applicable when "Storage-Scope Encryption" is selected. The evaluator requires low-level access to storage files (binary editor, raw disk access, or equivalent).
 
+. Step: Apply <<representative-test-selection>> to the TSS inventory of covered storage-object variants. Group artifacts only when they share the same encryption implementation, security-relevant cryptographic configuration, storage format or encoding, and lifecycle/write path that can affect encryption or plaintext detection; select a representative artifact for each group.
 . Step: If supported by the TOE and consistent with the evaluation configuration, create a positive-control unencrypted object or pre-encryption artifact containing distinctive plaintext strings to confirm the inspection method can locate plaintext when it is present.
 . Step: Create a test database or tablespace and insert rows containing multiple distinctive, easily searchable plaintext strings across representative data types (e.g., fixed text, variable text, large object data, indexed values, and values likely to appear in logs or temporary files).
 . Step: Ensure Storage-Scope Encryption is enabled for the database or storage scope before inserting the protected test data.
 . Step: Disable compression, deduplication, or external encoding if configurable for evaluation; otherwise document how those transformations are accounted for in the search method.
 . Step: Force checkpoints, log flushes, and temporary operations as described in guidance, then stop the DBMS service to flush all in-memory buffers and caches to disk.
-. Step: Map the raw artifacts to the storage-object categories identified in the TSS and scan each covered artifact for the known plaintext strings and expected encoded representations.
+. Step: Map the selected raw artifacts to the storage-object categories identified in the TSS and scan each representative artifact for the known plaintext strings and expected encoded representations.
 
-Expected result: The inspection method detects plaintext in the positive-control artifact when one is used. The plaintext strings are not found in storage objects that the TSS claims are encrypted. The observed artifacts correspond to the storage-object categories identified in the TSS.
+Expected result: The inspection method detects plaintext in the positive-control artifact when one is used. The plaintext strings are not found in representative artifacts that the TSS claims are encrypted. The ETR inventory and mapping show that every covered storage-object variant is mapped to a tested representative or is individually tested.
 
 ---
 
@@ -1043,12 +1054,12 @@ Expected result: The inspection method detects plaintext in the positive-control
 
 Applicable when "Storage-Scope Encryption" is selected.
 
-. Step: Execute queries that generate redo/transaction log entries, undo/rollback entries, temporary sort or spill operations, index maintenance, backup artifacts, and export artifacts containing the same distinctive plaintext strings used in Test 1.
+. Step: Using the inventory and mapping from Test 1, execute queries that generate redo/transaction log entries, undo/rollback entries, temporary sort or spill operations, index maintenance, backup artifacts, and export artifacts containing the same distinctive plaintext strings used in Test 1. Where an operation creates a distinct TSF path, select a representative artifact from its own group.
 . Step: Stop the DBMS service or otherwise obtain quiesced raw artifacts according to the guidance.
-. Step: Inspect each covered artifact category identified in the TSS for the distinctive plaintext strings.
-. Step: For each documented exclusion, inspect a representative artifact or review developer evidence sufficient to confirm that the exclusion rationale is accurate.
+. Step: Inspect each selected representative artifact for the distinctive plaintext strings.
+. Step: For the complete inventory of documented exclusions, inspect a representative artifact for each equivalence group or review developer evidence sufficient to confirm the exclusion rationale for every member of the group.
 
-Expected result: The scope of encryption coverage in practice is consistent with the TSS. Covered artifacts do not contain the distinctive plaintext strings. Documented exclusions are accurate, bounded, and do not expose plaintext user data that the selected strategy claims to protect, unless the artifact is protected by an equivalent claimed mechanism.
+Expected result: The scope of encryption coverage in practice is consistent with the TSS. Tested representative artifacts do not contain the distinctive plaintext strings, and the inventory mapping covers every covered artifact variant. Documented exclusions are accurate, bounded, and do not expose plaintext user data that the selected strategy claims to protect, unless the artifact is protected by an equivalent claimed mechanism.
 
 ---
 
@@ -1056,13 +1067,14 @@ Expected result: The scope of encryption coverage in practice is consistent with
 
 Applicable when "Granular Data Encryption" is selected.
 
-. Step: Create a test table containing at least one encrypted column and at least one intentionally unencrypted column as a positive control.
+. Step: Apply <<representative-test-selection>> to the TSS inventory of granular-encryption variants and affected artifact variants. Group variants only when they share the same column-encryption implementation, security-relevant cryptographic configuration, storage format, and write path; select a representative encrypted column and artifact for each group.
+. Step: Create a test table containing the selected representative encrypted column or columns and at least one intentionally unencrypted column as a positive control.
 . Step: Insert rows with distinctive known plaintext values in both column types, including values likely to appear in indexes, logs, exports, and backups.
 . Step: Disable or account for compression, deduplication, and encoding as described in the guidance.
 . Step: Stop the DBMS service or otherwise obtain quiesced raw artifacts.
-. Step: Inspect the raw storage files, relevant index files, logs, exports, and backups using a binary editor or equivalent tool.
+. Step: Inspect the raw storage files, relevant index files, logs, exports, and backups corresponding to each selected representative using a binary editor or equivalent tool.
 
-Expected result: Known plaintext values are present for intentionally unencrypted positive-control data when the inspection method can observe raw plaintext. Known plaintext values are not present for encrypted columns in artifacts that the TSS claims are protected. Any artifacts excluded from granular protection match the TSS rationale.
+Expected result: Known plaintext values are present for intentionally unencrypted positive-control data when the inspection method can observe raw plaintext. Known plaintext values are not present for encrypted columns in representative artifacts that the TSS claims are protected. The ETR inventory and mapping show that every distinct granular-encryption implementation path is covered by a tested representative or is individually tested, and any artifacts excluded from granular protection match the TSS rationale.
 
 ---
 
@@ -1114,9 +1126,12 @@ The evaluator shall verify the operational guidance describes how to configure e
 
 *Test 1: Protected Channel Establishment*
 
-. Step: Configure each claimed channel according to the operational guidance.
-. Step: Establish a connection over each channel and capture the traffic.
-. Step: Verify that the channel uses the protocol claimed in `FDP_DIT_EXT.1.1` (e.g., TLS 1.2 or TLS 1.3) and that application data is not transmitted in plaintext.
+. Step: Apply <<representative-test-selection>> to the TSS inventory of claimed channels. Group channels only when they share the same TSF implementation and security-relevant protocol, endpoint-authentication, and configuration path; identify one representative channel for each group.
+. Step: Configure each representative channel according to the operational guidance.
+. Step: Establish a connection over each representative channel and capture the traffic.
+. Step: Verify that every representative channel uses the protocol claimed in `FDP_DIT_EXT.1.1` (e.g., TLS 1.2 or TLS 1.3) and that application data is not transmitted in plaintext.
+
+Expected result: Every representative channel uses the claimed protocol and does not transmit application data in plaintext. The ETR inventory and mapping show that every claimed channel is covered by a tested representative or is individually tested.
 
 *Test 2: Endpoint Authentication*
 
@@ -1321,10 +1336,10 @@ For evaluations involving `FDP_ITC_EXT.1` and any external `FCS_CKM_EXT.1` origi
 
 For data-at-rest tests (FDP_DAR_EXT.1):
 
-. Identify the physical or logical storage files used by the TOE for data files, redo/transaction logs, undo files, temporary tablespace, backups, exports, snapshots under TOE control, and database-managed diagnostic or spill files that can contain user data.
+. Inventory the physical or logical storage-object variants used by the TOE for data files, redo/transaction logs, undo files, temporary tablespace, backups, exports, snapshots under TOE control, and database-managed diagnostic or spill files that can contain user data. Map each variant to its encryption implementation, security-relevant cryptographic configuration, storage format or lifecycle/write path, and representative-test group in accordance with <<representative-test-selection>>.
 . Confirm the ability to stop the DBMS service and access raw storage files while the service is stopped.
 . Identify and document the location of any keystore files for DEK/MEK storage inspection.
-. Identify any documented exclusions from Storage-Scope or Granular encryption and the evidence needed to confirm the exclusion rationale.
+. Inventory any documented exclusions from Storage-Scope or Granular encryption, map them to their representative-test groups, and identify the evidence needed to confirm the exclusion rationale for every group member.
 . Configure a positive-control plaintext artifact when supported, and disable or account for compression, deduplication, encoding, or page-format transformations that could affect storage inspection.
 
 [appendix]
@@ -1342,8 +1357,8 @@ Evidence should include:
 
 . Command output or screenshots demonstrating test execution and results.
 . Audit log excerpts showing generated records where applicable.
-. Network captures (for FDP_ITC_EXT.1 tests), with session keys excluded.
-. Binary/hex excerpts from storage inspection (for FDP_DAR_EXT.1 tests), including positive-control evidence when used and confirming presence or absence of plaintext across covered and excluded artifacts.
+. Network captures (for FDP_DIT_EXT.1 and FDP_ITC_EXT.1 tests), with session keys excluded.
+. Binary/hex excerpts from representative storage artifacts (for FDP_DAR_EXT.1 tests), including positive-control evidence when used, the ETR inventory and representative mapping, and evidence that confirms the rationale for documented exclusions.
 . Configuration files or system view output used during testing.
 
 [appendix]
