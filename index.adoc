@@ -12,7 +12,7 @@
 :stylesheet: site.css
 :linkcss:
 :revnumber: 2
-:revdate: 2026-07-20
+:revdate: 2026-08-17
 
 :iTC-longname: Database Management Systems
 :iTC-shortname: DBMS-iTC
@@ -35,18 +35,18 @@ a|
 
 *Current evaluation baseline*
 
-DBMS cPP *Version 1.3* and Supporting Document *Version 1.1*.
+DBMS cPP *Version 2.0* and Supporting Document *Version 2.0*.
 
 link:#authoritative-release[View authoritative documents]
 
 a|
-[.release-label.comment-label]#PUBLIC COMMENT CLOSED#
+[.release-label.archive-label]#ARCHIVED BASELINE#
 
-*Base cPP and SD Version 2.0*
+*DBMS cPP Version 1.3 and Supporting Document Version 1.1*
 
-Public Review Draft 1. The public comment period closed on *10 August 2026*; no additional comments were received.
+Superseded by Version 2.0 on *17 August 2026*; retained for traceability.
 
-link:#active-public-comment[View Version 2.0 review documents]
+link:#_archives_and_previous_versions[View archived documents]
 
 a|
 [.release-label.module-label]#FULL MODULE REVIEW#
@@ -60,8 +60,8 @@ link:#module-review[Review the module set]
 
 [.quick-links]
 ====
-* link:/public-review/status.html[*Version 2.0 review status*] +
-Comment period closed; no additional comments received
+* link:#authoritative-release[*Version 2.0 authoritative documents*] +
+Current evaluation baseline and release history
 * link:/docs/PP-config.html[*PP-Configuration architecture*] +
 Base, Crypto, Cloud, and DBaaS composition
 * link:#technical-decisions[*Technical Decisions*] +
@@ -92,18 +92,19 @@ The DBMS protection-profile family is being organized around a stable Base cPP a
 ====
 The site presents three separate publication states:
 
-* *Authoritative release* identifies the documents currently published for evaluation use.
-* *Completed public comment* identifies the concluded formal Version 2.0 review. The comment period closed on 10 August 2026 and no additional comments were received.
-* *Full module review* identifies the complete Version 0.5 Crypto + Cloud and Crypto + DBaaS review set. It is available for feedback but does not replace either the authoritative release or the Version 2.0 Base-document set.
+* *Authoritative release* identifies Version 2.0, the documents currently published for evaluation use.
+* *Archived baseline* identifies the superseded Version 1.3 cPP and Version 1.1 Supporting Document, retained for traceability.
+* *Full module review* identifies the complete Version 0.5 Crypto + Cloud and Crypto + DBaaS review set. It is available for feedback but does not replace the authoritative Version 2.0 Base-document set.
 ====
 
 [[authoritative-release]]
 [.release-section.authoritative-section]
 == Authoritative Release
 
-These are the documents currently published for use. Public-review drafts are listed separately and do not replace the official baseline until the publication process is complete.
+[[active-public-comment]]
+Version 2.0 is the authoritative DBMS baseline for new evaluations as of 17 August 2026. Its public comment period closed on 10 August 2026 with no additional comments received. It supersedes cPP Version 1.3 and Supporting Document Version 1.1, which remain available in the archive for traceability.
 
-[.status-chip.authoritative-chip]#CURRENT EVALUATION BASELINE#
+[.status-chip.authoritative-chip]#CURRENT EVALUATION BASELINE — VERSION 2.0#
 
 .Official DBMS document set
 [cols="3,1,2,2",options="header"]
@@ -111,31 +112,19 @@ These are the documents currently published for use. Public-review drafts are li
 |Title |Version |Date |Links
 
 |collaborative Protection Profile for Database Management Systems
-|1.3
-|13 March 2023
-|link:/cPP/cPP_DBMS_V1.3.pdf[PDF]
+|2.0
+|26 June 2026
+|link:/cPP/cPP_DBMS_V2.0.pdf[PDF]
 
 |Supporting Document Mandatory Technical Document: Evaluation Activities for the collaborative Protection Profile for Database Management Systems
-|1.1
-|15 March 2023
-|link:/SD/SD_DBMS_V1.1.pdf[PDF]
+|2.0
+|26 June 2026
+|link:/SD/SD_DBMS_V2.0.pdf[PDF]
 |===
 
-[[active-public-comment]]
-[.release-section.public-comment-section]
-== Completed Public Comment: Base cPP and SD Version 2.0
+The archived public-review record, including the substantive change reports, remains available for traceability.
 
-[.status-chip.comment-chip]#PUBLIC COMMENT CLOSED#
-
-Publication date:: 26 June 2026
-Comment period closed:: 10 August 2026
-Review outcome:: No additional comments received
-
-The review documents include PDF and HTML editions, tracked-change PDFs, and text-diff editions against cPP Version 1.3 and SD Version 1.1.
-
-* link:/public-review/v2.0/[Open the complete Version 2.0 review set]
-* link:/public-review/v2.0/cPP_DBMS_V2.0.pdf[Base cPP Version 2.0 PDF]
-* link:/public-review/v2.0/SD_DBMS_V2.0.pdf[Supporting Document Version 2.0 PDF]
+* link:/public-review/v2.0/[View Version 2.0 public-review history]
 
 [[module-review]]
 [.release-section.module-review-section]
@@ -211,6 +200,21 @@ Archived material remains available for traceability. These artifacts are neithe
 [cols="2,1,2,3",options="header"]
 |===
 |Document family |Version |Status |Links
+
+|DBMS Base cPP
+|1.3
+|Superseded by Version 2.0 on 17 August 2026
+|link:/cPP/cPP_DBMS_V1.3.pdf[PDF]
+
+|DBMS Supporting Document
+|1.1
+|Superseded by Version 2.0 on 17 August 2026
+|link:/SD/SD_DBMS_V1.1.pdf[PDF]
+
+|DBMS Base cPP and Supporting Document public-review record
+|2.0
+|Historical public-review record
+|link:/public-review/v2.0/[Review history]
 
 |DBMS Base cPP
 |1.0

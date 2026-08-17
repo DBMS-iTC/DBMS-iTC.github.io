@@ -274,7 +274,9 @@ table.release-switchboard td:nth-child(3) {
 }
 
 .comment-label,
-.comment-chip {
+.comment-chip,
+.archive-label,
+.archive-chip {
   color: var(--comment-amber);
   background: #fef3c7;
 }

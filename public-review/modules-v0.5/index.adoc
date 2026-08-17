@@ -128,7 +128,7 @@ link:PPC_DBMS_DBAAS_CRYPTO_v0.5.adoc[AsciiDoc]
 
 == Base PP
 
-These modules and PP-Configurations are designed for use with the DBMS Base PP Version 2.0. The DBMS Version 2.0 public review draft is available at link:../v2.0/[DBMS Version 2.0 Public Review Draft 1].
+These modules and PP-Configurations are designed for use with the authoritative DBMS Base PP Version 2.0. Download link:../../cPP/cPP_DBMS_V2.0.pdf[the Version 2.0 cPP].
 
 == Interactive Review Supplement
 

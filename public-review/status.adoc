@@ -1,10 +1,10 @@
-= Public Review Status for DBMS iTC
+= Public Review Archive for DBMS iTC
 :showtitle:
 :toc:
 :toclevels: 2
 :table-caption: Table
 :revnumber: 2.0
-:revdate: 2026-06-26
+:revdate: 2026-08-17
 :xrefstyle: full
 
 :iTC-longname: Database Management Systems
@@ -15,37 +15,38 @@
 
 == Introduction
 
-This page records the status of Version 2.0 public-review documents for the {iTC-longname} iTC.
+This page preserves the status of completed public reviews for the {iTC-longname} iTC.
 
-The Version 2.0 public comment period closed on 10 August 2026. No additional comments were received.
+There are no active DBMS base-document public reviews. Version 2.0 became the authoritative DBMS baseline on 17 August 2026 after its public comment period closed with no additional comments received.
 
-== Review Status
+== Archived Review: Version 2.0
 
-The documents listed here remain *Public Review Draft 1* artifacts; their public comment period is closed.
+The documents listed here are the historical Public Review Draft 1 record for Version 2.0. The authoritative documents are available from link:/cPP/cPP_DBMS_V2.0.pdf[the Version 2.0 cPP] and link:/SD/SD_DBMS_V2.0.pdf[the Version 2.0 Supporting Document].
 
-Publication Date:: 26 June 2026
+Public-review publication date:: 26 June 2026
 Comment Period Closed:: 10 August 2026
+Authoritative release date:: 17 August 2026
 Review Outcome:: No additional comments received
 
-== Review Documents
+== Historical Review Documents
 
-.Version 2.0 Documents
+.Version 2.0 Public Review Record
 [cols="3,1,2,2",options="header"]
 |===
-|Title |Version |Link |Review Phase
+|Title |Version |Link |Status
 
 |collaborative Protection Profile for Database Management Systems
 |2.0
 |link:v2.0/cPP_DBMS_V2.0.pdf[Download cPP]
-|Public Review Draft 1 (comment period closed)
+|Historical public-review record; Version 2.0 is authoritative
 
 |Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Database Management Systems
 |2.0
 |link:v2.0/SD_DBMS_V2.0.pdf[Download Supporting Document]
-|Public Review Draft 1 (comment period closed)
+|Historical public-review record; Version 2.0 is authoritative
 
 |Tracked changes from the last official posted releases
 |2.0
-|link:v2.0/[Review Document Set]
-|Public Review Draft 1 (comment period closed)
+|link:v2.0/[View public-review record]
+|Historical public-review record; Version 2.0 is authoritative
 |===

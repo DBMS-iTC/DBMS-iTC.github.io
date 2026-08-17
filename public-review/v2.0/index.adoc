@@ -1,11 +1,11 @@
-= DBMS cPP and Supporting Document Version 2.0: Public Comment Closed
+= Archived Public Review: DBMS cPP and Supporting Document Version 2.0
 :showtitle:
 :toc:
 :toclevels: 2
 :table-caption: Table
 :doctype: book
 :revnumber: 2.0
-:revdate: 2026-06-26
+:revdate: 2026-08-17
 :xrefstyle: full
 
 :iTC-longname: Database Management Systems
@@ -16,18 +16,18 @@
 
 == Introduction
 
-The public comment period for Public Review Draft 1 of Version 2.0 of the DBMS collaborative Protection Profile and its Supporting Document closed on 10 August 2026. No additional comments were received.
+This page preserves the public-review record for Version 2.0 of the DBMS collaborative Protection Profile and its Supporting Document. Version 2.0 became the authoritative DBMS baseline on 17 August 2026 after the public comment period closed on 10 August 2026 with no additional comments received.
 
-== Review Status
+== Publication Outcome
 
-Publication Date:: 26 June 2026
+Public-review publication date:: 26 June 2026
 Comment Period Closed:: 10 August 2026
+Authoritative release date:: 17 August 2026
 Review Outcome:: No additional comments received
-Review Phase:: Public Review Draft 1 (closed)
 
-== Review Documents
+== Historical Review Documents
 
-.Public Review Draft 1 Set
+.Public Review Draft 1 Record
 [cols="3,1,3",options="header"]
 |===
 |Title |Version |Links
@@ -47,9 +47,14 @@ link:SD_DBMS_V2.0_tracked_changes_from_v1.1.pdf[Substantive change report PDF] +
 link:SD_DBMS_V2.0_tracked_changes_from_v1.1.html[Substantive change report HTML]
 |===
 
-== Baseline
+== Current Authoritative Documents
 
-The substantive content diffs compare the review drafts against the last official documents posted on this site. They intentionally omit pagination and other presentation-only changes:
+* link:/cPP/cPP_DBMS_V2.0.pdf[Base cPP Version 2.0 PDF]
+* link:/SD/SD_DBMS_V2.0.pdf[Supporting Document Version 2.0 PDF]
+
+== Comparison Baseline
+
+The substantive content diffs compare the archived public-review documents against the last official documents posted on this site. They intentionally omit pagination and other presentation-only changes:
 
 * link:/cPP/cPP_DBMS_V1.3.pdf[cPP v1.3], dated 13 March 2023
 * link:/SD/SD_DBMS_V1.1.pdf[SD v1.1], dated 15 March 2023
