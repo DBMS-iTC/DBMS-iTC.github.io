@@ -6,7 +6,7 @@
 :table-caption: Table
 :icons: font
 :revnumber: 1.0
-:revdate: 2026-07-20
+:revdate: 2026-08-17
 :xrefstyle: full
 
 :documents-repo: https://github.com/DBMS-iTC/Documents
@@ -73,7 +73,7 @@ toc::[]
 |The comment concerns composition, compatibility, mandatory modules, conformance, or another PP-Configuration rule.
 
 |Request for Interpretation
-|A published requirement or Evaluation Activity needs a formal interpretation. Check the current Technical Decisions first and submit one question per request.
+|A published requirement or Evaluation Activity needs a formal interpretation. For Version 2.0, use the document text; consult the link:/#technical-decisions[archived Technical Decisions] only for a cited Version 1.x document, and submit one question per request.
 |===
 
 === Information That Makes an Issue Actionable

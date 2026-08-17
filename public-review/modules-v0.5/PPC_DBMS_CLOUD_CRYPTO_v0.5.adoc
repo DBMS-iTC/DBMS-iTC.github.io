@@ -212,7 +212,7 @@ The Cloud Module does not redefine the Crypto Module's data-at-rest or data-in-t
 
 == Technical Decisions
 
-Technical Decisions applicable to the DBMS Base PP, DBMS Cryptographic Functions Module, or DBMS in the Cloud Module apply according to the affected component document. This PP-Configuration does not introduce additional Technical Decisions.
+The legacy TD_DBMS_B_001 and TD_DBMS_B_002 resolutions are incorporated into the Version 2.0 Base cPP and Supporting Document set and do not apply separately to this PP-Configuration. This PP-Configuration does not introduce additional Technical Decisions.
 
 [appendix]
 == Related Documents
