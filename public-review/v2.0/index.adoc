@@ -1,4 +1,4 @@
-= Public Review Draft 1 for DBMS cPP and Supporting Document Version 2.0
+= DBMS cPP and Supporting Document Version 2.0: Public Comment Closed
 :showtitle:
 :toc:
 :toclevels: 2
@@ -16,19 +16,18 @@
 
 == Introduction
 
-The {iTC-shortname} is publishing Public Review Draft 1 of Version 2.0 of the DBMS collaborative Protection Profile and its Supporting Document for general public comment.
-
-Please send review comments to {iTC-email}.
+The public comment period for Public Review Draft 1 of Version 2.0 of the DBMS collaborative Protection Profile and its Supporting Document closed on 10 August 2026. No additional comments were received.
 
 == Review Status
 
 Publication Date:: 26 June 2026
-End of Comment Period:: 10 August 2026
-Review Phase:: Public Review Draft 1
+Comment Period Closed:: 10 August 2026
+Review Outcome:: No additional comments received
+Review Phase:: Public Review Draft 1 (closed)
 
-== Documents for Review
+== Review Documents
 
-.Review Draft Set
+.Public Review Draft 1 Set
 [cols="3,1,3",options="header"]
 |===
 |Title |Version |Links

@@ -15,20 +15,21 @@
 
 == Introduction
 
-The current status of public review drafts for the {iTC-longname} iTC can be seen on this page.
+This page records the status of Version 2.0 public-review documents for the {iTC-longname} iTC.
 
-Please send review comments to {iTC-email}.
+The Version 2.0 public comment period closed on 10 August 2026. No additional comments were received.
 
-== Review Status Phase
+== Review Status
 
-The documents listed here are in the *Public Review Draft 1* phase.
+The documents listed here remain *Public Review Draft 1* artifacts; their public comment period is closed.
 
 Publication Date:: 26 June 2026
-End of Comment Period:: 10 August 2026
+Comment Period Closed:: 10 August 2026
+Review Outcome:: No additional comments received
 
-== Documents for Review
+== Review Documents
 
-.Review Documents
+.Version 2.0 Documents
 [cols="3,1,2,2",options="header"]
 |===
 |Title |Version |Link |Review Phase
@@ -36,15 +37,15 @@ End of Comment Period:: 10 August 2026
 |collaborative Protection Profile for Database Management Systems
 |2.0
 |link:v2.0/cPP_DBMS_V2.0.pdf[Download cPP]
-|Public Review Draft 1
+|Public Review Draft 1 (comment period closed)
 
 |Supporting Document Mandatory Technical Document: Evaluation Activities for collaborative Protection Profile for Database Management Systems
 |2.0
 |link:v2.0/SD_DBMS_V2.0.pdf[Download Supporting Document]
-|Public Review Draft 1
+|Public Review Draft 1 (comment period closed)
 
 |Tracked changes from the last official posted releases
 |2.0
-|link:v2.0/[Review Draft Set]
-|Public Review Draft 1
+|link:v2.0/[Review Document Set]
+|Public Review Draft 1 (comment period closed)
 |===
