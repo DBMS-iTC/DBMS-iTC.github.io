@@ -40,7 +40,7 @@ DBMS cPP *Version 2.0* and Supporting Document *Version 2.0*.
 link:#authoritative-release[View authoritative documents]
 
 a|
-[.release-label.module-label]#FULL MODULE REVIEW#
+[.release-label.module-label]#DRAFT MODULE REVIEW#
 
 *PP-Modules and PP-Configurations Version 0.5*
 
@@ -85,7 +85,7 @@ The site presents three separate publication states:
 
 * *Authoritative release* identifies Version 2.0, the documents currently published for evaluation use.
 * *Archived baseline* identifies the superseded Version 1.3 cPP and Version 1.1 Supporting Document, retained for traceability.
-* *Full module review* identifies the complete Version 0.5 Crypto + Cloud and Crypto + DBaaS review set. It is available for feedback but does not replace the authoritative Version 2.0 Base-document set.
+* *Draft module review* identifies the complete Version 0.5 Crypto + Cloud and Crypto + DBaaS review set. It is available for feedback but does not replace the authoritative Version 2.0 Base-document set.
 ====
 
 [[authoritative-release]]
