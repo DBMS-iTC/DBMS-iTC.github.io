@@ -55,8 +55,8 @@ link:#module-review[Review the module set]
 Current evaluation baseline and release history
 * link:/docs/PP-config.html[*PP-Configuration architecture*] +
 Base, Crypto, Cloud, and DBaaS composition
-* link:#technical-decisions[*Archived Technical Decisions*] +
-Legacy Version 1.x interpretations incorporated in Version 2.0
+* link:#technical-decisions[*Technical Decisions*] +
+No Technical Decisions issued for Version 2.0
 * {documents-repo}[*Document source repository*] +
 AsciiDoc sources and issue tracking
 * https://www.commoncriteriaportal.org/communities/database_management_systems.cfm[*Common Criteria Portal*] +
@@ -163,27 +163,13 @@ The Crypto-only PP-Configuration remains in the review package as the foundation
 The link:/public-review/modules-v0.5/requirements-map.html[interactive review supplement] provides a reader-oriented architecture walkthrough and traces SFRs, operations, dependencies, Evaluation Activities, and tests to the owning documents.
 
 [[technical-decisions]]
-== Archived Technical Decisions
+== Technical Decisions
 
-TD_DBMS_B_001 and TD_DBMS_B_002 were incorporated into the authoritative Version 2.0 documents. They are retained only as historical records for Version 1.x evaluations and do not apply separately to Version 2.0 evaluations.
+No Technical Decisions are currently issued for Version 2.0. The Version 2.0 document text is authoritative for evaluations.
 
-.Archived Technical Decisions
-[cols="1,3,3,1,1",options="header"]
-|===
-|TD ID |Title |Original scope and archive status |HTML |PDF
+[.status-chip.authoritative-chip]#NO TECHNICAL DECISIONS ISSUED FOR VERSION 2.0#
 
-|TD_DBMS_B_001
-|Update to Role Definitions and Security Attribute Management for Consistency
-|DBMS cPP Version 1.3 only. Incorporated into Version 2.0; archived on 17 August 2026 and not separately applicable to Version 2.0.
-|link:/TD/TD_DBMS_B_001.html[Archived HTML]
-|link:/TD/TD_DBMS_B_001.pdf[Archived PDF]
-
-|TD_DBMS_B_002
-|Session Locking Mechanism Expansion
-|DBMS cPP Version 1.3 and Supporting Document Version 1.1. Incorporated into Version 2.0; archived on 17 August 2026 and not separately applicable to Version 2.0.
-|link:/TD/TD_DBMS_B_002.html[Archived HTML]
-|link:/TD/TD_DBMS_B_002.pdf[Archived PDF]
-|===
+The legacy TD_DBMS_B_001 and TD_DBMS_B_002 resolutions are incorporated into Version 2.0. Their historical records are retained with the Version 1.3 cPP and Version 1.1 Supporting Document in the archive below.
 
 == Archives and Previous Versions
 
@@ -196,13 +182,18 @@ Archived material remains available for traceability. These artifacts are neithe
 
 |DBMS Base cPP
 |1.3
-|Superseded by Version 2.0 on 17 August 2026
-|link:/cPP/cPP_DBMS_V1.3.pdf[PDF]
+|Superseded by Version 2.0 on 17 August 2026. TD_DBMS_B_001 and TD_DBMS_B_002 are archived historical records; their resolutions are incorporated into Version 2.0.
+a|
+* link:/cPP/cPP_DBMS_V1.3.pdf[Document PDF]
+* TD_DBMS_B_001: link:/TD/TD_DBMS_B_001.html[Archived HTML] / link:/TD/TD_DBMS_B_001.pdf[Archived PDF]
+* TD_DBMS_B_002: link:/TD/TD_DBMS_B_002.html[Archived HTML] / link:/TD/TD_DBMS_B_002.pdf[Archived PDF]
 
 |DBMS Supporting Document
 |1.1
-|Superseded by Version 2.0 on 17 August 2026
-|link:/SD/SD_DBMS_V1.1.pdf[PDF]
+|Superseded by Version 2.0 on 17 August 2026. TD_DBMS_B_002 is an archived historical record; its resolution is incorporated into Version 2.0.
+a|
+* link:/SD/SD_DBMS_V1.1.pdf[Document PDF]
+* TD_DBMS_B_002: link:/TD/TD_DBMS_B_002.html[Archived HTML] / link:/TD/TD_DBMS_B_002.pdf[Archived PDF]
 
 |DBMS Base cPP and Supporting Document public-review record
 |2.0

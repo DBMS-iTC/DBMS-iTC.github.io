@@ -73,7 +73,7 @@ toc::[]
 |The comment concerns composition, compatibility, mandatory modules, conformance, or another PP-Configuration rule.
 
 |Request for Interpretation
-|A published requirement or Evaluation Activity needs a formal interpretation. For Version 2.0, use the document text; consult the link:/#technical-decisions[archived Technical Decisions] only for a cited Version 1.x document, and submit one question per request.
+|A published requirement or Evaluation Activity needs a formal interpretation. For Version 2.0, use the document text; consult the link:/#_archives_and_previous_versions[archived Version 1.x documents and Technical Decisions] only for a cited Version 1.x document, and submit one question per request.
 |===
 
 === Information That Makes an Issue Actionable
