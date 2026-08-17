@@ -224,7 +224,7 @@ table.release-switchboard tbody {
 
 table.release-switchboard tr {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -245,11 +245,6 @@ table.release-switchboard td:nth-child(1) {
 }
 
 table.release-switchboard td:nth-child(2) {
-  background: linear-gradient(180deg, var(--comment-amber-soft), #fff 56%);
-  border-top-color: var(--comment-amber);
-}
-
-table.release-switchboard td:nth-child(3) {
   background: linear-gradient(180deg, var(--module-violet-soft), #fff 56%);
   border-top-color: var(--module-violet);
 }
@@ -274,9 +269,7 @@ table.release-switchboard td:nth-child(3) {
 }
 
 .comment-label,
-.comment-chip,
-.archive-label,
-.archive-chip {
+.comment-chip {
   color: var(--comment-amber);
   background: #fef3c7;
 }

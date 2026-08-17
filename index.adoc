@@ -27,7 +27,7 @@
 [.lead]
 The {iTC-shortname} develops internationally agreed Common Criteria security requirements and evaluation activities for database management systems, their cryptographic protections, and their tenant-operated and provider-operated cloud deployment models.
 
-[cols="1,1,1",role="release-switchboard"]
+[cols="1,1",role="release-switchboard"]
 |===
 
 a|
@@ -38,15 +38,6 @@ a|
 DBMS cPP *Version 2.0* and Supporting Document *Version 2.0*.
 
 link:#authoritative-release[View authoritative documents]
-
-a|
-[.release-label.archive-label]#ARCHIVED BASELINE#
-
-*DBMS cPP Version 1.3 and Supporting Document Version 1.1*
-
-Superseded by Version 2.0 on *17 August 2026*; retained for traceability.
-
-link:#_archives_and_previous_versions[View archived documents]
 
 a|
 [.release-label.module-label]#FULL MODULE REVIEW#
